@@ -26,6 +26,7 @@ Ideas:
 
   * If you want to alias the git command, then use your shell, such as `alias g=git`.
   * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
+  * If you use Emacs, then you may like [Magit](https://magit.vc/)
 
 Other alias files:
 
