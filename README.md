@@ -2,17 +2,14 @@
 
 This project provides many git alias commands that you can use as you like.
 
-See the file `gitalias.txt` for the full list.
+See the file `[gitalias.txt](gitalias.txt)` for the full list.
 
 Examples:
 
   * Shortcuts such as `s` for `status`.
-  * Workflows such as `rbi` for `rebase interactive`.
-  * Improvements such as `optimize` to prune and repack using optimization settings.
+  * Improvements such as `optimize` to prune and repack using recommended settings.
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
-
-For the complete list, see the file `gitalias.txt`.
 
 ## Install
 
@@ -27,6 +24,7 @@ Ideas:
   * If you want to alias the git command, then use your shell, such as `alias g=git`.
   * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
   * If you use Emacs, then you may like [Magit](https://magit.vc/)
+  * If you like shell scripting git, then you may like [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
 
 Other alias files:
 
@@ -41,14 +39,14 @@ Shortcuts:
     a = add
     b = branch
     c = commit
-    ...
+    …
 
 Shortcuts with options:
 
     ap = add --patch
     be = branch --edit-description
     ci = commit --interactive
-    ...
+    …
 
 Get everything new:
 
