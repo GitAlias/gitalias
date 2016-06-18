@@ -2,7 +2,7 @@
 
 This project provides many git alias commands that you can use as you like.
 
-See the file <pre>[gitalias.txt](gitalias.txt)</pre> for the full list.
+For the full list, see the file [gitalias.txt](gitalias.txt).
 
 Examples:
 
