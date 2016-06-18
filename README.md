@@ -1,32 +1,14 @@
 ﻿# Git Alias
 
-Git alias configuration ideas.
+Git alias configuration ideas:
 
-Example shortcuts:
-
-    a = add
-    b = branch
-    c = commit
-    d = diff
-    f = fetch
-    g = grep
-    l = log
-    m = merge
-    o = checkout
-    p = pull
-    r = remote
-    s = status
-    w = whatchanged
-
-Example concepts:
-
-  * Workflows such as `git rbi` to do a rebase interactively on unpushed commits.
+  * Shortcuts such as `git s` for `git status`.
+  * Workflows such as `git rbi` for `git rebase interactive`.
   * Improvements such as `git optimize` to prune and repack, using the best settings.
   * Visualizations such as `git graphviz` to show logs and charts using third-party tools.
+  * Topic branch flows such as `topic-start` to create a new topic branch using master.
 
-See below for more examples.
-
-For the complete list, see the files in the `gitconfig.d` directory.
+For the complete list, see the file `gitalias.txt`.
 
 ## Install
 
@@ -35,9 +17,9 @@ For the complete list, see the files in the `gitconfig.d` directory.
   2. Copy/paste anything you like into your own `.gitconfig` file.
 
 
-## Git alias shortcuts
+## Examples
 
-One letter shortcuts are for fast typing:
+Shortcuts:
 
     a = add
     b = branch
@@ -53,7 +35,7 @@ One letter shortcuts are for fast typing:
     s = status
     w = whatchanged
 
-There are many two letter shortcuts for popular commands and options, such as these:
+Shortcuts with options:
 
     ap = add --patch
     au = add --update
