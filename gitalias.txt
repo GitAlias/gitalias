@@ -27,6 +27,9 @@
 
   ### add ###
   
+  # add all
+  aa = add --all
+  
   # add by patch - looks at each change, and asks if we want to put it in the repo.
   ap = add --patch
 
