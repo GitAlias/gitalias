@@ -31,6 +31,9 @@
   #
   #    * Right: fb = foo --bar
   #    * Wrong: bf = foo --bar
+  #
+  #  * To write offets, use a "~" tilde character, not a "^" carat character.
+  #    This is because "^" is a continuation character in DOS so won't work.
   ##
 
   ### add ###
