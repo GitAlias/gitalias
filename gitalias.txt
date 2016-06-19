@@ -25,11 +25,15 @@
   # Short aliases for our frequent commands.
   ##
 
+  ### add ###
+  
   # add by patch - looks at each change, and asks if we want to put it in the repo.
   ap = add --patch
 
   # add just the files that are updated.
   au = add --update
+
+  ### branch ###
 
   # branch - edit the description
   b-e = branch --edit-description
@@ -40,6 +44,8 @@
   # branch and only list branches whose tips are not reachable from the specified commit (HEAD if not specified).
   bnm = branch --no-merged
 
+  ### commit ###
+
   # commit - amend the tip of the current branch rather than creating a new commit.
   ca = commit --amend
 
@@ -49,8 +55,12 @@
   # commit with a message
   cm = commit --message
 
+  ### checkout ###
+
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
+
+  ### cherry-pick ###
 
   # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
   cp = cherry-pick
@@ -58,6 +68,8 @@
   # cherry-pick without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
   cp-nx = cherry-pick --no-commit -x
 
+  ### diff ###
+  
   # diff - show changes not yet staged
   dc = diff --cached
 
@@ -67,6 +79,8 @@
   # diff - show changes but by word, not line
   dw = diff --word-diff
 
+  ### log ###
+  
   # log with a text-based graphical representation of the commit history.
   lg = log --graph
 
@@ -82,15 +96,21 @@
   # log key - our favorite way to show our key performance indicators, i.e. our most useful summary.
   lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
 
+  ## ls-files ##
+  
   # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
   ls = ls-files
 
   # ls-ignored -  list files that git has ignored.
   ls-ignored = ls-files --others --i --exclude-standard
 
+  ### merge ###
+  
   # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
   me = merge --no-commit --no-ff
 
+  ### pull ###
+  
   # pull with rebase - to provide a cleaner, linear, bisectable history.
   #
   # To integrate changes between branches, you can merge or rebase.
@@ -118,6 +138,8 @@
   #
   pr = pull --rebase
 
+  ### rebase ###
+  
   # rebase - forward-port local commits to the updated upstream head.
   rb = rebase
 
@@ -156,9 +178,13 @@
   #
   rbi = !"git rebase -i @{u}"
 
+  ### reflog ###
+  
   # reflog - reference log that manages when tips of branches are updated.
   rl = reflog
 
+  ### remote ###
+  
   # remote - manage set of tracked repositories [same as "r"].
   rr = remote
 
@@ -171,15 +197,21 @@
   # remote prune - deletes all stale remote-tracking branches under <name>.
   rrp = remote prune
 
+  ### revert ###
+  
   # revert - undo the changes from some existing commits
   rv = revert
 
   # revert without autocommit; useful when you're reverting more than one commits' effect to your index in a row.
   rvnc = revert --no-commit
 
+  ### show-branch ###
+  
   # show-branch - print a list of branches and their commits.
   sb = show-branch
 
+  ### submodule ###
+  
   # submodule - enables foreign repositories to be embedded within a dedicated subdirectory of the source tree.
   sm = submodule
 
@@ -192,6 +224,8 @@
   # submodule update with initialize and recursive; this is useful to bring a submodule fully up to date.
   smuir = submodule update --init --recursive
 
+  ### status ###
+  
   # status with short format instead of full details
   ss = status --short
   
