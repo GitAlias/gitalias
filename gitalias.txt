@@ -452,7 +452,6 @@
   # The following aliases expose the ours and theirs commands which let you
   # pick a file(s) from the current branch or the merged branch respectively.
   #
-  #
   #   * ours: checkout our version of a file and add it
   #   * theirs: checkout their version of a file and add it
   #
