@@ -2,6 +2,9 @@
 
   ##
   # One letter alias for our most frequent commands.
+  #
+  # Guideline: these aliases do not use options, because we want 
+  # these aliases to be easy to compose and use in many ways.
   ##
 
   a = add
@@ -189,8 +192,11 @@
   # submodule update with initialize and recursive; this is useful to bring a submodule fully up to date.
   smuir = submodule update --init --recursive
 
-  # status - short summary instead of full details
+  # status with short format instead of full details
   ss = status --short
+  
+  # status with short format and showing branch and tracking info.
+  ssb = status --short --branch
 
   ### INSPECTION ALIASES ###
 
