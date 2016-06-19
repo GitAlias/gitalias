@@ -25,6 +25,7 @@ Ideas:
   * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
   * If you use Emacs, then you may like [Magit](https://magit.vc/)
   * If you like shell scripting git, then you may like [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
+  * If you use `node`, then try [git-alias](https://www.npmjs.com/package/git-alias)
 
 Other alias files:
 
