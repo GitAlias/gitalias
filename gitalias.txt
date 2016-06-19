@@ -737,3 +737,8 @@
   svn-m = merge --squash
   svn-c = svn dcommit
   svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick -e
+  
+  ### Command to undo last commit ###
+  undo = reset --soft HEAD~1
+  hundo = reset --hard HEAD~1
+
