@@ -79,6 +79,11 @@
   # diff - show changes but by word, not line
   dw = diff --word-diff
 
+  ### grep ###
+  
+  # grep with grouping of the output lines
+  gg =  grep --break --heading --line-number
+
   ### log ###
   
   # log with a text-based graphical representation of the commit history.
