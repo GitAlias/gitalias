@@ -110,7 +110,10 @@
   me = merge --no-commit --no-ff
 
   ### pull ###
-  
+
+  # pull if a merge can be resolved as a fast-forward, otherwise fail.
+  pf = pull --ff-only
+
   # pull with rebase - to provide a cleaner, linear, bisectable history.
   #
   # To integrate changes between branches, you can merge or rebase.
