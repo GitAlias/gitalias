@@ -437,20 +437,25 @@
   get = !git pull --rebase && git submodule update --init --recursive
   put = !git commit -am "$1" && git push
 
-  # Undo aliases
-  undo = reset --hard
-  undoclean = !git reset --hard && git clean -fd
-  uncommit = reset --soft HEAD^
+  ##
+  # Undo & Reset
+  ##
+  
+  # Undo aliases; these correspond to the reset aliases below
+  undo-commit = reset --soft HEAD~1
+  undo-commit-hard = reset --hard HEAD~1
+  undo-commit-clean = !git reset --hard HEAD~1 && git clean -fd
+
+  # Reset aliases; these correspond to the undo aliases above
+  reset-commit = reset --soft HEAD~1
+  reset-commit-hard = reset --hard HEAD~1
+  reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
+  
+  # Nicknames
+  uncommit = reset --soft HEAD~1
   unadd = reset HEAD
   unstage = reset HEAD
-
-  # Reset aliases, akin to undo alias above
-  reset-hard = reset --hard
-  reset-hard-clean = !git reset --hard && git clean -fd
-  reset-commit = reset --soft HEAD^
-  reset-add = reset HEAD
-  reset-stage = reset HEAD
-
+  
   # Editing and adding conflicted files: when we get many merge conflicts
   # and want to quickly solve them using an editor, then add the  files.
   edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
@@ -798,8 +803,4 @@
   svn-m = merge --squash
   svn-c = svn dcommit
   svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick -e
-  
-  ### Command to undo last commit ###
-  undo = reset --soft HEAD~1
-  hundo = reset --hard HEAD~1
-
+un
