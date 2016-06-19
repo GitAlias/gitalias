@@ -3,7 +3,7 @@
   ##
   # One letter alias for our most frequent commands.
   #
-  # Guideline: these aliases do not use options, because we want 
+  # Guidelines: these aliases do not use options, because we want 
   # these aliases to be easy to compose and use in many ways.
   ##
 
@@ -23,6 +23,14 @@
 
   ##
   # Short aliases for our frequent commands.
+  #
+  # Guidelines: 
+  #
+  #  * Generally speaking, the alias should be in the same
+  #    order as the command name followed by its options.
+  #
+  #    * Right: fb = foo --bar
+  #    * Wrong: bf = foo --bar
   ##
 
   ### add ###
