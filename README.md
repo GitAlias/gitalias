@@ -10,28 +10,13 @@ Examples:
   * Improvements such as `optimize` to prune and repack using recommended settings.
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
+  * For links to many more ideas and git alias files, see the end of this file.
 
 ## Install
 
   1. See the file `gitalias.txt`.
 
   2. Copy/paste anything you like into your own `.gitconfig` file.
-
-## See Also
-
-Ideas:
-
-  * If you want to alias the git command, then use your shell, such as `alias g=git`.
-  * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
-  * If you use Emacs, then you may like [Magit](https://magit.vc/)
-  * If you like shell scripting git, then you may like [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
-  * If you use `node`, then try [git-alias](https://www.npmjs.com/package/git-alias)
-
-Other alias files:
-
-  * [WuTheFWasThat .gitconfig](https://github.com/WuTheFWasThat/dotfiles/blob/master/.gitconfig)
-  * [Felipe Sabaon .gitconfig](https://gist.github.com/felipesabino/6391408)
-
 
 ## Examples
 
@@ -145,6 +130,14 @@ We often work on teams, across many companies and organizations, and using multi
 
 ## More
 
+More ideas:
+
+  * If you want to alias the git command, then use your shell, such as `alias g=git`.
+  * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
+  * If you use Emacs, then you may like [Magit](https://magit.vc/)
+  * If you like shell scripting git, then you may like [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
+  * If you use `node`, then try [git-alias](https://www.npmjs.com/package/git-alias)
+
 For more git config ideas, and for credit for many of the aliases here, please see these excelent resources:
 
   * <https://git.wiki.kernel.org/index.php/Aliases>
@@ -157,6 +150,8 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <http://mislav.uniqpath.com/2010/07/git-tips/>
   * <https://ochronus.com/git-tips-from-the-trenches/>
   * <http://mislav.uniqpath.com/2010/07/git-tips/>
+  * <https://github.com/WuTheFWasThat/dotfiles/blob/master/.gitconfig>
+  * <https://gist.github.com/felipesabino/6391408>
 
 ## Thanks
 
