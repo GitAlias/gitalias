@@ -36,7 +36,7 @@
   ### branch ###
 
   # branch - edit the description
-  b-e = branch --edit-description
+  be = branch --edit-description
 
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
