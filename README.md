@@ -54,19 +54,16 @@ Publish the current branch by pushing, or unpublish by deleting.
 
     publish = "!git push -u origin $(git branch-name)"
     unpublish = "!git push origin :$(git branch-name)"
-    …
 
 Optimization examples to prune stale items and repack efficiently:
 
     pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
-    …
 
 Topic branch examples for workflows:
 
-    topic-start = "!f(){ branch=$1; git checkout master; git pull; git checkout -b "$branch" master; };f"
-    topic-finish = "!f(){ branch=$(git branch-name); git checkout master; git branch -d "$branch"; git push origin ":$branch"; };f"
-    …
+    topic-start  = "!f(){ b=$1; git checkout master; git pull; git checkout -b "$b" master; };f"
+    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
 
     
 ## Customization
