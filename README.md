@@ -149,3 +149,4 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * [Gary Bernhardt](http://destroyallsoftware.com)
   * [Joe Nelson](http://begriffs.com)
   * [Rob Miller](https://github.com/robmiller)
+  * [Michal Jarosz](https://github.com/Mchl)
