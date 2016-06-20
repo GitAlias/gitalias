@@ -62,7 +62,7 @@ Optimization examples to prune stale items and repack efficiently:
 
 Topic branch examples for workflows:
 
-    topic-start  = "!f(){ b=$1; git checkout master; git pull; git checkout -b "$b" master; };f"
+    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
     topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
 
     
