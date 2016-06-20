@@ -50,40 +50,25 @@ Find text in any commit ever:
 
     grep-all = !"git rev-list --all | xargs git grep '$1'"
 
-Publish the current branch by pushing and tracking:
+Publish the current branch by pushing, or unpublish by deleting.
 
     publish = "!git push -u origin $(git branch-name)"
-
-Unpublish the current branch by deleting the remote branch:
-
     unpublish = "!git push origin :$(git branch-name)"
+    …
 
-Prune stale items:
+Optimization examples to prune stale items and repack efficiently:
 
     pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
-
-Repack the way Linus recommends:
-
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
+    …
 
-## Topic Branches
+Topic branch examples for workflows:
 
-Alias configuration for our topic branches, like a simple git flow for feature stories, or hotfix patches, etc.
+    topic-start = "!f(){ branch=$1; git checkout master; git pull; git checkout -b "$branch" master; };f"
+    topic-finish = "!f(){ branch=$(git branch-name); git checkout master; git branch -d "$branch"; git push origin ":$branch"; };f"
+    …
 
-Create a new topic branch:
-
-    topic-start = '!branch=$1; git checkout master; git pull; git checkout -b "$branch" master'
-
-Update the topic branch:
-
-    topic-pull = '!branch=$(git branch-name); git checkout master; git pull; git checkout "$branch"; git rebase master'
-
-Share the topic branch:
-
-    topic-push = '!branch=$(git branch-name); git push -u origin "$branch"'
-
-If your team uses a different topic flow, you may want to skip including these aliases, or you may want to edit these aliases to match your team's topic flow.
-
+    
 ## Customization
 
 You can customize any of the file items by editing the file as you like.
