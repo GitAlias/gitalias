@@ -406,6 +406,18 @@
   # Show who contributed, in descending order by number of commits
   whorank = shortlog -sn --no-merges
 
+  # List all issues mentioned in commit messages between range of commits
+  #
+  # Replace `\\\"ISSUE-[0-9]\\+\\\"` regular expression with one matching your issue tracking system. 
+  # For Jira it should be as simple as putting your project name in place of `ISSUE`.
+  #
+  # Best used with tags:
+  #  $ git issues v1.0..v1.1
+  #
+  # But will work with any valid commit range:
+  #  $ git issues master..HEAD
+  
+  issues = !sh -c \"git log $1 --oneline | grep -o \\\"ISSUE-[0-9]\\+\\\" | sort -u\"
 
   ### WORKFLOW ALIASES ###
 
