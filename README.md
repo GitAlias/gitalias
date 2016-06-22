@@ -42,6 +42,13 @@ Log examples:
     log-fresh = log ORIG_HEAD.. --stat --no-merges
     log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
 
+Topic branch examples:
+
+    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+    topic-pull   = "!f(){ b=$(git branch-name); git checkout master; git pull; git checkout "$b"; git rebase master; };f"
+    topic-push   = "!f(){ b=$(git branch-name); git push -u origin "$b"; };f"
+    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+
 Get everything new:
 
     get = !git pull --rebase && git submodule update --init --recursive
@@ -49,18 +56,6 @@ Get everything new:
 Rebase interactive on unpushed commits:
 
     rbi = !git rebase --interactive @{u}
-
-Show changes for a daily standup meeting:
-
-
-
-Topic branch examples for workflows:
-
-    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-    topic-pull   = "!f(){ b=$(git branch-name); git checkout master; git pull; git checkout "$b"; git rebase master; };f"
-    topic-push   = "!f(){ b=$(git branch-name); git push -u origin "$b"; };f"
-    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
-
 
 Find text in any commit ever:
 
