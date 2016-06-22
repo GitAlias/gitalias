@@ -312,17 +312,11 @@
 
   ### LOG ALIASES ###
 
-  log-graph = log --all --graph --decorate
-  log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
-  log-timeline = log --format='%h %an %ar - %s'
-  log-local = log --oneline origin..HEAD
-  log-fetched = log --oneline HEAD..origin/master
-
   # Show log of changes, most recent first
   log-changes = log --oneline --reverse
 
   # Show log of new commits after you fetched, with stats, excluding merges
-  log-commits = log ORIG_HEAD.. --stat --no-merges
+  log-fresh = log ORIG_HEAD.. --stat --no-merges
 
   # Show log with dates in our local timezone
   log-local = log --date=local
@@ -331,7 +325,7 @@
   log-me = !git log --author $(git config user.email)
 
   # Show log as a graph
-  log-graph = log --graph --oneline --decorate
+  log-graph = log --graph --all --oneline --decorate
 
   # Show the date of the first commit
   log-first-date = !"git log --date-order --date=iso --pretty=%ad --reverse | head -1"
@@ -340,7 +334,13 @@
   log-day = log --since yesterday
 
   # Summarize your own changes since yesterday, suitable for a daily standup meeting.
-  log-standup = !git log --since yesterday --pretty=short --author $(git config user.email)
+  log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+
+  # TODO
+  log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+  log-timeline = log --format='%h %an %ar - %s'
+  log-local = log --oneline origin..HEAD
+  log-fetched = log --oneline HEAD..origin/master
 
   # churn: show log of files that have many changes
   #

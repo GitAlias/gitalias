@@ -20,19 +20,27 @@ Examples:
 
 ## Examples
 
-Shortcuts:
+Shortcut examples:
 
     a = add
     b = branch
     c = commit
+    d = diff
     …
 
-Shortcuts with options:
+Shortcut option examples:
 
     ap = add --patch
     be = branch --edit-description
     ci = commit --interactive
+    ds = diff --staged
     …
+
+Log examples:
+
+    log-graph = log --graph --all  --decorate --oneline
+    log-fresh = log ORIG_HEAD.. --stat --no-merges
+    log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
 
 Get everything new:
 
@@ -44,7 +52,15 @@ Rebase interactive on unpushed commits:
 
 Show changes for a daily standup meeting:
 
-    log-standup = !git log --since yesterday --pretty=short --author `git config user.email`
+
+
+Topic branch examples for workflows:
+
+    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+    topic-pull   = "!f(){ b=$(git branch-name); git checkout master; git pull; git checkout "$b"; git rebase master; };f"
+    topic-push   = "!f(){ b=$(git branch-name); git push -u origin "$b"; };f"
+    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+
 
 Find text in any commit ever:
 
@@ -60,12 +76,7 @@ Optimization examples to prune stale items and repack efficiently:
     pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
 
-Topic branch examples for workflows:
 
-    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
-
-    
 ## Customization
 
 You can customize any of the file items by editing the file as you like.
