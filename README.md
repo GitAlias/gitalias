@@ -122,9 +122,11 @@ More ideas:
 
   * If you want to alias the git command, then use your shell, such as `alias g=git`.
   * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
-  * If you use Emacs, then you may like [Magit](https://magit.vc/)
-  * If you like shell scripting git, then you may like [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
-  * If you use `node`, then try [git-alias](https://www.npmjs.com/package/git-alias)
+  * If you use `vim` then see [Fugitive](https://github.com/tpope/vim-fugitive)
+  * If you use `emacs` then see [Magit](https://magit.vc/)
+  * If you use git shell scripting then see [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
+  * If you use `node` then see [git-alias](https://www.npmjs.com/package/git-alias)
+
 
 For more git config ideas, and for credit for many of the aliases here, please see these excelent resources:
 
@@ -158,3 +160,4 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * [Michal Jarosz](https://github.com/Mchl)
   * [Nick Palmer](https://github.com/nickpalmer)
   * [Oleg Broytman](https://github.com/phdru)
+  * [Michael Mior](https://github.com/michaelmior)
