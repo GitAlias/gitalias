@@ -654,7 +654,7 @@
   prune-all = !git remote | xargs -n 1 git remote prune
 
   # Thanks to cody cutrer
-  cherry-pick-merge = !"bash -c 'git cherry-pick -n -m 1 $0 && \
+  cherry-pick-merge = !"sh -c 'git cherry-pick -n -m 1 $0 && \
     git log -1 --pretty=%P $0 | cut -b 42- > .git/MERGE_HEAD && \
     git commit -v'"
 
