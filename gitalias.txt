@@ -801,7 +801,6 @@
 
   # show full history in gitk (including "deleted" branches and stashes)
   gitk-history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
-[alias]
 
   ### Ruby on Rails ###
 
