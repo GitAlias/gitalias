@@ -222,6 +222,9 @@
   incoming = !git remote update --prune; git log ..@{upstream}
   outgoing = log @{upstream}..
 
+  # Push to all remotes
+  push2all = !git remote | xargs -I% -n1 git push %
+
   ### revert ###
 
   # revert - undo the changes from some existing commits
