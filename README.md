@@ -157,3 +157,4 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * [Rob Miller](https://github.com/robmiller)
   * [Michal Jarosz](https://github.com/Mchl)
   * [Nick Palmer](https://github.com/nickpalmer)
+  * [Oleg Broytman](https://github.com/phdru)
