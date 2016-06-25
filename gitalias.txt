@@ -138,7 +138,7 @@
   # To integrate changes between branches, you can merge or rebase.
   #
   # When we use "git pull", git does a fetch then a merge.
-  # If we’ve made changes locally and someone else has pushed changes
+  # If we've made changes locally and someone else has pushed changes
   # to our git host then git will automatically merge these together
   # and create a merge commit that looks like this in the history:
   #
@@ -147,7 +147,7 @@
   # When we use "git pull --rebase", git does a fetch then a rebase.
   # A rebase resets the HEAD of your local branch to be the same as
   # the remote HEAD, then replays your local commits back into repo.
-  # This means you don’t get any noisy merge messages in your history.
+  # This means you don't get any noisy merge messages in your history.
   # This gives us a linear history, and also helps with git bisect.
   #
   # To automatically do "pull --rebase" for any branch based on master:
@@ -176,7 +176,7 @@
   # Before we push our local changes, we may want to do some cleanup,
   # to improve our commit messages or squash related commits together.
   #
-  # Let’s say I’ve pushed two commits that are related to a new feature and
+  # Let's say I've pushed two commits that are related to a new feature and
   # I have another where I made a spelling mistake in the commit message.
   # When I run "git rbi" I get dropped into my editor with this:
   #
@@ -364,7 +364,7 @@
   #
   # These are all standard arguments to `git log`.
   #
-  # It’s possible to get valuable insight from history of a project not only
+  # It's possible to get valuable insight from history of a project not only
   # by viewing individual commits, but by analyzing sets of changes as a whole.
   # For instance, git-log-churn compiles stats about which files change the most.
   #
@@ -427,8 +427,8 @@
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
-  # This is handy for refactoring where you can’t quite fit what you’ve done
-  # into a commit but daren’t stray too far from now without a backup.
+  # This is handy for refactoring where you can't quite fit what you've done
+  # into a commit but daren't stray too far from now without a backup.
   #
   # Running this:
   #
@@ -541,7 +541,7 @@
   # remote version of the current branch.
   unpublish = !"git push origin :$(git branch-name)"
 
-  # Delete a branch name, then create the same branch name based on master —
+  # Delete a branch name, then create the same branch name based on master -
   # useful if you have, for example, a development branch and master branch
   # and they go out of sync, and you want to nuke the development branch.
   #
