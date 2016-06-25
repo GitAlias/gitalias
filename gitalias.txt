@@ -802,7 +802,6 @@
 
   # show full history in gitk (including "deleted" branches and stashes)
   gitk-history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
-[alias]
 
   ### Ruby on Rails ###
 
@@ -817,7 +816,7 @@
   svn-c = svn dcommit
   svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick -e
 
- ##########################################################################
+  ##########################################################################
 
   ##
   # Git aliases to correct common typing mistakes, which git built-in autocorrection
