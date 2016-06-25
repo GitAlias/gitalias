@@ -147,6 +147,8 @@ For more git config ideas, and for credit for many of the aliases here, please s
 
 We welcome people contributing, such as creating pull requests, or creating issue reports, or tweeting ideas to us.
 
+  * We're aiming to have new kinds of pull requests open for a week to encourage comments.
+
 We want this project to be a good starting point for teams. 
 
   * We're aiming for consensus and practicality.
