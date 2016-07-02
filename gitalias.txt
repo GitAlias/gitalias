@@ -198,7 +198,7 @@
   #     3400455 - foo
   #     5dae0a0 - whatever
   #
-  rbi = !"git rebase -i @{u}"
+  rbi = rebase -i @{u}
 
   ### reflog ###
 
@@ -269,12 +269,12 @@
   diff-staged = diff --cached
 
   # From https://gist.github.com/492227
-  head = !"git log -n1"
+  head = log -n1
   heads = !"git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
   lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
 
   # Find text in any commit ever
-  grep-all = !"git rev-list --all | xargs git grep '$1'"
+  grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 
   # Given a merge commit, find the span of commits that exist(ed).
   # Not so useful in itself, but used by other aliases.
@@ -422,8 +422,8 @@
   ### WORKFLOW ALIASES ###
 
   # Stash aliases
-  save = !git stash save
-  pop = !git stash pop
+  save = stash save
+  pop = stash pop
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
@@ -553,10 +553,11 @@
   ### SHELL SCRIPTING ALIASES ###
 
   # Get the current branch name
-  branch-name = !"git rev-parse --abbrev-ref HEAD"
+  branch-name = rev-parse --abbrev-ref HEAD
 
   # Get the top level directory, regardless of what subdirectory we're in.
-  root = ! pwd
+  # root = ! pwd # this one is funny but slow
+  root = rev-parse --show-toplevel
 
   # Execute shell scripts. Git always runs scripts in the top directory.
   # For example "git exec pwd" will always show you the top directory.
@@ -604,7 +605,7 @@
   # We also add the --window-memory limit of 1 gig, which helps protect
   # us from a window that has very large objects such as binary blobs.
   #
-  repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
+  repacker = repack -a -d -f --depth=300 --window=300 --window-memory=1g
 
   # Do everything we can to optimize the repository.
   #
@@ -801,7 +802,6 @@
 
   # show full history in gitk (including "deleted" branches and stashes)
   gitk-history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
-[alias]
 
   ### Ruby on Rails ###
 
@@ -816,7 +816,7 @@
   svn-c = svn dcommit
   svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick -e
 
- ##########################################################################
+  ##########################################################################
 
   ##
   # Git aliases to correct common typing mistakes, which git built-in autocorrection

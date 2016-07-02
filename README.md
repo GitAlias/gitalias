@@ -143,6 +143,23 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <https://github.com/WuTheFWasThat/dotfiles/blob/master/.gitconfig>
   * <https://gist.github.com/felipesabino/6391408>
 
+## Contributing
+
+We welcome people contributing, such as creating pull requests, or creating issue reports, or tweeting ideas to us.
+
+  * We're aiming to have new kinds of pull requests open for a week to encourage comments.
+
+We want this project to be a good starting point for teams. 
+
+  * We're aiming for consensus and practicality.
+
+  * We want ease of use, ease of composability, and ease of understanding. 
+
+  * We use the Git documentation guidelines for our coding format. 
+
+  * We like meaningful comments and practical examples to help novices. 
+  
+
 ## Thanks
 
   * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
