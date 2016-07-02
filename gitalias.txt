@@ -260,14 +260,14 @@
   # status with short format and showing branch and tracking info.
   ssb = status --short --branch
 
-  ### ALIASES MANAGEMENT ###
+  ### ALIAS MANAGEMENT ###
 
-  add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git [local-]alias <new alias> <original command>\" >&2 && return 1; }; f"
-  alias = "!git add-alias --global"
-  local-alias = "!git add-alias --local"
+  # Show our defined alias list
+  alias = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
 
-  # Show our defined aliases
-  aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
+  add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git add-(local|global)-alias <new alias> <original command>\" >&2 && return 1; }; f"
+  add-global-alias = "!git add-alias --global"
+  add-local-alias = "!git add-alias --local"
 
   # Show our tags
   tags = tag -n1 -l
