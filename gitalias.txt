@@ -198,7 +198,7 @@
   #     3400455 - foo
   #     5dae0a0 - whatever
   #
-  rbi = rebase --interactive @{u}
+  rbi = rebase --interactive @{upstream}
 
   ### reflog ###
 
