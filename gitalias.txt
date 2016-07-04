@@ -198,7 +198,7 @@
   #     3400455 - foo
   #     5dae0a0 - whatever
   #
-  rbi = rebase -i @{u}
+  rbi = rebase --interactive @{upstream}
 
   ### reflog ###
 
@@ -270,12 +270,12 @@
   add-local-alias = "!git add-alias --local"
 
   # Show our tags
-  tags = tag -n1 -l
+  tags = tag -n1 --list
 
   # Diffs
   diff-all = !"for name in $(git diff --name-only $1); do git difftool $1 $name & done"
   diff-changes = diff --name-status -r
-  diff-stat = diff --stat -b -r
+  diff-stat = diff --stat --ignore-space-change -r
   diff-staged = diff --cached
 
   # From https://gist.github.com/492227
@@ -301,7 +301,7 @@
   merge-span-difftool = !"git difftool `git merge-span ... $1`"
 
   # Interactively rebase all the commits on the current branch
-  rebase-branch = !"git rebase -i `git merge-base master HEAD`"
+  rebase-branch = !"git rebase --interactive `git merge-base master HEAD`"
 
   # Sort by date for branches; can be useful for spring cleaning
   refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
@@ -399,22 +399,22 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = !git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
+  churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
 
 
   ### LOOKUP ALIASES ###
 
   # whois: given a string for an author, try to figure out full name and email:
-  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whois = "!sh -c 'git log --regexp-ignore-case -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 
   # Given any git object, try to show it briefly
-  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  whatis = show --no-patch --pretty='tformat:%h (%s, %ad)' --date=short
 
   # Show who contributed with summarized changes
-  who = shortlog -s --
+  who = shortlog --summary --
 
   # Show who contributed, in descending order by number of commits
-  whorank = shortlog -sn --no-merges
+  whorank = shortlog --summary --numbered --no-merges
 
   # List all issues mentioned in commit messages between range of commits
   #
@@ -457,7 +457,7 @@
 
   # Do everything we can to synchronize all changes
   get = !git pull --rebase && git submodule update --init --recursive
-  put = !git commit -am "$1" && git push
+  put = !git commit --all --message="$1" && git push
 
   ##
   # Undo & Reset
@@ -505,7 +505,7 @@
   # this cleaning will facilite a rebase, because there won't be any conlfict
   # due to an "unclean" working directory (not in sync with the index).
   # The unwip will restore the deleted files to the working tree.
-  wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m \"wip\""
+  wip = !"git add --all; git ls-files --deleted -z | xargs -0 git rm; git commit --message=wip"
   unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
 
   # Assume: from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
@@ -538,14 +538,14 @@
   master-cleanse = !git master-cleanse-local; git master-cleanse-remote
 
   # Delete all local branches that have been merged into the local master branch.
-  master-cleanse-local = "!git checkout master && git branch --merged | xargs git branch -d"
+  master-cleanse-local = "!git checkout master && git branch --merged | xargs git branch --delete"
 
   # Delete all remote branches that have been merged into the remote master branch.
-  master-cleanse-remote = !"git branch -r --merged origin/master | sed 's# *origin/##' | grep -v '^master$' xargs -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
+  master-cleanse-remote = !"git branch --remotes --merged origin/master | sed 's# *origin/##' | grep -v '^master$' xargs -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
-  publish = !"git push -u origin $(git branch-name)"
+  publish = !"git push --set-upstream origin $(git branch-name)"
 
   # Unpublish the current branch by deleting the
   # remote version of the current branch.
@@ -665,9 +665,9 @@
   prune-all = !git remote | xargs -n 1 git remote prune
 
   # Thanks to cody cutrer
-  cherry-pick-merge = !"sh -c 'git cherry-pick -n -m 1 $0 && \
+  cherry-pick-merge = !"sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
     git log -1 --pretty=%P $0 | cut -b 42- > .git/MERGE_HEAD && \
-    git commit -v'"
+    git commit --verbose'"
 
   # Thanks to jtolds on stackoverflow
   remote-ref = !"sh -c ' \
@@ -679,7 +679,7 @@
     echo remotes/$remote/$remote_name'"
 
   # Thanks to jtolds on stackoverflow
-  rebase-recent = !git rebase -i $(git remote-ref)
+  rebase-recent = !git rebase --interactive $(git remote-ref)
 
   # Use graphviz for display.
   # This produces output that can be displayed using dotty, for example:
@@ -763,7 +763,7 @@
   # the team provide feedback on the work-in-progress.
   ##
 
-  topic-push = "!f(){ branch=$(git branch-name); git push -u origin "$branch"; };f"
+  topic-push = "!f(){ branch=$(git branch-name); git push --set-upstream origin "$branch"; };f"
 
   ##
   # Finish the current topic branch.
@@ -791,7 +791,7 @@
   # To synchronize your branch list, use "git fetch --prune".
   ##
 
-  topic-finish = "!f(){ branch=$(git branch-name); git checkout master; git branch -d "$branch"; git push origin ":$branch"; };f"
+  topic-finish = "!f(){ branch=$(git branch-name); git checkout master; git branch --delete "$branch"; git push origin ":$branch"; };f"
 
   ##########################################################################
 
@@ -824,7 +824,7 @@
   svn-b = svn branch
   svn-m = merge --squash
   svn-c = svn dcommit
-  svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick -e
+  svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick --edit
 
   ##########################################################################
 
