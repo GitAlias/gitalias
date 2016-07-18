@@ -478,6 +478,15 @@
   unadd = reset HEAD
   unstage = reset HEAD
 
+  # Edit all files of the given type
+  edit-cached = !"f() { git ls-files --cached | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-deleted = !"f() { git ls-files --deleted | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-others = !"f() { git ls-files --others | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-ignored = !"f() { git ls-files --ignored | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-killed = !"f() { git ls-files --killed | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-modified = !"f() { git ls-files --modified | sort -u ; }; \"${VISUAL:-${EDITOR:-vi}}\" `f`"
+  edit-stage = !"f() { git ls-files --stage | cut -f2 | sort -u ; }; "${VISUAL:-${EDITOR:-vi}}" `f`"
+
   # Editing and adding conflicted files: when we get many merge conflicts
   # and want to quickly solve them using an editor, then add the  files.
   edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; "${VISUAL:-${EDITOR:-vi}}" `f`"
