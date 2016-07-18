@@ -480,7 +480,7 @@
 
   # Editing and adding conflicted files: when we get many merge conflicts
   # and want to quickly solve them using an editor, then add the  files.
-  edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
+  edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; "${VISUAL:-${EDITOR:-vi}}" `f`"
   add-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
   # Ours & Theirs - easy merging when you know which files you want
