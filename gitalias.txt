@@ -200,6 +200,10 @@
   #
   rbi = rebase --interactive @{upstream}
 
+  # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+  # This is a slightly modified version
+  fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+
   ### reflog ###
 
   # reflog - reference log that manages when tips of branches are updated.
