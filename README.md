@@ -159,12 +159,28 @@ We want this project to be a good starting point for teams.
 
   * We like meaningful comments and practical examples to help novices. 
   
+We prefer this git commit message format:
+
+  * Subject
+    * Start with an imperative verb, such as "Add", "Remove", "Fix", "Upgrade", etc.
+    * Capitalize the line, for example "Add" not "add".
+    * Limit the line to 50 characters.
+    * End the line without a period.
+    * Use a blank line after the subject to separate the subject from the body.
+  * Body
+    * Wrap the body at 72 characters.
+    * Use the body to explain what and why vs. how.
+    * For commits with more than one author, add "Author: Alice <alice@example.com>".
+    * For commits that refer to a URL, add "URL: https://example.com".
+    * For commits that refer to a tracker, use the complete URL, not just a number or code.
+  * For more info see <a href="http://chris.beams.io/posts/git-commit/">How to write a git commit message</a>.
 
 ## Thanks
 
   * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
   * [Bill Lazar](https://github.com/billsaysthis)
   * [Joe Nelson](https://github.com/begriffs)
+  * [Oleg Broytman](https://github.com/phdru)
   * [Scott Lindsay](http://stackoverflow.com/users/167384/scott-lindsay)
   * [baudtack](http://baudtack.com)
   * [Ruben Verborgh](http://ruben.verborgh.org)
@@ -176,5 +192,4 @@ We want this project to be a good starting point for teams.
   * [Rob Miller](https://github.com/robmiller)
   * [Michal Jarosz](https://github.com/Mchl)
   * [Nick Palmer](https://github.com/nickpalmer)
-  * [Oleg Broytman](https://github.com/phdru)
   * [Michael Mior](https://github.com/michaelmior)
