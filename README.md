@@ -25,16 +25,12 @@ Shortcut examples:
     a = add
     b = branch
     c = commit
-    d = diff
-    …
 
 Shortcut option examples:
 
     ap = add --patch
     be = branch --edit-description
     ci = commit --interactive
-    ds = diff --staged
-    …
 
 Log examples:
 
