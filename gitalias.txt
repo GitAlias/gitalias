@@ -476,6 +476,10 @@
   # Ignore all untracked files by appending them to .gitignore:
   ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
 
+  # Do a push/pull for just one branch
+  push1 = "!git push origin $(git branch-name)"
+  pull1 = "!git pull origin $(git branch-name)"
+
 
   ##
   # Undo & Reset
