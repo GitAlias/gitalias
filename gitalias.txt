@@ -439,6 +439,9 @@
 
   ### WORKFLOW ALIASES ###
 
+	# Clone a git repository including all submodules
+	cloner = clone --recursive
+	
   # Stash aliases
   save = stash save
   pop = stash pop
