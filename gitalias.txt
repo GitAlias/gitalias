@@ -586,7 +586,13 @@
   #
   reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
 
-
+  # Friendly wording is easier to remember.
+  # Thanks to http://gggritso.com/human-git-aliases
+  branches = branch -a
+  tags = tag
+  stashes = stash list
+  
+  
   ### SHELL SCRIPTING ALIASES ###
 
   # Get the current branch name
