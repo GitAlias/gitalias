@@ -473,6 +473,10 @@
   get = !git pull --rebase && git submodule update --init --recursive
   put = !git commit --all --message="$1" && git push
 
+  # Ignore all untracked files by appending them to .gitignore:
+  ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
+
+
   ##
   # Undo & Reset
   ##
