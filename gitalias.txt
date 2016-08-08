@@ -111,9 +111,13 @@
 
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
-
+   
   # log key - our favorite way to show our key performance indicators, i.e. our most useful summary.
   lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+
+  # log latest - show the 10 most recent lines using `lk`
+  ll = log -n 10 --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad 
+
 
   ## ls-files ##
 
