@@ -96,6 +96,11 @@
   # diff - show changes but by word, not line
   dw = diff --word-diff
 
+  ### clean ###
+
+  # clean everything to be pristine
+  cleanest = clean -ffdx
+
   ### grep ###
 
   # grep with grouping of the output lines
