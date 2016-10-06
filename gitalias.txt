@@ -285,6 +285,12 @@
   add-global-alias = "!git add-alias --global"
   add-local-alias = "!git add-alias --local"
 
+  # Last tag in the current branch
+  lasttag = describe --tags --abbrev=0
+
+  # Latest annotated tag in all branches
+  lasttagged = !git describe --tags `git rev-list --tags --max-count=1`
+
   # Show our tags
   tags = tag -n1 --list
 
