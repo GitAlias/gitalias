@@ -65,7 +65,7 @@
 
   # commit - amend the tip of the current branch, and do not edit the message.
   can = commit --amend --no-edit
-  
+
   # commit interactive
   ci = commit --interactive
 
@@ -119,7 +119,7 @@
 
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
-   
+
   # log key - our favorite way to show our key performance indicators, i.e. our most useful summary.
   lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
@@ -545,13 +545,13 @@
   unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
 
   # Assume
-  #  
+  #
   # Sometimes we want to change a file in a repo, but never check in your edits.
   # We can't use .gitignore because the file is tracked. We use update-index.
   #
   # If you interact with big corporate projects, such as projects in Subversion,
-  # then you might run into the need to ignore certain files which are under 
-  # Subversion control, yet you need to modify them but not commit. 
+  # then you might run into the need to ignore certain files which are under
+  # Subversion control, yet you need to modify them but not commit.
   # The assume-unchanged flag comes to the rescue.
   #
   # Suppose we want to edit passwords.txt and for god's sake never check it in:
@@ -574,7 +574,7 @@
   #
   # Thanks to http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
   # Thanks to http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
- 
+
   assume   = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assume-all = "!git st -s | awk {'print $2'} | xargs git assume"
@@ -611,8 +611,8 @@
   branches = branch -a
   tags = tag
   stashes = stash list
-  
-  
+
+
   ### SHELL SCRIPTING ALIASES ###
 
   # Get the current branch name
