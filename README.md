@@ -127,8 +127,8 @@ More ideas:
 For more git config ideas, and for credit for many of the aliases here, please see these excelent resources:
 
   * <https://git.wiki.kernel.org/index.php/Aliases>
-  * <http://stackoverflow.com/questions/267761/what-does-your-gitconfig-contain>
-  * <http://superuser.com/questions/169695/what-are-your-favorite-git-aliases>
+  * <http://web.archive.org/web/20100911013406/http://stackoverflow.com/questions/267761/what-does-your-gitconfig-contain>
+  * <http://web.archive.org/web/20111114085847/http://superuser.com/questions/169695/what-are-your-favorite-git-aliases>
   * <http://stackoverflow.com/questions/1309430/how-to-embed-bash-script-directly-inside-a-git-alias>
   * <http://code.joejag.com/2013/everyday-git-aliases/>
   * <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>
