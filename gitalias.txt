@@ -505,6 +505,7 @@
   reset-commit = reset --soft HEAD~1
   reset-commit-hard = reset --hard HEAD~1
   reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
+  reset-to-origin = !git reset --hard $(git upstream-name)
 
   # Nicknames
   uncommit = reset --soft HEAD~1
