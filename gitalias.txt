@@ -498,14 +498,18 @@
 
   # Reset and undo aliases are ways to move backwards on the commit chain.
   # We find that novices prefer the wording "undo"; experts prefer "reset".
-  undo-commit        = reset --soft HEAD~1
   reset-commit       = reset --soft HEAD~1
-  undo-commit-hard   = reset --hard HEAD~1
   reset-commit-hard  = reset --hard HEAD~1
-  undo-commit-clean  = !git reset --hard HEAD~1 && git clean -fd
   reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
-  undo-to-upstream   = !git reset --hard $(git upstream-name)
+  reset-to-pristine   = !git reset --hard && git clean -ffdx
   reset-to-upstream  = !git reset --hard $(git upstream-name)
+
+  # Undo is simply a synonym for "reset" because "undo" can help novices.
+  undo-commit        = reset --soft HEAD~1
+  undo-commit-hard   = reset --hard HEAD~1
+  undo-commit-clean  = !git reset --hard HEAD~1 && git clean -fd
+  undo-to-pristine   = !git reset --hard && git clean -ffdx
+  undo-to-upstream   = !git reset --hard $(git upstream-name)
 
   # Nicknames
   uncommit = reset --soft HEAD~1
