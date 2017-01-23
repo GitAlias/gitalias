@@ -493,19 +493,19 @@
 
 
   ##
-  # Undo & Reset
+  # Reset & Undo
   ##
 
-  # Undo aliases; these correspond to the reset aliases below
-  undo-commit = reset --soft HEAD~1
-  undo-commit-hard = reset --hard HEAD~1
-  undo-commit-clean = !git reset --hard HEAD~1 && git clean -fd
-
-  # Reset aliases; these correspond to the undo aliases above
-  reset-commit = reset --soft HEAD~1
-  reset-commit-hard = reset --hard HEAD~1
+  # Reset and undo aliases are ways to move backwards on the commit chain.
+  # We find that novices prefer the wording "undo"; experts prefer "reset".
+  undo-commit        = reset --soft HEAD~1
+  reset-commit       = reset --soft HEAD~1
+  undo-commit-hard   = reset --hard HEAD~1
+  reset-commit-hard  = reset --hard HEAD~1
+  undo-commit-clean  = !git reset --hard HEAD~1 && git clean -fd
   reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
-  reset-to-origin = !git reset --hard $(git upstream-name)
+  undo-to-upstream   = !git reset --hard $(git upstream-name)
+  reset-to-upstream  = !git reset --hard $(git upstream-name)
 
   # Nicknames
   uncommit = reset --soft HEAD~1
