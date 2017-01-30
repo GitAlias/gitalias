@@ -4,7 +4,22 @@ This project provides many git alias commands that you can use as you like.
 
 For the full list, see the file [gitalias.txt](gitalias.txt).
 
-Examples:
+Contents:
+
+* [Introduction](#introduction))
+* [Examples](#examples)
+* [Customization](#customization)
+* [Purpose](#purpose)
+* [More ideas](#more)
+* [Contributing](#contributing)
+* [Thanks](#thanks)
+
+
+<h2><a name="introduction">Introduction</a></h2>
+
+We use Git version control every day. We like to make it faster, easier, and better.
+
+We create Git alias items to help us, such as:
 
   * Shortcuts such as `s` for `status`.
   * Improvements such as `optimize` to prune and repack using recommended settings.
@@ -12,13 +27,17 @@ Examples:
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
   * For links to many more ideas and git alias files, see the end of this file.
 
-## Install
+
+<h2><a name="examples">Install</a></h2>
+
+This is simply a text file. Copy what you like.
 
   1. See the file `gitalias.txt`.
 
   2. Copy/paste anything you like into your own `.gitconfig` file.
 
-## Examples
+
+<h2><a name="examples">Examples</a></h2>
 
 Shortcut examples:
 
@@ -68,7 +87,7 @@ Optimization examples to prune stale items and repack efficiently:
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
 
 
-## Customization
+<h2><a name="customization">Customization</a></h2>
 
 You can customize any of the file items by editing the file as you like.
 
@@ -83,38 +102,34 @@ For example you can include our aliases then customize "git l" with your own def
        l = log --graph --oneline
 
 
-## Format
-
 To use better pretty formatting:
 
     [format]
       pretty = "%H %ci %ce %ae %d %s"
 
 
-## Status
-
-If you like terse status messages:
+To use terse status messages:
 
     [alias]
       s = status -sb
 
-## Log
 
-If you like log summaries:
+To use log summaries:
 
     [alias]
       l = log --graph --oneline
 
 
-## Reasoning
+## Purpose
 
 We are creating this alias list because we type these commands many times daily, and we want the commands to be fast and also accurate.
 
 We often work on teams, across many companies and organizations, and using multiple shells. We want to count on a set of aliases. For shorter commands, such as `s` for `status`, fast speed is nice. For longer commands, such as `repacker`, accurate settings are important.
 
-## More
 
-More ideas:
+<h2><a name="more">More ideas</a></h2>
+
+More ideas for git improvements:
 
   * If you want to alias the git command, then use your shell, such as `alias g=git`.
   * If you want history views, see [git-recall](https://github.com/Fakerr/git-recall)
@@ -139,7 +154,8 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <https://gist.github.com/felipesabino/6391408>
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
-## Contributing
+
+<h2><a name="contributing">Contributing</a></h2>
 
 We welcome people contributing, such as creating pull requests, or creating issue reports, or tweeting ideas to us.
 
@@ -171,7 +187,12 @@ We prefer this git commit message format:
     * For commits that refer to a tracker, use the complete URL, not just a number or code.
   * For more info see <a href="http://chris.beams.io/posts/git-commit/">How to write a git commit message</a>.
 
-## Thanks
+
+<h2><a name="thanks">Thanks</a></h2>
+
+Thanks to all the contributors, including all the creators of the projects mentioned above.
+
+Thanks to these people for extra help:
 
   * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
   * [Bill Lazar](https://github.com/billsaysthis)
