@@ -6,7 +6,7 @@ For the full list, see the file [gitalias.txt](gitalias.txt).
 
 Contents:
 
-* [Introduction](#introduction))
+* [Introduction](#introduction)
 * [Examples](#examples)
 * [Customization](#customization)
 * [Purpose](#purpose)
