@@ -117,6 +117,7 @@ We often work on teams, across many companies and organizations, and using multi
 More ideas:
 
   * If you want to alias the git command, then use your shell, such as `alias g=git`.
+  * If you want history views, see [git-recall](https://github.com/Fakerr/git-recall)
   * If you use `oh-my-zsh`, then you may like the git [plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
   * If you use `vim` then see [Fugitive](https://github.com/tpope/vim-fugitive)
   * If you use `emacs` then see [Magit](https://magit.vc/)
@@ -144,16 +145,16 @@ We welcome people contributing, such as creating pull requests, or creating issu
 
   * We're aiming to have new kinds of pull requests open for a week to encourage comments.
 
-We want this project to be a good starting point for teams. 
+We want this project to be a good starting point for teams.
 
   * We're aiming for consensus and practicality.
 
-  * We want ease of use, ease of composability, and ease of understanding. 
+  * We want ease of use, ease of composability, and ease of understanding.
 
-  * We use the Git documentation guidelines for our coding format. 
+  * We use the Git documentation guidelines for our coding format.
 
-  * We like meaningful comments and practical examples to help novices. 
-  
+  * We like meaningful comments and practical examples to help novices.
+
 We prefer this git commit message format:
 
   * Subject
