@@ -39,49 +39,57 @@ This is simply a text file. Copy what you like.
 
 <h2><a name="examples">Examples</a></h2>
 
-Shortcut examples:
+Shortcuts:
 
     a = add
-    b = branch
     c = commit
 
-Shortcut option examples:
+Options:
 
     ap = add --patch
-    be = branch --edit-description
     ci = commit --interactive
 
-Log examples:
+Plurals:
+
+    branches = branch -a
+    stashes = stash list
+
+Log:
 
     log-graph = log --graph --all  --decorate --oneline
-    log-fresh = log ORIG_HEAD.. --stat --no-merges
     log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
 
-Topic branch examples:
-
-    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-    topic-pull   = "!f(){ b=$(git branch-name); git checkout master; git pull; git checkout "$b"; git rebase master; };f"
-    topic-push   = "!f(){ b=$(git branch-name); git push -u origin "$b"; };f"
-    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
-
-Get everything new:
+Workflow:
 
     get = !git pull --rebase && git submodule update --init --recursive
+    put = !git commit --all --message="$1" && git push
 
-Rebase interactive on unpushed commits:
+Topics:
 
-    rbi = !git rebase --interactive @{u}
+    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
 
-Find text in any commit ever:
+Grep:
 
+    grep-group =  grep --break --heading --line-number
     grep-all = !"git rev-list --all | xargs git grep '$1'"
 
-Publish the current branch by pushing, or unpublish by deleting.
+Name:
+
+    branch-name = rev-parse --abbrev-ref HEAD
+    upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+    
+Combine:
+
+    ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
+    theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+  
+Publish:
 
     publish = "!git push -u origin $(git branch-name)"
     unpublish = "!git push origin :$(git branch-name)"
 
-Optimization examples to prune stale items and repack efficiently:
+Optimize:
 
     pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
@@ -93,7 +101,10 @@ You can customize any of the file items by editing the file as you like.
 
 You can also customize any of the file items by adding your own item later in your own gitconfig file.
 
-For example you can include our aliases then customize "git l" with your own definition:
+
+### Alias
+
+To include our aliases then customize "git l" with your own definition:
 
     [include]
        path = ~/.gitconfig.d/alias.txt
@@ -102,17 +113,23 @@ For example you can include our aliases then customize "git l" with your own def
        l = log --graph --oneline
 
 
+### Format
+
 To use better pretty formatting:
 
     [format]
       pretty = "%H %ci %ce %ae %d %s"
 
 
+### Status
+
 To use terse status messages:
 
     [alias]
       s = status -sb
 
+
+### Log
 
 To use log summaries:
 
