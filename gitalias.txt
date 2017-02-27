@@ -279,7 +279,7 @@
   ### ALIAS MANAGEMENT ###
 
   # Show our defined alias list
-  alias = "!git config --get-regexp '^alias\\.' | colrm 1 6 | sed 's/ / = /'"
+  aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
 
   add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git add-(local|global)-alias <new alias> <original command>\" >&2 && return 1; }; f"
   add-global-alias = "!git add-alias --global"
