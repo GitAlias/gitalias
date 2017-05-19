@@ -284,7 +284,11 @@
   add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git add-(local|global)-alias <new alias> <original command>\" >&2 && return 1; }; f"
   add-global-alias = "!git add-alias --global"
   add-local-alias = "!git add-alias --local"
-  rename-alias = "!f() { [ $# = 2 ] && [ $1 != $2 ] && [ ! -z \"$(git config --global --get alias.$1)\" ] && [ -z \"$(git config --global --get alias.$2)\" ] && git config --global alias.$2 \"$(git config --global --get alias.$1)\" && git config --global --unset alias.$1 && return 0 || echo \"Usage: git rename-alias <alias existing name> <new alias name>\nThe alias you are going to rename must exist and new name must not exist.\" >&2 && return 1; };f"
+
+  # Rename an alias
+  rename-alias = "!f() { [ $# = 3 ] && [ $2 != $3 ] && [ ! -z \"$(git config $1 --get alias.$2)\" ] && [ -z \"$(git config $1 --get alias.$3)\" ] && git config $1 alias.$3 \"$(git config $1 --get alias.$2)\" && git config $1 --unset alias.$2 && return 0 || echo \"Usage: git rename-(local|global)-alias <alias existing name> <new alias name>\nThe alias you are going to rename must exist and new name must not exist.\" >&2 && return 1; };f"
+  rename-global-alias = "!git rename-alias --global"
+  rename-local-alias = "!git rename-alias --local"
 
   # Last tag in the current branch
   lasttag = describe --tags --abbrev=0
