@@ -285,6 +285,11 @@
   add-global-alias = "!git add-alias --global"
   add-local-alias = "!git add-alias --local"
 
+  # Rename an alias
+  rename-alias = "!f() { [ $# = 3 ] && [ $2 != $3 ] && [ ! -z \"$(git config $1 --get alias.$2)\" ] && [ -z \"$(git config $1 --get alias.$3)\" ] && git config $1 alias.$3 \"$(git config $1 --get alias.$2)\" && git config $1 --unset alias.$2 && return 0 || echo \"Usage: git rename-(local|global)-alias <alias existing name> <new alias name>\nThe alias you are going to rename must exist and new name must not exist.\" >&2 && return 1; };f"
+  rename-global-alias = "!git rename-alias --global"
+  rename-local-alias = "!git rename-alias --local"
+
   # Last tag in the current branch
   lasttag = describe --tags --abbrev=0
 
@@ -455,7 +460,7 @@
 
   # Clone a git repository including all submodules
   cloner = clone --recursive
-	
+
   # Stash aliases
   save = stash save
   pop = stash pop
