@@ -794,7 +794,13 @@
   # to ensure that your branch starts with all the tests succeeding.
   ##
 
-  topic-start = "!f(){ branch=\"$1\"; git checkout master; git fetch; git rebase; git checkout -b \"$branch\" master; };f"
+  topic-start = "!f(){ \
+    branch=\"$1\"; \
+    git checkout master; \
+    git fetch; \
+    git rebase; \
+    git checkout -b \"$branch\" master; \
+  };f"
 
   ##
   # Update the current topic branch by pulling changes.
@@ -815,7 +821,13 @@
   # to ensure that any available updates are successfully integrated.
   ##
 
-  topic-pull = "!f(){ branch=$(git branch-name); git checkout master; git pull; git checkout \"$branch\"; git rebase master; };f"
+  topic-pull = "!f(){ \
+    branch=$(git branch-name); \
+    git checkout master; \
+    git pull; \
+    git checkout \"$branch\"; \
+    git rebase master; \
+ };f"
 
   ##
   # Update the current topic branch by pushing changes.
@@ -838,7 +850,10 @@
   # the team provide feedback on the work-in-progress.
   ##
 
-  topic-push = "!f(){ branch=$(git branch-name); git push --set-upstream origin \"$branch\"; };f"
+  topic-push = "!f(){ \
+    branch=$(git branch-name); \
+    git push --set-upstream origin \"$branch\"; \
+  };f"
 
   ##
   # Finish the current topic branch.
@@ -866,7 +881,12 @@
   # To synchronize your branch list, use "git fetch --prune".
   ##
 
-  topic-finish = "!f(){ branch=$(git branch-name); git checkout master; git branch --delete \"$branch\"; git push origin \":$branch\"; };f"
+  topic-finish = "!f(){ \
+    branch=$(git branch-name); \
+    git checkout master; \
+    git branch --delete \"$branch\"; \
+    git push origin \":$branch\"; \
+  };f"
 
   ##########################################################################
 
