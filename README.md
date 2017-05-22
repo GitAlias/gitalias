@@ -2,8 +2,6 @@
 
 This project provides many git alias commands that you can use as you like.
 
-For the full list, see the file [gitalias.txt](gitalias.txt).
-
 Contents:
 
 * [Introduction](#introduction)
@@ -13,6 +11,11 @@ Contents:
 * [More ideas](#more)
 * [Contributing](#contributing)
 * [Thanks](#thanks)
+
+To see the complete code, view these files:
+
+* [gitalias.txt](gitalias.txt).
+* [gitalias-for-topic-branches.txt](gitalias-for-topic-branches.txt).
 
 
 <h2><a name="introduction">Introduction</a></h2>
@@ -42,11 +45,13 @@ This is simply a text file. Copy what you like.
 Shortcuts:
 
     a = add
+    b = branch
     c = commit
 
-Options:
+Shortcuts with options:
 
     ap = add --patch
+    be = branch --edit-description
     ci = commit --interactive
 
 Plurals:
@@ -107,7 +112,8 @@ You can also customize any of the file items by adding your own item later in yo
 To include our aliases then customize "git l" with your own definition:
 
     [include]
-       path = ~/.gitconfig.d/alias.txt
+       path = ~/.gitconfig.d/gitalias.txt
+       path = ~/.gitconfig.d/gitalias-for-topic-branches.txt
 
     [alias]
        l = log --graph --oneline
