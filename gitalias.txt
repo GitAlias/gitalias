@@ -864,11 +864,11 @@
   };f"
 
   ##
-  # Finish the current topic branch.
+  # Delete the current topic branch.
   #
   # Example:
   #
-  #     git topic-finish
+  #     git topic-delete
   #
   # This implementatation does these:
   #
@@ -889,12 +889,35 @@
   # To synchronize your branch list, use "git fetch --prune".
   ##
 
-  topic-finish = "!f(){ \
+  topic-delete = "!f(){ \
     branch=$(git branch-name); \
     base=$(git topic-base-branch-name); \
     git checkout \"$base\"; \
     git branch --delete \"$branch\"; \
     git push origin \":$branch\"; \
+  };f"
+
+  ##
+  # Finish the current topic branch.
+  #
+  # Example:
+  #
+  #     git topic-finish
+  #
+  # This implementatation does these:
+  #
+  #   1. Push the topic branch.
+  #   2. Delete the topic branch.
+  #
+  # Ideas for your own customizations:
+  #
+  #   * Add a notification, such as send an email or post to chat.
+  #   * Trigger a 
+  ##
+
+  topic-finish = "!f(){ \
+    git topic-push; \
+    git topic-delete; \
   };f"
 
   ##########################################################################
