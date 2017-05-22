@@ -517,6 +517,11 @@
   unadd = reset HEAD
   unstage = reset HEAD
 
+  # Discard changes in a (list of) file(s) in working tree
+  discard = checkout --
+  # Clean and discard changes and untracked files in working tree
+  cleanout = !git clean -df && git checkout -- .
+
   # Edit all files of the given type
   edit-cached = !"f() { git ls-files --cached | sort -u ; }; `git var GIT_EDITOR` `f`"
   edit-deleted = !"f() { git ls-files --deleted | sort -u ; }; `git var GIT_EDITOR` `f`"
