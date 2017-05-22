@@ -14,8 +14,8 @@ Contents:
 
 To see the complete code, view these files:
 
-* [gitalias.txt](gitalias.txt).
-* [gitalias-for-topic-branches.txt](gitalias-for-topic-branches.txt).
+* [gitalias.txt](gitalias.txt)
+* [gitalias-for-topic-branches.txt](gitalias-for-topic-branches.txt)
 
 
 <h2><a name="introduction">Introduction</a></h2>
