@@ -776,6 +776,16 @@
   ##
 
   ##
+  # Provide the name of the topic base branch, such as "master".
+  #
+  # When we create a new topic branch, we base it on the topic base branch.
+  # Many projects use the default "master" branch; some projects use custom
+  # branches, such as "trunk", "develop", "integrate", "release", etc.
+  ##
+
+  topic-base-branch-name = "echo master"
+  
+  ##
   # Start a topic branch.
   #
   # Example:
@@ -784,22 +794,21 @@
   #
   # This implementatation does these steps:
   #
-  #   1. Update the master branch
-  #   2. Create a new branch with your topic name and based on the master branch
+  #   1. Update the base branch locally.
+  #   2. Create a new branch with your topic name, based on the base branch.
   #
   # Customize this for your own workflow preferences.
   #
   # If you use any kind of testing framework, or test driven development,
-  # then it can be wise to test your topic immediately after running this,
-  # to ensure that your branch starts with all the tests succeeding.
+  # then it's wise to test your topic branch immediately after running this,
+  # because you ensure your topic branch starts with all the tests succeeding.
   ##
 
   topic-start = "!f(){ \
     branch=\"$1\"; \
-    git checkout master; \
-    git fetch; \
-    git rebase; \
-    git checkout -b \"$branch\" master; \
+    base=$(git topic-base-branch-name); \
+    git checkout \"$base\"; git pull; \
+    git checkout -b \"$branch\" \"$base\"; \
   };f"
 
   ##
@@ -811,7 +820,7 @@
   #
   # This implementatation does these:
   #
-  #   1. Update the master branch
+  #   1. Update the trunk branch
   #   2. Update the topic branch with any changes from the master branch
   #
   # Customize this for your own workflow preferences.
@@ -823,10 +832,9 @@
 
   topic-pull = "!f(){ \
     branch=$(git branch-name); \
-    git checkout master; \
-    git pull; \
-    git checkout \"$branch\"; \
-    git rebase master; \
+    base=$(git topic-base-branch-name); \
+    git checkout \"$base\"; git pull; \
+    git checkout \"$branch\"; git rebase \"$base\"; \
  };f"
 
   ##
@@ -883,7 +891,8 @@
 
   topic-finish = "!f(){ \
     branch=$(git branch-name); \
-    git checkout master; \
+    base=$(git topic-base-branch-name); \
+    git checkout \"$base\"; \
     git branch --delete \"$branch\"; \
     git push origin \":$branch\"; \
   };f"
