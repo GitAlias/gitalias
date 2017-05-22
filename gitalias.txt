@@ -960,11 +960,33 @@
   #
   # Many teams share branches before they are fully ready, to help
   # the team provide feedback on the work-in-progress.
+  #
+  # Customize this alias as you like for your own workflow.
   ##
 
   topic-push = "!f(){ \
     branch=$(git branch-name); \
     git push --set-upstream origin \"$branch\"; \
+  };f"
+
+  ##
+  # Update the current topic branch by synchronizing changes.
+  #
+  # Example:
+  #
+  #     git topic-sync
+  #
+  # This implementation does these:
+  #
+  #   1. Run topic-pull.
+  #   2. Run topic-push.
+  #
+  # Customize this alias as you like for your own workflow.
+  ##
+  
+  topic-sync = "!f(){ \
+    git topic-pull; \
+    git topic-push; \
   };f"
 
   ##########################################################################
