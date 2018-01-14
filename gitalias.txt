@@ -519,8 +519,15 @@
 
   # Discard changes in a (list of) file(s) in working tree
   discard = checkout --
+
   # Clean and discard changes and untracked files in working tree
   cleanout = !git clean -df && git checkout -- .
+
+  # Expunge a file everywhere; this command is typically for a serious problem,
+  # such as accidentially committing a file of sensistive data, such as passwords.
+  # After you use command, you will likely need to force push everything.
+  # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+  expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
 
   # Edit all files of the given type
   edit-cached = !"f() { git ls-files --cached | sort -u ; }; `git var GIT_EDITOR` `f`"
