@@ -106,6 +106,12 @@
   # grep with grouping of the output lines
   gg =  grep --break --heading --line-number
 
+  # grep with ack-like formatting
+  ack = -c color.grep.linenumber=\"bold yellow\" \
+        -c color.grep.filename=\"bold green\" \
+        -c color.grep.match=\"reverse yellow\" \
+        grep --break --heading --line-number
+
   ### log ###
 
   # log with a text-based graphical representation of the commit history.
