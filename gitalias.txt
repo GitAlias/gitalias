@@ -457,8 +457,11 @@
   # Clone a git repository including all submodules
   cloner = clone --recursive
 
-  # Stash aliases
-  save = stash save
+  # Stash aliases for push & pop
+  #
+  # Note that if you are using an older version of git, before 2.16.0,
+  # then you can use the older "stash save" instead of the newer "stash push".  
+  save = stash push
   pop = stash pop
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
