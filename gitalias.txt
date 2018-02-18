@@ -60,11 +60,11 @@
   # commit - amend the tip of the current branch rather than creating a new commit.
   ca = commit --amend
 
-  # commit - amend the tip of the current branch, and do not edit the message.
-  can = commit --amend --no-edit
-
   # commit - amend the tip of the current branch, and edit the message.
   cam = commit --amend --message
+
+  # commit - amend the tip of the current branch, and do not edit the message.
+  cane = commit --amend --no-edit
 
   # commit interactive
   ci = commit --interactive
