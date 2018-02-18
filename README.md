@@ -233,3 +233,5 @@ Thanks to these people for extra help:
   * [Michal Jarosz](https://github.com/Mchl)
   * [Nick Palmer](https://github.com/nickpalmer)
   * [Michael Mior](https://github.com/michaelmior)
+  * [Nick Kirby](https://github.com/NRKirby)
+  
