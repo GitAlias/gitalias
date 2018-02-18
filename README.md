@@ -20,12 +20,12 @@ To see the complete code, view these files:
 
 ## What is Git Alias?
 
-Git Alias is a collection of git version control shortcuts and functions to make using git faster, easier, and better.
+Git Alias is a collection of git version control shortcuts, functions, and commands:
 
   * Shortcuts such as `s` for `status`.
-  * Improvements such as `optimize` to prune and repack using recommended settings.
-  * Visualizations such as `graphviz` to show logs and charts using third-party tools.
+  * Improvements such as `optimize` to do a prune and repack with recommended settings.
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
+  * Visualizations such as `graphviz` to show logs and charts using third-party tools.
 
 
 ## Install
