@@ -110,7 +110,6 @@ To include our aliases then customize "git l" with your own definition:
 
     [include]
        path = ~/.gitconfig.d/gitalias.txt
-       path = ~/.gitconfig.d/gitalias-for-topic-branches.txt
 
     [alias]
        l = log --graph --oneline
