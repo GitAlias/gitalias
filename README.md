@@ -76,7 +76,7 @@ Topics:
 
 Grep:
 
-    grep-group =  grep --break --heading --line-number
+    gg =  grep --break --heading --line-number
     grep-all = !"git rev-list --all | xargs git grep '$1'"
 
 Name:
