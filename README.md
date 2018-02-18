@@ -3,12 +3,12 @@
 This project provides many git alias commands that you can use as you like.
 
 Contents:
-
-* [Introduction](#introduction)
+* [What is Git Alias?](#what-is-git-alias)
+* [Install](#install)
 * [Examples](#examples)
 * [Customization](#customization)
 * [Purpose](#purpose)
-* [More ideas](#more)
+* [More ideas](#more-ideas)
 * [Contributing](#contributing)
 * [Thanks](#thanks)
 
@@ -18,20 +18,17 @@ To see the complete code, view these files:
 * [gitalias-for-topic-branches.txt](gitalias-for-topic-branches.txt)
 
 
-<h2><a name="introduction">Introduction</a></h2>
+## What is Git Alias?
 
-We use Git version control every day. We like to make it faster, easier, and better.
-
-We create Git alias items to help us, such as:
+Git Alias is a collection of git version control shortcuts and functions to make using git faster, easier, and better.
 
   * Shortcuts such as `s` for `status`.
   * Improvements such as `optimize` to prune and repack using recommended settings.
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
-  * For links to many more ideas and git alias files, see the end of this file.
 
 
-<h2><a name="examples">Install</a></h2>
+## Install
 
 This is simply a text file. Copy what you like.
 
@@ -40,7 +37,7 @@ This is simply a text file. Copy what you like.
   2. Copy/paste anything you like into your own `.gitconfig` file.
 
 
-<h2><a name="examples">Examples</a></h2>
+## Examples
 
 Shortcuts:
 
@@ -100,7 +97,7 @@ Optimize:
     repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
 
 
-<h2><a name="customization">Customization</a></h2>
+## Customization
 
 You can customize any of the file items by editing the file as you like.
 
@@ -150,7 +147,7 @@ We are creating this alias list because we type these commands many times daily,
 We often work on teams, across many companies and organizations, and using multiple shells. We want to count on a set of aliases. For shorter commands, such as `s` for `status`, fast speed is nice. For longer commands, such as `repacker`, accurate settings are important.
 
 
-<h2><a name="more">More ideas</a></h2>
+## More ideas
 
 More ideas for git improvements:
 
@@ -178,7 +175,7 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
 
-<h2><a name="contributing">Contributing</a></h2>
+## Contributing
 
 We welcome people contributing, such as creating pull requests, or creating issue reports, or tweeting ideas to us.
 
@@ -205,13 +202,13 @@ We prefer this git commit message format:
   * Body
     * Wrap the body at 72 characters.
     * Use the body to explain what and why vs. how.
-    * For commits with more than one author, add "Author: Alice <alice@example.com>".
-    * For commits that refer to a URL, add "URL: https://example.com".
+    * For commits with more than one author, add "By: Alice <alice@example.com>".
+    * For commits that refer to a URL, add "See: https://example.com".
     * For commits that refer to a tracker, use the complete URL, not just a number or code.
   * For more info see <a href="http://chris.beams.io/posts/git-commit/">How to write a git commit message</a>.
 
 
-<h2><a name="thanks">Thanks</a></h2>
+## Thanks
 
 Thanks to all the contributors, including all the creators of the projects mentioned above.
 
@@ -234,4 +231,4 @@ Thanks to these people for extra help:
   * [Nick Palmer](https://github.com/nickpalmer)
   * [Michael Mior](https://github.com/michaelmior)
   * [Nick Kirby](https://github.com/NRKirby)
-  
+
