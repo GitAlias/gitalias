@@ -515,6 +515,9 @@
   pull1 = "!git pull origin $(git branch-name)"
 
 
+  # Do git push --force for just one branch
+  pf = "!git push origin $(git branch-name) --force"
+
   ##
   # Reset & Undo
   ##
