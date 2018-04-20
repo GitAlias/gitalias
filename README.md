@@ -1,4 +1,4 @@
-﻿# Git Alias
+# Git Alias
 
 This project provides many git alias commands that you can use as you like.
 
@@ -64,7 +64,7 @@ Log:
 Workflow:
 
     get = !git pull --rebase && git submodule update --init --recursive
-    put = !git commit --all --message="$1" && git push
+    put = "!f() { git add -A && git commit -m \"$@\" && git push;  }; f"
 
 Topics:
 
