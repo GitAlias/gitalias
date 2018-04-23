@@ -177,6 +177,11 @@
   #
   pr = pull --rebase
 
+  ### push ###
+
+  po = push origin
+  pom = push origin master
+
   ### rebase ###
 
   # rebase - forward-port local commits to the updated upstream head.
