@@ -505,7 +505,7 @@
 
   # Do everything we can to synchronize all changes
   get = !git pull --rebase && git submodule update --init --recursive
-  put = "!f() { git add -A && git commit -m \"$@\" && git push;  }; f"
+  put = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
 
   # Ignore all untracked files by appending them to .gitignore:
   ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
