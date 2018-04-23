@@ -64,7 +64,7 @@ Log:
 Workflow:
 
     get = !git pull --rebase && git submodule update --init --recursive
-    put = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+    put = !git commit --all --message=\"$1\" && shift && git push
 
 Topics:
 
