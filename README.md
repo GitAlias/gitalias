@@ -30,14 +30,16 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
 ## Install
 
-Download the file `gitalias.txt` and put it anywhere you want.
+Download the file `gitalias.txt` and put it anywhere you want:
 
-Edit your file `.gitconfig` and add this:
+    curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
+
+Edit your file `.gitconfig` and include `gitalias.txt` such as:
 
     [include]
         path = gitalias.txt
 
-Alternative: If you are using an older version of git that does not have the "include" capability, or if you prefer more control, then you can simply view the file `gitalias.txt` and copy/paste anything you like into your own `.gitconfig` file.
+Alternative: If are using an older version of git that does not have the "include" capability, or if you prefer more control, then you can simply view the file `gitalias.txt` and copy/paste anything you like into your own `.gitconfig` file.
 
 
 ## Examples
