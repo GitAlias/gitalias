@@ -198,7 +198,7 @@ We want this project to be a good starting point for teams.
 We prefer this git commit message format:
 
   * Subject
-    * Start with an imperative verb, such as "Add", "Remove", "Fix", "Upgrade", etc.
+    * Start with an imperative verb, such as "Add", "Drop", "Fix", "Upgrade", etc.
     * Capitalize the line, for example "Add" not "add".
     * Limit the line to 50 characters.
     * End the line without a period.

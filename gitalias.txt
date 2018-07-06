@@ -126,11 +126,8 @@
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
 
-  # log key - our favorite way to show our key performance indicators, i.e. our most useful summary.
-  lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
-
-  # log latest - show the 10 most recent lines using `lk`
-  ll = log -n 10 --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad'
+  # log like - we like this format that shows our key performance indicators, i.e. our useful summary.
+  ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
   ## ls-files ##
 
@@ -807,7 +804,7 @@
   #
   #     $ git topic-start foo
   #     ... do work ...
-  #     $ git topic-finish
+  #     $ git topic-stop
   #
   # If you want more control, then you can use these building blocks:
   #
@@ -840,7 +837,7 @@
 
   topic-base-branch-name = "echo master"
 
-  ### START & FINISH ###
+  ### START & STOP ###
 
   ##
   # Start a topic branch.
@@ -848,6 +845,9 @@
   # Example:
   #
   #     git topic-start foo
+  #
+  # We use this alias to begin work on a new feature,
+  # new task, new fix, new refactor, new optimization, etc.
   #
   # This implementatation does these steps:
   #
@@ -864,11 +864,14 @@
   };f"
 
   ##
-  # Finish a topic branch; this must be the current branch.
+  # Stop a topic branch; this must be the current branch.
   #
   # Example:
   #
-  #     git topic-finish
+  #     git topic-stop
+  #
+  # We use this alias to complete work on a new feature,
+  # new task, new fix, new refactor, new optimization, etc.
   #
   # This implementatation does these:
   #
@@ -878,7 +881,7 @@
   # Customize this alias as you like for your own workflow.
   ##
 
-  topic-finish = "!f(){ \
+  topic-stop = "!f(){ \
     git topic-push; \
     git topic-delete; \
   };f"
@@ -954,21 +957,20 @@
   #
   # This implementatation does these:
   #
-  #   1. Update the trunk branch
-  #   2. Update the topic branch with any changes from the master branch
+  #   1. Pull the topic branch from the origin.
   #
   # If you use any kind of testing framework, or test driven development,
   # then it can be wise to test your topic immediately after running this,
   # to ensure that any available updates are successfully integrated.
   #
   # Customize this alias as you like for your own workflow.
+  #
+  #   * E.g. some teams prefer to use `pull --rebase`.
   ##
 
   topic-pull = "!f(){ \
     branch=$(git branch-name); \
-    base=$(git topic-base-branch-name); \
-    git checkout \"$base\"; git pull; \
-    git checkout \"$branch\"; git rebase \"$base\"; \
+    git pull; \
   };f"
 
   ##
@@ -1018,6 +1020,16 @@
     git topic-pull; \
     git topic-push; \
   };f"
+
+  ##
+  # 
+  topic-pull-- = "!f(){ \
+    branch=$(git branch-name); \
+    base=$(git topic-base-branch-name); \
+    git checkout \"$base\"; git pull; \
+    git checkout \"$branch\"; git rebase \"$base\"; \
+  };f"
+
 
   ##########################################################################
 
