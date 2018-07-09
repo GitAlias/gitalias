@@ -942,11 +942,19 @@
 
   topic-delete = "!f(){ \
     branch=$(git branch-name); \
-    base=$(git topic-base-branch-name); \
-    git checkout \"$base\"; \
-    git branch --delete \"$branch\"; \
-    git push origin \":$branch\"; \
+    topic_base_branch=$(git topic-base-branch-name); \
+    if [ \"$branch\" = \"$topic_base_branch\" ]; then \
+      printf \"You are trying to delete your git topic branch,\n\"; \
+      printf \"but you are on the topic base branch: $topic_base_branch.\n\"; \
+      printf \"Please checkout the topic branch that you want,\n\"; \
+      printf \"then retry the git topic delete command.\n\"; \
+    else \
+      git checkout \"$base\"; \
+      git branch --delete \"$branch\"; \
+      git push origin \":$branch\"; \
+    fi; \
   };f"
+
 
   ### PULL & PUSH ###
 
