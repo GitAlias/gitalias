@@ -835,7 +835,9 @@
   # Customize this alias as you like for your own workflow.
   ##
 
-  topic-base-branch-name = "echo master"
+  topic-base-branch-name = "!f(){ \
+    printf "master"; \
+  };f"
 
   ### START & STOP ###
 
