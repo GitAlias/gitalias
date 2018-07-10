@@ -836,7 +836,7 @@
   ##
 
   topic-base-branch-name = "!f(){ \
-    printf "master"; \
+    printf \"master\n\"; \
   };f"
 
   ### START & STOP ###
@@ -949,7 +949,7 @@
       printf \"Please checkout the topic branch that you want,\n\"; \
       printf \"then retry the git topic delete command.\n\"; \
     else \
-      git checkout \"$base\"; \
+      git checkout \"$topic_base_branch\"; \
       git branch --delete \"$branch\"; \
       git push origin \":$branch\"; \
     fi; \
