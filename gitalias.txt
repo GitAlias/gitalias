@@ -816,6 +816,11 @@
   #     $ git topic-pull
   #     $ git topic-push
   #
+  # If you want to manage your branch while you're working, then use these:
+  #
+  #     $ git topic-sync
+  #     $ git topic-rename
+  #
   # Ideas for your own alias customizations:
   #
   #   * Notify your team, such as by sending an email, posting to chat, etc.
@@ -860,8 +865,8 @@
   ##
 
   topic-start = "!f(){ \
-    branch=\"$1\"; \
-    git topic-create \"$branch\"; \
+    topic_branch=\"$1\"; \
+    git topic-create \"$topic_branch\"; \
     git topic-push; \
   };f"
 
@@ -906,10 +911,10 @@
   ##
 
   topic-create = "!f(){ \
-    branch=\"$1\"; \
-    base=$(git topic-base-branch-name); \
-    git checkout \"$base\"; git pull; \
-    git checkout -b \"$branch\" \"$base\"; \
+    topic_branch=\"$1\"; \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout -b \"$topic_branch\" \"$base_branch\"; \
   };f"
 
   ##
@@ -941,17 +946,17 @@
   ##
 
   topic-delete = "!f(){ \
-    branch=$(git branch-name); \
-    topic_base_branch=$(git topic-base-branch-name); \
-    if [ \"$branch\" = \"$topic_base_branch\" ]; then \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    if [ \"$topic_branch\" = \"$base_branch\" ]; then \
       printf \"You are trying to delete your git topic branch,\n\"; \
-      printf \"but you are on the topic base branch: $topic_base_branch.\n\"; \
+      printf \"but you are on the base branch: $topic_base_branch.\n\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
       printf \"then retry the git topic delete command.\n\"; \
     else \
-      git checkout \"$topic_base_branch\"; \
-      git branch --delete \"$branch\"; \
-      git push origin \":$branch\"; \
+      git checkout \"$base_branch\"; \
+      git branch --delete \"$topic_branch\"; \
+      git push origin \":$topic_branch\"; \
     fi; \
   };f"
 
@@ -979,8 +984,14 @@
   ##
 
   topic-pull = "!f(){ \
-    branch=$(git branch-name); \
     git pull; \
+  };f"
+
+  topic-pull-rebase = "!f(){ \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout \"$topic_branch\"; git rebase \"$base_branch\"; \
   };f"
 
   ##
@@ -1007,10 +1018,12 @@
   ##
 
   topic-push = "!f(){ \
-    branch=$(git branch-name); \
-    git push --set-upstream origin \"$branch\"; \
+    topic_branch=$(git branch-name); \
+    git push --set-upstream origin \"$topic_branch\"; \
   };f"
 
+  ### MANAGE TOPIC BRANCES ###
+  
   ##
   # Update the current topic branch by synchronizing changes.
   #
@@ -1032,12 +1045,25 @@
   };f"
 
   ##
-  # 
-  topic-pull-- = "!f(){ \
-    branch=$(git branch-name); \
-    base=$(git topic-base-branch-name); \
-    git checkout \"$base\"; git pull; \
-    git checkout \"$branch\"; git rebase \"$base\"; \
+  # Move/rename the current topic branch.
+  #
+  # Example:
+  #
+  #     git topic-move hello
+  #
+  # This implementation does these:
+  #
+  #   1. Move/rename the local branch.
+  #   2. Move/rename the remote branch by pusing to origin.
+  #
+  # Customize this alias as you like for your own workflow.
+  ##
+  
+  topic-move = "!f(){ \
+    new_branch=\"$1\"; \
+    old_branch=$(git branch-name); \
+    git branch --move \"$old_branch\" \"$new_branch\"; \
+    git push origin \":$old_branch\" \"$new_branch\"; \
   };f"
 
 
