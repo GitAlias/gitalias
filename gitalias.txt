@@ -60,6 +60,9 @@
   # commit - amend the tip of the current branch rather than creating a new commit.
   ca = commit --amend
 
+  # commit all with a message
+  calm = commit --all --message
+
   # commit - amend the tip of the current branch, and edit the message.
   cam = commit --amend --message
 
