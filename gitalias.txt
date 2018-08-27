@@ -500,9 +500,21 @@
   # When you're a little worried that the world is coming to an end
   panic = !tar cvf ../git_panic.tar *
 
-  # Do everything we can to synchronize all changes
-  get = !git pull --rebase=preserve && git submodule update --init --recursive
-  put = !git commit --all --message=\"$1\" && shift && git push
+  # Do everything we can to synchronize all changes for the current branch.
+  #
+  #  * git get: fetch and prune, pull and rebase, then update submodules
+  #  * git put: commit all items, then push
+  #
+  # TODO: handle tags, delete superfluous branches, and add error handing.
+  #
+  get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
+  put = !git commit --all && git push
+
+  # Do everything we can to make the local repo like the master branch.
+  #
+  # TODO: handle tags, and delete superfluous branches, and add error handling.
+  #
+  mastery = !git checkout master && git fetch origin --prune && git reset --hard origin/master
 
   # Ignore all untracked files by appending them to .gitignore:
   ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
