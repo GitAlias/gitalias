@@ -96,6 +96,9 @@
   # diff - show changes but by word, not line
   dw = diff --word-diff
 
+  # Show all commits in the current branch yet to be merged to master
+  db = cherry -v master
+
   ### clean ###
 
   # clean everything to be pristine
