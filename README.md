@@ -68,7 +68,7 @@ Log:
 
 Workflow:
 
-    get = !git pull --rebase && git submodule update --init --recursive
+    get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
     put = !git commit --all --message=\"$1\" && shift && git push
 
 Topics:
