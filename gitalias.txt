@@ -13,6 +13,7 @@
   d = diff
   f = fetch
   g = grep
+  h = push
   l = log
   m = merge
   o = checkout
