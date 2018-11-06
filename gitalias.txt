@@ -860,7 +860,9 @@
   ##
 
   topic-base-branch-name = "!f(){ \
-    printf \"master\n\"; \
+    head_path=$(git symbolic-ref refs/remotes/origin/HEAD); \
+    branch_name=$(basename $head_path); \
+    echo $branch_name; \
   };f"
 
   ### START & STOP ###
