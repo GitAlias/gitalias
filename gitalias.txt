@@ -376,9 +376,12 @@
   # Show log as a graph
   log-graph = log --graph --all --oneline --decorate
 
-  # Show the date of the first commit
-  log-first-date = !"git log --date-order --date=iso --pretty=%ad --reverse | head -1"
+  # Show the date of the earliest commit, in strict ISO 8601 format
+  log-first-date = !"git log --date-order --format=%cI | tail -1"
 
+  # Show the date of the latest commit, in strict ISO 8601 format
+  log-latest-date = log -1 --date-order --format=%cI
+  
   # Show the recent day
   log-day = log --since yesterday
 
