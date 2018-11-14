@@ -122,6 +122,9 @@
 
   # log with patch generation.
   lp = log --patch
+  
+  # log with first parent, useful for team branch that only accepts pull requests
+  lfp = log --first-parent
 
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
