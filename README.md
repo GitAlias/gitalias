@@ -64,7 +64,7 @@ Plurals:
 Log:
 
     log-graph = log --graph --all  --decorate --oneline
-    log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+    log-my-week = !git log --author $(git config user.email) --since "1 week ago"
 
 Workflow:
 

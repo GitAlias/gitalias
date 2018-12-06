@@ -373,8 +373,8 @@
   # Show log with dates in our local timezone
   log-local = log --date=local
 
-  # Show the log for my own user email
-  log-me = !git log --author $(git config user.email)
+  # Show the log for my own commits by my own user email
+  log-my = !git log --author $(git config user.email)
 
   # Show log as a graph
   log-graph = log --graph --all --oneline --decorate
@@ -385,11 +385,18 @@
   # Show the date of the latest commit, in strict ISO 8601 format
   log-latest-date = log -1 --date-order --format=%cI
   
-  # Show the recent day
-  log-day = log --since yesterday
+  # Show the recent hour, day, week, month, year
+  log-hour  = log --since "1 hour ago"
+  log-day   = log --since "1 day ago"
+  log-week  = log --since "1 week ago"
+  log-month = log --since "1 month ago"
+  log-year  = log --since "1 year ago"
 
-  # Summarize your own changes since yesterday, suitable for a daily standup meeting.
-  log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+  log-my-hour  = log --author $(git config user.email) --since "1 hour ago"
+  log-my-day   = log --author $(git config user.email) --since "1 day ago"
+  log-my-week  = log --author $(git config user.email) --since "1 week ago"
+  log-my-month = log --author $(git config user.email) --since "1 month ago"
+  log-my-year   = log --author $(git config user.email) --since "1 year ago"
 
   # TODO
   log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
