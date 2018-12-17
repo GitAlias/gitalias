@@ -384,19 +384,33 @@
 
   # Show the date of the latest commit, in strict ISO 8601 format
   log-latest-date = log -1 --date-order --format=%cI
-  
-  # Show the recent hour, day, week, month, year
+
+  # Show the number of log entries by a specific date format
+  log-count-by-date-format = "!f() { d=\"$1\"; shift; git log $@ --format=oneline --format="%ad" --date=format:\"$d\" | awk '{a[$0]++}END{for(i in a){print i, a[i]}}' | sort; }; f"
+
+  # Show the log of the recent hour, day, week, month, year
   log-hour  = log --since "1 hour ago"
   log-day   = log --since "1 day ago"
   log-week  = log --since "1 week ago"
   log-month = log --since "1 month ago"
   log-year  = log --since "1 year ago"
 
+  # Show the log of my own recent hour, day, week, month, year
   log-my-hour  = log --author $(git config user.email) --since "1 hour ago"
   log-my-day   = log --author $(git config user.email) --since "1 day ago"
   log-my-week  = log --author $(git config user.email) --since "1 week ago"
   log-my-month = log --author $(git config user.email) --since "1 month ago"
   log-my-year   = log --author $(git config user.email) --since "1 year ago"
+
+  # Show the number of log items by year, or month, or day, etc.
+  log-count-by-year          = "!f() { git log-count-by-date-format \"%Y\" $@ ; }; f"
+  log-count-by-month         = "!f() { git log-count-by-date-format \"%Y-%m\" $@ ; }; f"
+  log-count-by-day           = "!f() { git log-count-by-date-format \"%Y-%m-%d\" $@ ; }; f"
+  log-count-by-hour          = "!f() { git log-count-by-date-format \"%Y-%m-%dT%H\" $@ ; }; f"
+  log-count-by-week          = "!f() { git log-count-by-date=format:\"%Y#%V\" $@; }; f"
+  log-count-by-week-of-year  = "!f() { git log-count-by-date=format:\"%V\" $@; }; f"
+  log-count-by-day-of-week   = "!f() { git log-count-by-date=format:\"%u\" $@; }; f"
+  log-count-by-hour-of-day   = "!f() { git log-count-by-date=format:\"%H\" $@; }; f"
 
   # TODO
   log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
