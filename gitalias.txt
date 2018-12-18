@@ -405,7 +405,7 @@
   # Show the number of log items by year, or month, or day, etc.
   log-count-per-hour          = "!f() { git log-count-per-date-format \"%Y-%m-%dT%H\" $@ ; }; f"
   log-count-per-day           = "!f() { git log-count-per-date-format \"%Y-%m-%d\" $@ ; }; f"
-  log-count-per-week          = "!f() { git log-count-per-date=format \"%Y#%V\" $@; }; f"
+  log-count-per-week          = "!f() { git log-count-per-date-format \"%Y#%V\" $@; }; f"
   log-count-per-month         = "!f() { git log-count-per-date-format \"%Y-%m\" $@ ; }; f"
   log-count-per-year          = "!f() { git log-count-per-date-format \"%Y\" $@ ; }; f"
   log-count-per-hour-of-day   = "!f() { git log-count-per-date-format \"%H\" $@; }; f"
