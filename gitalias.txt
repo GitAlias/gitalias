@@ -400,17 +400,17 @@
   log-my-day   = log --author $(git config user.email) --since "1 day ago"
   log-my-week  = log --author $(git config user.email) --since "1 week ago"
   log-my-month = log --author $(git config user.email) --since "1 month ago"
-  log-my-year   = log --author $(git config user.email) --since "1 year ago"
+  log-my-year  = log --author $(git config user.email) --since "1 year ago"
 
   # Show the number of log items by year, or month, or day, etc.
-  log-count-per-year          = "!f() { git log-count-per-date-format \"%Y\" $@ ; }; f"
-  log-count-per-month         = "!f() { git log-count-per-date-format \"%Y-%m\" $@ ; }; f"
-  log-count-per-day           = "!f() { git log-count-per-date-format \"%Y-%m-%d\" $@ ; }; f"
   log-count-per-hour          = "!f() { git log-count-per-date-format \"%Y-%m-%dT%H\" $@ ; }; f"
-  log-count-per-week          = "!f() { git log-count-per-date=format:\"%Y#%V\" $@; }; f"
-  log-count-per-week-of-year  = "!f() { git log-count-per-date=format:\"%V\" $@; }; f"
-  log-count-per-day-of-week   = "!f() { git log-count-per-date=format:\"%u\" $@; }; f"
-  log-count-per-hour-of-day   = "!f() { git log-count-per-date=format:\"%H\" $@; }; f"
+  log-count-per-day           = "!f() { git log-count-per-date-format \"%Y-%m-%d\" $@ ; }; f"
+  log-count-per-week          = "!f() { git log-count-per-date=format \"%Y#%V\" $@; }; f"
+  log-count-per-month         = "!f() { git log-count-per-date-format \"%Y-%m\" $@ ; }; f"
+  log-count-per-year          = "!f() { git log-count-per-date-format \"%Y\" $@ ; }; f"
+  log-count-per-hour-of-day   = "!f() { git log-count-per-date=format \"%H\" $@; }; f"
+  log-count-per-day-of-week   = "!f() { git log-count-per-date=format \"%u\" $@; }; f"
+  log-count-per-week-of-year  = "!f() { git log-count-per-date=format \"%V\" $@; }; f"
 
   # TODO
   log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
