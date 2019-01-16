@@ -78,35 +78,35 @@ be = branch --edit-description
 ci = commit --interactive
 ```
 
-Plurals:
-
-```gitalias
-branches = branch -a
-stashes = stash list
-```
-
-Log:
+Logging:
 
 ```gitalias
 log-graph = log --graph --all  --decorate --oneline
 log-my-week = !git log --author $(git config user.email) --since "1 week ago"
 ```
 
-Grep:
+Searching:
 
 ```gitalias
 grep-group =  grep --break --heading --line-number
 grep-all = !"git rev-list --all | xargs git grep '$1'"
 ```
 
-Name:
+Naming:
 
 ```gitalias
 branch-name = rev-parse --abbrev-ref HEAD
 upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
 ```
 
-Combine:
+Pluralizing:
+
+```gitalias
+branches = branch -a
+stashes = stash list
+```
+
+Combining:
 
 ```gitalias
 ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
@@ -127,14 +127,14 @@ publish = "!git push -u origin $(git branch-name)"
 unpublish = "!git push origin :$(git branch-name)"
 ```
 
-Topic branching:
+Topic branches:
 
 ```gitalias
 topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
 topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
 ```
 
-Optimizations:
+Repository optimizations:
 
 ```gitalias
 pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
