@@ -14,7 +14,7 @@ Contents:
   * [Log](#log)
 * [Purpose](#purpose)
 * [Epilog](#epilog)
-  * [More ideas](#more-ideas)
+  * [See also](#see-also)
   * [To do](#to-do)
   * [Thanks](#thanks)
 
