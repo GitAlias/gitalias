@@ -100,7 +100,7 @@ be = branch --edit-description
 ci = commit --interactive
 ```
 
-With many options preferred by developers:
+With options preferred by developers:
 
 ```gitalias
 dd = diff --check --dirstat --find-copies --find-renames --histogram --color
