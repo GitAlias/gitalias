@@ -12,7 +12,7 @@
 #
 #   * Include the path to this file.
 #
-# Example file `~/.gitconfg` item to include the file `~/.gitalias.txt`:
+# Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
 #
 #     [include]
 #       path = gitalias.txt
@@ -32,7 +32,6 @@
 # and also define your own alias items; a later alias takes precedence.
 #
 # Example file `~/.gitconfg` item to include the file `~/.gitalias.txt`:
-#
 #
 #     [include]
 #       path = ~/.gitconfig.d/gitalias.txt

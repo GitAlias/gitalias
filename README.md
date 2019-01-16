@@ -31,7 +31,7 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
 
-To see the complete code, view this files:
+To see the complete code, view this file:
 
   * [gitalias.txt](gitalias.txt)
 
@@ -44,17 +44,20 @@ Download the file [`gitalias.txt`](gitalias.txt):
 curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
 ```
 
-Put it anywhere you want:
+Typical usage for a typical user:
 
-Edit your file `.gitconfig` and include `gitalias.txt` such as:
+  * Save this file as a dot file in your home directory: `~/.gitalias.txt`
+
+  * Edit your git config dot file in your home directory such as  `~/.gitconfig`
+
+  * Include the path to this file.
+
+Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
 
 ```gitalias
 [include]
   path = gitalias.txt
 ```
-
-Alternative: If are using an older version of git that does not have the "include" capability, or if you prefer more control, then you can simply view the file `gitalias.txt` and copy/paste anything you like into your own `.gitconfig` file.
-
 
 ## Examples
 
@@ -141,9 +144,12 @@ repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
 
 ## Customization
 
-You can customize any of the file items by editing the file as you like.
 
-You can also customize any of the file items by adding your own item later in your own gitconfig file.
+If you want to use this file, and also want to change some of the items,
+then one way is to use your git config file to include this gitalias file,
+and also define your own alias items; a later alias takes precedence.
+
+This section has examples that include this file, then add a customization.
 
 
 ### Alias
