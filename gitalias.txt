@@ -147,12 +147,16 @@
 
   # diff - show changes not yet staged
   dc = diff --cached
-
-  # diff - changes about to be commited
+  
+  # diff - show changes about to be commited
   ds = diff --staged
 
   # diff - show changes but by word, not line
   dw = diff --word-diff
+
+  # diff deep - show changes in our preferred way, which is deeper though slower.
+  # This is a special double-letter command because we use it so often.
+  dd = diff --indent-heuristic --histogram --minimal  
 
   ### clean ###
 
@@ -161,13 +165,14 @@
 
   ### grep ###
 
-  # find text
+  # grep i.e. search for text
   g = grep
 
-  # grep and show line number
-  gl =  grep --line-number
+  # grep - show line number
+  gl = grep --line-number
 
   # grep group: find text and group the output lines; a.k.a. `grep-group`.
+  # This is a special double-letter command because we use it so often.
   gg =  grep --break --heading --line-number
 
   ### log ###
@@ -187,7 +192,8 @@
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
 
-  # log like - we like this format that shows our key performance indicators, i.e. our useful summary.
+  # log like - we like this format because it summarizes our key performance indicators
+  # This is a special double-letter command because we use it so often.
   ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
   ## ls-files ##

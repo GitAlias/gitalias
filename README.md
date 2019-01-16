@@ -84,7 +84,7 @@ Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
 
 ### Shortcut examples
 
-Shortcut letters:
+Letters:
 
 ```gitalias
 a = add
@@ -92,12 +92,20 @@ b = branch
 c = commit
 ```
 
-Shortcut letters with options:
+With options:
 
 ```gitalias
 ap = add --patch
 be = branch --edit-description
 ci = commit --interactive
+```
+
+With many options preferred by developers:
+
+```gitalias
+dd = diff --check --dirstat --find-copies --find-renames --histogram --color
+gg = grep --break --heading --line-number --color
+ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 ```
 
 
