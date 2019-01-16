@@ -216,38 +216,6 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
 
-## Contributing
-
-We welcome people contributing, such as creating pull requests, or creating issue reports, or tweeting ideas to us.
-
-  * We're aiming to have new kinds of pull requests open for a week to encourage comments.
-
-We want this project to be a good starting point for teams.
-
-  * We're aiming for consensus and practicality.
-
-  * We want ease of use, ease of composability, and ease of understanding.
-
-  * We use the Git documentation guidelines for our coding format.
-
-  * We like meaningful comments and practical examples to help novices.
-
-We prefer this git commit message format:
-
-  * Subject
-    * Start with an imperative verb, such as "Add", "Drop", "Fix", "Upgrade", etc.
-    * Capitalize the line, for example "Add" not "add".
-    * Limit the line to 50 characters.
-    * End the line without a period.
-    * Use a blank line after the subject to separate the subject from the body.
-  * Body
-    * Wrap the body at 72 characters.
-    * Use the body to explain what and why vs. how.
-    * For commits with more than one author, add "By: Alice <alice@example.com>".
-    * For commits that refer to a URL, add "See: https://example.com".
-    * For commits that refer to a tracker, use the complete URL, not just a number or code.
-  * For more info see <a href="http://chris.beams.io/posts/git-commit/">How to write a git commit message</a>.
-
 
 ## Epilog
 
