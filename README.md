@@ -4,22 +4,30 @@ This project provides many git alias commands that you can use as you like.
 
 Contents:
 
-* [What is Git Alias?](#what-is-git-alias)
+* [Introduction](#introduction)
+  * [What is Git Alias?](#what-is-git-alias)
+  * [Where is the code?](#where-is-the-code)
+  * [Why use this?](#why-use-this)
 * [Install](#install)
 * [Examples](#examples)
+  * [Shortcut examples](#shortcut-examples)
+  * [Accelerator examples](#accelerator-examples)
+  * [Workflow examples](#workflow-examples)
+  * [Optimization examples](#optimization-examples)
 * [Customization](#customization)
-  * [Alias](#alias)
-  * [Format](#format)
   * [Status](#status)
   * [Log](#log)
-* [Purpose](#purpose)
+  * [Format](#format)
 * [Epilog](#epilog)
   * [See also](#see-also)
   * [To do](#to-do)
   * [Thanks](#thanks)
 
 
-## What is Git Alias?
+## Introduction
+
+
+### What is Git Alias?
 
 Git Alias is a collection of git version control shortcuts, functions, and commands:
 
@@ -31,9 +39,20 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
 
+
+### Where is the code?
+
 To see the complete code, view this file:
 
   * [gitalias.txt](gitalias.txt)
+
+
+### Why use this?
+
+We are creating this alias list because we type these commands many times daily, and we want the commands to be fast and also accurate.
+
+We often work on teams, across many companies and organizations, and using multiple shells. We want to count on a set of aliases. For shorter commands, such as `s` for `status`, fast speed is nice. For longer commands, such as `repacker`, accurate settings are important.
+
 
 
 ## Install
@@ -59,8 +78,11 @@ Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
   path = gitalias.txt
 ```
 
+
 ## Examples
 
+
+### Shortcut examples
 
 Shortcuts:
 
@@ -78,6 +100,9 @@ be = branch --edit-description
 ci = commit --interactive
 ```
 
+
+### Accelerator examples
+
 Logging:
 
 ```gitalias
@@ -91,6 +116,40 @@ Searching:
 grep-group =  grep --break --heading --line-number
 grep-all = !"git rev-list --all | xargs git grep '$1'"
 ```
+
+Combining:
+
+```gitalias
+ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
+theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+```
+
+
+### Workflow examples
+
+Synchronizing:
+
+```gitalias
+get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
+put = !git commit --all && git push
+```
+
+Publishing:
+
+```gitalias
+publish = "!git push -u origin $(git branch-name)"
+unpublish = "!git push origin :$(git branch-name)"
+```
+
+Topic branching:
+
+```gitalias
+topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+```
+
+
+### Optimization examples
 
 Naming:
 
@@ -106,35 +165,7 @@ branches = branch -a
 stashes = stash list
 ```
 
-Combining:
-
-```gitalias
-ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
-theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
-```
-
-Workflows:
-
-```gitalias
-get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
-put = !git commit --all && git push
-```
-
-Publishing:
-
-```gitalias
-publish = "!git push -u origin $(git branch-name)"
-unpublish = "!git push origin :$(git branch-name)"
-```
-
-Topic branches:
-
-```gitalias
-topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
-```
-
-Repository optimizations:
+Compressing:
 
 ```gitalias
 pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
@@ -152,33 +183,9 @@ and also define your own alias items; a later alias takes precedence.
 This section has examples that include this file, then add a customization.
 
 
-### Alias
-
-To include our aliases then customize "git l" with your own definition:
-
-```gitalias
-[include]
-   path = .gitalias.txt
-[alias]
-   l = log --graph --oneline
-```
-
-
-### Format
-
-To use better pretty formatting:
-
-```gitalias
-[include]
-   path = .gitalias.txt
-[format]
-  pretty = "%H %ci %ce %ae %d %s"
-```
-
-
 ### Status
 
-To use terse status messages:
+To do your own custom terse status messages:
 
 ```gitalias
 [include]
@@ -190,7 +197,7 @@ To use terse status messages:
 
 ### Log
 
-To use log summaries:
+To do your own custom log summaries:
 
 ```gitalias
 [include]
@@ -199,12 +206,16 @@ To use log summaries:
   l = log --graph --oneline
 ```
 
+### Format
 
-## Purpose
+To do your own custom pretty formatting:
 
-We are creating this alias list because we type these commands many times daily, and we want the commands to be fast and also accurate.
-
-We often work on teams, across many companies and organizations, and using multiple shells. We want to count on a set of aliases. For shorter commands, such as `s` for `status`, fast speed is nice. For longer commands, such as `repacker`, accurate settings are important.
+```gitalias
+[include]
+   path = .gitalias.txt
+[format]
+  pretty = "%H %ci %ce %ae %d %s"
+```
 
 
 ## Epilog
