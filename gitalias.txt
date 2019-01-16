@@ -147,16 +147,15 @@
 
   # diff - show changes not yet staged
   dc = diff --cached
-  
+
   # diff - show changes about to be commited
   ds = diff --staged
 
   # diff - show changes but by word, not line
   dw = diff --word-diff
 
-  # diff deep - show changes in our preferred way, which is deeper though slower.
-  # This is a special double-letter command because we use it so often.
-  dd = diff --indent-heuristic --histogram --minimal  
+  # diff deep - show changes with our preferred options. Also aliased as `diff-deep`.
+  dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 
   ### clean ###
 
@@ -171,9 +170,8 @@
   # grep - show line number
   gl = grep --line-number
 
-  # grep group: find text and group the output lines; a.k.a. `grep-group`.
-  # This is a special double-letter command because we use it so often.
-  gg =  grep --break --heading --line-number
+  # grep group - search with our preferred options. Also aliased as `grep-group`.
+  gg = grep --break --heading --line-number --color
 
   ### log ###
 
@@ -192,8 +190,7 @@
   # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
   lt = log --topo-order
 
-  # log like - we like this format because it summarizes our key performance indicators
-  # This is a special double-letter command because we use it so often.
+  # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
   ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
   ## ls-files ##
@@ -365,32 +362,37 @@
   # Latest annotated tag in all branches
   lasttagged = !git describe --tags `git rev-list --tags --max-count=1`
 
-  # Diffs
-  diff-all = !"for name in $(git diff --name-only $1); do git difftool $1 $name & done"
-  diff-changes = diff --name-status -r
-  diff-stat = diff --stat --ignore-space-change -r
-  diff-staged = diff --cached
-
   # From https://gist.github.com/492227
   head = log -n1
   heads = !"git log origin/master.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
   lost = !"git fsck | awk '/dangling commit/ {print $3}' | git show --format='SHA1: %C(yellow)%h%Creset %f' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
 
-  ### grep ###
+  ### diff-* ###
+
+  diff-all = !"for name in $(git diff --name-only $1); do git difftool $1 $name & done"
+  diff-changes = diff --name-status -r
+  diff-stat = diff --stat --ignore-space-change -r
+  diff-staged = diff --cached
+
+  # Diff using our preferred options. A.k.a. `dd`.
+  diff-deep = diff --check --dirstat --find-copies --find-renames --histogram --color
+
+  ### grep-* ###
 
   # Find text in any commit ever.
   grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 
-  # Find text and group the output lines. Also aliased as `gg`.
-  grep-group = grep --break --heading --line-number
+  # Find text and group the output lines. A.k.a. `gg`.
+  grep-group = grep --break --heading --line-number --color
 
   # grep with ack-like formatting
-  ack = -c color.grep.linenumber=\"bold yellow\" \
-        -c color.grep.filename=\"bold green\" \
-        -c color.grep.match=\"reverse yellow\" \
-        grep --break --heading --line-number
+  grep-ack = \
+    -c color.grep.linenumber=\"bold yellow\" \
+    -c color.grep.filename=\"bold green\" \
+    -c color.grep.match=\"reverse yellow\" \
+    grep --break --heading --line-number
 
-  ###
+  ### merge-* ###
 
   # Given a merge commit, find the span of commits that exist(ed).
   # Not so useful in itself, but used by other aliases.
@@ -433,6 +435,9 @@
 
   # Show log of new commits after you fetched, with stats, excluding merges
   log-fresh = log ORIG_HEAD.. --stat --no-merges
+
+  # Show log in our preferred format for our key performance indicators. A.k.a. `ll`.
+  log-like = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
   # Show log with dates in our local timezone
   log-local = log --date=local

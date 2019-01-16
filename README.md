@@ -100,6 +100,9 @@ be = branch --edit-description
 ci = commit --interactive
 ```
 
+
+### Accelerator examples
+
 With options preferred by developers:
 
 ```gitalias
@@ -108,8 +111,6 @@ gg = grep --break --heading --line-number --color
 ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 ```
 
-
-### Accelerator examples
 
 Logging:
 
