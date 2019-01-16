@@ -18,20 +18,22 @@ Contents:
   * [To do](#to-do)
   * [Thanks](#thanks)
 
-To see the complete code, view these files:
-
-* [gitalias.txt](gitalias.txt)
-* [gitalias-for-topic-branches.txt](gitalias-for-topic-branches.txt)
-
 
 ## What is Git Alias?
 
 Git Alias is a collection of git version control shortcuts, functions, and commands:
 
   * Shortcuts such as `s` for `status`.
+
   * Improvements such as `optimize` to do a prune and repack with recommended settings.
+
   * Topic branch flows such as `topic-start` to create a new topic branch using master.
+
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
+
+To see the complete code, view this files:
+
+  * [gitalias.txt](gitalias.txt)
 
 
 ## Install
