@@ -92,20 +92,6 @@ log-graph = log --graph --all  --decorate --oneline
 log-my-week = !git log --author $(git config user.email) --since "1 week ago"
 ```
 
-Workflow:
-
-```gitalias
-get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
-put = !git commit --all --message=\"$1\" && shift && git push
-```
-
-Topics:
-
-```gitalias
-topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
-```
-
 Grep:
 
 ```gitalias
@@ -127,14 +113,28 @@ ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
 theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
 ```
 
-Publish:
+Workflows:
+
+```gitalias
+get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
+put = !git commit --all && git push
+```
+
+Publishing:
 
 ```gitalias
 publish = "!git push -u origin $(git branch-name)"
 unpublish = "!git push origin :$(git branch-name)"
 ```
 
-Optimize:
+Topic branching:
+
+```gitalias
+topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+```
+
+Optimizations:
 
 ```gitalias
 pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
@@ -238,19 +238,21 @@ References:
 
 ### To do
 
-* Create completion file for `bash`, `zsh`, etc.
+To do list in priority order:
 
-* Create an alias that can remove problematic files, akin to `bfg`.
+* Create an alias that helps remove problem files, akin to `bfg`.
 
 * Create installable packages such as for `apt`, `brew`, `dnf`.
 
-* Create security checksum.
+* Create completion file for `bash`, `zsh`, etc.
 
 * Create CI/CD pipeline.
 
-* Create newletter to announce changes.
+* Create security checksum.
 
-* Request for comments from git thought leaders.
+* Create annoucement list.
+
+* Request comments from git thought leaders.
 
 
 ### Thanks
