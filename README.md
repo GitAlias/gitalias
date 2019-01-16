@@ -3,6 +3,7 @@
 This project provides many git alias commands that you can use as you like.
 
 Contents:
+
 * [What is Git Alias?](#what-is-git-alias)
 * [Install](#install)
 * [Examples](#examples)
@@ -30,76 +31,105 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
 ## Install
 
-Download the file `gitalias.txt` and put it anywhere you want:
+Download the file [`gitalias.txt`](gitalias.txt):
 
-    curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
+```sh
+curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
+```
+
+Put it anywhere you want:
 
 Edit your file `.gitconfig` and include `gitalias.txt` such as:
 
-    [include]
-        path = gitalias.txt
+```gitalias
+[include]
+  path = gitalias.txt
+```
 
 Alternative: If are using an older version of git that does not have the "include" capability, or if you prefer more control, then you can simply view the file `gitalias.txt` and copy/paste anything you like into your own `.gitconfig` file.
 
 
 ## Examples
 
+
 Shortcuts:
 
-    a = add
-    b = branch
-    c = commit
+```gitalias
+a = add
+b = branch
+c = commit
+```
 
 Shortcuts with options:
 
-    ap = add --patch
-    be = branch --edit-description
-    ci = commit --interactive
+```gitalias
+ap = add --patch
+be = branch --edit-description
+ci = commit --interactive
+```
 
 Plurals:
 
-    branches = branch -a
-    stashes = stash list
+```gitalias
+branches = branch -a
+stashes = stash list
+```
 
 Log:
 
-    log-graph = log --graph --all  --decorate --oneline
-    log-my-week = !git log --author $(git config user.email) --since "1 week ago"
+```gitalias
+log-graph = log --graph --all  --decorate --oneline
+log-my-week = !git log --author $(git config user.email) --since "1 week ago"
+```
 
 Workflow:
 
-    get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
-    put = !git commit --all --message=\"$1\" && shift && git push
+```gitalias
+get = !git fetch --prune && git pull --rebase=preserve && git submodule update --init --recursive
+put = !git commit --all --message=\"$1\" && shift && git push
+```
 
 Topics:
 
-    topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
-    topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+```gitalias
+topic-start  = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+topic-finish = "!f(){ b=$(git branch-name); git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+```
 
 Grep:
 
-    grep-group =  grep --break --heading --line-number
-    grep-all = !"git rev-list --all | xargs git grep '$1'"
+```gitalias
+grep-group =  grep --break --heading --line-number
+grep-all = !"git rev-list --all | xargs git grep '$1'"
+```
 
 Name:
 
-    branch-name = rev-parse --abbrev-ref HEAD
-    upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
-    
+```gitalias
+branch-name = rev-parse --abbrev-ref HEAD
+upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+```
+
 Combine:
 
-    ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
-    theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
-  
+```gitalias
+ours   = !"f() { git checkout --ours $@ && git add $@; }; f"
+theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+```
+
 Publish:
 
-    publish = "!git push -u origin $(git branch-name)"
-    unpublish = "!git push origin :$(git branch-name)"
+```gitalias
+publish = "!git push -u origin $(git branch-name)"
+unpublish = "!git push origin :$(git branch-name)"
+```
 
 Optimize:
 
-    pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
-    repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
+```gitalias
+pruner = !git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all
+repacker = !git repack -a -d -f --depth=300 --window=300 --window-memory=1g
+```
 
 
 ## Customization
@@ -113,35 +143,42 @@ You can also customize any of the file items by adding your own item later in yo
 
 To include our aliases then customize "git l" with your own definition:
 
-    [include]
-       path = ~/.gitconfig.d/gitalias.txt
-
-    [alias]
-       l = log --graph --oneline
+```gitalias
+[include]
+   path = ~/.gitconfig.d/gitalias.txt
+[alias]
+   l = log --graph --oneline
+```
 
 
 ### Format
 
 To use better pretty formatting:
 
-    [format]
-      pretty = "%H %ci %ce %ae %d %s"
+```gitalias
+[format]
+  pretty = "%H %ci %ce %ae %d %s"
+```
 
 
 ### Status
 
 To use terse status messages:
 
-    [alias]
-      s = status -sb
+```gitalias
+[alias]
+  s = status -sb
+```
 
 
 ### Log
 
 To use log summaries:
 
-    [alias]
-      l = log --graph --oneline
+```gitalias
+[alias]
+  l = log --graph --oneline
+```
 
 
 ## Purpose
@@ -212,7 +249,32 @@ We prefer this git commit message format:
   * For more info see <a href="http://chris.beams.io/posts/git-commit/">How to write a git commit message</a>.
 
 
-## Thanks
+## Epilog
+
+
+### See also
+
+* [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
+
+* [Git Basics - Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
+
+
+### To do
+
+* Create bash/zsh completion file
+
+* Create an alias that can remove problematic files
+
+* Create installable packages such as for `apt`, `brew`, `dnf`.
+
+* Create security checksum
+
+* Request for comments from git thought leaders.
+
+* Annotate more
+
+
+### Thanks
 
 Thanks to all the contributors, including all the creators of the projects mentioned above.
 
@@ -237,5 +299,3 @@ Thanks to these people for extra help:
   * [Nick Kirby](https://github.com/NRKirby)
   * [Berkin Berkcan Çırak](https://github.com/berkin)
   * [Erik Martin-Dorel](https://github.com/erikmd)
-
-

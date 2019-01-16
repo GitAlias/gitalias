@@ -1,3 +1,62 @@
+##
+# GitAlias.com file of many git alias items, including shortcuts, helpers, workflows, etc.
+#
+#
+# ## Usage
+#
+# Typical usage for a typical user:
+#
+#   * Save this file as a dot file in your home directory: `~/.gitalias.txt`
+#
+#   * Edit your git config dot file in your home directory such as  `~/.gitconfig`
+#
+#   * Include the path to this file.
+#
+# Example file `~/.gitconfg` item to include the file `~/.gitalias.txt`:
+#
+#     [include]
+#       path = gitalias.txt
+#
+#
+# ## Usage for older git versions
+#
+# If you use an older version of git that does not have git config "include" capability,
+# or if you prefer more control, then you can simply copy/paste anything you like from
+# this file to your own git config file.
+#
+#
+# ## Customization
+#
+# If you want to use this file, and also want to change some of the items,
+# then one way is to use your git config file to include this gitalias file,
+# and also define your own alias items; a later alias takes precedence.
+#
+# Example file `~/.gitconfg` item to include the file `~/.gitalias.txt`:
+#
+#
+#     [include]
+#       path = ~/.gitconfig.d/gitalias.txt
+#     [alias]
+#       l = log --graph --oneline
+#
+#
+# ## Links
+#
+#   * [GitAlias.com website](http://gitlias.com)
+#   * [GitAlias GitHub](https://github.com/gitalias)
+#   * [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
+#   * [Git Basics - Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
+#
+# ## Tracking
+#
+#   * Package: gitalias
+#   * Version: 20.4.0
+#   * Created: 2016-06-17
+#   * Updated: 2019-01-16
+#   * License: GPL
+#   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
+##
+
 [alias]
 
   ##
