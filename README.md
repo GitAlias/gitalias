@@ -8,10 +8,15 @@ Contents:
 * [Install](#install)
 * [Examples](#examples)
 * [Customization](#customization)
+  * [Alias](#alias)
+  * [Format](#format)
+  * [Status](#status)
+  * [Log](#log)
 * [Purpose](#purpose)
-* [More ideas](#more-ideas)
-* [Contributing](#contributing)
-* [Thanks](#thanks)
+* [Epilog](#epilog)
+  * [More ideas](#more-ideas)
+  * [To do](#to-do)
+  * [Thanks](#thanks)
 
 To see the complete code, view these files:
 
@@ -188,7 +193,10 @@ We are creating this alias list because we type these commands many times daily,
 We often work on teams, across many companies and organizations, and using multiple shells. We want to count on a set of aliases. For shorter commands, such as `s` for `status`, fast speed is nice. For longer commands, such as `repacker`, accurate settings are important.
 
 
-## More ideas
+## Epilog
+
+
+### See also
 
 More ideas for git improvements:
 
@@ -199,7 +207,6 @@ More ideas for git improvements:
   * If you use `emacs` then see [Magit](https://magit.vc/)
   * If you use git shell scripting then see [SCM Breeze](https://github.com/ndbroadbent/scm_breeze)
   * If you use `node` then see [git-alias](https://www.npmjs.com/package/git-alias)
-
 
 For more git config ideas, and for credit for many of the aliases here, please see these excelent resources:
 
@@ -215,31 +222,27 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <https://gist.github.com/felipesabino/6391408>
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
+References:
 
-
-## Epilog
-
-
-### See also
-
-* [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
-
-* [Git Basics - Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
+  * [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
+  * [Git Basics - Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
 
 
 ### To do
 
-* Create bash/zsh completion file
+* Create completion file for `bash`, `zsh`, etc.
 
-* Create an alias that can remove problematic files
+* Create an alias that can remove problematic files, akin to `bfg`.
 
 * Create installable packages such as for `apt`, `brew`, `dnf`.
 
-* Create security checksum
+* Create security checksum.
+
+* Create CI/CD pipeline.
+
+* Create newletter to announce changes.
 
 * Request for comments from git thought leaders.
-
-* Annotate more
 
 
 ### Thanks
