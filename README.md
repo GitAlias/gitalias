@@ -158,7 +158,7 @@ To include our aliases then customize "git l" with your own definition:
 
 ```gitalias
 [include]
-   path = ~/.gitconfig.d/gitalias.txt
+   path = .gitalias.txt
 [alias]
    l = log --graph --oneline
 ```
@@ -169,6 +169,8 @@ To include our aliases then customize "git l" with your own definition:
 To use better pretty formatting:
 
 ```gitalias
+[include]
+   path = .gitalias.txt
 [format]
   pretty = "%H %ci %ce %ae %d %s"
 ```
@@ -179,6 +181,8 @@ To use better pretty formatting:
 To use terse status messages:
 
 ```gitalias
+[include]
+   path = .gitalias.txt
 [alias]
   s = status -sb
 ```
@@ -189,6 +193,8 @@ To use terse status messages:
 To use log summaries:
 
 ```gitalias
+[include]
+   path = .gitalias.txt
 [alias]
   l = log --graph --oneline
 ```
