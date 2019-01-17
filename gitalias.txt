@@ -265,11 +265,12 @@
   # Let's say I want to squash the "foo" and "goo" commits together,
   # and also change "hoo" to say "whatever". To do these, I change "pick"
   # to say "s" for squash; this tells git to squash the two together;
-  # I also edit "hoo". I make the file look like:
+  # I also edit "hoo" to rename it to "whatever". I make the file look like:
   #
   #     pick 7f06d36 foo
   #     s ad544d0 goo
   #     r de3083a whatever
+  #	
   # This gives me two new commit messages to edit, which I update.
   # Now when I push the remote repo host receives two commits
   #
@@ -492,7 +493,7 @@
   #   * Written by (Corey Haines)[http://coreyhaines.com/]
   #   * Scriptified by Gary Bernhardt
   #   * Obtained from https://github.com/garybernhardt/dotfiles/blob/master/bin/git-churn
-  #   * Edited for sixarm_git_config repo by Joel Parker Henderson
+  #   * Edited for GitAlias.com repo by Joel Parker Henderson
   #   * Comments by Mislav http://mislav.uniqpath.com/2014/02/hidden-documentation/
   #
   # Show churn for whole repo:
@@ -570,7 +571,7 @@
   # Is the commit a merge commit? If yes exit 0, else exit 1
   commit-is-merge = ![ "$(git cat-file -p "42e810fddc4688b28ef1cf438998579344cc33f5" | sed -n '/0/,/^ *$/p' | grep -c "^parent ")" -ge "2" ]
 
- ### WORKFLOW ALIASES ###
+  ### WORKFLOW ALIASES ###
 
   # Clone a git repository including all submodules
   cloner = clone --recursive
@@ -600,7 +601,10 @@
   snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}"
 
   # When you're a little worried that the world is coming to an end
-  panic = !tar cvf ../git_panic.tar *
+  panic = !tar cvf ../panic.tar *
+
+  # Create an archive file of everything in the repo
+  archive = !"f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $top ; }; f"
 
   # Do everything we can to synchronize all changes for the current branch.
   #
@@ -776,15 +780,14 @@
 
   ### SHELL SCRIPTING ALIASES ###
 
+  # Get the top level directory name
+  top-name = rev-parse --show-toplevel
+
   # Get the current branch name
   branch-name = rev-parse --abbrev-ref HEAD
 
-  # Get name of the upstream branch
+  # Get the upstream branch name
   upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
-
-  # Get the top level directory, regardless of what subdirectory we're in.
-  # root = ! pwd # this one is funny but slow
-  root = rev-parse --show-toplevel
 
   # Execute shell scripts. Git always runs scripts in the top directory.
   # For example "git exec pwd" will always show you the top directory.
