@@ -342,3 +342,5 @@ Thanks to these people for extra help:
   * [Nick Kirby](https://github.com/NRKirby)
   * [Berkin Berkcan Çırak](https://github.com/berkin)
   * [Erik Martin-Dorel](https://github.com/erikmd)
+  * [Tsukasa Noguchi](https://github.com/wild-mouse)
+  
