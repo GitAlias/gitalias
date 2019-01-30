@@ -314,7 +314,7 @@ To do list in priority order:
 
 * Create security checksum.
 
-* Create annoucement list.
+* Create announcement list.
 
 * Request comments from git thought leaders.
 
