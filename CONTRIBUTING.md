@@ -30,15 +30,15 @@ Conventions for changes:
 
 We want this project to be good for teams:
 
-  * We want widepread usability via consensus and practicality.
+  * We want widespread usability via consensus and practicality.
 
   * We want ease of use, ease of composability, and ease of understanding.
 
-Because we want widespred usabilily, we do not include everything possible:
+Because we want widespread usability, we do not include everything possible:
 
   * For example, we do not have a one-letter shortcut for `git push`
     because we have not found a widespread consensus among developers.
-    We prefer using higher-level capabilties, such as a git hook that
+    We prefer using higher-level capabilities, such as a git hook that
     watches for a commit, then does an automatic push to a CI/CD server.
         
   * For example, we do not provide aliases for many kinds of git workflows

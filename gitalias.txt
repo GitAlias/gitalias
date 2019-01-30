@@ -665,7 +665,7 @@
   cleanout = !git clean -df && git checkout -- .
 
   # Expunge a file everywhere; this command is typically for a serious problem,
-  # such as accidentially committing a file of sensistive data, such as passwords.
+  # such as accidentally committing a file of sensitive data, such as passwords.
   # After you use command, you will likely need to force push everything.
   # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
   expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
@@ -703,7 +703,7 @@
   # Work In Progress: from https://gist.github.com/492227 and VonC on stackoverflow.
   # This enables a quick way to add all new and modified files to the index,
   # while cleaning the index from the files removed from the working tree;
-  # this cleaning will facilite a rebase, because there won't be any conlfict
+  # this cleaning will facilitate a rebase, because there won't be any conflict
   # due to an "unclean" working directory (not in sync with the index).
   # The unwip will restore the deleted files to the working tree.
   wip = !"git add --all; git ls-files --deleted -z | xargs -0 git rm; git commit --message=wip"
@@ -977,7 +977,7 @@
   # We use this alias to begin work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
   #
-  # This implementatation does these steps:
+  # This implementation does these steps:
   #
   #   1. Create the topic branch.
   #   2. Push the topic branch.
@@ -1001,7 +1001,7 @@
   # We use this alias to complete work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
   #
-  # This implementatation does these:
+  # This implementation does these:
   #
   #   1. Push the topic branch.
   #   2. Delete the topic branch.
@@ -1023,7 +1023,7 @@
   #
   #     git topic-create foo
   #
-  # This implementatation does these steps:
+  # This implementation does these steps:
   #
   #   1. Update the base branch locally.
   #   2. Create a new branch with your topic name, based on the base branch.
@@ -1045,7 +1045,7 @@
   #
   #     git topic-delete
   #
-  # This implementatation does these:
+  # This implementation does these:
   #
   #   1. Delete the topic branch locally.
   #   2. Delete the topic branch remotely.
@@ -1091,7 +1091,7 @@
   #
   #     git topic-pull
   #
-  # This implementatation does these:
+  # This implementation does these:
   #
   #   1. Pull the topic branch from the origin.
   #
@@ -1122,7 +1122,7 @@
   #
   #     git topic-push
   #
-  # This implementatation does these:
+  # This implementation does these:
   #
   #   1. Push the topic branch to the origin.
   #   2. Set the upstream tracking.
@@ -1143,7 +1143,7 @@
     git push --set-upstream origin \"$topic_branch\"; \
   };f"
 
-  ### MANAGE TOPIC BRANCES ###
+  ### MANAGE TOPIC BRANCHES ###
   
   ##
   # Update the current topic branch by synchronizing changes.
@@ -1175,7 +1175,7 @@
   # This implementation does these:
   #
   #   1. Move/rename the local branch.
-  #   2. Move/rename the remote branch by pusing to origin.
+  #   2. Move/rename the remote branch by pushing to origin.
   #
   # Customize this alias as you like for your own workflow.
   ##
