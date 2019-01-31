@@ -67,9 +67,7 @@ Typical usage for a typical user:
 
   * Save this file as a dot file in your home directory: `~/.gitalias.txt`
 
-  * Edit your git config dot file in your home directory such as  `~/.gitconfig`
-
-  * Include the path to this file.
+  * `git config --global include.path ~/.gitalias.txt` in terminal.  Or manually edit your git config dot file in your home directory such as `~/.gitconfig`, include the path to this file.
 
 Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
 
