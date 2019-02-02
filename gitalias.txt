@@ -647,6 +647,10 @@
   push1 = "!git push origin $(git branch-name)"
   pull1 = "!git pull origin $(git branch-name)"
 
+  # Track and untrack, with default parameters, and with printing the command
+  track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
+  untrack = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo $cmd; $cmd; }; f"
+
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
   # better code that works using more-specific git commands.
