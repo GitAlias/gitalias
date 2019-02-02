@@ -342,4 +342,5 @@ Thanks to these people for extra help:
   * [Erik Martin-Dorel](https://github.com/erikmd)
   * [Tsukasa Noguchi](https://github.com/wild-mouse)
   * [YantaoZhao](https://github.com/yantaozhao)
+  * [Jeff Wu](https://github.com/WuTheFWasThat)
   
