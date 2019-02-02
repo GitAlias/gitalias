@@ -284,11 +284,9 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <http://web.archive.org/web/20100911013406/http://stackoverflow.com/questions/267761/what-does-your-gitconfig-contain>
   * <http://web.archive.org/web/20111114085847/http://superuser.com/questions/169695/what-are-your-favorite-git-aliases>
   * <http://stackoverflow.com/questions/1309430/how-to-embed-bash-script-directly-inside-a-git-alias>
-  * <http://code.joejag.com/2013/everyday-git-aliases/>
   * <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>
   * <https://ochronus.com/git-tips-from-the-trenches/>
   * <http://mislav.uniqpath.com/2010/07/git-tips/>
-  * <https://github.com/WuTheFWasThat/dotfiles/blob/master/.gitconfig>
   * <https://gist.github.com/felipesabino/6391408>
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
