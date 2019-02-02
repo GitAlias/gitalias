@@ -287,6 +287,7 @@ For more git config ideas, and for credit for many of the aliases here, please s
   * <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>
   * <https://ochronus.com/git-tips-from-the-trenches/>
   * <http://mislav.uniqpath.com/2010/07/git-tips/>
+  * <https://github.com/WuTheFWasThat/dotfiles/blob/master/gitconfig> 
   * <https://gist.github.com/felipesabino/6391408>
   * [Human Git Aliases](http://gggritso.com/human-git-aliases)
 
