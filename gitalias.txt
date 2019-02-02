@@ -326,6 +326,15 @@
   # submodule - enables foreign repositories to be embedded within a dedicated subdirectory of the source tree.
   sm = submodule
 
+  # submodule init
+  smi = submodule init
+
+  # submodule add
+  sma = submodule add
+
+  # submodule sync
+  sms = submodule sync
+
   # submodule update
   smu = submodule update
 
