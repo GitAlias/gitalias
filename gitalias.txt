@@ -243,12 +243,15 @@
   # rebase - forward-port local commits to the updated upstream head.
   rb = rebase
 
+  # rebase abort - cancel the rebasing process
+  rba = rebase --abort
+  
   # rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
   rbc = rebase --continue
 
   # rebase - restart the rebasing process by skipping the current patch.
   rbs = rebase --skip
-
+    
   # rbi - rebase interactive on our unpushed commits.
   #
   # Before we push our local changes, we may want to do some cleanup,
