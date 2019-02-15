@@ -135,6 +135,9 @@
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
 
+  # cop [name of the branch you want to switch to] - checkout a remote git branch
+  cop = "!f() { git checkout ${1}; git pull; }; f"
+  
   ### cherry-pick ###
 
   # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
