@@ -69,7 +69,7 @@ Typical usage for a typical user:
 
   * `git config --global include.path ~/.gitalias.txt` in terminal.  Or manually edit your git config dot file in your home directory such as `~/.gitconfig`, include the path to this file.
 
-Example file `~/.gitconfg` with an entry to include the file `~/.gitalias.txt`:
+Example file `~/.gitconfig` with an entry to include the file `~/.gitalias.txt`:
 
 ```gitalias
 [include]
