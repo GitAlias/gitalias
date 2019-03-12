@@ -145,10 +145,10 @@
 
   # cherry-pick - continue the picking process
   cpc = cherry-pick --continue
-    
+
   # cherry-pick without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
   cp-nx = cherry-pick --no-commit -x
-    
+
   ### diff ###
 
   # diff - show changes not yet staged
@@ -189,7 +189,7 @@
 
   # log with patch generation.
   lp = log --patch
-  
+
   # log with first parent, useful for team branch that only accepts pull requests
   lfp = log --first-parent
 
@@ -197,7 +197,10 @@
   lt = log --topo-order
 
   # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
-  ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+  ll = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+
+  # log like long  - we like this summarization our key performance indicators. Also aliased as `log-like-long`.
+  lll = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
 
   ## ls-files ##
 
@@ -251,13 +254,13 @@
 
   # rebase abort - cancel the rebasing process
   rba = rebase --abort
-  
+
   # rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
   rbc = rebase --continue
 
   # rebase - restart the rebasing process by skipping the current patch.
   rbs = rebase --skip
-    
+
   # rbi - rebase interactive on our unpushed commits.
   #
   # Before we push our local changes, we may want to do some cleanup,
@@ -279,7 +282,7 @@
   #     pick 7f06d36 foo
   #     s ad544d0 goo
   #     r de3083a whatever
-  #	
+  #
   # This gives me two new commit messages to edit, which I update.
   # Now when I push the remote repo host receives two commits
   #
@@ -456,7 +459,10 @@
   log-fresh = log ORIG_HEAD.. --stat --no-merges
 
   # Show log in our preferred format for our key performance indicators. A.k.a. `ll`.
-  log-like = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+  log-like = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+
+  # Show log in our preferred format for our key performance indicators, with long items. A.k.a. `lll`.
+  log-like-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
 
   # Show log with dates in our local timezone
   log-local = log --date=local
@@ -655,7 +661,7 @@
   # this is a bit hacky because of the parsing, and we welcome
   # better code that works using more-specific git commands.
   track-all-remote-branches = !"f() { git branch -r | grep -v ' -> ' | sed 's/^ \\+origin\\///' ; }; f"
-  
+
   ##
   # Reset & Undo
   ##
@@ -1166,7 +1172,7 @@
   };f"
 
   ### MANAGE TOPIC BRANCHES ###
-  
+
   ##
   # Update the current topic branch by synchronizing changes.
   #
@@ -1201,7 +1207,7 @@
   #
   # Customize this alias as you like for your own workflow.
   ##
-  
+
   topic-move = "!f(){ \
     new_branch=\"$1\"; \
     old_branch=$(git branch-name); \
