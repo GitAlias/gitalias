@@ -247,7 +247,7 @@
   #
   pr = pull --rebase
 
-  # pull with rebase and with preserve of merge commits
+  # pp - pull with rebase preserve of merge commits
   #
   # See https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges
   #
@@ -263,7 +263,7 @@
   # That is, if it's appropriate to do a rebase at all, it's at least fairly
   # likely that the history to be rebased is itself linear, so that the
   # preserve-vs-flatten question is moot anyway.
-  prp = pull --rebase=preserve
+  pp = pull --rebase=preserve
 
   ### rebase ###
 
