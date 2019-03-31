@@ -247,6 +247,24 @@
   #
   pr = pull --rebase
 
+  # pull with rebase and with preserve of merge commits
+  #
+  # See https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges
+  #
+  # You should only rebase if you know (in a sort of general sense)
+  # what you are doing, and if you do know what you are doing, then you
+  # would probably prefer a merge-preserving rebase as a general rule.
+  #
+  # Although by the time you've decided that rebasing is a good idea,
+  # you will probably find that a history that has its own embedded
+  # branch-and-merge-points is not necessarily the correct "final
+  # rewritten history".
+  #
+  # That is, if it's appropriate to do a rebase at all, it's at least fairly
+  # likely that the history to be rebased is itself linear, so that the
+  # preserve-vs-flatten question is moot anyway.
+  prp = pull --rebase=preserve
+
   ### rebase ###
 
   # rebase - forward-port local commits to the updated upstream head.
