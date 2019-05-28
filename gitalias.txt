@@ -613,6 +613,50 @@
   # Is the commit a merge commit? If yes exit 0, else exit 1
   commit-is-merge = ![ "$(git cat-file -p "42e810fddc4688b28ef1cf438998579344cc33f5" | sed -n '/0/,/^ *$/p' | grep -c "^parent ")" -ge "2" ]
 
+  # Show the commit's keyword-marked lines.
+  #
+  # Show each line in the commit message that starts with zero or more blanks, 
+  # then a keyword (alphanum and dash characters), then a colon.
+  #
+  # Example commit:
+  #
+  #     commit ce505d161fccdbc8d4bf12047846de7433ad6d04
+  #     Author: Joel Parker Henderson <joel@joelparkerhenderson.com>
+  #     Date:   Tue May 28 11:53:47 2019 -0700
+  #
+  #         Add feature foo
+  #
+  #         This commit is to add feature foo.
+  #
+  #         Time: 5 hours
+  #         Cost: 600 USD
+  #
+  # Command:
+  #
+  #     $ git commit-message-key-lines ce505d161fccdbc8d4bf12047846de7433ad6d04
+  #     Commit: ce505d161fccdbc8d4bf12047846de7433ad6d04
+  #     Author: Joel Parker Henderson <joel@joelparkerhenderson.com>
+  #     Date: Tue May 28 11:53:47 2019 -0700
+  #     Time: 5 hours
+  #     Cost: 600 USD
+  #
+  # Normalize the output:
+  #
+  #   * Start the output with "Commit: <commit>"
+  #
+  #   * Omit leading blanks
+  #
+  #   * After the colon, use one space (not tab, not multiple spaces, etc.)
+  #    
+  # Known issues:
+  #
+  #   * TODO: improve the keyword matcher so it requires the keyword to end
+  #     in an alphanum (not a dash), and also so the dash is a separator i.e.
+  #     the matcher does not accept a dash followed by another dash.
+  #
+  commit-message-key-lines = "!f(){ echo \"Commit: $1\"; git log \"$1\" --format=fuller | grep \"^[[:blank:]]*[[:alnum:]][-[:alnum:]]*:\" | sed \"s/^[[:blank:]]*//; s/:[[:blank:]]*/: /\"; }; f"
+
+
   ### WORKFLOW ALIASES ###
 
   # Clone a git repository including all submodules
