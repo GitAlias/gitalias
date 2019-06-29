@@ -315,6 +315,8 @@ To do list in priority order:
 
 * Request comments from git thought leaders.
 
+* Create aliases for GitPrime metrics suggestions: unreviewed pull requests, new work percentage, legacy refactor percentage, active days, time to first comment, churn, time to resolve.
+
 
 ### Thanks
 
