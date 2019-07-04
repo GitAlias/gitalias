@@ -49,7 +49,7 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 21.1.0
+#   * Version: 21.2.0
 #   * Created: 2016-06-17
 #   * Updated: 2019-07-04
 #   * License: GPL
@@ -610,6 +610,16 @@
   #
   churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
 
+  # summary: print a helpful summary of some typical metrics
+  summary = "!f() { \
+    printf \"Summary...\n\"; \
+    printf \"%s first commit timestamp\n\" $(git log --date-order --format=%cI | tail -1); \
+    printf \"%s latest commit timestamp\n\" $(git log -1 --date-order --format=%cI); \
+    printf \"%d commits in this branch\n\" $(git rev-list --count HEAD); \
+    printf \"%d commits in all branches\n\" $(git rev-list --count --all); \
+    printf \"%d authors\n\" $(git log --format=oneline --format=\"%aE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
+    printf \"%d committers\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
+  }; f"
 
   ### LOOKUP ALIASES ###
 
