@@ -520,8 +520,8 @@
   log-of-count-and-format-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
 
   # Show the number of log items by email
-  log-of-email-and-count         = "!f() { git log-of-format-and-count \"%ae\" $@; }; f"
-  log-of-count-and-email         = "!f() { git log-of-count-and-format \"%ae\" $@; }; f"
+  log-of-email-and-count         = "!f() { git log-of-format-and-count \"%aE\" $@; }; f"
+  log-of-count-and-email         = "!f() { git log-of-count-and-format \"%aE\" $@; }; f"
 
   # Show the number of log items by hour
   log-of-hour-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m-%dT%H\" $@ ; }; f"
