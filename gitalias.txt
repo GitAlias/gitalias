@@ -619,6 +619,7 @@
     printf \"%d dates\n\" $(git log --format=oneline --format=\"%ad\" --date=format:\"%Y-%m-%d\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d authors\n\" $(git log --format=oneline --format=\"%aE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d committers\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
+    printf \"%d tags\n\" $(git tag | wc -l); \
     printf \"%d local branches\n\" $(git branch | grep -v \" -> \" | wc -l); \
     printf \"%d remote branches\n\" $(git branch -r | grep -v \" -> \" | wc -l); \
   }; f"
