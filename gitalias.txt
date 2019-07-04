@@ -612,11 +612,11 @@
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
-    printf \"Summary...\n\"; \
+    printf \"Summary of this branch...\n\"; \
     printf \"%s first commit timestamp\n\" $(git log --date-order --format=%cI | tail -1); \
     printf \"%s latest commit timestamp\n\" $(git log -1 --date-order --format=%cI); \
-    printf \"%d commits in this branch\n\" $(git rev-list --count HEAD); \
-    printf \"%d commits in all branches\n\" $(git rev-list --count --all); \
+    printf \"%d commits\n\" $(git rev-list --count HEAD); \
+    printf \"%d dates\n\" $(git log --format=oneline --format=\"%ad\" --date=format:\"%Y-%m-%d\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d authors\n\" $(git log --format=oneline --format=\"%aE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d committers\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
   }; f"
