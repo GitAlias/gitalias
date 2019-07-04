@@ -49,7 +49,7 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 21.2.0
+#   * Version: 21.3.0
 #   * Created: 2016-06-17
 #   * Updated: 2019-07-04
 #   * License: GPL
@@ -622,7 +622,7 @@
     printf \"%d committer count\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d local branch count\n\" $(git branch | grep -v \" -> \" | wc -l); \
     printf \"%d remote branch count\n\" $(git branch -r | grep -v \" -> \" | wc -l); \
-    printf \"\nMost-prolific authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
+    printf \"\nMost-active authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
     printf \"\nMost-recent dates, with commit count and %%...\n\"; git log-of-day-and-count | head -7; \
   }; f"
 
