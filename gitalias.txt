@@ -617,11 +617,13 @@
     printf \"%s latest commit timestamp\n\" $(git log -1 --date-order --format=%cI); \
     printf \"%d commit count\n\" $(git rev-list --count HEAD); \
     printf \"%d date count\n\" $(git log --format=oneline --format=\"%ad\" --date=format:\"%Y-%m-%d\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
+    printf \"%d tag count\n\" $(git tag | wc -l); \
     printf \"%d author count\n\" $(git log --format=oneline --format=\"%aE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
     printf \"%d committer count\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]++}END{for(i in a){n++;} print n}'); \
-    printf \"%d tag count\n\" $(git tag | wc -l); \
     printf \"%d local branch count\n\" $(git branch | grep -v \" -> \" | wc -l); \
     printf \"%d remote branch count\n\" $(git branch -r | grep -v \" -> \" | wc -l); \
+    printf \"\nMost-prolific authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
+    printf \"\nMost-recent dates, with commit count and %%...\n\"; git log-of-day-and-count | head -7; \
   }; f"
 
   ### LOOKUP ALIASES ###
