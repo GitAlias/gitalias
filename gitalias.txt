@@ -585,7 +585,7 @@
   #
   # It's possible to get valuable insight from history of a project not only
   # by viewing individual commits, but by analyzing sets of changes as a whole.
-  # For instance, git-log-churn compiles stats about which files change the most.
+  # For instance, `git churn` compiles stats about which files change the most.
   #
   # For example, to see where work on an app was focused on in the past month:
   #
@@ -608,7 +608,7 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | grep -v '^$' | sort | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
+  churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | grep -v '^$' | awk '{a[$0]++}END{for(i in a){print a[i], i}}' | sort -gr
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
