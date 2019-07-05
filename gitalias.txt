@@ -49,7 +49,7 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 21.3.1
+#   * Version: 21.4.0
 #   * Created: 2016-06-17
 #   * Updated: 2019-07-04
 #   * License: GPL
@@ -561,6 +561,67 @@
   log-local = log --oneline origin..HEAD
   log-fetched = log --oneline HEAD..origin/master
 
+  # chart: show a summary chart of recent activity per author.
+  #
+  # Example:
+  #
+  #     $ git chart
+  #     ..X..........X...2..12 alice@example.com
+  #     ....2..2..13.......... bob@example.com
+  #     2.....1....11......... carol@example.com
+  #     ..1............1..1... david@example.com
+  #     ....1.......1.3.3.22.2 eve@example.com
+  #
+  # The chart rows are the authors.
+  # TODO: sort the rows meaningfully, 
+  # such as alphabetically, or by commit total.
+  #
+  # The chart columns are the most recent days.
+  # The chart is currently implemented to do the
+  # recent 49 days, meaning the past 7 weeks.
+  # We choose 49 because it's a reasonable tradeoff 
+  # between showing data vs. 80-char terminal width.
+  # TODO: make this customizable.
+  #
+  # The chart column prints one character per day.
+  # TODO: make this customizable.
+  #
+  #   * For 1-9 commits, show the number.
+  #   * For 10 or more commits, show "X".
+  #   * For no commits, show ".".
+  #
+  chart = "!f() { \
+    git log \
+    --since \"49 days ago\" \
+    --format=oneline \
+    --format=\"%aE %ad\" \
+    --date=format:\"%Y-%m-%d\" | \
+    awk ' \
+    BEGIN { \
+      now=systime(); \
+      seconds_per_day=86400; \
+      days_per_report=49; \
+    } \
+    {  \
+      a[$0]++;  \
+      items[$1]=1; \
+    } \
+    END{ \
+      for(item in items){ \
+        time = now - (days_per_report * seconds_per_day); \
+        while (time < now) { \
+          time+=seconds_per_day; \
+          timestamp=strftime(\"%Y-%m-%d\", time, true); \
+          k=(item \" \" timestamp); \
+          n = a[k]; \
+          char= (n >= 10) ? \"X\" : ((n == \"\") ? \".\" : n); \
+          printf(\"%s\", char); \
+        } \
+        print \" \" item; \
+      } \
+    }'; \
+  }; f"
+
   # churn: show log of files that have many changes
   #
   #   * Written by (Corey Haines)[http://coreyhaines.com/]
@@ -610,6 +671,7 @@
   #
   churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | grep -v '^$' | awk '{a[$0]++}END{for(i in a){print a[i], i}}' | sort -gr
 
+
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
     printf \"Summary of this branch...\n\"; \
@@ -629,7 +691,8 @@
     printf \"%d file count via find command\n\" $(find . | wc -l); \
     printf \"%d disk usage\n\" $(du -s | awk '{print $1}'); \
     printf \"\nMost-active authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
-    printf \"\nMost-recent dates, with commit count and %%...\n\"; git log-of-day-and-count | head -7; \
+    printf \"\nMost-active dates, with commit count and %%...\n\"; git log-of-count-and-day | head -7; \
+    printf \"\nMost-active files, with churn count\n\"; git churn | head -7; \
   }; f"
 
   ### LOOKUP ALIASES ###
