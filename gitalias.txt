@@ -49,7 +49,7 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 21.3.0
+#   * Version: 21.3.1
 #   * Created: 2016-06-17
 #   * Updated: 2019-07-04
 #   * License: GPL
@@ -608,7 +608,7 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
+  churn = !git log --all --find-copies --find-renames --name-only --format='format:' "$@" | grep -v '^$' | sort | uniq -c | sort | awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | sort -g
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
@@ -625,9 +625,9 @@
     printf \"%d remote branch count\n\" $(git branch -r | grep -v \" -> \" | wc -l); \
     printf \"\nSummary of this directory...\n\"; \
     printf \"%s\n\" $(pwd); \
-    printf \"%d disk usage\n\" $(du -s | awk '{print $1}'); \
     printf \"%d file count via git ls-files\n\" $(git ls-files | wc -l); \
     printf \"%d file count via find command\n\" $(find . | wc -l); \
+    printf \"%d disk usage\n\" $(du -s | awk '{print $1}'); \
     printf \"\nMost-active authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
     printf \"\nMost-recent dates, with commit count and %%...\n\"; git log-of-day-and-count | head -7; \
   }; f"
