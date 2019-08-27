@@ -435,7 +435,7 @@
   ### init ###
 
   # initalize a repo and immediate add an empty commit, which makes rebase easier.
-  init-empty = !"f() { git init && git commit --allow-empty --message ''; }; f"
+  init-empty = !"f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
 
   ### merge-* ###
 
