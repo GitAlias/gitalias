@@ -432,6 +432,11 @@
     -c color.grep.match=\"reverse yellow\" \
     grep --break --heading --line-number
 
+  ### init ###
+
+  # initalize a repo and immediate add an empty commit, which makes rebase easier.
+  init-empty = !"f() { git init && git commit --allow-empty --message ''; }; f"
+
   ### merge-* ###
 
   # Given a merge commit, find the span of commits that exist(ed).
@@ -561,7 +566,7 @@
   log-local = log --oneline origin..HEAD
   log-fetched = log --oneline HEAD..origin/master
 
-  # chart: show a summary chart of recent activity per author.
+  # chart: show a summary chart of activity per author.
   #
   # Example:
   #
@@ -573,51 +578,51 @@
   #     ....1.......1.3.3.22.2 eve@example.com
   #
   # The chart rows are the authors.
-  # TODO: sort the rows meaningfully, 
-  # such as alphabetically, or by commit total.
+  # TODO: sort the rows meaningfully,
+  # such as alphabetically, or by count.
   #
-  # The chart columns are the most recent days.
-  # The chart is currently implemented to do the
-  # recent 49 days, meaning the past 7 weeks.
-  # We choose 49 because it's a reasonable tradeoff 
-  # between showing data vs. 80-char terminal width.
-  # TODO: make this customizable.
-  #
+  # The chart columns are the days.
   # The chart column prints one character per day.
-  # TODO: make this customizable.
   #
   #   * For 1-9 commits, show the number.
-  #   * For 10 or more commits, show "X".
-  #   * For no commits, show ".".
+  #   * For 10 or more commits, show "X" as a visual indicator.
+  #   * For no commits, show "." as a visual placeholder.
+  #
+  # The chart timeline adjusts the date range automatically:
+  #
+  #   * The timeline starts with the date of the earliest commit.
+  #   * The timeline stops with the date of the latest commit.
+  #   * The intent is to show the most relevant information.
   #
   chart = "!f() { \
-    git log \
-    --since \"49 days ago\" \
-    --format=oneline \
-    --format=\"%aE %ad\" \
-    --date=format:\"%Y-%m-%d\" | \
+    git log --format=oneline --format=\"%aE %at\" --since=\"48 days ago\" $@ | \
     awk ' \
+    function time_to_slot(t) { return strftime(\"%Y-%m-%d\", t, true) } \
+    function count_to_char(i) { return (i > 0) ? ((i < 10) ? i : \"X\") : \".\" } \
     BEGIN { \
-      now=systime(); \
-      seconds_per_day=86400; \
-      days_per_report=49; \
+      time_min = systime(); time_max = 0; \
+      SECONDS_PER_DAY=86400; \
     } \
-    {  \
-      a[$0]++;  \
-      items[$1]=1; \
+    { \
+      item = $1; \
+      time = 0 + $2; \
+      if (time > time_max){ time_max = time } else if (time < time_min){ time_min = time }; \
+      slot = time_to_slot(time); \
+      items[item]++; \
+      slots[slot]++; \
+      views[item, slot]++; \
     } \
     END{ \
+      printf(\"Chart time range %s to %s.\\n\", time_to_slot(time_min), time_to_slot(time_max)); \
+      time_max_add = time_max += SECONDS_PER_DAY; \
       for(item in items){ \
-        time = now - (days_per_report * seconds_per_day); \
-        while (time < now) { \
-          time+=seconds_per_day; \
-          timestamp=strftime(\"%Y-%m-%d\", time, true); \
-          k=(item \" \" timestamp); \
-          n = a[k]; \
-          char= (n >= 10) ? \"X\" : ((n == \"\") ? \".\" : n); \
-          printf(\"%s\", char); \
+        row = \"\"; \
+        for(time = time_min; time < time_max_add; time += SECONDS_PER_DAY) { \
+          slot = time_to_slot(time); \
+          count = views[item, slot]; \
+          row = row count_to_char(count); \
         } \
-        print \" \" item; \
+        print row, item; \
       } \
     }'; \
   }; f"
@@ -730,7 +735,7 @@
 
   # Show the commit's keyword-marked lines.
   #
-  # Show each line in the commit message that starts with zero or more blanks, 
+  # Show each line in the commit message that starts with zero or more blanks,
   # then a keyword (alphanum and dash characters), then a colon.
   #
   # Example commit:
@@ -762,7 +767,7 @@
   #   * Omit leading blanks
   #
   #   * After the colon, use one space (not tab, not multiple spaces, etc.)
-  #    
+  #
   # Known issues:
   #
   #   * TODO: improve the keyword matcher so it requires the keyword to end
