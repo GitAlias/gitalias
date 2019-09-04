@@ -1103,6 +1103,9 @@
   #
   clone-lean = clone --depth 1 --filter=combine:blob:none+tree:0 --no-checkout 
 
+  # Save the current branch (for example, prior a rebase)
+  backup-branch = !"git branch backup/$(date +%F/%H-%M-%S)"
+
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
   # This is handy for refactoring where you can't quite fit what you've done
