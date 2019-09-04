@@ -102,6 +102,17 @@
 
   ### branch ###
 
+  # list branches along with their description
+  bv = !"f(){\
+    T=$(printf \\\t);\
+    git branch \"$@\" --format='%(refname:short) %(HEAD)%09%(objectname:short)%09%(contents:subject)'|\
+    while read -r l;do\
+      d=$(git config \"branch.${l%% *}.description\");\
+      echo \"$l${d:+$T($d)}\";\
+    done|\
+    column -ts\"$T\";\
+  };f"
+
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
