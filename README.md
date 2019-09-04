@@ -327,6 +327,7 @@ Thanks to these people for extra help:
   * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
   * [Bill Lazar](https://github.com/billsaysthis)
   * [Oleg Broytman](https://github.com/phdru)
+  * [Romain Dartigues](https://github.com/romain-dartigues)
   * [Joe Nelson](https://github.com/begriffs)
   * [Scott Lindsay](http://stackoverflow.com/users/167384/scott-lindsay)
   * [baudtack](http://baudtack.com)
