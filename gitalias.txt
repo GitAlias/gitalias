@@ -1,3 +1,5 @@
+# -*- mode: gitconfig; -*-
+# vim: set filetype=gitconfig:
 ##
 # GitAlias.com file of many git alias items, including shortcuts, helpers, workflows, etc.
 #
