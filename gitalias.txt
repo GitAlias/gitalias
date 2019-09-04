@@ -730,10 +730,10 @@
   issues = !sh -c \"git log $1 --oneline | grep -o \\\"ISSUE-[0-9]\\+\\\" | sort -u\"
 
   # Show the commit's parents
-  commit-parents = !git cat-file -p "$1" | sed -n '/0/,/^ *$/p' | grep "^parent "
+  commit-parents = !"f(){ git cat-file -p \"${*:-HEAD}\" | sed -n '/0/,/^ *$/{/^parent /p}'; };f"
 
   # Is the commit a merge commit? If yes exit 0, else exit 1
-  commit-is-merge = ![ "$(git cat-file -p "42e810fddc4688b28ef1cf438998579344cc33f5" | sed -n '/0/,/^ *$/p' | grep -c "^parent ")" -ge "2" ]
+  commit-is-merge = !"f(){ [ -n \"$(git commit-parents \"$*\" | sed '0,/^parent /d')\" ];};f"
 
   # Show the commit's keyword-marked lines.
   #
