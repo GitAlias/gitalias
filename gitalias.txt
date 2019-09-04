@@ -401,6 +401,9 @@
   # This is a slightly modified version
   fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
 
+  # Shorthand to stash/rebase/unstash
+  fix = !"f(){ git rebase --autostash -i \"${@:-HEAD^^}\";};f"
+
   ### reflog ###
 
   # reflog - reference log that manages when tips of branches are updated.
