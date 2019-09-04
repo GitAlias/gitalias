@@ -107,6 +107,9 @@
   # branch - edit the description
   be = branch --edit-description
 
+  # list branches along with their description
+  br = !"f(){(git branch -v \"${@}\"|sed 's/\\(.\\) \\([^ ]*\\)\\(.*\\)/\\2\\1 \\3/'&&git config --get-regexp ^branch.*description|sed '/^$/d;s/^branch\\.\\([^ ]*\\)\\.description /\\1# /')|sort -h;};f"
+
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
