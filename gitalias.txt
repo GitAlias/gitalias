@@ -1327,6 +1327,13 @@
     git checkout \"$topic_branch\"; git rebase \"$base_branch\"; \
   };f"
 
+  topic-pull-merge = "!f(){ \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout \"$topic_branch\"; git merge \"$base_branch\"; \
+  };f"
+
   ##
   # Update the current topic branch by pushing changes.
   #
