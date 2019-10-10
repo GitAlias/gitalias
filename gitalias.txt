@@ -1320,20 +1320,6 @@
     git pull; \
   };f"
 
-  topic-pull-rebase = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout \"$topic_branch\"; git rebase \"$base_branch\"; \
-  };f"
-
-  topic-pull-merge = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout \"$topic_branch\"; git merge \"$base_branch\"; \
-  };f"
-
   ##
   # Update the current topic branch by pushing changes.
   #
@@ -1363,6 +1349,37 @@
   };f"
 
   ### MANAGE TOPIC BRANCHES ###
+
+  ##
+  # Update the current topic branch with up-to-date base branch
+  # by either rebasing or merging.
+  #
+  # Example:
+  #
+  #     git topic-rebase-base
+  #
+  # This implementation does these:
+  #
+  #   1. Run checkout base_branch.
+  #   2. Run checkout topic_branch.
+  #   3. Merge/Rebase base_branch.
+  #
+  # Customize this alias as you like for your own workflow.
+  ##
+
+  topic-rebase-base = "!f(){ \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout \"$topic_branch\"; git rebase \"$base_branch\"; \
+  };f"
+
+  topic-merge-base = "!f(){ \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout \"$topic_branch\"; git merge \"$base_branch\"; \
+  };f"
 
   ##
   # Update the current topic branch by synchronizing changes.
