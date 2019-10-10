@@ -1361,8 +1361,9 @@
   # This implementation does these:
   #
   #   1. Run checkout base_branch.
-  #   2. Run checkout topic_branch.
-  #   3. Merge/Rebase base_branch.
+  #   2. Pull base_branch
+  #   3. Run checkout topic_branch.
+  #   4. Merge/Rebase base_branch.
   #
   # Customize this alias as you like for your own workflow.
   ##
