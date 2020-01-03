@@ -51,9 +51,9 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 21.5.0
+#   * Version: 22.0.0
 #   * Created: 2016-06-17
-#   * Updated: 2019-09-04
+#   * Updated: 2020-01-03
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
