@@ -51,7 +51,7 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 22.0.0
+#   * Version: 22.1.0
 #   * Created: 2016-06-17
 #   * Updated: 2020-01-03
 #   * License: GPL
@@ -533,18 +533,18 @@
   log-latest-date = log -1 --date-order --format=%cI
 
   # Show the log of the recent hour, day, week, month, year
-  log-hour  = log --since "1 hour ago"
-  log-day   = log --since "1 day ago"
-  log-week  = log --since "1 week ago"
-  log-month = log --since "1 month ago"
-  log-year  = log --since "1 year ago"
+  log-hour  = log --since=1-hour-ago
+  log-day   = log --since=1-day-ago
+  log-week  = log --since=1-week-ago
+  log-month = log --since=1-month-ago
+  log-year  = log --since=1-year-ago
 
   # Show the log of my own recent hour, day, week, month, year
-  log-my-hour  = log --author $(git config user.email) --since "1 hour ago"
-  log-my-day   = log --author $(git config user.email) --since "1 day ago"
-  log-my-week  = log --author $(git config user.email) --since "1 week ago"
-  log-my-month = log --author $(git config user.email) --since "1 month ago"
-  log-my-year  = log --author $(git config user.email) --since "1 year ago"
+  log-my-hour  = log --author $(git config user.email) --since=1-hour-ago
+  log-my-day   = log --author $(git config user.email) --since=1-day-ago
+  log-my-week  = log --author $(git config user.email) --since=1-week-ago
+  log-my-month = log --author $(git config user.email) --since=1-month-ago
+  log-my-year  = log --author $(git config user.email) --since=1-year-ago
 
   # Show a specific format string and its number of log entries
   log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
@@ -640,8 +640,8 @@
     git log \
     --format=oneline \
     --format=\"%aE %at\" \
-    --since=\"6 weeks ago\" \
-    $@ | \
+    --since=6-weeks-ago \
+    $* | \
     awk ' \
     function time_to_slot(t) { return strftime(\"%Y-%m-%d\", t, true) } \
     function count_to_char(i) { return (i > 0) ? ((i < 10) ? i : \"X\") : \".\" } \
@@ -691,7 +691,7 @@
   #
   # Show churn for a time range:
   #
-  #   $ git churn --since='1 month ago'
+  #   $ git churn --since=1-month-ago
   #
   # These are all standard arguments to `git log`.
   #
@@ -701,7 +701,7 @@
   #
   # For example, to see where work on an app was focused on in the past month:
   #
-  #     $ git churn --since='1 month ago' app/ | tail
+  #     $ git churn --since=1-month-ago app/ | tail
   #
   # This can also highlight potential problems with technical debt in a project.
   # A specific file changing too often is generally a red flag, since it probably
@@ -713,7 +713,7 @@
   #
   # For instance, to see who contributed most to the API part of an application:
   #
-  #    $ git log --format='%an' --since='1 month ago' app/controllers/api/ | \
+  #    $ git log --format='%an' --since=1-month-ago app/controllers/api/ | \
   #      sort | uniq -c | sort -rn | head
   #
   #    109 Alice Anderson
