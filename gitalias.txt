@@ -51,9 +51,9 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 22.2.0
+#   * Version: 23.0.0
 #   * Created: 2016-06-17
-#   * Updated: 2020-01-13
+#   * Updated: 2020-02-23
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
@@ -1184,32 +1184,29 @@
   # Some people like to use a topic branch for a new feature, or a
   # hotfix patch, or refactoring work, or some spike research, etc.
   #
-  # Our simple workflow:
+  # Start work on a new topic branch, which creates your branch:
   #
-  #     $ git topic-start foo
-  #     ... do work ...
-  #     $ git topic-stop
+  #     $ git topic-start add-feature-foo
   #
-  # If you want more control, then you can use these building blocks:
-  #
-  #     $ git topic-create foo
-  #     $ git topic-delete
-  #
-  # If you want to pull and push while you're working, then use these:
-  #
-  #     $ git topic-pull
-  #     $ git topic-push
-  #
-  # If you want to manage your branch while you're working, then use these:
+  # Do some work then synchronize your changes, which integrates your branch:
   #
   #     $ git topic-sync
+  #  
+  # Stop work on a topic branch, which deletes your branch:
+  #
+  #     $ git topic-stop
+  #
+  # If you want to move your branch a.k.a. rename it:
+  #
   #     $ git topic-rename
   #
   # Ideas for your own alias customizations:
   #
   #   * Notify your team, such as by sending an email, posting to chat, etc.
+  #
   #   * Trigger testing of the new topic branch to ensure all tests succeed.
-  #   * Update the project management software.
+  #
+  #   * Update your project management software with the new topic name.
   #
   # Customize these aliases as you like for your own workflow.
   ##
@@ -1219,7 +1216,7 @@
   #
   # When we create a new topic branch, we base it on the topic base branch.
   # Many projects use the default "master" branch; some projects use custom
-  # branches, such as "trunk", "develop", "integrate", "release", etc.
+  # branches, such as "trunk", "develop", "integrate", "release", "green", etc.
   #
   # Customize this alias as you like for your own workflow.
   ##
@@ -1228,30 +1225,38 @@
     printf \"master\n\"; \
   };f"
 
-  ### START & STOP ###
-
   ##
   # Start a topic branch.
   #
   # Example:
   #
-  #     git topic-start foo
+  #     git topic-start add-feature-foo
   #
   # We use this alias to begin work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
   #
-  # This implementation does these steps:
-  #
-  #   1. Create the topic branch.
-  #   2. Push the topic branch.
-  #
   # Customize this alias as you like for your own workflow.
+  #
+  # Our workflow does these steps:
+  #
+  #   1. Update the base branch.
+  #   2. Create a new branch with your topic name, based on the base branch.
+  #   3. Push the topic branch, so our team members can see the new branch.
+  #
+  # If you use a sharing site such a GitHub, and use typical settings,
+  # then this implementation makes your branch visible to collaborators.
+  #
+  # Many teams share branches before they are fully ready, to help
+  # the team provide feedback on the work-in-progress, and also to
+  # run any automatic tests to verify the branch runs successfully.
   ##
 
   topic-start = "!f(){ \
     topic_branch=\"$1\"; \
-    git topic-create \"$topic_branch\"; \
-    git topic-push; \
+    base_branch=$(git topic-base-branch-name); \
+    git checkout \"$base_branch\"; git pull; \
+    git checkout -b \"$topic_branch\" \"$base_branch\"; \
+    git push --set-upstream origin \"$topic_branch\"; \
   };f"
 
   ##
@@ -1264,56 +1269,13 @@
   # We use this alias to complete work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
   #
-  # This implementation does these:
+  # Customize this alias as you like for your own workflow.
+  #
+  # Our workflow does these steps:
   #
   #   1. Push the topic branch.
-  #   2. Delete the topic branch.
-  #
-  # Customize this alias as you like for your own workflow.
-  ##
-
-  topic-stop = "!f(){ \
-    git topic-push; \
-    git topic-delete; \
-  };f"
-
-  ### CREATE & DELETE ###
-
-  ##
-  # Create a topic branch.
-  #
-  # Example:
-  #
-  #     git topic-create foo
-  #
-  # This implementation does these steps:
-  #
-  #   1. Update the base branch locally.
-  #   2. Create a new branch with your topic name, based on the base branch.
-  #
-  # Customize this alias as you like for your own workflow.
-  ##
-
-  topic-create = "!f(){ \
-    topic_branch=\"$1\"; \
-    base_branch=$(git topic-base-branch-name); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout -b \"$topic_branch\" \"$base_branch\"; \
-  };f"
-
-  ##
-  # Delete a topic branch; this must be the current branch.
-  #
-  # Example:
-  #
-  #     git topic-delete
-  #
-  # This implementation does these:
-  #
-  #   1. Delete the topic branch locally.
-  #   2. Delete the topic branch remotely.
-  #
-  # Customize this for your own workflow preferences.
+  #   2. Delete the topic branch locally.
+  #   3. Delete the topic branch remotely.
   #
   # If you use a sharing site such a GitHub, and use typical settings,
   # then this implementation deletes your branch for the site.
@@ -1325,112 +1287,23 @@
   # that the remote branch doesn't exist, so git is unable to delete it.
   # That's fine; it means someone else has already deleted the branch.
   # To synchronize your branch list, use "git fetch --prune".
-  #
-  # Customize this alias as you like for your own workflow.
   ##
 
-  topic-delete = "!f(){ \
+  topic-stop = "!f(){ \
     topic_branch=$(git branch-name); \
     base_branch=$(git topic-base-branch-name); \
     if [ \"$topic_branch\" = \"$base_branch\" ]; then \
-      printf \"You are trying to delete your git topic branch,\n\"; \
-      printf \"but you are on the base branch: $topic_base_branch.\n\"; \
+      printf \"You are asking to do git topic-stop,\n\"; \
+      printf \"but you are not currently on a topic branch;\n\"; \
+      printf \"you are on the base branch: $base_branch.\n\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
       printf \"then retry the git topic delete command.\n\"; \
     else \
+      git push; \
       git checkout \"$base_branch\"; \
       git branch --delete \"$topic_branch\"; \
       git push origin \":$topic_branch\"; \
     fi; \
-  };f"
-
-
-  ### PULL & PUSH ###
-
-  ##
-  # Update the current topic branch by pulling changes.
-  #
-  # Example:
-  #
-  #     git topic-pull
-  #
-  # This implementation does these:
-  #
-  #   1. Pull the topic branch from the origin.
-  #
-  # If you use any kind of testing framework, or test driven development,
-  # then it can be wise to test your topic immediately after running this,
-  # to ensure that any available updates are successfully integrated.
-  #
-  # Customize this alias as you like for your own workflow.
-  #
-  #   * E.g. some teams prefer to use `pull --rebase`.
-  ##
-
-  topic-pull = "!f(){ \
-    git pull; \
-  };f"
-
-  ##
-  # Update the current topic branch by pushing changes.
-  #
-  # Example:
-  #
-  #     git topic-push
-  #
-  # This implementation does these:
-  #
-  #   1. Push the topic branch to the origin.
-  #   2. Set the upstream tracking.
-  #
-  # Customize this for your own workflow preferences.
-  #
-  # If you use a sharing site such a GitHub, and use typical settings,
-  # then this implementation makes your branch visible to collaborators.
-  #
-  # Many teams share branches before they are fully ready, to help
-  # the team provide feedback on the work-in-progress.
-  #
-  # Customize this alias as you like for your own workflow.
-  ##
-
-  topic-push = "!f(){ \
-    topic_branch=$(git branch-name); \
-    git push --set-upstream origin \"$topic_branch\"; \
-  };f"
-
-  ### MANAGE TOPIC BRANCHES ###
-
-  ##
-  # Update the current topic branch with up-to-date base branch
-  # by either rebasing or merging.
-  #
-  # Example:
-  #
-  #     git topic-rebase-base
-  #
-  # This implementation does these:
-  #
-  #   1. Run checkout base_branch.
-  #   2. Pull base_branch
-  #   3. Run checkout topic_branch.
-  #   4. Merge/Rebase base_branch.
-  #
-  # Customize this alias as you like for your own workflow.
-  ##
-
-  topic-rebase-base = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout \"$topic_branch\"; git rebase \"$base_branch\"; \
-  };f"
-
-  topic-merge-base = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout \"$topic_branch\"; git merge \"$base_branch\"; \
   };f"
 
   ##
@@ -1442,19 +1315,33 @@
   #
   # This implementation does these:
   #
-  #   1. Run topic-pull.
-  #   2. Run topic-push.
+  #   1. Pull any changes.
+  #   2. Push any changes.
+  #
+  # If you use any kind of testing framework, or test driven development,
+  # then it can be wise to test your topic immediately after running this,
+  # to ensure that any available updates are successfully integrated.
   #
   # Customize this alias as you like for your own workflow.
   ##
 
   topic-sync = "!f(){ \
-    git topic-pull; \
-    git topic-push; \
+    topic_branch=$(git branch-name); \
+    base_branch=$(git topic-base-branch-name); \
+    if [ \"$topic_branch\" = \"$base_branch\" ]; then \
+      printf \"You are asking to do git topic-sync,\n\"; \
+      printf \"but you are not currently on a topic branch;\n\"; \
+      printf \"you are on the base branch: $base_branch.\n\"; \
+      printf \"Please checkout the topic branch that you want,\n\"; \
+      printf \"then retry the git topic delete command.\n\"; \
+    else \
+      git pull; \
+      git push; \
+    fi; \
   };f"
 
   ##
-  # Move/rename the current topic branch.
+  # Move the current topic branch, a.k.a. rename it.
   #
   # Example:
   #
@@ -1462,8 +1349,8 @@
   #
   # This implementation does these:
   #
-  #   1. Move/rename the local branch.
-  #   2. Move/rename the remote branch by pushing to origin.
+  #   1. Move the local branch.
+  #   2. Move the remote branch by pushing to origin.
   #
   # Customize this alias as you like for your own workflow.
   ##

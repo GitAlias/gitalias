@@ -35,7 +35,7 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
   * Improvements such as `optimize` to do a prune and repack with recommended settings.
 
-  * Topic branch flows such as `topic-start` to create a new topic branch using master.
+  * Topic workflows such as `topic-start` to create a new topic branch for a feature or fix.
 
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
 
