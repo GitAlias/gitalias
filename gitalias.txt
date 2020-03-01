@@ -51,9 +51,9 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 23.0.0
+#   * Version: 23.1.0
 #   * Created: 2016-06-17
-#   * Updated: 2020-02-23
+#   * Updated: 2020-03-01
 #   * License: GPL
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
@@ -106,7 +106,10 @@
 
   ### branch ###
 
-  # branch - edit the description
+  # branch description
+  bd = !"git config branch.$(git rev-parse --abbrev-ref HEAD 2>/dev/null).description"
+
+  # bra nch - edit the description
   be = branch --edit-description
 
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
