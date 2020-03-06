@@ -75,7 +75,7 @@
   g = grep
   l = log
   m = merge
-  o = checkout
+  o = checkout///
   p = pull
   r = remote
   s = status
@@ -139,6 +139,7 @@
 
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
+  con = checkout --no-guess
 
   ### cherry-pick ###
 
