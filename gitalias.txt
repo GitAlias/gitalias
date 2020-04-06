@@ -729,7 +729,6 @@
   #
   churn = !"f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
 
-
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
     printf \"Summary of this branch...\n\"; \
@@ -752,6 +751,10 @@
     printf \"\nMost-active dates, with commit count and %%...\n\"; git log-of-count-and-day | head -7; \
     printf \"\nMost-active files, with churn count\n\"; git churn | head -7; \
   }; f"
+
+  ### REF ALIASES ###
+
+  ref-recent = "!git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) %(objectname:short) %(contents:subject)' refs/heads/"
 
   ### LOOKUP ALIASES ###
 
