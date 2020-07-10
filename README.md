@@ -322,7 +322,7 @@ To do list in priority order:
 
 Thanks to all the contributors, including all the creators of the projects mentioned above.
 
-Thanks to these people for extra help:
+Thanks to these people for extra help, in order of participation:
 
   * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
   * [Bill Lazar](https://github.com/billsaysthis)
@@ -348,4 +348,4 @@ Thanks to these people for extra help:
   * [Tsukasa Noguchi](https://github.com/wild-mouse)
   * [YantaoZhao](https://github.com/yantaozhao)
   * [Jeff Wu](https://github.com/WuTheFWasThat)
-  
+  * [Gareth Owen](https://github.com/gwjo)

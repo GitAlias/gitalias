@@ -51,10 +51,10 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 23.1.0
-#   * Created: 2016-06-17
-#   * Updated: 2020-03-01
-#   * License: GPL
+#   * Version: 23.2.0
+#   * Created: 2016-06-17T00:00:00Z
+#   * Updated: 2020-07-10T01:08:58Z
+#   * License: GPL-2.0-only
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
 
@@ -1251,20 +1251,27 @@
   ##
 
   ##
-  # Provide the name of the topic base branch, such as "master".
+  # Provide the name of the topic base branch, such as "main".
   #
   # When we create a new topic branch, we base it on the topic base branch.
-  # Many projects use the default "master" branch; some projects use custom
-  # branches, such as "trunk", "develop", "integrate", "release", "green", etc.
+  # Many projects use the topic base branch name "main". Some projects use 
+  # use "trunk", "develop", "deploy", "integrate", "release", "green", etc.
   #
-  # Use `topic-base-branch-name-set` to set this on a per-repo basis.
+  # The topic base branch name is "main" by default. You can customize 
+  # the name for your local repo, or your own user's global configuration, 
+  # or your system configuration, by using `git config` such as:
+  #
+  #    $ git config --local gitalias.topic.base.branch.name "foo" 
+  #
+  #    $ git config --global gitalias.topic.base.branch.name "foo" 
+  #
+  #    $ git config --system gitalias.topic.base.branch.name "foo" 
+  #
+  # Thanks to https://github.com/gwjo
   ##
 
-  topic-base-branch-name-set = "!f() { git config --local GitAlias.topic.baseBranch \"$1\" ; };f"
-
   topic-base-branch-name = "!f(){ \
-    base=\"$(git config --get GitAlias.topic.baseBranch)\"; \
-    printf \"${base-master}\n\"; \
+    git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
   };f"
 
   ##
