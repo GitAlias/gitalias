@@ -1257,11 +1257,14 @@
   # Many projects use the default "master" branch; some projects use custom
   # branches, such as "trunk", "develop", "integrate", "release", "green", etc.
   #
-  # Customize this alias as you like for your own workflow.
+  # Use `topic-base-branch-name-set` to set this on a per-repo basis.
   ##
 
+  topic-base-branch-name-set = "!f() { git config --local GitAlias.topic.baseBranch \"$1\" ; };f"
+
   topic-base-branch-name = "!f(){ \
-    printf \"master\n\"; \
+    base=\"$(git config --get GitAlias.topic.baseBranch)\"; \
+    printf \"${base-master}\n\"; \
   };f"
 
   ##
