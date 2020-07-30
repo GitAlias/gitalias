@@ -104,6 +104,11 @@
   # add just the files that are updated.
   au = add --update
 
+  # add and commit with message, dont need quotation marks
+  # Example:
+  # git acm message without quotes
+  acm = "!f() { git add . && git commit -m \"$(echo $@)\"; }; f";
+
   ### branch ###
 
   # branch description
