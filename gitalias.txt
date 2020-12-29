@@ -892,7 +892,7 @@
   #
   # And seemingly no changes to your working tree.
   #
-  snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshot = !git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\"
 
   # When you're a little worried that the world is coming to an end
   panic = !tar cvf ../panic.tar *
