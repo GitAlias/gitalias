@@ -221,6 +221,12 @@
   # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
   me = merge --no-commit --no-ff
 
+  # merge abort - cancel the merging process
+  ma = merge --abort
+
+  # merge - continue the merging process
+  mc = merge --continue
+
   ### pull ###
 
   # pull if a merge can be resolved as a fast-forward, otherwise fail.
