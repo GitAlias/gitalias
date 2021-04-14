@@ -112,6 +112,9 @@
   # bra nch - edit the description
   be = branch --edit-description
 
+  # list branches along with their description
+  br = !"f(){(git branch -v \"${@}\"|sed 's/\\(.\\) \\([^ ]*\\)\\(.*\\)/\\2\\1 \\3/'&&git config --get-regexp ^branch.*description|sed '/^$/d;s/^branch\\.\\([^ ]*\\)\\.description /\\1# /')|sort -h;};f"
+
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
@@ -352,6 +355,9 @@
   # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
   # This is a slightly modified version
   fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+
+  # Shorthand to stash/rebase/unstash
+  fix = !"f(){ git rebase --autostash -i \"${@:-HEAD^^}\";};f"
 
   ### reflog ###
 
@@ -882,6 +888,9 @@
   # then you can use the older "stash save" instead of the newer "stash push".
   save = stash push
   pop = stash pop
+
+  # Save the current branch (for example, prior a rebase)
+  backup-branch = !"git branch backup/$(date +%F/%H-%M-%S)"
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
