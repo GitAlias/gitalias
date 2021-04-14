@@ -109,7 +109,7 @@
   # branch description
   bd = !"git config branch.$(git rev-parse --abbrev-ref HEAD 2>/dev/null).description"
 
-  # bra nch - edit the description
+  # branch - edit the description
   be = branch --edit-description
 
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
