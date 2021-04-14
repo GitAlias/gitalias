@@ -1,23 +1,27 @@
 # -*- mode: gitconfig; -*-
 # vim: set filetype=gitconfig:
 ##
-# GitAlias.com file of many git alias items, including shortcuts, helpers, workflows, etc.
+# GitAlias.com file of many git alias items, including shortcuts, 
+# helpers, workflows, utilties, visualizers, reports, etc.
 #
 #
 # ## Usage
 #
-# Typical usage for a typical user:
+# Usage for a typical user is easy.
 #
-#   * Save this file as a dot file in your home directory: `~/.gitalias.txt`
+# Save this file anywhere you want, such as in your home directory,
+# such as a file name similar to your git config file name, such as:
 #
-#   * Edit your git config dot file in your home directory such as  `~/.gitconfig`
+#      ~/.gitalias
 #
-#   * Include the path to this file.
+# Edit your git config dot file, such as:
 #
-# Example file `~/.gitconfig` with an entry to include the file `~/.gitalias.txt`:
+#      vi ~/.gitconfig
+#
+# Include the path to the git alias dot file, such as:
 #
 #     [include]
-#       path = gitalias.txt
+#     path = ~/.gitalias
 #
 #
 # ## Usage for older git versions
@@ -33,12 +37,34 @@
 # then one way is to use your git config file to include this gitalias file,
 # and also define your own alias items; a later alias takes precedence.
 #
-# Example file `~/.gitconfig` item to include the file `~/.gitalias.txt`:
+# Example git config file:
 #
 #     [include]
-#       path = ~/.gitconfig.d/gitalias.txt
+#     path = ~/.gitalias
+#
 #     [alias]
-#       l = log --graph --oneline
+#     l = log --graph --oneline
+#
+#
+# ## Contributor advice
+#
+# Typically a short alias for a command and its options
+# is in the same order as the command and option words:
+#
+#   * Right: `fab = foo --alpha --bravo`
+# 
+#   * Wrong: `baf = foo --alpha --bravo`
+#
+#   * Wrong: `abf = foo --alpha --bravo`
+#
+# Typically a short alias for a command and its options
+# uses the first letter of each option word:
+#
+#     * Right: `fab = foo --alpha-bravo`
+#
+#     * Wrong: `fa = foo --alpha-bravo`
+#
+#     * Wrong: `fb = foo --alpha-bravo`
 #
 #
 # ## Links
@@ -51,9 +77,9 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 23.2.0
+#   * Version: 24.0.0
 #   * Created: 2016-06-17T00:00:00Z
-#   * Updated: 2020-07-10T01:08:58Z
+#   * Updated: 2021-04-14T23:10:25Z
 #   * License: GPL-2.0-only
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
@@ -84,13 +110,6 @@
   ##
   # Short aliases for our frequent commands.
   #
-  # Guidelines:
-  #
-  #  * Generally speaking, the alias should be in the same
-  #    order as the command name followed by its options.
-  #
-  #    * Right: fb = foo --bar
-  #    * Wrong: bf = foo --bar
   ##
 
   ### add ###

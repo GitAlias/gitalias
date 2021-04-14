@@ -9,15 +9,21 @@ Contents:
   * [Where is the code?](#where-is-the-code)
   * [Why use this?](#why-use-this)
 * [Install](#install)
+  * [Install with typical usage](#install-with-typical-usage)
+  * [Install with custom usage](#install-with-custom-usage)
 * [Examples](#examples)
   * [Shortcut examples](#shortcut-examples)
+  * [Popular examples](#popular-examples)
   * [Accelerator examples](#accelerator-examples)
+  * [Recovery examples](#recovery-examples)
+  * [Coordination examples](#coordination-examples)
   * [Workflow examples](#workflow-examples)
   * [Optimization examples](#optimization-examples)
 * [Customization](#customization)
   * [Status](#status)
   * [Log](#log)
   * [Format](#format)
+* [Contributor advice](#contributor-advice)
 * [Epilog](#epilog)
   * [See also](#see-also)
   * [To do](#to-do)
@@ -35,7 +41,7 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
   * Improvements such as `optimize` to do a prune and repack with recommended settings.
 
-  * Topic workflows such as `topic-start` to create a new topic branch for a feature or fix.
+  * Workflows such as `topic-start` to create a new topic branch for a new feature.
 
   * Visualizations such as `graphviz` to show logs and charts using third-party tools.
 
@@ -57,23 +63,36 @@ We often work on teams, across many companies and organizations, and using multi
 
 ## Install
 
-Download the file [`gitalias.txt`](gitalias.txt):
+
+### Install with typical usage
+
+Download the file [`gitalias.txt`](gitalias.txt) and include it:
+
+```sh
+curl https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt -o ~/.gitalias 
+git config --global include.path ~/.gitalias
+```
+
+
+### Install with custom usage
+
+Download the file [`gitalias.txt`](gitalias.txt) any way you want, such as:
 
 ```sh
 curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
 ```
 
-Typical usage for a typical user:
+Manually edit your git config dot file any way you want, such as:
 
-  * Save this file as a dot file in your home directory: `~/.gitalias.txt`
+```sh
+vi ~/.gitconfig
+```
 
-  * `git config --global include.path ~/.gitalias.txt` in terminal.  Or manually edit your git config dot file in your home directory such as `~/.gitconfig`, include the path to this file.
-
-Example file `~/.gitconfig` with an entry to include the file `~/.gitalias.txt`:
+Include the path to this file:
 
 ```gitalias
 [include]
-  path = ~/.gitalias.txt
+path = gitalias.txt
 ```
 
 
@@ -261,6 +280,27 @@ To do your own custom pretty formatting:
 [format]
   pretty = "%H %ci %ce %ae %d %s"
 ```
+
+
+## Contributor advice
+
+Typically a short alias for a command and its options
+is in the same order as the command and option words:
+
+  * Right: `fab = foo --alpha --bravo`
+
+  * Wrong: `baf = foo --alpha --bravo`
+
+  * Wrong: `abf = foo --alpha --bravo`
+
+Typically a short alias for a command and its options
+uses the first letter of each option word:
+
+  * Right: `fab = foo --alpha-bravo`
+
+  * Wrong: `fa = foo --alpha-bravo`
+
+  * Wrong: `fb = foo --alpha-bravo`
 
 
 ## Epilog
