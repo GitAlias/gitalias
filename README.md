@@ -73,7 +73,7 @@ Example file `~/.gitconfig` with an entry to include the file `~/.gitalias.txt`:
 
 ```gitalias
 [include]
-  path = gitalias.txt
+  path = ~/.gitalias.txt
 ```
 
 
