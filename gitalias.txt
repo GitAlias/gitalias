@@ -106,17 +106,20 @@
 
   ### branch ###
 
-  # branch description
-  bd = !"git config branch.$(git rev-parse --abbrev-ref HEAD 2>/dev/null).description"
-
-  # branch - edit the description
-  be = branch --edit-description
-
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
   # branch and only list branches whose tips are not reachable from the specified commit (HEAD if not specified).
   bnm = branch --no-merged
+
+  # branch with edit description
+  bed = branch --edit-description
+
+  # branch with show description; ideally git will add this feature in the future as `git --show-description`
+  bsd = "!f(){ \
+    branch=\"${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}\";  \
+    git config \"branch.$branch.description\"; \
+  };f"
 
   ### commit ###
 
