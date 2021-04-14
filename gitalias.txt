@@ -1227,7 +1227,7 @@
   #
   #     $ git topic-start add-feature-foo
   #
-  # Do some work then synchronize your changes, which integrates your branch:
+  # Do work, and optionally sync our changes, which pushes and pulls:
   #
   #     $ git topic-sync
   #  
