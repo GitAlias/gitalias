@@ -183,8 +183,8 @@
   # grep i.e. search for text
   g = grep
 
-  # grep - show line number
-  gl = grep --line-number
+  # grep with -n (--line-number) means show line number
+  gn = grep -n
 
   # grep group - search with our preferred options. Also aliased as `grep-group`.
   gg = grep --break --heading --line-number --color
