@@ -1446,12 +1446,6 @@
   # show full history in gitk (including "deleted" branches and stashes)
   gitk-history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
 
-  ### Ruby on Rails ###
-
-  # Do everything we can to synchronize all changes for a Ruby On Rails app.
-  # We like using rebase (instead of merge), bundle for gems, and rake db:migrate
-  rails-get = !"git pull --rebase; git submodule update --init --recursive; bundle check || bundle install; bundle exec rake db:migrate; bundle exec rake db:test:prepare"
-
   ### Subversion ###
 
   svn-b = svn branch
