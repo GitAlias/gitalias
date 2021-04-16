@@ -211,14 +211,26 @@
   # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
   ls = ls-files
 
-  # ls-ignored -  list files that git has ignored.
-  ls-ignored = ls-files --others --i --exclude-standard
-
   # lsd - List files with debug information
   lsd = ls-files --debug
 
   # lsfn - List files with full name.
   lsfn = ls-files --full-name
+
+  # lsio -  list files that git has ignored.
+  #
+  # git ls-files:
+  #
+  #     -i, --ignored
+  #         Show only ignored files in the output …
+  #
+  #     -o, --others
+  #         Show other (i.e. untracked) files in the output …
+  #
+  #     --exclude-standard
+  #         Add the standard Git exclusions …
+  #
+  lsio = ls-files --ignored --others --exclude-standard
 
   ### merge ###
 
