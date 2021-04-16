@@ -1225,11 +1225,23 @@
   # If the program to debug is a builtin, we use this alias.
   debug = !GIT_PAGER= gdb --args git
 
-  # Getting the diff of only one function: when we want to see just the
-  # differences of one function in one file in two different commits,
-  # we create two temp files which contain only the function, then diff.
-  # Use this alias this way: git funcdiff <old-rev> <new-rev> <path> <function>
-  # diff-func = !sh -c "git show \"\$1:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp1 && git show \"\$2:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp2 && git diff --no-index .tmp1 .tmp2" -
+  # git diff-chunk - Get the diff of one chunk.
+  #
+  # Suppose we want to see just the differences of one chunk,
+  # such as one function, in one file, in two different commits.
+  #
+  # This alias creates two temp files which contain only the chunk,
+  # then does a typical git diff.
+  #
+  # Syntax:
+  #
+  #     git funcdiff <old-rev> <new-rev> <path> <chunk pattern>
+  #
+  diff-chunk = "!f() { \
+      git show \"\$1:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp1 ; \
+      git show \"\$2:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp2 ; \
+      git diff --no-index .tmp1 .tmp2 ; \
+  }; f"    
 
   # Calling "interdiff" between commits: if upstream applied a
   # slightly modified patch, and we want to see the modifications,
