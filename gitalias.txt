@@ -1458,15 +1458,3 @@
   svn-m = merge --squash
   svn-c = svn dcommit
   svn-cp = !GIT_EDITOR='sed -i /^git-svn-id:/d' git cherry-pick --edit
-
-  ##########################################################################
-
-  ##
-  # Git aliases to correct common typing mistakes, which git built-in autocorrection
-  # does not handle
-  ##
-
-  ### Use with shell alias `gitp = git` ###
-
-  ull = pull
-  ush = push
