@@ -214,6 +214,9 @@
   # ls-ignored -  list files that git has ignored.
   ls-ignored = ls-files --others --i --exclude-standard
 
+  # lsfn - List files with full name.
+  lsfn = ls-files --full-name
+
   ### merge ###
 
   # merge abort - cancel the merging process
