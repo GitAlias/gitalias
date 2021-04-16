@@ -394,8 +394,8 @@
   # remote prune - deletes all stale remote-tracking branches under <name>.
   rrp = remote prune
 
-  # Push to all remotes
-  push-to-all-remotes = !git remote | xargs -I% -n1 git push %
+  # remotes-push - For each remote, push it.
+  remotes-push = !git remote | xargs -I% -n1 git push %
 
   ### revert ###
 
