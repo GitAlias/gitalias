@@ -46,7 +46,6 @@
 #     l = log --graph --oneline
 #
 #
-#
 # ## Links
 #
 #   * [GitAlias.com website](https://gitalias.com)
@@ -1147,9 +1146,9 @@
   # This command takes a long time to run, perhaps even overnight.
   #
   # Currently, this command simply calls `git pruner` and `git repacker`.
-  # There's a step that may be unnecessarying, calling `git prune-pack`.
+  # There's a step that may be unnecessarying, calling `git prune-packer`.
   #
-  optimize = !git pruner; git repacker; git prune-packed
+  optimizer = !git pruner; git repacker; git prune-packed
 
 
   ### ADVANCED ALIASES ###
