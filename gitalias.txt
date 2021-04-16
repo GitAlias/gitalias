@@ -325,14 +325,18 @@
   # rebase - restart the rebasing process by skipping the current patch.
   rbs = rebase --skip
 
-  # rbi - rebase interactive on our unpushed commits.
+  # rebase interactive - do the rebase with prompts.
+  rbi = rebase --skip
+
+  # rbiu - rebase interactive on our unpushed commits.
   #
   # Before we push our local changes, we may want to do some cleanup,
   # to improve our commit messages or squash related commits together.
   #
   # Let's say I've pushed two commits that are related to a new feature and
   # I have another where I made a spelling mistake in the commit message.
-  # When I run "git rbi" I get dropped into my editor with this:
+  #
+  # When I run "git rbiu" I get dropped into my editor with this:
   #
   #     pick 7f06d36 foo
   #     pick ad544d0 goo
@@ -353,7 +357,7 @@
   #     3400455 - foo
   #     5dae0a0 - whatever
   #
-  rbi = rebase --interactive @{upstream}
+  rbiu = rebase --interactive @{upstream}
 
   # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
   # This is a slightly modified version
