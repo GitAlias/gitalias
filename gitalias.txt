@@ -977,19 +977,25 @@
   # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
   expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
 
-  # Edit all files of the given type
-  edit-cached   = !"f() { git ls-files --cached          | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-deleted  = !"f() { git ls-files --deleted         | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-others   = !"f() { git ls-files --others          | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-ignored  = !"f() { git ls-files --ignored         | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-killed   = !"f() { git ls-files --killed          | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-modified = !"f() { git ls-files --modified        | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-stage    = !"f() { git ls-files --stage | cut -f2 | sort -u ; }; `git var GIT_EDITOR` `f`"
+  # Add all files of the given type
+  add-cached   = !"f() { git ls-files --cached             | sort -u ; }; git add `f`"
+  add-deleted  = !"f() { git ls-files --deleted            | sort -u ; }; git add `f`"
+  add-others   = !"f() { git ls-files --others             | sort -u ; }; git add `f`"
+  add-ignored  = !"f() { git ls-files --ignored            | sort -u ; }; git add `f`"
+  add-killed   = !"f() { git ls-files --killed             | sort -u ; }; git add `f`"
+  add-modified = !"f() { git ls-files --modified           | sort -u ; }; git add `f`"
+  add-stage    = !"f() { git ls-files --stage    | cut -f2 | sort -u ; }; git add `f`"
+  add-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
-  # Editing and adding conflicted files: when we get many merge conflicts
-  # and want to quickly solve them using an editor, then add the  files.
+  # Edit all files of the given type
+  edit-cached   = !"f() { git ls-files --cached             | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-deleted  = !"f() { git ls-files --deleted            | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-others   = !"f() { git ls-files --others             | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-ignored  = !"f() { git ls-files --ignored            | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-killed   = !"f() { git ls-files --killed             | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-modified = !"f() { git ls-files --modified           | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-stage    = !"f() { git ls-files --stage    | cut -f2 | sort -u ; }; `git var GIT_EDITOR` `f`"
   edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; `git var GIT_EDITOR` `f`"
-  add-unmerged  = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
   # Ours & Theirs - easy merging when you know which files you want
   #
