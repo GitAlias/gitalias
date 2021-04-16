@@ -153,6 +153,9 @@
   # cherry-pick - continue the picking process
   cpc = cherry-pick --continue
 
+  # cherry-pick without making a commit
+  cpnc = cherry-pick --no-commit
+
   # cherry-pick without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
   cp-nx = cherry-pick --no-commit -x
 
