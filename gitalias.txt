@@ -426,14 +426,50 @@
 
   ### ALIAS MANAGEMENT ###
 
-  add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git add-(local|global)-alias <new alias> <original command>\" >&2 && return 1; }; f"
-  add-global-alias = "!git add-alias --global"
-  add-local-alias = "!git add-alias --local"
+  # git add-alias: create a new git alias.
+  add-alias = "!f() { \
+      if [ $# != 3 ]; then \
+        echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
+        echo "Error: this command needs 3 arguments."; \
+        return 2; \
+      fi; \
+      if [ ! -z \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
+          echo "Alias "$2" already exists, thus no change happened."; \
+          return 3; \
+      fi; \
+      git config $1 alias.\"$2\" \"$3\" && \
+      return 0; \
+      echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
+      echo "Error: unknown failure."; \
+      return 1; \
+  }; f"
 
-  # Rename an alias
-  rename-alias = "!f() { [ $# = 3 ] && [ $2 != $3 ] && [ ! -z \"$(git config $1 --get alias.$2)\" ] && [ -z \"$(git config $1 --get alias.$3)\" ] && git config $1 alias.$3 \"$(git config $1 --get alias.$2)\" && git config $1 --unset alias.$2 && return 0 || echo \"Usage: git rename-(local|global)-alias <alias existing name> <new alias name>\nThe alias you are going to rename must exist and new name must not exist.\" >&2 && return 1; };f"
-  rename-global-alias = "!git rename-alias --global"
-  rename-local-alias = "!git rename-alias --local"
+  # git move-alias: rename an existing git alias.
+  move-alias = "!f() { \
+      if [ $# != 3 ]; then \
+          echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <new alias name>\"; \
+          echo "Error: this command needs 3 arguments."; \
+          return 2; \
+      fi; \
+      if [ $2 == $3 ]; then \
+          echo "The alias names are identical, thus no change happened."; \
+          return 3; \
+      fi; \
+      if [ -z \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
+          echo "Alias "$2" does not exist, thus no change happened."; \
+          return 4; \
+      fi; \
+      if [ ! -z \"$(git config $1 --get alias.$3)\" ]; then \
+          echo "Alias "$3" already exists, thus no change happened."; \
+          return 5; \
+      fi; \
+      git config \"$1\" alias.\"$3\" \"$(git config $1 --get alias.$2)\" && \
+      git config \"$1\" --unset alias.\"$2\" && \
+      return 0; \
+      echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <alias new name>\"; \
+      echo "Error: unknown failure."; \
+      return 1; \
+  };f"
 
   # Last tag in the current branch
   lasttag = describe --tags --abbrev=0
