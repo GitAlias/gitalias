@@ -1231,10 +1231,11 @@
   # we use the program interdiff of the patchutils package.
   intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commit2 && interdiff .git/commit[12] | less -FRS' -
 
-  # Prune all your stale remote branches: there's no way to tell
-  # git remote update to prune stale branches, and git remote prune
-  # does not understand --all. So here is a shell command to do it.
-  prune-all = !git remote | xargs -n 1 git remote prune
+  # git remote-prune-all: Prune all your stale remote branches.
+  # There's no way to tell `git remote update` to prune stale branches,
+  # and `git remote prune` does not currently understand `--all`. 
+  # So this shell command iterates on each remote, and prunes it.
+  remote-prune-all = !git remote | xargs -n 1 git remote prune
 
   # Thanks to cody cutrer
   cherry-pick-merge = !"sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
