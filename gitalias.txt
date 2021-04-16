@@ -426,9 +426,6 @@
 
   ### ALIAS MANAGEMENT ###
 
-  # Show our defined alias list
-  aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
-
   add-alias = "!f() { [ $# = 3 ] && git config $1 alias.\"$2\" \"$3\" && return 0 || echo \"Usage: git add-(local|global)-alias <new alias> <original command>\" >&2 && return 1; }; f"
   add-global-alias = "!git add-alias --global"
   add-local-alias = "!git add-alias --local"
@@ -1088,6 +1085,7 @@
 
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
+  aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
   branches = branch -a
   tags = tag -n1 --list
   stashes = stash list
