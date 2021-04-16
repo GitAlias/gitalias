@@ -1228,7 +1228,6 @@
 
   ##########################################################################
 
-  ##
   # Git alias settings suitable for topic branches.
   #
   # These aliases are simple starting points for a simple topic flow.
@@ -1262,9 +1261,7 @@
   #   * Update your project management software with the new topic name.
   #
   # Customize these aliases as you like for your own workflow.
-  ##
 
-  ##
   # Provide the name of the topic base branch, such as "main".
   #
   # When we create a new topic branch, we base it on the topic base branch.
@@ -1282,13 +1279,11 @@
   #    $ git config --system gitalias.topic.base.branch.name "foo" 
   #
   # Thanks to https://github.com/gwjo
-  ##
 
   topic-base-branch-name = "!f(){ \
     git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
   };f"
 
-  ##
   # Start a topic branch.
   #
   # Example:
@@ -1312,7 +1307,6 @@
   # Many teams share branches before they are fully ready, to help
   # the team provide feedback on the work-in-progress, and also to
   # run any automatic tests to verify the branch runs successfully.
-  ##
 
   topic-start = "!f(){ \
     topic_branch=\"$1\"; \
@@ -1322,7 +1316,6 @@
     git push --set-upstream origin \"$topic_branch\"; \
   };f"
 
-  ##
   # Stop a topic branch; this must be the current branch.
   #
   # Example:
@@ -1350,7 +1343,6 @@
   # that the remote branch doesn't exist, so git is unable to delete it.
   # That's fine; it means someone else has already deleted the branch.
   # To synchronize your branch list, use "git fetch --prune".
-  ##
 
   topic-stop = "!f(){ \
     topic_branch=$(git branch-name); \
@@ -1369,7 +1361,6 @@
     fi; \
   };f"
 
-  ##
   # Update the current topic branch by synchronizing changes.
   #
   # Example:
@@ -1386,7 +1377,6 @@
   # to ensure that any available updates are successfully integrated.
   #
   # Customize this alias as you like for your own workflow.
-  ##
 
   topic-sync = "!f(){ \
     topic_branch=$(git branch-name); \
@@ -1403,7 +1393,6 @@
     fi; \
   };f"
 
-  ##
   # Move the current topic branch, a.k.a. rename it.
   #
   # Example:
@@ -1416,7 +1405,6 @@
   #   2. Move the remote branch by pushing to origin.
   #
   # Customize this alias as you like for your own workflow.
-  ##
 
   topic-move = "!f(){ \
     new_branch=\"$1\"; \
