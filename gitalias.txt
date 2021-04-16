@@ -173,11 +173,6 @@
   # diff deep - show changes with our preferred options. Also aliased as `diff-deep`.
   dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 
-  ### clean ###
-
-  # clean everything to be pristine
-  cleanest = clean -ffdx
-
   ### grep ###
 
   # grep i.e. search for text
@@ -381,9 +376,6 @@
 
   # remote prune - deletes all stale remote-tracking branches under <name>.
   rrp = remote prune
-
-  incoming = !git remote update --prune; git log ..@{upstream}
-  outgoing = log @{upstream}..
 
   # Push to all remotes
   push-to-all-remotes = !git remote | xargs -I% -n1 git push %
@@ -1080,6 +1072,12 @@
   # remote version of the current branch.
   unpublish = !"git push origin :$(git branch-name)"
 
+  # git inbound: show incoming changes with upstream.
+  inbound = !git remote update --prune; git log ..@{upstream}
+
+  # git outbound: show outgoing changes with upstream.
+  outbound = log @{upstream}..
+
   # Delete a branch name, then create the same branch name based on main -
   # useful if you have, for example, a development branch and main branch
   # and they go out of sync, and you want to nuke the development branch.
@@ -1112,6 +1110,9 @@
 
 
   ### MAINTENANCE ALIASES ###
+
+  # cleaner: clean everything to be pristine
+  cleaner = clean -ffdx
 
   # pruner: prune everything that is unreachable now.
   #
