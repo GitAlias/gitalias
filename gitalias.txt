@@ -817,11 +817,8 @@
   # Given any git object, try to show it briefly
   whatis = show --no-patch --pretty='tformat:%h (%s, %ad)' --date=short
 
-  # Show who contributed with summarized changes
-  who = shortlog --summary --
-
   # Show who contributed, in descending order by number of commits
-  whorank = shortlog --summary --numbered --no-merges
+  who = shortlog --summary --numbered --no-merges
 
   # List all issues mentioned in commit messages between range of commits
   #
