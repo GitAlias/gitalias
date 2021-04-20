@@ -967,8 +967,8 @@
   ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
 
   # Do a push/pull for just one branch
-  push1 = "!git push origin $(git branch-name)"
-  pull1 = "!git pull origin $(git branch-name)"
+  push1 = "!git push origin $(git current-branch)"
+  pull1 = "!git pull origin $(git current-branch)"
 
   # Track and untrack, with default parameters, and with printing the command
   track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
@@ -1108,11 +1108,11 @@
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
-  publish = !"git push --set-upstream origin $(git branch-name)"
+  publish = !"git push --set-upstream origin $(git current-branch)"
 
   # Unpublish the current branch by deleting the
   # remote version of the current branch.
-  unpublish = !"git push origin :$(git branch-name)"
+  unpublish = !"git push origin :$(git current-branch)"
 
   # git inbound: show incoming changes with upstream.
   inbound = !git remote update --prune; git log ..@{upstream}
@@ -1333,16 +1333,16 @@
   # the name for your local repo, or your own user's global configuration, 
   # or your system configuration, by using `git config` such as:
   #
-  #    $ git config --local gitalias.topic.base.branch.name "foo" 
+  #    $ git config --local init.topicBranch "foo" 
   #
-  #    $ git config --global gitalias.topic.base.branch.name "foo" 
+  #    $ git config --global init.topicBranch "foo" 
   #
-  #    $ git config --system gitalias.topic.base.branch.name "foo" 
+  #    $ git config --system init.topicBranch "foo" 
   #
   # Thanks to https://github.com/gwjo
 
   topic-base-branch-name = "!f(){ \
-    git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
+    git config --get init.topicBranch || printf '%s\n' main; \
   };f"
 
   # Start a topic branch.
@@ -1371,7 +1371,7 @@
 
   topic-start = "!f(){ \
     topic_branch=\"$1\"; \
-    base_branch=$(git topic-base-branch-name); \
+    base_branch=$(git topic-branch); \
     git checkout \"$base_branch\"; git pull; \
     git checkout -b \"$topic_branch\" \"$base_branch\"; \
     git push --set-upstream origin \"$topic_branch\"; \
@@ -1406,8 +1406,8 @@
   # To synchronize your branch list, use "git fetch --prune".
 
   topic-stop = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
+    topic_branch=$(git current-branch); \
+    base_branch=$(git topic-branch); \
     if [ \"$topic_branch\" = \"$base_branch\" ]; then \
       printf \"You are asking to do git topic-stop,\n\"; \
       printf \"but you are not currently on a topic branch;\n\"; \
@@ -1440,8 +1440,8 @@
   # Customize this alias as you like for your own workflow.
 
   topic-sync = "!f(){ \
-    topic_branch=$(git branch-name); \
-    base_branch=$(git topic-base-branch-name); \
+    topic_branch=$(git current-branch); \
+    base_branch=$(git topic-branch); \
     if [ \"$topic_branch\" = \"$base_branch\" ]; then \
       printf \"You are asking to do git topic-sync,\n\"; \
       printf \"but you are not currently on a topic branch;\n\"; \
@@ -1469,7 +1469,7 @@
 
   topic-move = "!f(){ \
     new_branch=\"$1\"; \
-    old_branch=$(git branch-name); \
+    old_branch=$(git current-branch); \
     git branch --move \"$old_branch\" \"$new_branch\"; \
     git push origin \":$old_branch\" \"$new_branch\"; \
   };f"
