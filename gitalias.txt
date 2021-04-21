@@ -1001,7 +1001,6 @@
   # Nicknames
   uncommit = reset --soft HEAD~1
   unadd = reset HEAD
-  unstage = reset HEAD
 
   # Discard changes in a (list of) file(s) in working tree
   discard = checkout --
