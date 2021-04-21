@@ -989,14 +989,14 @@
   reset-commit-hard  = reset --hard HEAD~1
   reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
   reset-to-pristine  = !git reset --hard && git clean -ffdx
-  reset-to-upstream  = !git reset --hard $(git upstream-name)
+  reset-to-upstream  = !git reset --hard $(git upstream-branch)
 
   # Undo is simply a synonym for "reset" because "undo" can help novices.
   undo-commit        = reset --soft HEAD~1
   undo-commit-hard   = reset --hard HEAD~1
   undo-commit-clean  = !git reset --hard HEAD~1 && git clean -fd
   undo-to-pristine   = !git reset --hard && git clean -ffdx
-  undo-to-upstream   = !git reset --hard $(git upstream-name)
+  undo-to-upstream   = !git reset --hard $(git upstream-branch)
 
   # Nicknames
   uncommit = reset --soft HEAD~1
@@ -1141,10 +1141,10 @@
   top-name = rev-parse --show-toplevel
 
   # Get the current branch name
-  branch-name = rev-parse --abbrev-ref HEAD
+  current-branch = rev-parse --abbrev-ref HEAD
 
   # Get the upstream branch name
-  upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+  upstream-branch = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
 
   # Execute shell scripts. Git always runs scripts in the top directory.
   # For example "git exec pwd" will always show you the top directory.
@@ -1340,7 +1340,7 @@
   #
   # Thanks to https://github.com/gwjo
 
-  topic-base-branch-name = "!f(){ \
+  topic-branch = "!f(){ \
     git config --get init.topicBranch || printf '%s\n' main; \
   };f"
 
@@ -1369,11 +1369,11 @@
   # run any automatic tests to verify the branch runs successfully.
 
   topic-start = "!f(){ \
-    topic_branch=\"$1\"; \
-    base_branch=$(git topic-branch); \
-    git checkout \"$base_branch\"; git pull; \
-    git checkout -b \"$topic_branch\" \"$base_branch\"; \
-    git push --set-upstream origin \"$topic_branch\"; \
+    new_branch=\"$1\"; \
+    old_branch=$(git topic-branch); \
+    git checkout \"$old_branch\"; git pull; \
+    git checkout -b \"$new_branch\" \"$old_branch\"; \
+    git push --set-upstream origin \"$new_branch\"; \
   };f"
 
   # Stop a topic branch; this must be the current branch.
@@ -1405,19 +1405,19 @@
   # To synchronize your branch list, use "git fetch --prune".
 
   topic-stop = "!f(){ \
-    topic_branch=$(git current-branch); \
-    base_branch=$(git topic-branch); \
-    if [ \"$topic_branch\" = \"$base_branch\" ]; then \
+    new_branch=$(git current-branch); \
+    old_branch=$(git topic-branch); \
+    if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-stop,\n\"; \
-      printf \"but you are not currently on a topic branch;\n\"; \
-      printf \"you are on the base branch: $base_branch.\n\"; \
+      printf \"but you are not on a new topic branch;\n\"; \
+      printf \"you are on the base topic branch: $old_branch.\n\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
-      printf \"then retry the git topic delete command.\n\"; \
+      printf \"then retry the git topic-stop command.\n\"; \
     else \
       git push; \
-      git checkout \"$base_branch\"; \
-      git branch --delete \"$topic_branch\"; \
-      git push origin \":$topic_branch\"; \
+      git checkout \"$old_branch\"; \
+      git branch --delete \"$new_branch\"; \
+      git push origin \":$new_branch\"; \
     fi; \
   };f"
 
@@ -1439,14 +1439,14 @@
   # Customize this alias as you like for your own workflow.
 
   topic-sync = "!f(){ \
-    topic_branch=$(git current-branch); \
-    base_branch=$(git topic-branch); \
-    if [ \"$topic_branch\" = \"$base_branch\" ]; then \
+    new_branch=$(git current-branch); \
+    old_branch=$(git topic-branch); \
+    if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-sync,\n\"; \
-      printf \"but you are not currently on a topic branch;\n\"; \
-      printf \"you are on the base branch: $base_branch.\n\"; \
+      printf \"but you are not on a new topic branch;\n\"; \
+      printf \"you are on the base topic branch: $old_branch.\n\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
-      printf \"then retry the git topic delete command.\n\"; \
+      printf \"then retry the git topic-sync command.\n\"; \
     else \
       git pull; \
       git push; \
