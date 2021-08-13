@@ -805,6 +805,88 @@
     printf \"\nMost-active files, with churn count\n\"; git churn | head -7; \
   }; f"
 
+  ### SHOW COMMIT HASHES VIA ORDERING ###
+
+  # Show a branch's commit hash (or multiple hashes)
+  # by using ordering keywords ("first" or "last"):
+  #
+  #   * `branch-commit-first`: show a branch's first commit hash (or hashes)
+  #
+  #   * `branch-commit-last`: show a branch's last commit hash (or hashes)
+  #
+  # Inspirations:
+  #
+  #   * Email from Demian proposing these aliases
+  #
+  #   * https://github.com/hutusi/git-paging
+  #
+
+  # branch-commit-first
+  #
+  # Show a branch's first commit hash (or hashes).
+  #
+  # Syntax:
+  #
+  #    git branch-commit-first [branch name [commit count]]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  #   * commit count: default is 1
+  #
+  # Example: show the current branch's first commit hash:
+  #
+  #     git branch-commit-first
+  #
+  # Example: show the "foo" branch's first commit hash:
+  #
+  #     git branch-commit-first foo
+  #
+  # Example: show the "foo" branch's first 3 commit hashes:
+  #
+  #     git branch-commit-first foo 3
+  #
+  branch-commit-first = "!f() { \
+      branch="${1:-$(git current-branch)}"; \
+      count="${2:-1}"; \
+    git log --reverse --pretty=%H "$branch" | \
+    head -"$count"; \
+  }; f" 
+
+  # branch-commit-last
+  #
+  # Show a branch's last commit hash (or hashes).
+  #
+  # Syntax:
+  #
+  #    git branch-commit-last [branch name [commit count]]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  #   * commit count: default is 1
+  #
+  # Example: show the current branch's last commit hash:
+  #
+  #     git branch-commit-last
+  #
+  # Example: show the "foo" branch's last commit hash:
+  #
+  #     git branch-commit-last foo
+  #
+  # Example: show the "foo" branch's last 3 commit hashes:
+  #
+  #     git branch-commit-last foo 3
+  #
+  branch-commit-last = "!f() { \
+      branch="${1:-$(git current-branch)}"; \
+      count="${2:-1}"; \
+    git log --pretty=%H $branch | \
+    head -"$count"; \
+  }; f"
+
   ### REF ALIASES ###
 
   ref-recent = "!git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) %(objectname:short) %(contents:subject)' refs/heads/"
