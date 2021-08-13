@@ -814,6 +814,10 @@
   #
   #   * `branch-commit-last`: show a branch's last commit hash (or hashes)
   #
+  #   * `branch-commit-prev`: show a branch's previous commit hash (or hashes)
+  #
+  #   * `branch-commit-next`: show a branch's next commit hash (or hashes)
+  #
   # Inspirations:
   #
   #   * Email from Demian proposing these aliases
@@ -883,8 +887,76 @@
   branch-commit-last = "!f() { \
       branch="${1:-$(git current-branch)}"; \
       count="${2:-1}"; \
-    git log --pretty=%H $branch | \
+    git log --pretty=%H "$branch" | \
     head -"$count"; \
+  }; f"
+
+  # branch-commit-prev
+  #
+  # Show a branch's previous commit hash (or hashes).
+  #
+  # Syntax:
+  #
+  #    git branch-commit-prev [branch name [commit count]]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  #   * commit count: default is 1
+  #
+  # Example: show the current branch's previous commit hash:
+  #
+  #     git branch-commit-prev
+  #
+  # Example: show the "foo" branch's previous commit hash:
+  #
+  #     git branch-commit-prev previous
+  #
+  # Example: show the "foo" branch's previous 3 commit hashes:
+  #
+  #     git branch-commit-prev foo 3
+  #
+  branch-commit-prev = "!f() { \
+      branch="${1:-$(git current-branch)}"; \
+      count="${2:-1}"; \
+    git log --pretty=%H "$branch" | \
+    grep -A "$count" $(git rev-parse HEAD) | \
+    tail +2; \
+  }; f"
+
+  # branch-commit-next
+  #
+  # Show a branch's next commit hash (or hashes).
+  #
+  # Syntax:
+  #
+  #    git branch-commit-next [branch name [commit count]]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  #   * commit count: default is 1
+  #
+  # Example: show the current branch's next commit hash:
+  #
+  #     git branch-commit-next
+  #
+  # Example: show the "foo" branch's next commit hash:
+  #
+  #     git branch-commit-next next
+  #
+  # Example: show the "foo" branch's next 3 commit hashes:
+  #
+  #     git branch-commit-next foo 3
+  #
+  branch-commit-next = "!f() { \
+      branch="${1:-$(git current-branch)}"; \
+      count="${2:-1}"; \
+    git log --reverse --pretty=%H "$branch" | \
+    grep -A "$count" $(git rev-parse HEAD) | \
+    tail +2; \
   }; f"
 
   ### REF ALIASES ###
