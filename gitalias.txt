@@ -176,6 +176,10 @@
   # diff deep - show changes with our preferred options. Also aliased as `diff-deep`.
   dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 
+  ### fetch ###
+
+  fa = fetch --all --verbose
+
   ### grep ###
 
   # grep i.e. search for text
