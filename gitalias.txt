@@ -1,7 +1,7 @@
 # -*- mode: gitconfig; -*-
 # vim: set filetype=gitconfig:
 ##
-# GitAlias.com file of many git alias items, including shortcuts, 
+# GitAlias.com file of many git alias items, including shortcuts,
 # helpers, workflows, utilties, visualizers, reports, etc.
 #
 #
@@ -254,7 +254,7 @@
   #
   #     git config --global pull.rebase true
   #
-  # To automatically do "pull --rebase" for any branch based on 
+  # To automatically do "pull --rebase" for any branch based on
   # the branch "main":
   #
   #    git config branch.main.rebase true
@@ -856,7 +856,7 @@
       count="${2:-1}"; \
     git log --reverse --pretty=%H "$branch" | \
     head -"$count"; \
-  }; f" 
+  }; f"
 
   # branch-commit-last
   #
@@ -1056,9 +1056,9 @@
   #
   #   * --filter=combine:FILTER1+FILTER2 is the syntax to use multiple
   #       filters at once; trying to pass --filter multiple times fails
-  #       with: "multiple filter-specs cannot be combined". 
+  #       with: "multiple filter-specs cannot be combined".
   #
-  # This uses --filter=tree:0 added in Git 2.20 and --filter=combine 
+  # This uses --filter=tree:0 added in Git 2.20 and --filter=combine
   # composite filter added in Git 2.24.
   #
   # The server should be configured with:
@@ -1066,13 +1066,13 @@
   #     git config --local uploadpack.allowfilter 1
   #     git config --local uploadpack.allowanysha1inwant 1
   #
-  # An extension was made to the Git remote protocol to support this 
+  # An extension was made to the Git remote protocol to support this
   # feature in v2.19.0 and actually skip fetching unneeded objects.
   # There was server support then, but it can be locally tested.
   #
   # Credit: https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934
   #
-  clone-lean = clone --depth 1 --filter=combine:blob:none+tree:0 --no-checkout 
+  clone-lean = clone --depth 1 --filter=combine:blob:none+tree:0 --no-checkout
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
@@ -1398,7 +1398,7 @@
       git show \"\$1:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp1 ; \
       git show \"\$2:\$3\" | sed -n \"/^[^ \t].*\$4(/,/^}/p\" > .tmp2 ; \
       git diff --no-index .tmp1 .tmp2 ; \
-  }; f"    
+  }; f"
 
   # Calling "interdiff" between commits: if upstream applied a
   # slightly modified patch, and we want to see the modifications,
@@ -1410,7 +1410,7 @@
 
   # git remotes-prune - For each remote branch, prune it.
   # There's no way to tell `git remote update` to prune stale branches,
-  # and `git remote prune` does not currently understand `--all`. 
+  # and `git remote prune` does not currently understand `--all`.
   # So this shell command iterates on each remote, and prunes it.
   remotes-prune = !git remote | xargs -n 1 git remote prune
 
@@ -1457,7 +1457,7 @@
   # Do work, and optionally sync our changes, which pushes and pulls:
   #
   #     $ git topic-sync
-  #  
+  #
   # Stop work on a topic branch, which deletes your branch:
   #
   #     $ git topic-stop
@@ -1479,18 +1479,18 @@
   # Provide the name of the topic base branch, such as "main".
   #
   # When we create a new topic branch, we base it on the topic base branch.
-  # Many projects use the topic base branch name "main". Some projects use 
+  # Many projects use the topic base branch name "main". Some projects use
   # use "trunk", "develop", "deploy", "integrate", "release", "green", etc.
   #
-  # The topic base branch name is "main" by default. You can customize 
-  # the name for your local repo, or your own user's global configuration, 
+  # The topic base branch name is "main" by default. You can customize
+  # the name for your local repo, or your own user's global configuration,
   # or your system configuration, by using `git config` such as:
   #
-  #    $ git config --local init.topicBranch "foo" 
+  #    $ git config --local init.topicBranch "foo"
   #
-  #    $ git config --global init.topicBranch "foo" 
+  #    $ git config --global init.topicBranch "foo"
   #
-  #    $ git config --system init.topicBranch "foo" 
+  #    $ git config --system init.topicBranch "foo"
   #
   # Thanks to https://github.com/gwjo
 
