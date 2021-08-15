@@ -142,6 +142,7 @@
 
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
+  cob = checkout -b
   cong = checkout --no-guess
 
   ### cherry-pick ###
