@@ -143,7 +143,8 @@
 
   ### cherry-pick ###
 
-  # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
+  # cherry-pick - apply the changes introduced by some existing commits;
+  # useful for moving small chunks of code between branches.
   cp = cherry-pick
 
   # cherry-pick - abort the picking process
@@ -155,7 +156,8 @@
   # cherry-pick --no-commit a.k.a. without making a commit
   cpn = cherry-pick -n
 
-  # cherry-pick --no-commit a.k.a. without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
+  # cherry-pick --no-commit a.k.a. without making a commit, and when when recording the commit,
+  # append a line that says "(cherry picked from commit ...)"
   cpnx = cherry-pick -n -x
 
   ### diff ###
@@ -331,7 +333,8 @@
   # rebase abort - cancel the rebasing process
   rba = rebase --abort
 
-  # rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
+  # rebase - continue the rebasing process after resolving a conflict manually and
+  # updating the index with the resolution.
   rbc = rebase --continue
 
   # rebase - restart the rebasing process by skipping the current patch.
@@ -399,7 +402,8 @@
   # revert - undo the changes from some existing commits
   rv = revert
 
-  # revert without autocommit; useful when you're reverting more than one commits' effect to your index in a row.
+  # revert without autocommit; useful when you're reverting more than one commits'
+  # effect to your index in a row.
   rvnc = revert --no-commit
 
   ### show-branch ###
@@ -1070,7 +1074,8 @@
   # feature in v2.19.0 and actually skip fetching unneeded objects.
   # There was server support then, but it can be locally tested.
   #
-  # Credit: https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934
+  # Credit:
+  #   https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934
   #
   clone-lean = clone --depth 1 --filter=combine:blob:none+tree:0 --no-checkout
 
