@@ -151,7 +151,7 @@
   cp = cherry-pick
 
   # cherry-pick - abort the picking process
-  cpa = cherry-pick --abort
+  cpab = cherry-pick --abort
 
   # cherry-pick - continue the picking process
   cpc = cherry-pick --continue
@@ -243,7 +243,7 @@
   ### merge ###
 
   # merge abort - cancel the merging process
-  ma = merge --abort
+  mab = merge --abort
 
   # merge - continue the merging process
   mc = merge --continue
