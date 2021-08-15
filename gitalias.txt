@@ -501,7 +501,8 @@
   lasttagged = !git describe --tags `git rev-list --tags --max-count=1`
 
   # From https://gist.github.com/492227
-  heads = !"git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
+  heads = !"git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' \
+    | git name-rev --stdin --always --name-only | column -t -s';'"
 
   ### diff-* ###
 
@@ -568,11 +569,14 @@
 
   # List all blobs by size in bytes.
   # By [CodeGnome](http://www.codegnome.com/)
-  rev-list-all-objects-by-size = !"git rev-list --all --objects  | awk '{print $1}'| git cat-file --batch-check | fgrep blob | sort -k3nr"
+  rev-list-all-objects-by-size = !"git rev-list --all --objects  \
+    | awk '{print $1}'| git cat-file --batch-check | fgrep blob | sort -k3nr"
 
   # List all objects by size in bytes and file name.
   # By [raphinesse](https://stackoverflow.com/users/380229/raphinesse)
-  rev-list-all-objects-by-size-and-name = !"git rev-list --all --objects | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2"
+  rev-list-all-objects-by-size-and-name = !"git rev-list --all --objects \
+    | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+    | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2"
 
   ### LOG ALIASES ###
 
@@ -993,7 +997,8 @@
 
   ### REF ALIASES ###
 
-  ref-recent = "!git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) %(objectname:short) %(contents:subject)' refs/heads/"
+  ref-recent = "!git for-each-ref --sort=-committerdate \
+    --format='%(committerdate:short) %(refname:short) %(objectname:short) %(contents:subject)' refs/heads/"
 
   ### LOOKUP ALIASES ###
 
@@ -1307,7 +1312,8 @@
   cull-local-branches = "!git checkout main && git branch --merged | xargs git branch --delete"
 
   # Delete all remote branches that have been merged into the remote main branch.
-  cull-remote-branches = !"git branch --remotes --merged origin/main | sed 's# *origin/##' | grep -v '^main$' xargs -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
+  cull-remote-branches = !"git branch --remotes --merged origin/main \
+    | sed 's# *origin/##' | grep -v '^main$' xargs -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
