@@ -103,6 +103,9 @@
 
   ### branch ###
 
+  #verbose branches
+  bv = branch -vv
+
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
