@@ -82,7 +82,7 @@
   m = merge
   o = checkout
   p = pull
-  s = status
+  s = status --short
   w = whatchanged
 
   ##
@@ -441,10 +441,10 @@
   ### status ###
 
   # status with short format instead of full details
-  ss = status --short
+  ss = status
 
   # status with short format and showing branch and tracking info.
-  ssb = status --short --branch
+  sb = status --short --branch
 
   ### ALIAS MANAGEMENT ###
 
