@@ -378,7 +378,10 @@
 
   # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
   # This is a slightly modified version
-  fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+  fixup = "!f() { \
+      TARGET=$(git rev-parse \"$1\"); \
+    git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; \
+  }; f"
 
   ### reflog ###
 
@@ -535,7 +538,9 @@
   # Given a merge commit, find the span of commits that exist(ed).
   # Not so useful in itself, but used by other aliases.
   # Thanks to Rob Miller for the merge-span-* aliaes.
-  merge-span = !"f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+  merge-span = !"f() { \
+    echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); \
+  }; f"
 
   # Find the commits that were introduced by a merge
   merge-span-log = "!git log `git merge-span .. $1`"
@@ -615,12 +620,28 @@
   log-my-year  = log --author $(git config user.email) --since=1-year-ago
 
   # Show a specific format string and its number of log entries
-  log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
-  log-of-count-and-format = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
+  log-of-format-and-count = "!f() { \
+      format=\"$1\"; shift; \
+    git log $@ --format=oneline --format="$format" \
+    | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; \
+  }; f"
+  log-of-count-and-format = "!f() { \
+      format=\"$1\"; shift; \
+    git log $@ --format=oneline --format="$format" \
+    | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; \
+  }; f"
 
   # Show the number of log entries by a specific format string and date format string
-  log-of-format-and-count-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort -r; }; f"
-  log-of-count-and-format-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
+  log-of-format-and-count-with-date = "!f() { \
+      format=\"$1\"; shift; date_format=\"$1\"; shift; \
+    git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" \
+    | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort -r; \
+  }; f"
+  log-of-count-and-format-with-date = "!f() { \
+      format=\"$1\"; shift; date_format=\"$1\"; shift; \
+    git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" \
+    | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; \
+  }; f"
 
   # Show the number of log items by email
   log-of-email-and-count         = "!f() { git log-of-format-and-count \"%aE\" $@; }; f"
@@ -788,7 +809,10 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = !"f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
+  churn = !"f() { \
+    git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" \
+    | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn; \
+  }; f"
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
@@ -1042,7 +1066,11 @@
   #     in an alphanum (not a dash), and also so the dash is a separator i.e.
   #     the matcher does not accept a dash followed by another dash.
   #
-  commit-message-key-lines = "!f(){ echo \"Commit: $1\"; git log \"$1\" --format=fuller | grep \"^[[:blank:]]*[[:alnum:]][-[:alnum:]]*:\" | sed \"s/^[[:blank:]]*//; s/:[[:blank:]]*/: /\"; }; f"
+  commit-message-key-lines = "!f(){ \
+    echo \"Commit: $1\"; git log \"$1\" --format=fuller \
+    | grep \"^[[:blank:]]*[[:alnum:]][-[:alnum:]]*:\" \
+    | sed \"s/^[[:blank:]]*//; s/:[[:blank:]]*/: /\"; \
+  }; f"
 
 
   ### WORKFLOW ALIASES ###
@@ -1134,8 +1162,18 @@
   pull1 = "!git pull origin $(git current-branch)"
 
   # Track and untrack, with default parameters, and with printing the command
-  track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
-  untrack = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo $cmd; $cmd; }; f"
+  track = "!f(){ \
+      branch=$(git rev-parse --abbrev-ref HEAD); \
+      cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; \
+    echo $cmd; \
+    $cmd; \
+  }; f"
+  untrack = "!f(){ \
+      branch=$(git rev-parse --abbrev-ref HEAD); \
+      cmd=\"git branch --unset-upstream ${1:-$branch}\"; \
+    echo $cmd; \
+    $cmd; \
+  }; f"
 
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
@@ -1175,7 +1213,10 @@
   # such as accidentally committing a file of sensitive data, such as passwords.
   # After you use command, you will likely need to force push everything.
   # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
-  expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
+  expunge = !"f() { \
+    git filter-branch --force --index-filter \
+      \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all \
+  }; f"
 
   # Add all files of the given type
   add-cached   = !"f() { git ls-files --cached             | sort -u ; }; git add `f`"
@@ -1288,7 +1329,15 @@
   #
   # Calls the `publish` and `unpublish` aliases.
   #
-  reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+  reincarnate = !"f() { \
+    [[ -n $@ ]] && \
+    git checkout \"$@\" && \
+    git unpublish && \
+    git checkout main && \
+    git branch -D \"$@\" && \
+    git checkout -b \"$@\" && \
+    git publish; \
+  }; f"
 
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
@@ -1444,7 +1493,12 @@
   # This produces output that can be displayed using dotty, for example:
   #   $ git graphviz HEAD~100..HEAD~60 | dotty /dev/stdin
   #   $ git graphviz --first-parent main | dotty /dev/stdin
-  graphviz = !"f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  graphviz = !"f() { \
+    echo 'digraph git {' ; \
+    git log --pretty='format:  %h -> { %p }' \"$@\" \
+    | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; \
+    echo '}'; \
+  }; f"
 
   # Serve the local directory by starting a git server daemon, so others can pull/push from my machine
   serve = "-c daemon.receivepack=true daemon --base-path=. --export-all --reuseaddr --verbose"
