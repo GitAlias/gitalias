@@ -337,7 +337,10 @@
   rb = rebase
 
   # rebase abort - cancel the rebasing process
-  rba = rebase --abort
+  rbab = rebase --abort
+
+  # rebase ammend
+  rbam = rebase --ammend
 
   # rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
   rbc = rebase --continue
