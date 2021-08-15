@@ -114,7 +114,7 @@
 
   # branch with show description; ideally git will add this feature in the future as `git --show-description`
   bsd = "!f(){ \
-    branch=\"${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}\";  \
+      branch=\"${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}\";  \
     git config \"branch.$branch.description\"; \
   };f"
 
@@ -1586,8 +1586,8 @@
   # run any automatic tests to verify the branch runs successfully.
 
   topic-start = "!f(){ \
-    new_branch=\"$1\"; \
-    old_branch=$(git topic-branch); \
+      new_branch=\"$1\"; \
+      old_branch=$(git topic-branch); \
     git checkout \"$old_branch\"; git pull; \
     git checkout -b \"$new_branch\" \"$old_branch\"; \
     git push --set-upstream origin \"$new_branch\"; \
@@ -1622,8 +1622,8 @@
   # To synchronize your branch list, use "git fetch --prune".
 
   topic-stop = "!f(){ \
-    new_branch=$(git current-branch); \
-    old_branch=$(git topic-branch); \
+      new_branch=$(git current-branch); \
+      old_branch=$(git topic-branch); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-stop,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
@@ -1656,8 +1656,8 @@
   # Customize this alias as you like for your own workflow.
 
   topic-sync = "!f(){ \
-    new_branch=$(git current-branch); \
-    old_branch=$(git topic-branch); \
+      new_branch=$(git current-branch); \
+      old_branch=$(git topic-branch); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-sync,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
@@ -1684,8 +1684,8 @@
   # Customize this alias as you like for your own workflow.
 
   topic-move = "!f(){ \
-    new_branch=\"$1\"; \
-    old_branch=$(git current-branch); \
+      new_branch=\"$1\"; \
+      old_branch=$(git current-branch); \
     git branch --move \"$old_branch\" \"$new_branch\"; \
     git push origin \":$old_branch\" \"$new_branch\"; \
   };f"
