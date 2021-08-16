@@ -1210,7 +1210,7 @@
   # this cleaning will facilitate a rebase, because there won't be any conflict
   # due to an "unclean" working directory (not in sync with the index).
   # The unwip will restore the deleted files to the working tree.
-  wip = !"git add --all; git ls-files --deleted -z | xargs -0 git rm; git commit --message=wip"
+  wip = !"git add --all; git ls-files --deleted -z | xargs -r -0 git rm; git commit --message=wip"
   unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
 
   # Assume
@@ -1246,18 +1246,18 @@
 
   assume   = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
-  assume-all = "!git st -s | awk {'print $2'} | xargs git assume"
-  unassume-all = "!git assumed | xargs git update-index --no-assume-unchanged"
+  assume-all = "!git st -s | awk {'print $2'} | xargs -r git assume"
+  unassume-all = "!git assumed | xargs -r git update-index --no-assume-unchanged"
   assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
 
   # Delete all branches that have already been merged into the main branch.
   cull-branches = !git cull-local-branches; git cull-remote-branches;
 
   # Delete all local branches that have been merged into the local main branch.
-  cull-local-branches = "!git checkout main && git branch --merged | xargs git branch --delete"
+  cull-local-branches = "!git checkout main && git branch --merged | xargs -r git branch --delete"
 
   # Delete all remote branches that have been merged into the remote main branch.
-  cull-remote-branches = !"git branch --remotes --merged origin/main | sed 's# *origin/##' | grep -v '^main$' xargs -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
+  cull-remote-branches = !"git branch --remotes --merged origin/main | sed 's# *origin/##' | grep -v '^main$' xargs -r -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
