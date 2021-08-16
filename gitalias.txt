@@ -600,11 +600,11 @@
   log-year  = log --since=1-year-ago
 
   # Show the log of my own recent hour, day, week, month, year
-  log-my-hour  = log --author $(git config user.email) --since=1-hour-ago
-  log-my-day   = log --author $(git config user.email) --since=1-day-ago
-  log-my-week  = log --author $(git config user.email) --since=1-week-ago
-  log-my-month = log --author $(git config user.email) --since=1-month-ago
-  log-my-year  = log --author $(git config user.email) --since=1-year-ago
+  log-my-hour  = !git log --author $(git config user.email) --since=1-hour-ago
+  log-my-day   = !git log --author $(git config user.email) --since=1-day-ago
+  log-my-week  = !git log --author $(git config user.email) --since=1-week-ago
+  log-my-month = !git log --author $(git config user.email) --since=1-month-ago
+  log-my-year  = !git log --author $(git config user.email) --since=1-year-ago
 
   # Show a specific format string and its number of log entries
   log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
