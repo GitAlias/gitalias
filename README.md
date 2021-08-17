@@ -179,6 +179,21 @@ archive = !"f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $t
 ```
 
 
+### Traversal examples
+
+Find the branch's previous commit hash:
+
+```gitalias
+git branch-commit-prev
+```
+
+Find the branch's next commit hash:
+
+```gitalias
+git branch-commit-next
+```
+
+
 ### Coordination examples
 
 Combining:
@@ -384,30 +399,32 @@ References:
 
 Thanks to all the contributors, including all the creators of the projects mentioned above.
 
-Thanks to these people for extra help, in order of participation:
+Thanks to these people for extra help, in alphabetic order:
 
-  * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
-  * [Oleg Broytman](https://github.com/phdru)
-  * [Bill Lazar](https://github.com/billsaysthis)
   * [Alberto Gregorio](https://github.com/marsop)
-  * [Romain Dartigues](https://github.com/romain-dartigues)
-  * [Joe Nelson](https://github.com/begriffs)
-  * [Scott Lindsay](http://stackoverflow.com/users/167384/scott-lindsay)
-  * [baudtack](http://baudtack.com)
-  * [Ruben Verborgh](http://ruben.verborgh.org)
-  * [Rob Kennedy](http://cs.wisc.edu/~rkennedy)
-  * [Corey Haines](http://coreyhaines.com/)
-  * [Mislav Marohnić](http://mislav.uniqpath.com/)
-  * [Gary Bernhardt](http://destroyallsoftware.com)
-  * [Joe Nelson](http://begriffs.com)
-  * [Rob Miller](https://github.com/robmiller)
-  * [Michal Jarosz](https://github.com/Mchl)
-  * [Nick Palmer](https://github.com/nickpalmer)
-  * [Michael Mior](https://github.com/michaelmior)
-  * [Nick Kirby](https://github.com/NRKirby)
   * [Berkin Berkcan Çırak](https://github.com/berkin)
+  * [Bill Lazar](https://github.com/billsaysthis)
+  * [Corey Haines](http://coreyhaines.com/)
   * [Erik Martin-Dorel](https://github.com/erikmd)
+  * [Gareth Owen](https://github.com/gwjo)
+  * [Gary Bernhardt](http://destroyallsoftware.com)
+  * [Jeff Wu](https://github.com/WuTheFWasThat)
+  * [Joe Nelson](http://begriffs.com)
+  * [Joe Nelson](https://github.com/begriffs)
+  * [Joel Parker Henderson](https://github.com/joelparkerhenderson)
+  * [Kobus Jooste](https://github.com/kobusjooste)
+  * [Michael Mior](https://github.com/michaelmior)
+  * [Michal Jarosz](https://github.com/Mchl)
+  * [Mislav Marohnić](http://mislav.uniqpath.com/)
+  * [Nariyasu Heseri](https://github.com/NariyasuHeseri)
+  * [Nick Kirby](https://github.com/NRKirby)
+  * [Nick Palmer](https://github.com/nickpalmer)
+  * [Oleg Broytman](https://github.com/phdru)
+  * [Rob Kennedy](http://cs.wisc.edu/~rkennedy)
+  * [Rob Miller](https://github.com/robmiller)
+  * [Romain Dartigues](https://github.com/romain-dartigues)
+  * [Ruben Verborgh](http://ruben.verborgh.org)
+  * [Scott Lindsay](http://stackoverflow.com/users/167384/scott-lindsay)
   * [Tsukasa Noguchi](https://github.com/wild-mouse)
   * [YantaoZhao](https://github.com/yantaozhao)
-  * [Jeff Wu](https://github.com/WuTheFWasThat)
-  * [Gareth Owen](https://github.com/gwjo)
+  * [baudtack](http://baudtack.com)
