@@ -118,9 +118,11 @@
   };f"
 
   # branch verbose: When in list mode, show sha1, commit subject line, relationship, etc.
+  # This is identical to doing `git b -v`.
   bv = branch --verbose
 
   # branch verbose x2: When in list mode, show path, upstream branch, etc.
+  # This is identical to doing `git b -vv`.
   bvv = branch --verbose --verbose
 
   ### commit ###
