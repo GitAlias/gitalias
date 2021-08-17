@@ -177,6 +177,14 @@
   # diff deep - show changes with our preferred options. Also aliased as `diff-deep`.
   dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 
+  ### fetch ###
+
+  # fetch all - fetch all remotes.
+  fa = fetch --all
+
+  # fetch all verbose - fetch all remotes, with verbose output.
+  fav = fetch --all --verbose
+
   ### grep ###
 
   # grep i.e. search for text
