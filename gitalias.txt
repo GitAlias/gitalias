@@ -87,7 +87,6 @@
 
   ##
   # Short aliases for our frequent commands.
-  #
   ##
 
   ### add ###
@@ -117,6 +116,12 @@
     branch=\"${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}\";  \
     git config \"branch.$branch.description\"; \
   };f"
+
+  # branch verbose: When in list mode, show sha1, commit subject line, relationship, etc.
+  bv = branch --verbose
+
+  # branch verbose x2: When in list mode, show path, upstream branch, etc.
+  bvv = branch --verbose --verbose
 
   ### commit ###
 
