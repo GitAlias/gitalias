@@ -1279,7 +1279,7 @@
   cull-local-branches = "!git checkout main && git branch --merged | xargs -r git branch --delete"
 
   # Delete all remote branches that have been merged into the remote main branch.
-  cull-remote-branches = !"git branch --remotes --merged origin/main | sed 's# *origin/##' | grep -v '^main$' xargs -r -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
+  cull-remote-branches = !"git branch --remotes --merged origin/main | sed 's# *origin/##' | grep -v '^main$' | xargs -r -I% git push origin :% 2>&1 | grep --colour=never 'deleted'"
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
