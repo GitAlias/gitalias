@@ -353,7 +353,7 @@
   rbs = rebase --skip
 
   # rebase interactive - do the rebase with prompts.
-  rbi = rebase --skip
+  rbi = rebase --interactive
 
   # rbiu - rebase interactive on our unpushed commits.
   #
