@@ -125,9 +125,9 @@ unpublish = "!git push origin :$(git current-branch)"
 Branching:
 
 ```gitalias
-topic-start = "!f(){ b=$1; git checkout master; git fetch; git rebase; git checkout -b "$b" master; };f"
+topic-start = "!f(){ b=$1; git checkout main; git fetch; git rebase; git checkout -b "$b" main; };f"
 
-topic-stop = "!f(){ b=$1; git checkout master; git branch -d "$b"; git push origin ":$b"; };f"
+topic-stop = "!f(){ b=$1; git checkout main; git branch -d "$b"; git push origin ":$b"; };f"
 ```
 
 

@@ -10,7 +10,7 @@ page_template = "base.html"
 Download the file [`gitalias.txt`](gitalias.txt) and include it:
 
 ```sh
-curl https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt -o ~/.gitalias 
+curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o ~/.gitalias 
 git config --global include.path ~/.gitalias
 ```
 
@@ -20,7 +20,7 @@ git config --global include.path ~/.gitalias
 Download the file [`gitalias.txt`](gitalias.txt) any way you want, such as:
 
 ```sh
-curl -O https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
+curl -O https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt
 ```
 
 Manually edit your git config dot file any way you want, such as:
