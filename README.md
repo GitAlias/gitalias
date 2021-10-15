@@ -1,6 +1,6 @@
 # Git Alias
 
-This project provides many git alias commands that you can use as you like.
+This project provides many git alias commands that you can use as you wish..
 
 Contents:
 
