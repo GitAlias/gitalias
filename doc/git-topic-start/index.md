@@ -30,7 +30,7 @@
 #
 topic-start = "!f(){ \
     new_branch=\"$1\"; \
-    old_branch=$(git topic-branch); \
+    old_branch=$(git topic-base); \
     git checkout \"$old_branch\"; git pull; \
     git checkout -b \"$new_branch\" \"$old_branch\"; \
     git push --set-upstream origin \"$new_branch\"; \

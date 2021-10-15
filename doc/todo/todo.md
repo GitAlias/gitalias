@@ -1,5 +1,4 @@
 +++
-page_template = "base.html"
 +++
 
 # To do list

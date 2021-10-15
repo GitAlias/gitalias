@@ -23,7 +23,7 @@
 #
 topic-sync = "!f(){ \
     new_branch=$(git current-branch); \
-    old_branch=$(git topic-branch); \
+    old_branch=$(git topic-base); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
         printf \"You are asking to do git topic-sync,\n\"; \
         printf \"but you are not on a new topic branch;\n\"; \

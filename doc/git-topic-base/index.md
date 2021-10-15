@@ -1,10 +1,10 @@
 +++
 +++
 
-# git topic-branch
+# git topic-base
 
 ```gitconfig
-# git topic-branch - Show the topic branch name.
+# git topic-base - Show the topic branch name.
 #
 # When we do topic branches, we use a base topic branch,
 # and use it to create new topic branches, and also use 
@@ -35,12 +35,12 @@
 #
 # Examples:
 #
-#     $ git topic-branch
+#     $ git topic-base
 #     main
 #
 #     $ git config init.topicBranch "topic"
-#     $ git topic-branch
+#     $ git topic-base
 #     topic
 #
-topic-branch = "!git config --get init.topicBranch || git config --get init.defaultBranch"
+topic-base = "!git config --get init.topicBranch || git config --get init.defaultBranch"
 ```
