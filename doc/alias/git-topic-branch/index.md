@@ -27,20 +27,20 @@
 # You can customize it for your local repo, or your own user's global
 # configuration, or your system configuration, by using `git config`:
 #
-#     $ git config --local init.topicBranch "topic" 
+#     $ git config --local init.topicBaseBranchName "topic" 
 #
-#     $ git config --global init.topicBranch "topic" 
+#     $ git config --global init.topicBaseBranchName "topic" 
 #
-#     $ git config --system init.topicBranch "topic" 
+#     $ git config --system init.topicBaseBranchName "topic" 
 #
 # Examples:
 #
 #     $ git topic-branch
 #     main
 #
-#     $ git config init.topicBranch "topic"
+#     $ git config init.topicBaseBranchName "topic"
 #     $ git topic-branch
 #     topic
 #
-topic-branch = "!git config --get init.topicBranch || git config --get init.defaultBranch"
+topic-branch = "!git config --get init.topicBaseBranchName || git config --get init.defaultBranch"
 ```

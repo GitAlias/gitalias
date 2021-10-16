@@ -1505,6 +1505,7 @@
   # Provide the name of the topic base branch, such as "main".
   #
   # When we create a new topic branch, we base it on the topic base branch.
+  #
   # Many projects use the topic base branch name "main". Some projects use 
   # use "trunk", "develop", "deploy", "integrate", "release", "green", etc.
   #
@@ -1512,16 +1513,16 @@
   # the name for your local repo, or your own user's global configuration, 
   # or your system configuration, by using `git config` such as:
   #
-  #    $ git config --local init.topicBranch "foo" 
+  #    $ git config --local init.topicBaseBranchName "foo" 
   #
-  #    $ git config --global init.topicBranch "foo" 
+  #    $ git config --global init.topicBaseBranchName "foo" 
   #
-  #    $ git config --system init.topicBranch "foo" 
+  #    $ git config --system init.topicBaseBranchName "foo" 
   #
   # Thanks to https://github.com/gwjo
 
-  topic-branch = "!f(){ \
-    git config --get init.topicBranch || printf '%s\n' main; \
+  topic-base = "!f(){ \
+    git config --get init.topicBaseBranchName || printf '%s\n' main; \
   };f"
 
   # Start a topic branch.
@@ -1550,10 +1551,11 @@
 
   topic-start = "!f(){ \
     new_branch=\"$1\"; \
-    old_branch=$(git topic-branch); \
-    git checkout \"$old_branch\"; git pull; \
+    old_branch=$(git topic-base); \
+    git checkout \"$old_branch\"; \
+    git pull --ff-only; \
     git checkout -b \"$new_branch\" \"$old_branch\"; \
-    git push --set-upstream origin \"$new_branch\"; \
+    git push -u origin \"$new_branch\"; \
   };f"
 
   # Stop a topic branch; this must be the current branch.
@@ -1586,7 +1588,7 @@
 
   topic-stop = "!f(){ \
     new_branch=$(git current-branch); \
-    old_branch=$(git topic-branch); \
+    old_branch=$(git topic-base); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-stop,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
@@ -1620,7 +1622,7 @@
 
   topic-sync = "!f(){ \
     new_branch=$(git current-branch); \
-    old_branch=$(git topic-branch); \
+    old_branch=$(git topic-base); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-sync,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
