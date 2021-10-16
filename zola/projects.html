@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ section.content | safe }}
+
+  {% for post in section.pages | sort(attribute="date") | reverse %}
+
+    <div class="post-preview">
+      <h3 class="post-title"><a href="{{ post.permalink }}">{{ post.title }}</a></h3>
+      <small>
+        {{ post.date| date(format="%B %d, %Y") }} - {{ post.word_count }} words - {{ post.reading_time }} mins
+      </small>
+      <div class="summary">
+        {% if post.summary -%}
+          {{ post.summary }}
+        {% else %}
+          {{ post.content | safe | striptags | truncate(length=300) }}
+        {%- endif %}
+        <a href="{{ post.permalink }}">read more</a>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}

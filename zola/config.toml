@@ -1,16 +1,197 @@
+# Zola config file with annotations
+
 # The URL the site will be built for
 base_url = "https://gitalias.com"
 
-# Whether to automatically compile all Sass files in the sass directory
+# The site title and description; used in feeds by default.
+title = "Git Alias"
+description = "Git Alias free open source software git alias configuration"
+
+# The default language; used in feeds.
+default_language = "en"
+
+# The site theme to use.
+theme = "simple-dev-blog"
+
+# When set to "true", a feed is automatically generated.
+generate_feed = true
+
+# The filename to use for the feed. Used as the template filename, too.
+# Defaults to "atom.xml", which has a built-in template that renders an Atom 1.0 feed.
+# There is also a built-in template "rss.xml" that renders an RSS 2.0 feed.
+feed_filename = "atom.xml"
+
+# The number of articles to include in the feed. All items are included if
+# this limit is not set (the default).
+# feed_limit = 20
+
+# When set to "true", files in the `static` directory are hard-linked. Useful for large
+# static files. Note that for this to work, both `static` and the
+# output directory need to be on the same filesystem. Note that the theme's `static`
+# files are always copied, regardless of this setting.
+# hard_link_static = false
+
+# The taxonomies to be rendered for the site and their configuration.
+# Example:
+#     taxonomies = [
+#       {name = "tags", feed = true}, # each tag will have its own feed
+#       {name = "tags", lang = "fr"}, # you can have taxonomies with the same name in multiple languages
+#       {name = "categories", paginate_by = 5},  # 5 items per page for a term
+#       {name = "authors"}, # Basic definition: no feed or pagination
+#     ]
+#
+taxonomies = [
+    {name = "tags", feed = true}, # each tag will have its own feed
+    {name = "categories", paginate_by = 5},  # 5 items per page for a term
+    {name = "authors"}, # Basic definition: no feed or pagination
+]
+
+# The additional languages for the site.
+# Example:
+#     languages = [
+#       {code = "fr", feed = true}, # there will be a feed for French content
+#       {code = "fr", search = true}, # there will be a Search Index for French content
+#       {code = "it"}, # there won't be a feed for Italian content
+#     ]
+#
+languages = []
+
+# When set to "true", the Sass files in the `sass` directory in the site root are compiled.
+# Sass files in theme directories are always compiled.
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+# When set to "true", the generated HTML files are minified.
+minify_html = true
 
+# A list of glob patterns specifying asset files to ignore when the content
+# directory is processed. Defaults to none, which means that all asset files are
+# copied over to the `public` directory.
+# Example:
+#     ignored_content = ["*.{graphml,xlsx}", "temp.*"]
+ignored_content = [
+    "*.tmp",
+    "*.temp",
+    "*.backup",
+    "*.backups"
+]
+
+# A list of directories used to search for additional `.sublime-syntax` files.
+extra_syntaxes = []
+
+# You can override the default output directory `public` by setting an another value.
+#output_dir = "output"
+
+# Configuration of the Markdown rendering
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+
+# When set to "true", all code blocks are highlighted.
 highlight_code = true
 
+# The theme to use for code highlighting.
+# See below for list of allowed values.
+highlight_theme = "base16-ocean-dark"
+
+# When set to "true", emoji aliases translated to their corresponding
+# Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
+render_emoji = false
+
+# Whether external links are to be opened in a new tab
+# If this is true, a `rel="noopener"` will always automatically be added for security reasons
+external_links_target_blank = false
+
+# Whether to set rel="nofollow" for all external links
+external_links_no_follow = false
+
+# Whether to set rel="noreferrer" for all external links
+external_links_no_referrer = false
+
+# Whether smart punctuation is enabled (changing quotes, dashes, dots in their typographic form)
+# For example, `...` into `…`, `"quote"` into `“curly”` etc
+smart_punctuation = false
+
+# Configuration of the link checker.
+[link_checker]
+
+# Skip link checking for external URLs that start with these prefixes
+skip_prefixes = [
+    "http://[2001:db8::]/",
+]
+
+# Skip anchor checking for external URLs that start with these prefixes
+skip_anchor_prefixes = [
+    "https://caniuse.com/",
+]
+
+# Various slugification strategies, see below for details
+# Defaults to everything being a slug
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+# When set to "true", a search index is built from the pages and section
+# content for `default_language`.
+build_search_index = false
+
+[search]
+
+# Whether to include the title of the page/section in the index
+include_title = true
+
+# Whether to include the description of the page/section in the index
+include_description = false
+
+# Whether to include the rendered content of the page/section in the index
+include_content = true
+
+# At which character to truncate the content to. Useful if you have a lot of pages and the index would
+# become too big to load on the site. Defaults to not being set.
+# truncate_content_length = 100
+
+# Optional translation object. Keys should be language codes.
+# Optional translation object. The key if present should be a language code.
+# Example:
+#     default_language = "fr"
+#
+#     [translations]
+#     [translations.fr]
+#     title = "Un titre"
+#
+#     [translations.en]
+#     title = "A title"
+#
+[translations]
+
+# You can put any kind of data here. The data
+# will be accessible in all templates
+# Example:
+#     [extra]
+#     author = "Famous author"
+#
+# author value will be available using {{ config.extra.author }} in templates
+#
 [extra]
-# Put all your custom variables here
+
+nav = [
+  { name = "About", path = "/about/" },
+  { name = "Blog", path = "/blog/" }
+]
+
+latest_text = "Check out my latest post:"
+
+icon = "../../icon.png"
+profile_small = "../../icon.png"
+profile_large = "../../icon.png"
+
+accent = "#05a081"
+accent_light = "#82d0c0"
+
+author = "John Doe"
+
+footer_about = """
+A simple dev-blog theme created by Bennett. You can follow him on [Github](https://github.com/bennetthardwick) (if you like).
+"""
+
+not_found_message = """
+This is not the page you're looking for... return back to [safety?](/)
+"""

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block posthead %} 
+  {% for term in terms %}
+    <link rel="prerender" href="{{ term.permalink }}" />
+  {% endfor %}
+{% endblock posthead %}
+
+{% block content %}
+  <h1 class="taxonomy-name">{{ taxonomy.name }}</h1>
+  <div class="taxonomy-container">
+    {% for term in terms %}
+      <div class="term">
+       <a href="{{ term.permalink }}">{{ term.name }} ({{ term.pages | length }})</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

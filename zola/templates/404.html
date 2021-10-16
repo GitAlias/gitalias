@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>404</h1>
+{% if config.extra.not_found_message %}
+  {{ config.extra.not_found_message | markdown | safe }}
+{% endif %}
+{% endblock content %}

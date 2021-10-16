@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% import "post-preview.html" as post_macros %}
+
+{% block posthead %} 
+  {% for post in term.pages %}
+    <link rel="prerender" href="{{ post.permalink }}" />
+  {% endfor %}
+{% endblock posthead %}
+
+{% block content %}
+  <h1>{{ term.pages | length }} pages tagged with "{{ term.name }}"</h1>
+  <div class="taxonomy-container">
+    {% for post in term.pages %}
+      {{ post_macros::post_preview(post=post) }}
+    {% endfor %}
+  </div>
+{% endblock content %}
