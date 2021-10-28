@@ -206,6 +206,9 @@
   # log with one line per item.
   lo = log --oneline
 
+  # log with one line per item, reversed and pretty
+  ol = log --oneline --reverse --abbrev-commit --decorate --date=relative --format=format:'%C(bold cyan)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' -n 30
+
   # log with patch generation.
   lp = log --patch
 
