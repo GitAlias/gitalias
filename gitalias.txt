@@ -1190,6 +1190,10 @@
   # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
   expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
 
+  # Show logs of unreachable commits.
+  # This can be useful, for example, when recovering contents of dropped stashes or reset commits.
+  show-unreachable = !"git fsck --unreachable | grep commit | cut -d\" \" -f3 | xargs git log"
+
   # Add all files of the given type
   add-cached   = !"f() { git ls-files --cached             | sort -u ; }; git add `f`"
   add-deleted  = !"f() { git ls-files --deleted            | sort -u ; }; git add `f`"
