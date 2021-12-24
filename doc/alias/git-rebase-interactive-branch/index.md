@@ -1,6 +1,3 @@
-+++
-+++
-
 # git rebase-interactive-branch
 
 ```gitconfig

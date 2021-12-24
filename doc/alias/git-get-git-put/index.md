@@ -1,6 +1,3 @@
-+++
-+++
-
 # git get & git put
 
 ```gitconfig

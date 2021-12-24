@@ -1,6 +1,3 @@
-+++
-+++
-
 # git grep-*
 
 ```gitconfig

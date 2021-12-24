@@ -1,6 +1,3 @@
-+++
-+++
-
 # git top-name
 
 ```gitconfig

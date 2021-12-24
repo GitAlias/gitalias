@@ -1,6 +1,3 @@
-+++
-+++
-
 # git commit-is-merge 
 
 ```gitconfig

@@ -1,6 +1,3 @@
-+++
-+++
-
 # git pull1
 
 ```gitconfig

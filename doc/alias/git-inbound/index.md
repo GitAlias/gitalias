@@ -1,6 +1,3 @@
-+++
-+++
-
 # git inbound
 
 ```gitconfig

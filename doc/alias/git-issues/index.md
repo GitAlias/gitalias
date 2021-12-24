@@ -1,6 +1,3 @@
-+++
-+++
-
 # git issues
 
 ```gitconfig

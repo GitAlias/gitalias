@@ -1,6 +1,3 @@
-+++
-+++
-
 # git gitk-history-all
 
 ```gitconfig

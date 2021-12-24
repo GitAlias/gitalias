@@ -1,6 +1,3 @@
-+++
-+++
-
 # git push1
 
 ```gitconfig

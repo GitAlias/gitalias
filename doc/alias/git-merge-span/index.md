@@ -1,6 +1,3 @@
-+++
-+++
-
 # git merge-span-*
 
 ```gitconfig

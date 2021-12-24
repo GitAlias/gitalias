@@ -1,6 +1,3 @@
-+++
-+++
-
 # git wip & git unwip
 
 ```gitconfig

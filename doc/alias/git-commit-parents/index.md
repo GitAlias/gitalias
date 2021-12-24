@@ -1,6 +1,3 @@
-+++
-+++
-
 # git commit-parents
 
 ```gitconfig

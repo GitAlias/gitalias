@@ -1,6 +1,3 @@
-+++
-+++
-
 # git orphans
 
 ```gitconfig

@@ -1,6 +1,3 @@
-+++
-+++
-
 # git topic-sync
 
 ```gitconfig

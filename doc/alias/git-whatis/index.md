@@ -1,6 +1,3 @@
-+++
-+++
-
 # git whatis
 
 ```gitconfig

@@ -1,6 +1,3 @@
-+++
-+++
-
 # git lfp
 
 ```gitconfig

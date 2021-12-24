@@ -1,6 +1,3 @@
-+++
-+++
-
 # git ds
 
 ```gitconfig

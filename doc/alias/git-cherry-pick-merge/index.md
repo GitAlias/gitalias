@@ -1,6 +1,3 @@
-+++
-+++
-
 # git cherry-pick-merge
 
 ```gitconfig

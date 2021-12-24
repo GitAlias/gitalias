@@ -1,6 +1,3 @@
-+++
-+++
-
 # git current-branch
 
 ```gitconfig

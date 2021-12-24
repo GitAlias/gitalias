@@ -1,6 +1,3 @@
-+++
-+++
-
 # git commit-message-key-lines
 
 ```gitconfig

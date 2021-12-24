@@ -1,6 +1,3 @@
-+++
-+++
-
 # git topic-start
 
 ```gitconfig

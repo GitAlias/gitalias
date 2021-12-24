@@ -1,6 +1,3 @@
-+++
-+++
-
 # git smuir
 
 ```gitconfig

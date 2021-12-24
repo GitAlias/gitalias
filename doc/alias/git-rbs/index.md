@@ -1,6 +1,3 @@
-+++
-+++
-
 # git rbs
 
 ```gitconfig

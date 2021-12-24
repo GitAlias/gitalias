@@ -1,6 +1,3 @@
-+++
-+++
-
 # TODO
 
   # Latest annotated tag in all branches

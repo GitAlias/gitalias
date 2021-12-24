@@ -1,6 +1,3 @@
-+++
-+++
-
 # git pr
 
 ```gitconfig

@@ -1,6 +1,3 @@
-+++
-+++
-
 # git ours & git theirs
 
 ```gitconfig

@@ -1,6 +1,3 @@
-+++
-+++
-
 # git refs-by-date
 
 ```gitconfig

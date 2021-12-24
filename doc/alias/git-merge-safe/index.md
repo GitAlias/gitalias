@@ -1,6 +1,3 @@
-+++
-+++
-
 # git merge-safe
 
 ```gitconfig

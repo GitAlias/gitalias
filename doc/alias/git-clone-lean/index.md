@@ -1,6 +1,3 @@
-+++
-+++
-
 # git clone-lean
 
 ```gitconfig

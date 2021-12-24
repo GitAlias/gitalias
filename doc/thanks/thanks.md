@@ -1,6 +1,4 @@
-+++
 page_template = "base.html"
-+++
 
 # Thanks
 

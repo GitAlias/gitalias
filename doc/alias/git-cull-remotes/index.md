@@ -1,6 +1,3 @@
-+++
-+++
-
 # git cull-remotes
 
 ```gitconfig

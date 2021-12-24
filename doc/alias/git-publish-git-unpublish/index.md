@@ -1,6 +1,3 @@
-+++
-+++
-
 # git publish & git unpublish
 
 ```gitconfig

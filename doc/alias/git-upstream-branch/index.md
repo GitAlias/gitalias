@@ -1,6 +1,3 @@
-+++
-+++
-
 # git upstream-branch 
 
 ```gitconfig

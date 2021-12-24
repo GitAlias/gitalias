@@ -1,6 +1,3 @@
-+++
-+++
-
 # git default-branch
 
 ```gitconfig

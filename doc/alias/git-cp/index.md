@@ -1,6 +1,3 @@
-+++
-+++
-
 # git cp
 
 ```gitconfig

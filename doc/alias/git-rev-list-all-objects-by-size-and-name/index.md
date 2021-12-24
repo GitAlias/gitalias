@@ -1,6 +1,3 @@
-+++
-+++
-
 # git rev-list-all-objects-by-size-and-name
 
 ```gitconfig

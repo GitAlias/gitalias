@@ -1,6 +1,3 @@
-+++
-+++
-
 # git track-all-remote-branches 
 
 ```gitconfig

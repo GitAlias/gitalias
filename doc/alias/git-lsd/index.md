@@ -1,6 +1,3 @@
-+++
-+++
-
 # git lsd
 
 ```gitconfig

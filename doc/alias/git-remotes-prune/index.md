@@ -1,6 +1,3 @@
-+++
-+++
-
 # git remotes-prune
 
 ```gitconfig
