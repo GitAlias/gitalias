@@ -1,8 +1,0 @@
-+++
-+++
-
-# git w
-
-```
-w = whatchanged
-```
