@@ -1,6 +1,13 @@
 # git ci
 
+## Commit interactive
+
 ```gitconfig
-# git ci: commit interactive
 ci = commit --interactive
+```
+
+Example:
+
+```sh
+$ git ci
 ```

@@ -1,6 +1,13 @@
 # git s
 
-```
-# git s - Show status
+## Shortcut for "status"
+
+```gitconfig
 s = status
+```
+
+Example:
+
+```sh
+$ git s
 ```

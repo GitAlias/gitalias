@@ -1,6 +1,15 @@
 # git dd
 
+## Diff deep - show changes with our preferred options
+
 ```gitconfig
-# git dd: diff deep - show changes with our preferred options. Also aliased as `diff-deep`.
 dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 ```
+
+Example:
+
+```sh
+$ git dd
+```
+
+Also aliased as `diff-deep`.

@@ -1,6 +1,13 @@
 # git co
 
+## Checkout a.k.a. update the working tree to match a branch or paths
+
 ```gitconfig
-# git co: checkout a.k.a. update the working tree to match a branch or paths. [same as "o" for "out"]
 co = checkout
+```
+
+Example:
+
+```sh
+$ git co
 ```

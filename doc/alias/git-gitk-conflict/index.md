@@ -1,6 +1,13 @@
 # git gitk-conflict
 
+## Use gitk tool to show conflicting merge
+
 ```gitconfig
-# git gitk-conflict: use gitk to show conflicting merge.
 gitk-conflict = !gitk --left-right HEAD...MERGE_HEAD
+```
+
+Example:
+
+```sh
+$ git gitk-conflict
 ```

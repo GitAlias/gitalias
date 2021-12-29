@@ -1,6 +1,13 @@
 # git ca
 
+# Amend the tip of the current branch; do not create a new commit
+
 ```gitconfig
-# git ca: amend the tip of the current branch rather than creating a new commit.
 ca = commit --amend
+```
+
+Example:
+
+```sh
+$ git ca
 ```

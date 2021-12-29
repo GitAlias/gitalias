@@ -1,6 +1,13 @@
 # git smi
 
+## Submodule init i.e. initialize a submodule in this repo
+
 ```gitconfig
-# git smi: submodule init
 smi = submodule init
+```
+
+Example:
+
+```sh
+$ git smi foo
 ```

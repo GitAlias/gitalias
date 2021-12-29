@@ -1,8 +1,8 @@
 # git log
 
-```gitconfig
-### git log aliases ###
+## Log helpers
 
+```gitconfig
 # Show log of changes, most recent first
 log-changes = log --oneline --reverse
 
@@ -93,4 +93,65 @@ log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-
 log-timeline = log --format='%h %an %ar - %s'
 log-local = log --oneline origin..HEAD
 log-fetched = log --oneline HEAD..origin/main
+```
+
+Example:
+
+```sh
+$ git log-changes
+$ git log-fresh
+$ git log-like
+$ git log-like-long
+$ git log-local
+$ git log-my
+$ git log-graph
+$ git log-first-date
+$ git log-latest-date = log -1 --date-order --format=%cI
+
+$ git log-hour
+$ git log-day
+$ git log-week
+$ git log-month
+$ git log-year
+
+$ git log-my-hour
+$ git log-my-day
+$ git log-my-week
+$ git log-my-month
+$ git log-my-year
+
+$ git log-of-format-and-count
+$ git log-of-format-and-count-with-date
+
+$ git log-of-email-and-count
+$ git log-of-count-and-email
+
+$ git log-of-hour-and-count
+$ git log-of-count-and-hour
+
+$ git log-of-day-and-count
+$ git log-of-count-and-day
+
+$ git log-of-week-and-count
+$ git log-of-count-and-week
+
+$ git log-of-month-and-count
+$ git log-of-count-and-month
+
+$ git log-of-year-and-count
+$ git log-of-count-and-year
+
+$ git log-of-hour-of-day-and-count
+$ git log-of-count-and-hour-of-day
+
+$ git log-of-day-of-week-and-count
+$ git log-of-count-and-day-of-week
+
+$ git log-of-week-of-year-and-count
+$ git log-of-count-and-week-of-year
+
+$ git log-refs
+$ git log-timeline
+$ git log-local
+$ git log-fetched
 ```

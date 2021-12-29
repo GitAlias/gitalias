@@ -1,6 +1,16 @@
 # git rbc
 
+## Rebase continue i.e. continue the rebase process
+
 ```gitconfig
-# git rbc: rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
+# git rbc: rebase - resolution.
 rbc = rebase --continue
 ```
+
+Example:
+
+```sh
+$ git rbc
+```
+
+Continue after resolving a conflict and updating the index.

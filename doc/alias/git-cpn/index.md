@@ -1,6 +1,13 @@
 # git cpn
 
+## Cherry-pick with no commit
+
 ```gitconfig
-# git cpn: cherry-pick --no-commit i.e. without making a commit
 cpn = cherry-pick -n
+```
+
+Example:
+
+```sh
+$ git cpn
 ```

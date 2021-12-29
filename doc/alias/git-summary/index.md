@@ -1,30 +1,8 @@
 # git summary
 
+## Show a helpful summary of some typical metrics
+
 ```gitconfig
-# git summary: print a helpful summary of some typical metrics
-#
-# Summary of the branch:
-#
-#   * first commit timestamp
-#   * latest commit timestamp
-#   * commit count
-#   * date count
-#   * tag count
-#   * author count
-#   * committer count
-#   * local branch count
-#   * remote branch count
-#
-# Summary of the directory:
-#
-#   * directory path
-#   * file count via git ls-files
-#   * file count via find command
-#   * disk usage
-#   * Most-active authors
-#   * Most-active dates
-#   * Most-active files
-#
 summary = "!f() { \
     printf \"Summary of this branch...\n\"; \
     printf \"%s\n\" $(git rev-parse --abbrev-ref HEAD); \
@@ -47,3 +25,31 @@ summary = "!f() { \
     printf \"\nMost-active files, with churn count\n\"; git churn | head -7; \
 }; f"
 ```
+
+Example:
+
+```sh
+$ git summary
+```
+
+Summary of the branch:
+
+  * First commit timestamp
+  * Latest commit timestamp
+  * Commit count
+  * Date count
+  * Tag count
+  * Author count
+  * Committer count
+  * Local branch count
+  * Remote branch count
+
+Summary of the directory:
+
+  * Directory path
+  * File count via git ls-files
+  * File count via find command
+  * Disk usage
+  * Most-active authors
+  * Most-active dates
+  * Most-active files

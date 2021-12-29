@@ -1,6 +1,13 @@
 # git cpc
 
+## Continue the cherry-pick process
+
 ```gitconfig
-# git cpc: continue the cherry-picking process
 cpc = cherry-pick --continue
+```
+
+Example:
+
+```sh
+$ git cpc
 ```

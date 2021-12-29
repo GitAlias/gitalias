@@ -1,12 +1,14 @@
 # git default-branch
 
+## Get the default branch name
+
 ```gitconfig
-# git default-branch - Get the default branch name
-#
-# Example:
-#
-#     $ git default-branch
-#     main
-#
 default-branch = config init.defaultBranch 
+```
+
+Example:
+
+```sh
+$ git default-branch
+main
 ```

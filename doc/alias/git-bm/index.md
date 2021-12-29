@@ -1,6 +1,7 @@
 # git bm
 
+## List branches whose tips are reachable from the specified commit (HEAD if not specified).
+
 ```gitconfig
-# git bm: list branches whose tips are reachable from the specified commit (HEAD if not specified).
 bm = branch --merged
 ```

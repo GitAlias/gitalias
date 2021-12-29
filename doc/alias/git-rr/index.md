@@ -1,6 +1,13 @@
 # git rr
 
+## Shortcut for "remote"
+
 ```gitconfig
-# git rr: remote - manage set of tracked repositories.
 rr = remote
+```
+
+Example:
+
+```sh
+$ git rr
 ```

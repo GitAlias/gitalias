@@ -1,6 +1,13 @@
 # git lsd
 
+## List files and show debug information
+
 ```gitconfig
-# git lsd - List files with debug information
 lsd = ls-files --debug
+```
+
+Example:
+
+```sh
+$ git lsd
 ```

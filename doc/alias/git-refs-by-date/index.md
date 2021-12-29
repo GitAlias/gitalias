@@ -1,6 +1,15 @@
 # git refs-by-date
 
+## Show refs sorted by date for branches
+
 ```gitconfig
-# git refs-by-date - Sort by date for branches; can be useful for spring cleaning
 refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
 ```
+
+Example:
+
+```sh
+$ git refs-by-date
+```
+
+This alias can be useful for spring cleaning.

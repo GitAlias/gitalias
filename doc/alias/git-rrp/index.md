@@ -1,6 +1,13 @@
 # git rrp
 
+## Remote prune i.e. delete all stale remote-tracking branches under <name>
+
 ```gitconfig
-# git rrp: remote prune - deletes all stale remote-tracking branches under <name>.
 rrp = remote prune
+```
+
+Example:
+
+```sh
+$ git rrp
 ```

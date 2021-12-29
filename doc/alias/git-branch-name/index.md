@@ -1,12 +1,14 @@
 # git current-branch
 
+## Get the current branch name
+
 ```gitconfig
-# git current-branch - Get the current branch name
-#
-# Example:
-#
-#     $ git current-branch
-#     main
-#
 branch-name = rev-parse --abbrev-ref HEAD
+```
+
+Example:
+
+```sh
+$ git current-branch
+main
 ```

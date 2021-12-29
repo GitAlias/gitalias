@@ -1,6 +1,13 @@
 # git cpa
 
+## Abort the cherry-pick process
+
 ```gitconfig
-# git cpa: abort the cherry-picking process
 cpa = cherry-pick --abort
+```
+
+Example:
+
+```sh
+$ git cpa
 ```

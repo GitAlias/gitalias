@@ -1,6 +1,13 @@
 # git cog
 
+## Checkout with guessing
+
 ```gitconfig
-# git cog: checkout with guessing
 cog = checkout --guess
+```
+
+Example:
+
+```sh
+$ git cog
 ```

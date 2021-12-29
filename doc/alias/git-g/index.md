@@ -1,6 +1,17 @@
 # git g
 
+## Shortcut for "grep"
+
 ```gitconfig
-# git g: grep (general regular expression parser) i.e. search for text
 g = grep
 ```
+
+Example:
+
+```sh
+$ git g
+```
+
+This will search for text.
+
+The term "grep" stands for "general regular expression parser".

@@ -1,6 +1,15 @@
 # git rv
 
+## Shortcut for "revert" 
+
 ```gitconfig
-# git rv: git revert i.e. undo the changes from some existing commits
 rv = revert
 ```
+
+Example:
+
+```sh
+$ git rv
+```
+
+Revert will undo the changes from some existing commits.

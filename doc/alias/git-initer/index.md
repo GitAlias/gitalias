@@ -1,10 +1,18 @@
 # git initer
 
+# Initalize a repo with an empty commit to help rebase
+
 ```gitconfig
-# git init-empty: initalize a repo then immediately add an empty commit,
-# in order to make subsequent git rebase commands easier to do.
 initer = !"f() { \
     git init && \
     git commit --allow-empty --allow-empty-message --message ''; \
 }; f"
 ```
+
+Example:
+
+```sh
+$ git initer
+```
+
+This tactic makes it easier to do subsequent git rebase commands.

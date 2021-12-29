@@ -1,6 +1,13 @@
 # git-dc.md
 
+## Diff in order to show changes not yet staged
+
 ```gitconfig
-# git dc: diff in order to show changes not yet staged
 dc = diff --cached
+```
+
+Example:
+
+```sh
+$ git dc
 ```

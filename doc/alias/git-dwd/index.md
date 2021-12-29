@@ -1,6 +1,13 @@
 # git dwd
 
+## Show changes by word, not by line
+
 ```gitconfig
-# git dwd: show changes but by word, not line
 dwd = diff --word-diff
+```
+
+Example:
+
+```sh
+$ git dwd
 ```

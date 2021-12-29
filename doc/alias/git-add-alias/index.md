@@ -1,7 +1,8 @@
 # git add-alias
 
+## Create a new git alias
+
 ```gitconfig
-# git add-alias: create a new git alias
 add-alias = "!f() { \
     if [ $# != 3 ]; then \
     echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
@@ -18,4 +19,12 @@ add-alias = "!f() { \
     echo "Error: unknown failure."; \
     return 1; \
 }; f"
+```
+
+Example:
+
+```sh
+$ git add-alias --local myalias mycommand
+
+$ git add-alias --global myalias mycommand
 ```

@@ -1,6 +1,13 @@
 # git unadd
 
+## Reset something that's been added
+
 ```gitconfig
-# git unadd - Reset something that's been added
 unadd = reset HEAD
+```
+
+Example:
+
+```sh
+$ git unadd
 ```

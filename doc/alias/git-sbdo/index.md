@@ -1,6 +1,14 @@
 # git sbdo
 
+## Show branch list with date order
+
 ```gitconfig
-# git sbdo - Print a list of branches and their commits, with date order.
+# git sbdo - 
 sbdo = show-branch --date-order
+```
+
+Example:
+
+```sh
+$ git sbdo
 ```

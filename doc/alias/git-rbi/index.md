@@ -1,6 +1,14 @@
 # git rbi
 
+## Rebase interactive i.e. do a rebase with prompts
+
 ```gitconfig
-# git rbi: rebase interactive - do the rebase with prompts.
+# git rbi: 
 rbi = rebase --interactive
+```
+
+Example:
+
+```sh
+$ git rbi
 ```

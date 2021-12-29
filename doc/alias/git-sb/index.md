@@ -1,6 +1,13 @@
 # git sb
 
+## Shortcut for "show-branch" i.e. print a list of branches and their commits
+
 ```gitconfig
-# git sb - Print a list of branches and their commits.
 sb = show-branch
+```
+
+Example:
+
+```sh
+$ git sb
 ```

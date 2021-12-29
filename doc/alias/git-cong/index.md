@@ -1,6 +1,13 @@
 # git cong
 
+## Checkout with no guessing
+
 ```gitconfig
-# git cong: checkout without guessing
 cong = checkout --no-guess
+```
+
+Example:
+
+```sh
+$ git cong
 ```

@@ -1,6 +1,13 @@
 # git rrs
 
+## Remote show i.e. give information about the remote <name>
+
 ```gitconfig
-# git rrs: remote show - gives some information about the remote <name>.
 rrs = remote show
+```
+
+Example:
+
+```sh
+$ git rrs
 ```

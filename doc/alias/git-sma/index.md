@@ -1,6 +1,13 @@
 # git sma
 
+## Submodule add i.e. add a submodule to this repo
+
 ```gitconfig
-# git sma: submodule add
 sma = submodule add
+```
+
+Example:
+
+```sh
+$ git sma foo
 ```

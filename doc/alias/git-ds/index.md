@@ -1,6 +1,13 @@
 # git ds
 
+## Show changes about to be commited
+
 ```gitconfig
-# git ds: show changes about to be commited
 ds = diff --staged
+```
+
+Example:
+
+```sh
+$ git ds
 ```

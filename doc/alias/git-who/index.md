@@ -1,6 +1,13 @@
 # git who
 
+## Show a short log of who has contributed commits, in descending order
+
 ```gitconfig
-# git who - Show who has contributed commits, in descending order.
 who = shortlog --summary --email --numbered --no-merges
+```
+
+Example:
+
+```sh
+$ git who
 ```

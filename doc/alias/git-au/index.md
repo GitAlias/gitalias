@@ -1,6 +1,13 @@
 # git au
 
+## Add just the files that are updated
+
 ```gitconfig
-# git au: add just the files that are updated
 au = add --update
+```
+
+Example:
+
+```sh
+$ git au
 ```

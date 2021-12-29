@@ -1,6 +1,13 @@
 # git lsfn
 
+## List files and show full name
+
 ```gitconfig
-# git lsfn - List files with full name.
 lsfn = ls-files --full-name
+```
+
+Example:
+
+```sh
+$ git lsfn
 ```

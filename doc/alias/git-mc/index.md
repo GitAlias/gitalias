@@ -1,6 +1,13 @@
 # git mc
 
+## Merge continue i.e. continue the merge process
+
 ```gitconfig
-# git mc: merge continue - continue the merge process
 mc = merge --continue
+```
+
+Example:
+
+```sh
+$ git mc
 ```

@@ -1,6 +1,13 @@
 # git ssb
 
+## status with short format and branch info
+
 ```gitconfig
-# git ssb: status with short format, and showing branch and tracking info.
 ssb = status --short --branch
+```
+
+Example:
+
+```sh
+$ git ssb
 ```

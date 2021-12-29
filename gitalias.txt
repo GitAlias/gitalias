@@ -527,7 +527,7 @@
   # Find text and group the output lines. A.k.a. `gg`.
   grep-group = grep --break --heading --line-number --color
 
-  # grep with ack-like formatting
+  # Find text with ack-like formatting.
   grep-ack = \
     -c color.grep.linenumber=\"bold yellow\" \
     -c color.grep.filename=\"bold green\" \

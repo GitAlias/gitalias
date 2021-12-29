@@ -1,6 +1,13 @@
 # git lg
 
+## Log with a text-based graphical representation of the commit history
+
 ```gitconfig
-# git lg: log with a text-based graphical representation of the commit history.
 lg = log --graph
+```
+
+Example:
+
+```sh
+$ git lg
 ```

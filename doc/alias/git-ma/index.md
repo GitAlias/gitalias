@@ -1,6 +1,13 @@
 # git ma
 
+## Merge abort i.e. abort the merge process
+
 ```gitconfig
-# git ma: merge abort - abort the merge process
 ma = merge --abort
+```
+
+Example:
+
+```sh
+$ git ma
 ```

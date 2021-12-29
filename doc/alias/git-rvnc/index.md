@@ -1,9 +1,16 @@
 # git rvnc
 
+## revert with no commit i.e. without autocommit
+
 ```gitconfig
-# git rvnc: git revert without autocommit
-#
-# This can be useful when you're reverting more than one 
-# commits' effect to your index in a row.
 rvnc = revert --no-commit
 ```
+
+Example:
+
+```sh
+$ git rvnc
+```
+
+This can be useful when you're reverting more than one 
+commits' effect to your index in a row.

@@ -1,6 +1,14 @@
 # git aa
 
+## Add all paths
+
 ```gitconfig
-# add all
 aa = add --all
 ```
+
+Example:
+
+```sh
+$ git aa
+```
+

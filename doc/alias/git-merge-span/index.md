@@ -1,8 +1,8 @@
 # git merge-span-*
 
-```gitconfig
-### git merge-span-* ###
+## Merge span aliases
 
+```gitconfig
 # Given a merge commit, find the span of commits that exist(ed).
 # Not so useful in itself, but used by other aliases.
 # Thanks to Rob Miller for the merge-span-* aliases.
@@ -19,4 +19,13 @@ merge-span-diff = !"git diff `git merge-span ... $1`"
 
 # Show the changes that were introduced by a merge, in your difftool
 merge-span-difftool = !"git difftool `git merge-span ... $1`"
+```
 
+Example:
+
+```sh
+$ git merge-span
+$ git merge-span-log
+$ git merge-span-diff
+$ git merge-span-difftool
+```

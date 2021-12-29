@@ -1,6 +1,15 @@
 # git pull1
 
+## Pull just the current branch
+
 ```gitconfig
-# git pull1: Pull just the current branch. Compare `git push1`.
 pull1 = "!git pull origin $(git current-branch)"
 ```
+
+Example:
+
+```sh
+$ git pull1
+```
+
+Compare [git push1](../git-push1).

@@ -1,6 +1,13 @@
 # git sms
 
+## Submodule sync i.e. synchronize a submodule in this repo
+
 ```gitconfig
-# git sms: submodule sync
 sms = submodule sync
+```
+
+Example:
+
+```sh
+$ git sms foo
 ```

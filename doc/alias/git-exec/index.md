@@ -1,14 +1,16 @@
 # git exec
 
+## Execute a shell script
+
 ```gitconfig
-# git exec - Execute a shell script. 
-#
-# Git always runs scripts in the top directory.
-#
-# Example:
-#
-#     $ git exec pwd
-#     /home/alice/projects/example
-#
 exec = ! exec
 ```
+
+Example:
+
+```sh
+$ git exec pwd
+/home/alice/projects/example
+```
+
+Note: git always runs scripts in the top directory.

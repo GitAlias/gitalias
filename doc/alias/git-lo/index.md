@@ -1,6 +1,13 @@
 # git lo
 
+## Log with one line per item
+
 ```gitconfig
-# git lo: log with one line per item.
 lo = log --oneline
+```
+
+Example:
+
+```sh
+$ git lo
 ```

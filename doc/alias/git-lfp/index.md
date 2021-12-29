@@ -1,6 +1,15 @@
 # git lfp
 
+## Log with first parent
+
 ```gitconfig
-# git lfp: log with first parent, useful for team branch that only accepts pull requests.
 lfp = log --first-parent
 ```
+
+Example:
+
+```sh
+$ git lfp
+```
+
+This alias can be useful for teamwork for a branch that only accepts pull requests.

@@ -1,6 +1,13 @@
 # git remotes-push
 
+## For each remote branch, push it.
+
 ```gitconfig
-# git remotes-push - For each remote branch, push it.
 remotes-push = !git remote | xargs -I% -n1 git push %
+```
+
+Example:
+
+```sh
+$ git remotes-push
 ```

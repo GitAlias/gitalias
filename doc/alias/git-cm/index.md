@@ -1,6 +1,13 @@
 # git cm
 
+## Commit with a message
+
 ```gitconfig
-# git cm: commit with a message
 cm = commit --message
+```
+
+Example:
+
+```sh
+$ git cm
 ```

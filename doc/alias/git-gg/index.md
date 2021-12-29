@@ -1,6 +1,15 @@
 # git gg
 
+## Grep group i.e. search with our preferred options
+
 ```gitconfig
-# git gg: grep group - search with our preferred options. Also aliased as `grep-group`.
 gg = grep --break --heading --line-number --color
 ```
+
+Example:
+
+```sh
+$ git gg
+```
+
+Also aliased as [git grep-group](../git-grep-group).

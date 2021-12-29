@@ -1,6 +1,14 @@
 # git pf
 
+## Pull if a merge can be resolved as a fast-forward, otherwise fail.
+
 ```gitconfig
-# git pf: pull if a merge can be resolved as a fast-forward, otherwise fail.
+# git pf:
 pf = pull --ff-only
+```
+
+Example:
+
+```sh
+$ git pf
 ```

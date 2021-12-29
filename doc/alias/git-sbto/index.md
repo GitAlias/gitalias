@@ -1,6 +1,13 @@
 # git sbto
 
+## Show branch list with topological order
+
 ```gitconfig
-# git sbto - Print a list of branches and their commits, with topo order.
 sbdo = show-branch --topo-order
+```
+
+Example:
+
+```sh
+$ git sbto
 ```

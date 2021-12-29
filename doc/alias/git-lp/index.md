@@ -1,6 +1,13 @@
 # git lp
 
+## Log with patch generation
+
 ```gitconfig
-# git lp: log with patch generation.
 lp = log --patch
+```
+
+Example:
+
+```sh
+$ git lp
 ```

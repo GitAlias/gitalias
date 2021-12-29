@@ -1,6 +1,13 @@
 # git smui
 
+## submodule update with initialize
+
 ```gitconfig
-# git smui: submodule update with initialize
 smui = submodule update --init
+```
+
+Example:
+
+```sh
+$ git smui foo
 ```

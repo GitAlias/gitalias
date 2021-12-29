@@ -1,6 +1,13 @@
 # git uncommit
 
+## Reset one commit
+
 ```gitconfig
-# git uncommit - Reset one commit
 uncommit = reset --soft HEAD~1
+```
+
+Example:
+
+```sh
+$ git uncommit
 ```

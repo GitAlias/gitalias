@@ -1,7 +1,8 @@
 # git move-alias
 
+## Rename an existing git alias
+
 ```gitconfig
-# git move-alias: rename an existing git alias
 move-alias = "!f() { \
     if [ $# != 3 ]; then \
         echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <alias new name>\"; \
@@ -27,4 +28,11 @@ move-alias = "!f() { \
     echo "Error: unknown failure."; \
     return 1; \
 };f"
+```
+
+Example:
+
+```sh
+$ git move-alias --local foo bar
+$ git move-alias --global foo bar
 ```

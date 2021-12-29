@@ -1,6 +1,13 @@
 # git rru
 
+## remote update i.e. fetch updates for a named set of remotes in the repository as defined by remotes
+
 ```gitconfig
-# git rru: remote update - fetch updates for a named set of remotes in the repository as defined by remotes.
 rru = remote update
+```
+
+Example:
+
+```sh
+$ git rru
 ```
