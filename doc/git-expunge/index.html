@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git expunge - GitAlias.com</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        h1 { font-size: 1.6rem; }
+        h2 { font-size: 1.3rem; }
+    </style>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+        <h1>git expunge</h1>
+<h2>Delete a file everywhere</h2>
+<pre><code class="language-gitconfig">expunge = !&quot;f() { \
+    git filter-branch \
+    --force \
+    --index-filter \&quot;git rm --cached --ignore-unmatch $1\&quot; \
+    --prune-empty \
+    --tag-name-filter cat -- --all \
+}; f&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-sh">$ git expunge file.txt
+</code></pre>
+<p>This command is typically for a serious problem, such as accidentally 
+committing a file of sensitive data, such as passwords or secrets or 
+confidential information.</p>
+<p>After you use this command, you will likely need to force push everything.</p>
+<p>See https://help.github.com/articles/removing-sensitive-data-from-a-repository/</p>
+
+    </div>
+  </section>
+  </body>
+</html>

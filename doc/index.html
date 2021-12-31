@@ -1,0 +1,695 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitAlias - GitAlias</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <meta name='theme-color' content='#aa1e1e'>
+    <meta name="application-name" content="GitAlias"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
+    <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
+      body { margin: 0; line-height: 1.5rem; }
+      nav { color: white; background: black; padding: 1rem; }
+      body { font-family: sans-serif; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
+    </nav>    
+    <div class="content">
+      <h1>GitAlias</h1>
+<p>This project provides many git alias commands that you can use as you like.</p>
+<p>Contents:</p>
+<ul>
+<li><a href="#what-is-git-alias">What is GitAlias?</a></li>
+<li><a href="#download-install-customize">Download, install, customize</a></li>
+<li><a href="#abbrevation-aliases">Short aliases</a></li>
+<li><a href="#friendly-aliases">Friendly aliases</a></li>
+<li><a href="#convenience-alaises">Convenience alaises</a></li>
+<li><a href="#workflow-aliases">Workflow aliases</a></li>
+<li><a href="#tooling-aliases">Tooling aliases</a></li>
+<li><a href="#index-of-all-aliases">Index of all aliases</a></li>
+<li><a href="CONTRIBUTING.md">Contribute</a></li>
+<li><a href="more/index.md">More ideas</a></li>
+<li><a href="todo/index.md">To do</a></li>
+<li><a href="thanks/index.md">Thanks</a></li>
+<li><a href="#tracking">Tracking</a></li>
+</ul>
+<h2>What is GitAlias?</h2>
+<p>GitAlias is a collection of git version control alias settings:</p>
+<ul>
+<li>
+<p>Shortcuts: <a href="doc/git-c/index.md"><code>c</code></a> for commit, <a href="doc/git-l/index.md"><code>l</code></a> for log, <a href="doc/git-s/index.md"><code>s</code></a> for status, etc.</p>
+</li>
+<li>
+<p>Searches: <a href="doc/grep-all"><code>grep-all</code></a>, <a href="doc/git-who/index.md"><code>whois</code></a>, <a href="doc/git-whatis/index.md"><code>whatis</code></a>, etc.</p>
+</li>
+<li>
+<p>Analytics: <a href="doc/git-chart/index.md"><code>chart</code></a>, <a href="doc/git-summary/index.md"><code>summary</code></a>, <a href="doc/git-log-my-week/index.md"><code>log-my-week</code></a>, etc.</p>
+</li>
+<li>
+<p>Commands: <a href="doc/git-optimizer/index.md"><code>optimizer</code></a>, <a href="doc/git-archive/index.md"><code>archive</code></a>, <a href="doc/reincarnate/index.md"><code>reincarnate</code></a>, etc.</p>
+</li>
+<li>
+<p>Workflows: <a href="doc/git-get/index.md"><code>get</code></a>/<a href="doc/git-put/index.md"><code>put</code></a>, <a href="doc/git-publish/index.md"><code>publish</code></a>/<a href="doc/git-unpublish/index.md"><code>unpublish</code></a>, <a href="doc/git-topic-begin/index.md"><code>topic-begin</code></a>/<a href="doc/git-topic-end/index.md"><code>topic-end</code></a>, etc.</p>
+</li>
+</ul>
+<p>Use GitAlias because it makes your work faster, more streamlined, and more powerful.</p>
+<h2>Download, install, customize</h2>
+<ul>
+<li>
+<p>Download GitAlias code in one file: <a href="../gitalias.txt">gitalias.txt</a></p>
+</li>
+<li>
+<p>Install GitAlias using a variety of ways: <a href="install/index.md">install guide</a>.</p>
+</li>
+<li>
+<p>Customize the aliases as you wish: <a href="customize/index.md">customize guide</a>.</p>
+</li>
+</ul>
+<p>You can also follow us on GitHub: </p>
+<ul>
+<li>
+<p>GitAlias account: <a href="https://github.com/gitalias">https://github.com/gitalias</a></p>
+</li>
+<li>
+<p>GitAlias repository: <a href="https://github.com/gitalias/gitalias">https://github.com/gitalias/gitalias</a></p>
+</li>
+</ul>
+<h2>Short aliases</h2>
+<p>Short aliases are for frequent commands and options:</p>
+<p>git add:</p>
+<ul>
+<li><a href="git-a/index.md">git a</a> = add</li>
+<li><a href="git-aa/index.md">git aa</a> = add –all</li>
+<li><a href="git-ap/index.md">git ap</a> = add –patch</li>
+<li><a href="git-au/index.md">git au</a> = add –update</li>
+</ul>
+<p>git branch:</p>
+<ul>
+<li><a href="git-b/index.md">git b</a> = branch</li>
+<li><a href="git-bm/index.md">git bm</a> = branch –merged</li>
+<li><a href="git-bnm/index.md">git bnm</a> = branch –no-merged</li>
+<li><a href="git-bed/index.md">git bed</a> = branch –edit-description</li>
+<li><a href="git-bsd/index.md">git bsd</a> = branch –show-description (polyfill)</li>
+</ul>
+<p>git commit:</p>
+<ul>
+<li><a href="git-c/index.md">git c</a> = commit</li>
+<li><a href="git-ca/index.md">git ca</a> = commit –amend</li>
+<li><a href="git-cam/index.md">git cam</a> = commit –amend –message</li>
+<li><a href="git-cane/index.md">git cane</a> = commit –amend –no-edit</li>
+<li><a href="git-ci/index.md">git ci</a> = commit –interactive</li>
+<li><a href="git-cm/index.md">git cm</a> = commit –message</li>
+</ul>
+<p>git checkout:</p>
+<ul>
+<li><a href="git-co/index.md">git co</a> = checkout</li>
+<li><a href="git-cog/index.md">git cog</a> = checkout –guess</li>
+<li><a href="git-cong/index.md">git cong</a> = checkout –no-guess</li>
+</ul>
+<p>git cherry-pick:</p>
+<ul>
+<li><a href="git-cp/index.md">git cp</a> = cherry-pick</li>
+<li><a href="git-cpa/index.md">git cpa</a> = cherry-pick –abort</li>
+<li><a href="git-cpc/index.md">git cpc</a> = cherry-pick –continue</li>
+<li><a href="git-cpn/index.md">git cpn</a> = cherry-pick -n (–no-commit)</li>
+<li><a href="git-cpnx/index.md">git cpnx</a> = cherry-pick -n -x (–no-commit and with a message)</li>
+</ul>
+<p>git diff:</p>
+<ul>
+<li><a href="git-d/index.md">git d</a> = diff</li>
+<li><a href="git-dd/index.md">git dd</a> = diff with our preferred settings</li>
+<li><a href="git-dc/index.md">git dc</a> = diff –cached</li>
+<li><a href="git-ds/index.md">git ds</a> = diff –staged</li>
+<li><a href="git-dwd/index.md">git dwd</a> = diff –word-diff</li>
+</ul>
+<p>git fetch:</p>
+<ul>
+<li><a href="git-f/index.md">git f</a> = fetch</li>
+</ul>
+<p>git grep:</p>
+<ul>
+<li><a href="git-g/index.md">git g</a> = grep</li>
+<li><a href="git-gg/index.md">git gg</a> = grep with our preferred settings</li>
+<li><a href="git-gn/index.md">git gn</a> = grep -n (–line-number)</li>
+</ul>
+<p>git log:</p>
+<ul>
+<li><a href="git-l/index.md">git l</a> = log</li>
+<li><a href="git-ll/index.md">git ll</a> = log list with our preferred short settings</li>
+<li><a href="git-lll/index.md">git lll</a> = log list with our preferred long settings</li>
+<li><a href="git-lg/index.md">git lg</a> = log –graph</li>
+<li><a href="git-lo/index.md">git lo</a> = log –oneline</li>
+<li><a href="git-lor/index.md">git lor</a> = log –oneline –reverse</li>
+<li><a href="git-lp/index.md">git lp</a> = log –patch</li>
+<li><a href="git-lfp/index.md">git lfp</a> = log –first-parent</li>
+<li><a href="git-lto/index.md">git lto</a> = log –topo-order</li>
+</ul>
+<p>git ls-files:</p>
+<ul>
+<li><a href="git-ls/index.md">git ls</a> = ls-files</li>
+<li><a href="git-lsd/index.md">git lsd</a> = ls-files –debug</li>
+<li><a href="git-lsfn/index.md">git lsfn</a> = ls-files –full-name</li>
+<li><a href="git-lsio/index.md">git lsio</a> = ls-files –ignored –others –exclude-standard</li>
+</ul>
+<p>git merge:</p>
+<ul>
+<li><a href="git-m/index.md">git m</a> = merge</li>
+<li><a href="git-ma/index.md">git ma</a> = merge –abort</li>
+<li><a href="git-mc/index.md">git mc</a> = merge –continue</li>
+<li><a href="git-me/index.md">git me</a> = merge –no-commit –no-ff</li>
+</ul>
+<p>git pull:</p>
+<ul>
+<li><a href="git-pf/index.md">git pf</a> = pull –ff-only</li>
+<li><a href="git-pr/index.md">git pr</a> = pull –rebase</li>
+<li><a href="git-prp/index.md">git prp</a> = pull –rebase=preserve</li>
+</ul>
+<p>git rebase:</p>
+<ul>
+<li><a href="git-rb/index.md">git rb</a> = rebase</li>
+<li><a href="git-rb/index.md">git rba</a> = rebase –abort</li>
+<li><a href="git-rbc/index.md">git rbc</a> = rebase –continue</li>
+<li><a href="git-rbs/index.md">git rbs</a> = rebase –skip</li>
+<li><a href="git-rbi/index.md">git rbi</a> = rebase –interactive</li>
+<li><a href="git-rbiu/index.md">git rbiu</a> = rebase –interactive @{upstream}</li>
+</ul>
+<p>git reflog:</p>
+<ul>
+<li><a href="git-rl/index.md">git rl</a> = reflog</li>
+</ul>
+<p>git remote:</p>
+<ul>
+<li><a href="git-rr/index.md">git rr</a> = remote</li>
+<li><a href="git-rrs/index.md">git rrs</a> = remote show</li>
+<li><a href="git-rru/index.md">git rru</a> = remote update</li>
+<li><a href="git-rrp/index.md">git rrp</a> = remote prune</li>
+</ul>
+<p>git revert:</p>
+<ul>
+<li><a href="git-rv/index.md">git rv</a> = revert</li>
+<li><a href="git-rvnc/index.md">git rvnc</a> = revert –no-commit</li>
+</ul>
+<p>git show-branch:</p>
+<ul>
+<li><a href="git-sb/index.md">git sb</a> = show-branch</li>
+<li><a href="git-sbdo/index.md">git sbdo</a> = show-branch –date-order</li>
+<li><a href="git-sbto/index.md">git sbto</a> = show-branch –topo-order</li>
+</ul>
+<p>git submodule:</p>
+<ul>
+<li><a href="git-sm/index.md">git sm</a> = submodule</li>
+<li><a href="git-smi/index.md">git smi</a> = submodule init</li>
+<li><a href="git-sma/index.md">git sma</a> = submodule add</li>
+<li><a href="git-sms/index.md">git sms</a> = submodule sync</li>
+<li><a href="git-smu/index.md">git smu</a> = submodule update</li>
+<li><a href="git-smui/index.md">git smui</a> = submodule update –init</li>
+<li><a href="git-smuir/index.md">git smuir</a> = submodule update –init –recursive</li>
+</ul>
+<p>git status:</p>
+<ul>
+<li><a href="git-s/index.md">git s</a> = status</li>
+<li><a href="git-ss/index.md">git ss</a> = status –short</li>
+<li><a href="git-ssb/index.md">git ssb</a> = status –short –branch</li>
+</ul>
+<p>git whatchanged:</p>
+<ul>
+<li><a href="git-w/index.md">git w</a> = whatchanged</li>
+</ul>
+<h2>Friendly aliases</h2>
+<p>Start:</p>
+<ul>
+<li><a href="git-init-empty/index.md">git init-empty</a> - Initialize a repo with an empty rebaseable commit</li>
+<li><a href="git-cloner/index.md">git cloner</a> - Clone a repo and recurse on any of its submodules</li>
+</ul>
+<p>Branch names:</p>
+<ul>
+<li><a href="git-default-branch/index.md">git default-branch</a> - Get the default branch name</li>
+<li><a href="git-current-branch/index.md">git current-branch</a> - Get the current branch name</li>
+<li><a href="git-upstream-branch/index.md">git upstream-branch</a> - Get the upstream branch name</li>
+<li><a href="git-topic-base-branch/index.md">git topic-base-branch</a> - Get the topic base branch name</li>
+</ul>
+<p>Branch commits:</p>
+<ul>
+<li><a href="../git-branch-commit-first">git branch-commit-first</a> - Show a branch’s first commit hash (or hashes)</li>
+<li><a href="../git-branch-commit-last">git branch-commit-last</a> - Show a branch’s last commit hash (or hashes)</li>
+<li><a href="../git-branch-commit-prev">git branch-commit-prev</a> - Show a branch’s previous commit hash (or hashes)</li>
+<li><a href="../git-branch-commit-next">git branch-commit-next</a> - Show a branch’s next commit hash (or hashes)</li>
+</ul>
+<p>List items:</p>
+<ul>
+<li><a href="git-aliases/index.md">git aliases</a> - List aliases</li>
+<li><a href="git-branches/index.md">git branches</a> - List branches</li>
+<li><a href="git-tags/index.md">git tags</a> - List tags</li>
+<li><a href="git-stashes/index.md">git stashes</a> - List stashes</li>
+</ul>
+<p>Undo:</p>
+<ul>
+<li><a href="git-uncommit/index.md">git uncommit</a> =  reset –soft HEAD~1</li>
+<li><a href="git-unadd/index.md">git unadd</a> = reset HEAD</li>
+</ul>
+<h2>Convenience alaises</h2>
+<p>Logging &amp; reporting:</p>
+<ul>
+<li><a href="git-log/index.md">git log-*</a> (many aliases)</li>
+<li><a href="git-who/index.md">git who</a></li>
+<li><a href="git-chart/index.md">git chart</a></li>
+<li><a href="git-churn/index.md">git churn</a></li>
+<li><a href="git-summary/index.md">git summary</a></li>
+</ul>
+<p>Lookups:</p>
+<ul>
+<li><a href="git-whois/index.md">git whois</a> - Try to figure out an author’s information</li>
+<li><a href="git-whatis/index.md">git whatis</a> - Try to figure out an object’s information</li>
+</ul>
+<p>Commit details:</p>
+<ul>
+<li><a href="git-commit-parents/index.md">git commit-parents</a> - Show the commit’s parents</li>
+<li><a href="git-commit-is-merge/index.md">git commit-is-merge</a> - Is the commit a merge commit?</li>
+<li><a href="git-commit-message-key-lines/index.md">git commit-message-key-lines</a></li>
+</ul>
+<p>Add all &amp; edit all:</p>
+<ul>
+<li><a href="git-edit/index.md">git add-*</a> - Add all files of a given type</li>
+<li><a href="git-edit/index.md">git edit-*</a> - Edit all files of a given type</li>
+</ul>
+<p>Alias helpers:</p>
+<ul>
+<li><a href="git-add-alias/index.md">git add-alias</a> - Create a new git alias</li>
+<li><a href="git-move-alias/index.md">git move-alias</a> - Rename an existing git alias</li>
+</ul>
+<p>Script helpers:</p>
+<ul>
+<li><a href="git-top/index.md">git top</a> - Get the top level directory name</li>
+<li><a href="git-exec/index.md">git exec</a> - Execute a shell script</li>
+</ul>
+<p>Remotes:</p>
+<ul>
+<li><a href="git-remotes-prune/index.md">git remotes-prune</a> - For each remote branch, prune it</li>
+<li><a href="git-remotes-push/index.md">git remotes-push</a> - For each remote branch, push it</li>
+</ul>
+<p>Misc:</p>
+<ul>
+<li><a href="git-diff/index.md">git diff-*</a></li>
+<li><a href="git-grep/index.md">git grep-*</a></li>
+<li><a href="git-merge-span/index.md">git merge-span-*</a> - Merge span aliases</li>
+<li><a href="git-orphans/index.md">git orphans</a> - Find all objects that aren’t referenced by any other object</li>
+<li><a href="git-fixup/index.md">git fixup</a> - Fix a commit by amending it</li>
+<li><a href="git-rev-list-all-objects-by-size/index.md">git rev-list-all-objects-by-size</a></li>
+<li><a href="git-rev-list-all-objects-by-size-and-name/index.md">git rev-list-all-objects-by-size-and-name</a></li>
+<li><a href="git-cherry-pick-merge/index.md">git cherry-pick-merge</a></li>
+<li><a href="git-refs-by-date/index.md">git refs-by-date</a> - Sort by date for branches</li>
+</ul>
+<p>Advanced aliases:</p>
+<ul>
+<li><a href="git-search-commits/index.md">git search-commits</a></li>
+<li><a href="git-debug/index.md">git debug</a></li>
+<li><a href="git-intercommit/index.md">git intercommit</a></li>
+</ul>
+<h2>Workflow aliases</h2>
+<p>Starting:</p>
+<ul>
+<li><a href="git-init-empty/index.md">git init-empty</a> - Initialize a repo with an empty rebaseable commit</li>
+<li><a href="git-cloner/index.md">git cloner</a> - Clone a repo and recurse on any of its submodules</li>
+<li><a href="git-clone-lean/index.md">git clone-lean</a> - Clone a repo as lean as possible</li>
+</ul>
+<p>Save:</p>
+<ul>
+<li><a href="git-archive/index.md">git archive</a> - Create an archive file of everything in the repo</li>
+<li><a href="git-snapshot/index.md">git snapshot</a> - Stash a snapshot of your current working tree</li>
+<li><a href="git-panic/index.md">git panic</a> - When you’re worried the world is coming to an end</li>
+</ul>
+<p>Flow aliases:</p>
+<ul>
+<li><a href="git-get-git-put/index.md">git get &amp; git put</a></li>
+<li><a href="git-ours-git-theirs/index.md">git ours &amp; git theirs</a></li>
+<li><a href="git-wip-git-unwip/index.md">git wip &amp; git unwip</a></li>
+<li><a href="git-assume-and-git-unassume/index.md">git assume &amp; git unassume</a></li>
+<li><a href="git-publish-git-unpublish/index.md">git publish &amp; git unpublish</a></li>
+</ul>
+<p>reset &amp; undo:</p>
+<ul>
+<li><a href="git-reset/index.md">git reset-*</a> - Move backwards on the commit chain; synonym for undo-*</li>
+<li><a href="git-undo/index.md">git undo-*</a> - Move backwards on the commit chain; synonym for reset-*</li>
+</ul>
+<p>track &amp; untrack:</p>
+<ul>
+<li><a href="git-track/index.md">git track</a> - Start tracking from a local branch to upstream branch</li>
+<li><a href="git-untrack/index.md">git untrack</a> - Stop tracking from a local branch to upstream branch</li>
+</ul>
+<p>inbound &amp; outbound:</p>
+<ul>
+<li><a href="git-inbound/index.md">git inbound</a> - Show incoming changes compared to upstream</li>
+<li><a href="git-outbound/index.md">git outbound</a> - Show outgoing changes compared to upstream</li>
+</ul>
+<p>pull1 &amp; push1:</p>
+<ul>
+<li><a href="git-pull1/index.md">git pull1</a> - Pull just the one current branch</li>
+<li><a href="git-push1/index.md">git push1</a> - Push just the one current branch</li>
+</ul>
+<p>Cull:</p>
+<ul>
+<li><a href="git-cull/index.md">git cull</a> - Delete all branches that are merged</li>
+<li><a href="git-hew-local/index.md">git hew-local</a> - Delete local branches that are merged</li>
+<li><a href="git-hew-remote/index.md">git hew-remote</a> - Delete remote branches that are merged</li>
+</ul>
+<p>Topic branches a.k.a. feature branches:</p>
+<ul>
+<li><a href="git-topic/index.md">git topic-*</a> - Read this first about topic aliases</li>
+<li><a href="git-topic-base-branch/index.md">git topic-base-branch</a> - Show the topic base branch name</li>
+<li><a href="git-topic-begin/index.md">git topic-begin</a> - Start a new topic branch</li>
+<li><a href="git-topic-end/index.md">git topic-end</a> - Finish the current topic branch</li>
+<li><a href="git-topic-sync/index.md">git topic-sync</a> - Synchronize the current topic branch</li>
+<li><a href="git-topic-move/index.md">git topic-move</a> - Rename the current topic branch</li>
+</ul>
+<p>Maintenance tuning:</p>
+<ul>
+<li><a href="git-cleaner/index.md">git cleaner</a> - Clean the recommend way</li>
+<li><a href="git-pruner/index.md">git pruner</a> - Prune the recommened way</li>
+<li><a href="git-repacker/index.md">git repacker</a> - Repack the recommended way</li>
+<li><a href="git-optimizer/index.md">git optimizer</a> - Optimize the recommended way</li>
+</ul>
+<p>Misc:</p>
+<ul>
+<li><a href="git-issues/index.md">git issues</a> - Show issues that are described in commit messages</li>
+<li><a href="git-expunge/index.md">git expunge</a> - Use filter-branch to delete a file everywhere</li>
+<li><a href="git-reincarnate/index.md">git reincarnate</a> - Kill a branch then create it anew</li>
+<li><a href="git-diff-chunk/index.md">git diff-chunk</a> - Do a diff of two chunks in revisions</li>
+<li><a href="git-last-tag/index.md">git last-tag</a> - Show the last tag in the current branch</li>
+<li><a href="git-serve/index.md">git serve</a> - Serve the local directory via git server daemon</li>
+<li><a href="git-track-all-remote-branches/index.md">git track-all-remote-branches</a> - Track all remote branches</li>
+<li><a href="git-cleanout/index.md">git cleanout</a> - Clean and discard changes and untracked files in working tree</li>
+</ul>
+<h2>Tooling aliases</h2>
+<p>Use gitk: </p>
+<ul>
+<li><a href="git-gitk-conflict/index.md">git gitk-conflict</a> - Use gitk to show conflicting merge</li>
+<li><a href="git-history-all/index.md">git gitk-history-all</a> - Use gitk to show full history</li>
+</ul>
+<p>Use other version control systems:</p>
+<ul>
+<li><a href="git-cvs/index.md">git cvs-*</a> - Use CVS version control</li>
+<li><a href="git-svn/index.md">git svn-*</a> - Use Subversion version control</li>
+</ul>
+<p>Use graphviz:</p>
+<ul>
+<li><a href="git-graphviz/index.md">git graphviz</a> - Use graphviz for display</li>
+</ul>
+<h2>Index of all aliases</h2>
+<ul>
+<li><a href="git-a/index.md">git a</a> - Short for “git add”</li>
+<li><a href="git-aa/index.md">git aa</a> - Short for “git add –all” - Add all paths</li>
+<li><a href="git-add-alias/index.md">git add-alias</a> - Create a new git alias</li>
+<li><a href="git-add-cached/index.md">git add-cached</a> - Add cached files</li>
+<li><a href="git-add-deleted/index.md">git add-deleted</a> - Add deleted files</li>
+<li><a href="git-add-ignored/index.md">git add-ignored</a> - Add ignored files</li>
+<li><a href="git-add-killed/index.md">git add-killed</a> - Add killed files</li>
+<li><a href="git-add-modified/index.md">git add-modified</a> - Add modified files</li>
+<li><a href="git-add-others/index.md">git add-others</a> - Add other files</li>
+<li><a href="git-add-stage/index.md">git add-stage</a> - Add stage files</li>
+<li><a href="git-add-unmerged/index.md">git add-unmerged</a> - Add unmerged files</li>
+<li><a href="git-aliases/index.md">git aliases</a> - List git aliases</li>
+<li><a href="git-ap/index.md">git ap</a> - Short for “git add –patch” - Add by patch</li>
+<li><a href="git-archive/index.md">git archive</a> - Create an archive file of everything in the repo</li>
+<li><a href="git-assume-all/index.md">git assume-all</a> - Assume all files are unchanged</li>
+<li><a href="git-assume/index.md">git assume</a> - Assume files are unchanged</li>
+<li><a href="git-assumed/index.md">git assumed</a> - Show which files are assumed</li>
+<li><a href="git-au/index.md">git au</a> - Short for “git add –update”</li>
+<li><a href="git-b/index.md">git b</a> - Short for “git branch”</li>
+<li><a href="git-bed/index.md">git bed</a> - Edit the description of a branch</li>
+<li><a href="git-bm/index.md">git bm</a> - List branches whose tips are reachable from the specified commit (HEAD if not specified)</li>
+<li><a href="git-bnm/index.md">git bnm</a> - List branches whose tips are not reachable from the specified commit (HEAD if not specified)</li>
+<li><a href="git-branch-commit-first/index.md">git branch-commit-first</a> - Show a branch’s first commit hash (or hashes)</li>
+<li><a href="git-branch-commit-last/index.md">git branch-commit-last</a> - Show a branch’s last commit hash (or hashes)</li>
+<li><a href="git-branch-commit-next/index.md">git branch-commit-next</a> - Show a branch’s next commit hash (or hashes)</li>
+<li><a href="git-branch-commit-prev/index.md">git branch-commit-prev</a> - Show a branch’s previous commit hash (or hashes)</li>
+<li><a href="git-branch/index.md">git branch</a> - Aliases related to git branch</li>
+<li><a href="git-branches/index.md">git branches</a> - List branches</li>
+<li><a href="git-bsd/index.md">git bsd</a> - Show the description of a branch</li>
+<li><a href="git-bv/index.md">git bv</a> - List branch information with hash and subject</li>
+<li><a href="git-bvv/index.md">git bvv</a> - List branch information with hash and subject and upstream</li>
+<li><a href="git-c/index.md">git c</a> - Short for “git commit”</li>
+<li><a href="git-ca/index.md">git ca</a> -  Amend the tip of the current branch; do not create a new commit</li>
+<li><a href="git-cam/index.md">git cam</a> - Amend the tip of the current branch; edit the message</li>
+<li><a href="git-cane/index.md">git cane</a> - Amend the tip of the current branch; do not edit the message</li>
+<li><a href="git-chart/index.md">git chart</a> - Show a summary chart of activity per author</li>
+<li><a href="git-cherry-pick-merge/index.md">git cherry-pick-merge</a> - Cherry pick a merge commit</li>
+<li><a href="git-churn/index.md">git churn</a> - Show log of files that have many changes</li>
+<li><a href="git-ci/index.md">git ci</a> - Commit interactive</li>
+<li><a href="git-cleaner/index.md">git cleaner</a> - Use git clean to make everything pristine</li>
+<li><a href="git-cleanout/index.md">git cleanout</a> - Clean and discard changes and untracked files in working tree</li>
+<li><a href="git-clone-lean/index.md">git clone-lean</a> - Clone as lean as possible</li>
+<li><a href="git-cloner/index.md">git cloner</a> - Clone a repository and recurse on any of its submodules</li>
+<li><a href="git-cm/index.md">git cm</a> - Commit with a message</li>
+<li><a href="git-co/index.md">git co</a> - Checkout a.k.a. update the working tree to match a branch or paths</li>
+<li><a href="git-commit-is-merge/index.md">git commit-is-merge</a> - Is the commit a merge commit? If yes exit 0, else exit 1</li>
+<li><a href="git-commit-message-key-lines/index.md">git commit-message-key-lines</a> - Show the commit’s keyword-marker lines</li>
+<li><a href="git-commit-parents/index.md">git commit-parents</a> - Show the commit’s parents</li>
+<li><a href="git-cong/index.md">git cong</a> - Checkout with no guessing</li>
+<li><a href="git-count/index.md">git count</a> - </li>
+<li><a href="git-cp/index.md">git cp</a> - Cherry-pick - apply the changes introduced by some existing commits; </li>
+<li><a href="git-cpa/index.md">git cpa</a> - Abort the cherry-pick process</li>
+<li><a href="git-cpc/index.md">git cpc</a> - Continue the cherry-pick process</li>
+<li><a href="git-cpn/index.md">git cpn</a> - Cherry-pick with no commit</li>
+<li><a href="git-cpnx/index.md">git cpnx</a> - Cherry-pick with no commit and with explanation</li>
+<li><a href="git-hew/index.md">git hew</a> - Delete branches that have been merged into the upstream commit</li>
+<li><a href="git-hew-local/index.md">git hew-local</a> - Delete local branches that have been merged</li>
+<li><a href="git-hew-remote/index.md">git hew-remote</a> - Delete remote branches that have been merged into the upstream commit</li>
+<li><a href="git-current-branch/index.md">git current-branch</a> - Get the current branch name</li>
+<li><a href="git-cvs-e/index.md">git cvs-e</a> - CVS export</li>
+<li><a href="git-cvs-i/index.md">git cvs-i</a> - CVS import</li>
+<li><a href="git-d/index.md">git d</a> - Short for “git diff”</li>
+<li><a href="git-dc/index.md">git dc</a> - Diff in order to show changes not yet staged</li>
+<li><a href="git-dd/index.md">git dd</a> - Diff deep - show changes with our preferred options</li>
+<li><a href="git-debug/index.md">git debug</a> - Help debugging builtins</li>
+<li><a href="git-diff-all/index.md">git diff-all</a> - For each diff, call difftool</li>
+<li><a href="git-diff-changes/index.md">git diff-changes</a> - Show diff of changes</li>
+<li><a href="git-diff-chunk/index.md">git diff-chunk</a> - Show the diff of one chunk</li>
+<li><a href="git-diff-deep/index.md">git diff-deep</a> - Diff with deep information using our preferred options, a.k.a. <code>dd</code></li>
+<li><a href="git-diff-staged/index.md">git diff-staged</a> - Show diffs that are cached i.e. staged</li>
+<li><a href="git-diff-stat/index.md">git diff-stat</a> - Diff with stat</li>
+<li><a href="git-discard/index.md">git discard</a> - Discard changes in a file (or a list of files) in working tree</li>
+<li><a href="git-ds/index.md">git ds</a> - Show changes about to be commited</li>
+<li><a href="git-dw/index.md">git dw</a> - Show changes by word, not line</li>
+<li><a href="git-edit-cached/index.md">git edit-cached</a> - Edit cached files</li>
+<li><a href="git-edit-deleted/index.md">git edit-deleted</a> - Edit deleted files</li>
+<li><a href="git-edit-ignored/index.md">git edit-ignored</a> - Edit ignored files</li>
+<li><a href="git-edit-killed/index.md">git edit-killed</a> - Edit killed files</li>
+<li><a href="git-edit-modified/index.md">git edit-modified</a> - Edit modified files</li>
+<li><a href="git-edit-others/index.md">git edit-others</a> - Edit other files</li>
+<li><a href="git-edit-stage/index.md">git edit-stage</a> - Edit stage files</li>
+<li><a href="git-edit-unmerged/index.md">git edit-unmerged</a> - Edit unmerged files</li>
+<li><a href="git-exec/index.md">git exec</a> - Execute a shell script</li>
+<li><a href="git-expunge/index.md">git expunge</a> - Delete a file everywhere</li>
+<li><a href="git-f/index.md">git f</a> - Short for “git fetch”</li>
+<li><a href="git-fa/index.md">git fa</a> - Fetch all remotes</li>
+<li><a href="git-fav/index.md">git fav</a> - Fetch all remotes, with verbose output</li>
+<li><a href="git-fixup/index.md">git fixup</a> - Fix a commit by amending it</li>
+<li><a href="git-g/index.md">git g</a> - Short for “git grep”</li>
+<li><a href="git-get/index.md">git get</a> - Get all changes for the current branch</li>
+<li><a href="git-gg/index.md">git gg</a> - Grep group i.e. search with our preferred options</li>
+<li><a href="git-gitk-conflict/index.md">git gitk-conflict</a> - Use gitk tool to show conflicting merge</li>
+<li><a href="git-gitk-history-all/index.md">git gitk-history-all</a> - Use gitk tool to show full history</li>
+<li><a href="git-gn/index.md">git gn</a> - Grep and show line number</li>
+<li><a href="git-graphviz/index.md">git graphviz</a> - Use graphviz tool for display</li>
+<li><a href="git-grep-ack/index.md">git grep-ack</a> - </li>
+<li><a href="git-grep-all/index.md">git grep-all</a> - Find text in any commit ever</li>
+<li><a href="git-grep-group/index.md">git grep-group</a> - Find text and group the output lines, a.k.a. <code>gg</code></li>
+<li><a href="git-heads/index.md">git heads</a> - Show log of heads</li>
+<li><a href="git-ignore/index.md">git ignore</a> - Ignore all untracked files by appending them to “.gitignore”</li>
+<li><a href="git-inbound/index.md">git inbound</a> - Show incoming changes compared to upstream</li>
+<li><a href="git-init-empty/index.md">git init-empty</a> - Initalize a repo with an empty rebaseable commit</li>
+<li><a href="git-intercommit/index.md">git intercommit</a> - Use interdiff to see patch modifications</li>
+<li><a href="git-issues/index.md">git issues</a> - List all issues mentioned in commit messages between range of commits</li>
+<li><a href="git-item/index.md">git item</a> - </li>
+<li><a href="git-l/index.md">git l</a> - Short for “git log”</li>
+<li><a href="git-last-tag/index.md">git last-tag</a> - Show the last tag in the current branch</li>
+<li><a href="git-last-tagged/index.md">git last-tagged</a> - Show the last annotated tag in all branches</li>
+<li><a href="git-lfp/index.md">git lfp</a> - Show log with first parent</li>
+<li><a href="git-lg/index.md">git lg</a> - Show log with a text-based graphical representation of the commit history</li>
+<li><a href="git-ll/index.md">git ll</a> - Log list - Show log list with our preferred options and short information</li>
+<li><a href="git-lll/index.md">git lll</a> - Log list long - Show log list with our preferred options and long information</li>
+<li><a href="git-lo/index.md">git lo</a> - Show log with one line per item</li>
+<li><a href="git-log-1-day/index.md">git log-1-day</a> - Show log with the recent day</li>
+<li><a href="git-log-1-hour/index.md">git log-1-hour</a> - Show log with the recent hour</li>
+<li><a href="git-log-1-month/index.md">git log-1-month</a> - Show log with the recent month</li>
+<li><a href="git-log-1-week/index.md">git log-1-week</a> - Show log with the recent week</li>
+<li><a href="git-log-1-year/index.md">git log-1-year</a> - Show log with the recent year</li>
+<li><a href="git-log-date-first/index.md">git log-date-first</a> - Show the date of the earliest commit, in strict ISO 8601 format</li>
+<li><a href="git-log-date-last/index.md">git log-date-last</a> - Show the date of the latest commit, in strict ISO 8601 format</li>
+<li><a href="git-log-fetched/index.md">git log-fetched</a> - Show log of fetched commits vs. origin/main</li>
+<li><a href="git-log-fresh/index.md">git log-fresh</a> - Show log of new commits after you fetched, with stats, excluding merges</li>
+<li><a href="git-log-graph/index.md">git log-graph</a> - </li>
+<li><a href="doc/git-log-list/index.md">git log-list</a> - Show log list with our preferred options and short information</li>
+<li><a href="doc/git-log-list-long/index.md">git log-list-long</a> - Show log list with our preferred options and long information</li>
+<li><a href="git-log-my/index.md">git log-my</a> - Show log with my own commits by my own user email</li>
+<li><a href="git-log-my-day/index.md">git log-my-day</a> - Show log with my own recent day</li>
+<li><a href="git-log-my-hour/index.md">git log-my-hour</a> - Show log with my own recent hour</li>
+<li><a href="git-log-my-month/index.md">git log-my-month</a> - Show log with my own recent month</li>
+<li><a href="git-log-my-week/index.md">git log-my-week</a> - Show log with my own recent week</li>
+<li><a href="git-log-my-year/index.md">git log-my-year</a> - Show log with my own recent year</li>
+<li><a href="git-log-of-count-and-day/index.md">git log-of-count-and-day</a> - Show log with count and day</li>
+<li><a href="git-log-of-count-and-day-of-week/index.md">git log-of-count-and-day-of-week</a> - Show log with count and day of week</li>
+<li><a href="git-log-of-count-and-email/index.md">git log-of-count-and-email</a> - Show log with count and email</li>
+<li><a href="git-log-of-count-and-format/index.md">git log-of-count-and-format</a> - Show log with count and custom format string</li>
+<li><a href="git-log-of-count-and-format-with-date/index.md">git log-of-count-and-format-with-date</a> - Show log with count and custom format string and date</li>
+<li><a href="git-log-of-count-and-hour/index.md">git log-of-count-and-hour</a> - Show log with count and hour</li>
+<li><a href="git-log-of-count-and-hour-of-day/index.md">git log-of-count-and-hour-of-day</a> - Show log with count and hour of day</li>
+<li><a href="git-log-of-count-and-month/index.md">git log-of-count-and-month</a> - Show log with count and month</li>
+<li><a href="git-log-of-count-and-week/index.md">git log-of-count-and-week</a> - Show log with count and week</li>
+<li><a href="git-log-of-count-and-week-of-year/index.md">git log-of-count-and-week-of-year</a> - Show log with count and week of year</li>
+<li><a href="git-log-of-count-and-year/index.md">git log-of-count-and-year</a> - Show log with count and year</li>
+<li><a href="git-log-of-day-and-count/index.md">git log-of-day-and-count</a> - Show log with day and count</li>
+<li><a href="git-log-of-day-of-week-and-count/index.md">git log-of-day-of-week-and-count</a> - Show log with week and count</li>
+<li><a href="git-log-of-email-and-count/index.md">git log-of-email-and-count</a> - Show log with email and count</li>
+<li><a href="git-log-of-format-and-count/index.md">git log-of-format-and-count</a> - Show a specific format string and count of log entries</li>
+<li><a href="git-log-of-format-and-count-with-date/index.md">git log-of-format-and-count-with-date</a> - Show log with custom format string and count with date</li>
+<li><a href="git-log-of-hour-and-count/index.md">git log-of-hour-and-count</a> - Show log with hour and count</li>
+<li><a href="git-log-of-hour-of-day-and-count/index.md">git log-of-hour-of-day-and-count</a> - Show log with hour of day and count</li>
+<li><a href="git-log-of-month-and-count/index.md">git log-of-month-and-count</a> - Show log with month and count</li>
+<li><a href="git-log-of-week-and-count/index.md">git log-of-week-and-count</a> - Show log with week and count</li>
+<li><a href="git-log-of-week-of-year-and-count/index.md">git log-of-week-of-year-and-count</a> - Show log with week of year and count</li>
+<li><a href="git-log-of-year-and-count/index.md">git log-of-year-and-count</a> - Show log with year and count</li>
+<li><a href="git-log-refs/index.md">git log-refs</a> - Show log with commits that are referred by some branch or tag</li>
+<li><a href="git-log-timeline/index.md">git log-timeline</a> - </li>
+<li><a href="git-lp/index.md">git lp</a> - Show log with patch generation</li>
+<li><a href="git-ls/index.md">git ls</a> - List files in the index and the working tree; like Unix “ls” command</li>
+<li><a href="git-lsd/index.md">git lsd</a> - List files and show debug information</li>
+<li><a href="git-lsfn/index.md">git lsfn</a> - List files and show full name</li>
+<li><a href="git-lsio/index.md">git lsio</a> - List files that git is ignoring</li>
+<li><a href="git-lto/index.md">git lto</a> - Show log with items appearing in topological order</li>
+<li><a href="git-m/index.md">git m</a> - Short for “git merge”</li>
+<li><a href="git-ma/index.md">git ma</a> - Merge abort i.e. abort the merge process</li>
+<li><a href="git-mainly/index.md">git mainly</a> - Make local like main</li>
+<li><a href="git-mc/index.md">git mc</a> - Merge continue i.e. continue the merge process</li>
+<li><a href="git-mncnf/index.md">git mncnf</a> - Merge with no autocommit, and with no fast-forward</li>
+<li><a href="git-merge-span/index.md">git merge-span</a> - Merge span aliases</li>
+<li><a href="git-merge-span-diff/index.md">git merge-span-diff</a> - Show the changes that were introduced by a merge</li>
+<li><a href="git-merge-span-difftool/index.md">git merge-span-difftool</a> - Show the changes that were introduced by a merge, in your difftool</li>
+<li><a href="git-merge-span-log/index.md">git merge-span-log</a> - Find the commits that were introduced by a merge</li>
+<li><a href="git-move-alias/index.md">git move-alias</a> - Rename an existing git alias</li>
+<li><a href="git-o/index.md">git o</a> - Short for “git checkout”</li>
+<li><a href="git-optimizer/index.md">git optimizer</a> - Optimize the repository by pruning and repacking</li>
+<li><a href="git-orphans/index.md">git orphans</a> - Find all objects that aren’t referenced by any other object</li>
+<li><a href="git-ours/index.md">git ours</a> - Checkout our version of a file and add it</li>
+<li><a href="git-outbound/index.md">git outbound</a> - Show outgoing changes compared to upstream</li>
+<li><a href="git-p/index.md">git p</a> - Short for “git pull”</li>
+<li><a href="git-panic/index.md">git panic</a> - When you’re a little worried that the world is coming to an end</li>
+<li><a href="git-pf/index.md">git pf</a> - Pull if a merge can be resolved as a fast-forward, otherwise fail</li>
+<li><a href="git-pr/index.md">git pr</a> - Pull with rebase i.e. provide a cleaner, linear, bisectable history</li>
+<li><a href="git-pp/index.md">git prp</a> - Pull with rebase preserve of merge commits</li>
+<li><a href="git-pruner/index.md">git pruner</a> - Prune everything that is unreachable now</li>
+<li><a href="git-publish/index.md">git publish</a> - Publish the current branch</li>
+<li><a href="git-pull1/index.md">git pull1</a> - Pull just the current branch</li>
+<li><a href="git-push1/index.md">git push1</a> - Push just the current branch</li>
+<li><a href="git-pushy/index.md">git pushy</a> - Push with force and lease</li>
+<li><a href="git-put/index.md">git put</a> - Put all changes for the current branch</li>
+<li><a href="git-rb/index.md">git rb</a> - Short for “git rebase”</li>
+<li><a href="git-rba/index.md">git rba</a> - Rebase abort i.e. abort the rebase process</li>
+<li><a href="git-rbc/index.md">git rbc</a> - Rebase continue i.e. continue the rebase process</li>
+<li><a href="git-rbi/index.md">git rbi</a> - Rebase interactive i.e. do a rebase with prompts</li>
+<li><a href="git-rbiu/index.md">git rbiu</a> - Rebase interactive on unpushed commits</li>
+<li><a href="git-rbs/index.md">git rbs</a> - Rebase skip i.e. restart the rebase process by skipping the current patch</li>
+<li><a href="git-rebase-branch/index.md">git rebase-branch</a> - Interactively rebase all the commits on the current branch</li>
+<li><a href="git-rebase-recent/index.md">git rebase-recent</a> - Rebase recent commits with interactive</li>
+<li><a href="git-ref-recent/index.md">git ref-recent</a> - </li>
+<li><a href="git-refs-by-date/index.md">git refs-by-date</a> - Show refs sorted by date for branches</li>
+<li><a href="git-reincarnate/index.md">git reincarnate</a> - Delete a branch then create it anew</li>
+<li><a href="git-remote-ref/index.md">git remote-ref</a> - TODO</li>
+<li><a href="git-remotes-prune/index.md">git remotes-prune</a> - For each remote branch, prune it</li>
+<li><a href="git-remotes-push/index.md">git remotes-push</a> - For each remote branch, push it</li>
+<li><a href="git-repacker/index.md">git repacker</a> - Repack a repo as recommended by Linus</li>
+<li><a href="git-reset-commit/index.md">git reset-commit</a> - Reset a commit with a soft reset</li>
+<li><a href="git-reset-commit-hard/index.md">git reset-commit-hard</a> - Reset a commit with a hard reset</li>
+<li><a href="git-reset-commit-hard-clean/index.md">git reset-commit-hard-clean</a> - Reset a commit with a hard reset and a clean</li>
+<li><a href="git-reset-to-pristine/index.md">git reset-to-pristine</a> - Reset commits and clean all differences</li>
+<li><a href="git-reset-to-upstream/index.md">git reset-to-upstream</a> - Reset commits back to the upstream branch</li>
+<li><a href="git-rev-list-all-objects-by-size-and-name/index.md">git rev-list-all-objects-by-size-and-name</a> - List all objects by size in bytes and file name.</li>
+<li><a href="git-rev-list-all-objects-by-size/index.md">git rev-list-all-objects-by-size</a> - List all blobs by size in bytes</li>
+<li><a href="git-rl/index.md">git rl</a> - Short for “git reflog”</li>
+<li><a href="git-rr/index.md">git rr</a> - Short for “git remote”</li>
+<li><a href="git-rrp/index.md">git rrp</a> - Remote prune i.e. delete all stale remote-tracking branches under <name></li>
+<li><a href="git-rrs/index.md">git rrs</a> - Remote show i.e. give information about the remote <name></li>
+<li><a href="git-rru/index.md">git rru</a> - remote update i.e. fetch updates for a named set of remotes in the repository as defined by remotes</li>
+<li><a href="git-rv/index.md">git rv</a> - Short for “git revert” </li>
+<li><a href="git-rvnc/index.md">git rvnc</a> - Revert with no commit i.e. without autocommit</li>
+<li><a href="git-s/index.md">git s</a> - Short for “git status”</li>
+<li><a href="git-sb/index.md">git sb</a> - Short for “git show-branch” i.e. print a list of branches and their commits</li>
+<li><a href="git-search-commits/index.md">git search-commits</a> - Search for a given string in all patches and print commit messages</li>
+<li><a href="git-serve/index.md">git serve</a> - Serve the local directory by starting a git server daemon</li>
+<li><a href="git-show-unreachable/index.md">git show-unreachable</a> - Show logs of unreachable commits</li>
+<li><a href="git-sm/index.md">git sm</a> - Short for “git submodule”</li>
+<li><a href="git-sma/index.md">git sma</a> - Submodule add i.e. add a submodule to this repo</li>
+<li><a href="git-smi/index.md">git smi</a> - Submodule init i.e. initialize a submodule in this repo</li>
+<li><a href="git-sms/index.md">git sms</a> - Submodule sync i.e. synchronize a submodule in this repo</li>
+<li><a href="git-smu/index.md">git smu</a> - Submodule update i.e. update a submodule in this repo</li>
+<li><a href="git-smui/index.md">git smui</a> - Submodule update with initialize</li>
+<li><a href="git-smuir/index.md">git smuir</a> - Submodule update with initialize and recursive; this is useful to bring a submodule fully up to date.</li>
+<li><a href="git-snapshot/index.md">git snapshot</a> - Take a snapshot of your current working tree</li>
+<li><a href="git-ss/index.md">git ss</a> - Status with short format</li>
+<li><a href="git-ssb/index.md">git ssb</a> - Status with short format and branch info</li>
+<li><a href="git-stashes/index.md">git stashes</a> - List stashes</li>
+<li><a href="git-summary/index.md">git summary</a> - Show a summary of some typical metrics</li>
+<li><a href="git-svn-b/index.md">git svn-b</a> - Subversion branch</li>
+<li><a href="git-svn-c/index.md">git svn-c</a> - Subversion commit</li>
+<li><a href="git-svn-cp/index.md">git svn-cp</a> - Subversion cherry pick</li>
+<li><a href="git-svn-m/index.md">git svn-m</a> - Subversion merge</li>
+<li><a href="git-tags/index.md">git tags</a> - List tags</li>
+<li><a href="git-theirs/index.md">git theirs</a> - Checkout their version of a file and add it</li>
+<li><a href="git-top/index.md">git top</a> - Get the top level directory name</li>
+<li><a href="git-topic/index.md">git topic-*</a> - Read this first about topic aliases</li>
+<li><a href="git-topic-base-branch/index.md">git topic-base-branch</a> - Show the project base topic branch name</li>
+<li><a href="git-topic-move/index.md">git topic-move</a> - Rename the current topic branch</li>
+<li><a href="git-topic-begin/index.md">git topic-begin</a> - Start a new topic branch</li>
+<li><a href="git-topic-end/index.md">git topic-end</a> - Finish the current topic branch</li>
+<li><a href="git-topic-sync/index.md">git topic-sync</a> - Synchronize the current topic branch by doing updates</li>
+<li><a href="git-track-all-remote-branches/index.md">git track-all-remote-branches</a> - Track all remote branches that aren’t already being tracked</li>
+<li><a href="git-track/index.md">git track</a> - Start tracking a branch, with default parameters, and showing the command</li>
+<li><a href="git-unadd/index.md">git unadd</a> - Reset something that’s been added</li>
+<li><a href="git-unassume-all/index.md">git unassume-all</a> - Unassume all files</li>
+<li><a href="git-unassume/index.md">git unassume</a> - Unassume files</li>
+<li><a href="git-uncommit/index.md">git uncommit</a> - Reset one commit</li>
+<li><a href="git-undo-commit/index.md">git undo-commit</a> - Undo a commit with a soft reset</li>
+<li><a href="git-undo-commit-hard/index.md">git undo-commit-hard</a> - Undo a commit with a hard reset</li>
+<li><a href="git-undo-commit-hard-clean/index.md">git undo-commit-hard-clean</a> - Undo a commit with a hard reset and a clean</li>
+<li><a href="git-undo-to-pristine/index.md">git undo-to-pristine</a> - Undo commits and clean all differences</li>
+<li><a href="git-undo-to-upstream/index.md">git undo-to-upstream</a> - Undo commits back to the upstream branch</li>
+<li><a href="git-unpublish/index.md">git unpublish</a> - Unpublish the current branch</li>
+<li><a href="git-untrack/index.md">git untrack</a> - Stop tracking a branch, with default parameters, and show the command</li>
+<li><a href="git-unwip/index.md">git unwip</a> - Load “work in progress”</li>
+<li><a href="git-upstream-branch/index.md">git upstream-branch</a> - Get the upstream branch name</li>
+<li><a href="git-w/index.md">git w</a> - Short for “git whatchanged”</li>
+<li><a href="git-whatis/index.md">git whatis</a> - Given a git object, try to show it briefly</li>
+<li><a href="git-who/index.md">git who</a> - Show a short log of who has contributed commits, in descending order</li>
+<li><a href="git-whois/index.md">git whois</a> - Given a string for an author, try to figure out full name and email</li>
+<li><a href="git-wip/index.md">git wip</a> - Save “work in progress”</li>
+</ul>
+<h3>Tracking</h3>
+<ul>
+<li>Package: gitalias</li>
+<li>Version: 27.0.0</li>
+<li>Created: 2016-06-17T22:05:43Z</li>
+<li>Updated: 2022-01-09T19:00:32Z</li>
+<li>License: GPL-2.0-or-later or contact us for custom license</li>
+<li>Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)</li>
+</ul>
+
+    </div>
+    <footer class="footer">
+        <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>    
+    </footer>  
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -11,6 +11,30 @@ We welcome people contributing in many ways:
   * Spread the word about us: http://gitalias.com
 
 
+## Advice
+
+Typically a short alias for a command and its options
+should be in the same order as the command and option words:
+
+  * Right: `fab = foo --alpha --bravo`
+
+  * Wrong: `baf = foo --alpha --bravo`
+
+Typically a short alias for a command and its options
+should be using the first letter of each option word:
+
+  * Right: `fab = foo --alpha-bravo`
+
+  * Wrong: `fa = foo --alpha-bravo`
+
+One-letter aliases never use options, because we want
+the aliases to be as easy as possible to compose:
+
+  * Right: `s = status`
+
+  * Wrong: `s = status --alpha --bravo`
+
+
 ## Conventions
 
 Conventions for coding:
@@ -36,7 +60,7 @@ We want this project to be good for teams:
 
 Because we want widespread usability, we do not include everything possible:
 
-  * For example, we do not have a one-letter shortcut for `git push`
+  * For example, we do not have a one-letter short alias for `git push`
     because we have not found a widespread consensus among developers.
     We prefer using higher-level capabilities, such as a git hook that
     watches for a commit, then does an automatic push to a CI/CD server.
