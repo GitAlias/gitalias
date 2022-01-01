@@ -102,6 +102,17 @@
 
   ### branch ###
 
+  # list branches along with their description
+  bv = !"f(){\
+    T=$(printf \\\t);\
+    git branch \"$@\" --format='%(refname:short) %(HEAD)%09%(objectname:short)%09%(contents:subject)'|\
+    while read -r l;do\
+      d=$(git config \"branch.${l%% *}.description\");\
+      echo \"$l${d:+$T($d)}\";\
+    done|\
+    column -ts\"$T\";\
+  };f"
+
   # branch and only list branches whose tips are reachable from the specified commit (HEAD if not specified).
   bm = branch --merged
 
@@ -389,6 +400,9 @@
   # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
   # This is a slightly modified version
   fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+
+  # Shorthand to stash/rebase/unstash
+  fix = !"f(){ git rebase --autostash -i \"${@:-HEAD^^}\";};f"
 
   ### reflog ###
 
@@ -1088,6 +1102,9 @@
   # Credit: https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934
   #
   clone-lean = clone --depth 1 --filter=combine:blob:none+tree:0 --no-checkout 
+
+  # Save the current branch (for example, prior a rebase)
+  backup-branch = !"git branch backup/$(date +%F/%H-%M-%S)"
 
   # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
   # Take a snapshot of your current working tree without removing changes.
