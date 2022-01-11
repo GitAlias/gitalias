@@ -1,6 +1,6 @@
 # git chart
 
-## Show a summary chart of activity per author
+## Show highlights chart of activity per author
 
 Git alias:
 

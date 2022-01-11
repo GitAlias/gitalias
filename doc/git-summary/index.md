@@ -1,6 +1,6 @@
 # git summary
 
-## Show a summary of some typical metrics
+## Show a summary of overview metrics
 
 Git alias:
 

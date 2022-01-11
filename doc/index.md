@@ -202,9 +202,9 @@ Recommended helpers:
 
 Quick highlights:
 
-  * [git chart](git-chart/index.md)
-  * [git churn](git-churn/index.md)
-  * [git summary](git-summary/index.md)
+  * [git chart](git-chart/index.md) - Show highlights chart of activity per author
+  * [git churn](git-churn/index.md) - Show log of files that have many changes
+  * [git summary](git-summary/index.md) - Show a summary of overview metrics
 
 Branch names:
 
@@ -415,7 +415,7 @@ Use graphviz:
   * [git ca](git-ca) -  Amend the tip of the current branch; do not create a new commit
   * [git cam](git-cam) - Amend the tip of the current branch; edit the message
   * [git cane](git-cane/index.md) - Amend the tip of the current branch; do not edit the message
-  * [git chart](git-chart/index.md) - Show a summary chart of activity per author
+  * [git chart](git-chart/index.md) - Show highlights chart of activity per author
   * [git cherry-pick-merge](git-cherry-pick-merge/index.md) - Cherry pick a merge commit
   * [git churn](git-churn/index.md) - Show log of files that have many changes
   * [git ci](git-ci/index.md) - Commit interactive
@@ -617,7 +617,7 @@ Use graphviz:
   * [git ss](git-ss/index.md) - Status with short format
   * [git ssb](git-ssb/index.md) - Status with short format and branch info
   * [git stashes](git-stashes/index.md) - List stashes
-  * [git summary](git-summary/index.md) - Show a summary of some typical metrics
+  * [git summary](git-summary/index.md) - Show a summary of overview metrics
   * [git svn-b](git-svn-b/index.md) - Subversion branch
   * [git svn-c](git-svn-c/index.md) - Subversion commit
   * [git svn-cp](git-svn-cp/index.md) - Subversion cherry pick
