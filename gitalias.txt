@@ -1316,7 +1316,7 @@
   hew-local-dry-run = !"f() { \
       commit=${1:-$(git current-branch)}; \
       git branch --merged \"$commit\" | \
-      grep -v \"^[[:space:]]*\*[[:space:]]*$commit$\"; \
+      grep -v \"^[[:space:]]*\\*[[:space:]]*$commit$\"; \
   }; f \"$@\""
 
   # Delete all remote branches that have been merged into a commit
