@@ -134,9 +134,9 @@ git merge:
 
 git pull:
 
-  * [git pf](git-pf/index.md) = pull --ff-only
-  * [git pr](git-pr/index.md) = pull --rebase
-  * [git prp](git-prp/index.md) = pull --rebase=preserve
+  * [git pf](doc/git-pf/index.md) = pull --ff-only
+  * [git pr](doc/git-pr/index.md) = pull --rebase
+  * [git prp](doc/git-prp/index.md) = pull --rebase=preserve
 
 git rebase:
 
@@ -215,10 +215,10 @@ Branch names:
 
 Branch commits:
 
-  * [git branch-commit-first](../git-branch-commit-first) - Show a branch's first commit hash (or hashes)
-  * [git branch-commit-last](../git-branch-commit-last) - Show a branch's last commit hash (or hashes)
-  * [git branch-commit-prev](../git-branch-commit-prev) - Show a branch's previous commit hash (or hashes)
-  * [git branch-commit-next](../git-branch-commit-next) - Show a branch's next commit hash (or hashes)
+  * [git branch-commit-first](doc/git-branch-commit-first/index.md) - Show a branch's first commit hash (or hashes)
+  * [git branch-commit-last](doc/git-branch-commit-last/index.md) - Show a branch's last commit hash (or hashes)
+  * [git branch-commit-prev](doc/git-branch-commit-prev/index.md) - Show a branch's previous commit hash (or hashes)
+  * [git branch-commit-next](doc/git-branch-commit-next/index.md) - Show a branch's next commit hash (or hashes)
 
 Friendly plurals:
 
