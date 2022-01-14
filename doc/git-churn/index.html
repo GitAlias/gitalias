@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>git churn - GitAlias</title>
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name='theme-color' content='#aa1e1e'>
     <meta name="application-name" content="GitAlias"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
     <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
       body { margin: 0; line-height: 1.5rem; }
       nav { color: white; background: black; padding: 1rem; }
-      .content { margin: 0 auto; padding: 0 10% 0 10%; }
       body { font-family: sans-serif; }
-      p { font-size: 1.1rem; margin: 1.5rem 0 1.5rem 0; }
-      footer { color: white; background: black; margin: 2.0rem 0 0 0; padding: 1rem; }
-      a.text-decoration-none:link { text-decoration: none; }
-      a.text-decoration-none:visited { text-decoration: none; }
-      a.text-decoration-none:hover { text-decoration: none; }
-      a.text-decoration-none:active { text-decoration: none; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
     </style>
   </head>
   <body>
-    <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
+    </nav>
     <div class="content">
       <h1>git churn</h1>
 <h2>Show log of files that have many changes</h2>
@@ -41,20 +43,20 @@
 };f&quot;
 </code></pre>
 <p>Show churn for whole repo:</p>
-<pre><code class="language-shell">$ git churn
+<pre><code class="language-shell">git churn
 </code></pre>
 <p>Show churn for specific directories:</p>
-<pre><code class="language-shell">$ git churn app lib
+<pre><code class="language-shell">git churn app lib
 </code></pre>
 <p>Show churn for a time range:</p>
-<pre><code class="language-shell">$ git churn --since=1-month-ago
+<pre><code class="language-shell">git churn --since=1-month-ago
 </code></pre>
 <p>These are all standard arguments to <code>git log</code>.</p>
 <p>It’s possible to get valuable insight from history of a project not only
 by viewing individual commits, but by analyzing sets of changes as a whole.</p>
 <p>For instance, <code>git churn</code> compiles stats about which files change the most.</p>
 <p>For example, to see where work on an app was focused on in the past month:</p>
-<pre><code class="language-shell">$ git churn --since=1-month-ago app/ | tail
+<pre><code class="language-shell">git churn --since=1-month-ago app/ | tail
 </code></pre>
 <p>This can also highlight potential problems with technical debt in a project.
 A specific file changing too often is generally a red flag, since it probably
@@ -63,7 +65,7 @@ holds too much responsibility and should be split into smaller units.</p>
 <p>Similar methods of history analysis can be employed to see which people were
 responsible recently for development of a certain part of the codebase.</p>
 <p>For instance, to see who contributed most to the API part of an application:</p>
-<pre><code class="language-shell">$ git log --format='%an' --since=1-month-ago app/controllers/api/ | sort | uniq -c | sort -rn | head
+<pre><code class="language-shell">git log --format='%an' --since=1-month-ago app/controllers/api/ | sort | uniq -c | sort -rn | head
 109 Alice Anderson
 13 Bob Brown
 7 Carol Clark
@@ -71,7 +73,7 @@ responsible recently for development of a certain part of the codebase.</p>
 <p>Credit:</p>
 <ul>
 <li>
-<p>Written by <a href="http://coreyhaines.com/">Corey Haines</a></p>
+<p>Written by <a href="https://coreyhaines.com/">Corey Haines</a></p>
 </li>
 <li>
 <p>Scriptified by Gary Bernhardt</p>
@@ -91,7 +93,7 @@ responsible recently for development of a certain part of the codebase.</p>
     <footer class="footer">
         <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
   </body>
 </html>

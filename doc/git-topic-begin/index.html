@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git topic-begin - GitAlias</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <meta name='theme-color' content='#aa1e1e'>
+    <meta name="application-name" content="GitAlias"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
+    <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
+      body { margin: 0; line-height: 1.5rem; }
+      nav { color: white; background: black; padding: 1rem; }
+      body { font-family: sans-serif; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
+    </nav>
+    <div class="content">
+      <h1>git topic-begin</h1>
+<h2>Start a new topic branch</h2>
+<p>Git alias:</p>
+<pre><code class="language-git">topic-begin = &quot;!f(){ \
+    new_branch=\&quot;$1\&quot;; \
+    old_branch=$(git topic-base-branch); \
+    git checkout \&quot;$old_branch\&quot;; git pull; \
+    git checkout -b \&quot;$new_branch\&quot; \&quot;$old_branch\&quot;; \
+    git push --set-upstream origin \&quot;$new_branch\&quot;; \
+};f&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-shell">git topic-begin add-feature-foo
+</code></pre>
+<p>Customize this alias as you like for your own workflow.</p>
+<p>We use this alias to begin work on a new feature,
+new task, new fix, new refactor, new optimization, etc.</p>
+<p>Our workflow does these steps:</p>
+<ol>
+<li>
+<p>Update the base topic branch.</p>
+</li>
+<li>
+<p>Create a new topic branch based on the topic base branch name,</p>
+</li>
+<li>
+<p>Push the new topic branch, so team members can see it.</p>
+</li>
+</ol>
+<p>If you use a sharing site such a GitHub, and use typical settings,
+then this implementation makes your branch visible to collaborators.</p>
+<p>Many teams share branches before they are fully ready, to help
+the team provide feedback on the work-in-progress, and also to
+run any automatic tests to verify the branch runs successfully.</p>
+
+    </div>
+    <footer class="footer">
+        <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
+    </footer>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git chart - GitAlias</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <meta name='theme-color' content='#aa1e1e'>
+    <meta name="application-name" content="GitAlias"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
+    <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
+      body { margin: 0; line-height: 1.5rem; }
+      nav { color: white; background: black; padding: 1rem; }
+      body { font-family: sans-serif; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
+    </nav>
+    <div class="content">
+      <h1>git chart</h1>
+<h2>Show highlights chart of activity per author</h2>
+<p>Git alias:</p>
+<pre><code class="language-git">chart = &quot;!f() { \
+    git log \
+    --format=oneline \
+    --format=\&quot;%aE %at\&quot; \
+    --since=6-weeks-ago \
+    $* | \
+    awk ' \
+    function time_to_slot(t) { return strftime(\&quot;%Y-%m-%d\&quot;, t, true) } \
+    function count_to_char(i) { return (i &gt; 0) ? ((i &lt; 10) ? i : \&quot;X\&quot;) : \&quot;.\&quot; } \
+    BEGIN { \
+        time_min = systime(); time_max = 0; \
+        SECONDS_PER_DAY=86400; \
+    } \
+    { \
+        item = $1; \
+        time = 0 + $2; \
+        if (time &gt; time_max){ \
+            time_max = time \
+        } else if (time &lt; time_min){ \
+            time_min = time \
+        }; \
+        slot = time_to_slot(time); \
+        items[item]++; \
+        slots[slot]++; \
+        views[item, slot]++; \
+    } \
+    END{ \
+        printf( \
+            \&quot;Chart time range %s to %s.\\n\&quot;, \
+            time_to_slot(time_min), \
+            time_to_slot(time_max) \
+        ); \
+        time_max_add = time_max += SECONDS_PER_DAY; \
+        for(item in items){ \
+            row = \&quot;\&quot;; \
+            for(time = time_min; time &lt; time_max_add; time += SECONDS_PER_DAY) { \
+                slot = time_to_slot(time); \
+                count = views[item, slot]; \
+                row = row count_to_char(count); \
+            } \
+            print row, item; \
+        } \
+    }'; \
+}; f&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-shell">git chart
+..X..........X...2..12 alice@example.com
+....2..2..13.......... bob@example.com
+2.....1....11......... carol@example.com
+..1............1..1... david@example.com
+....1.......1.3.3.22.2 eve@example.com
+</code></pre>
+<p>The chart rows are the authors.</p>
+<p>The chart columns are the days.</p>
+<p>The chart column prints one character per day:</p>
+<ul>
+<li>
+<p>For 1-9 commits, show the number.</p>
+</li>
+<li>
+<p>For 10 or more commits, show “X” as a visual indicator.</p>
+</li>
+<li>
+<p>For no commits, show “.” as a visual placeholder.</p>
+</li>
+</ul>
+<p>The chart timeline adjusts the date range automatically:</p>
+<ul>
+<li>
+<p>The timeline starts with the date of the earliest commit.</p>
+</li>
+<li>
+<p>The timeline stops with the date of the latest commit.</p>
+</li>
+<li>
+<p>The intent is to show the most relevant information.</p>
+</li>
+</ul>
+<p>The chart default is to look at the past 6 weeks;
+this gives a good balance of recency and speed
+for a team that’s currently working on a repo,
+and also gives a good balance of fitting within
+one terminal window 80 character width.</p>
+<p>You can adjust how far back the chart looks,
+by providing your own <code>--since</code> parameter.
+For example if you want to chart an older repo,
+that does not have any recent commits, then you
+you must provide a longer <code>--since</code> parameter.</p>
+<p>TODO: sort the rows meaningfully,
+such as alphabetically, or by count.</p>
+
+    </div>
+    <footer class="footer">
+        <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
+    </footer>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  </body>
+</html>

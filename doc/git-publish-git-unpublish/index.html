@@ -4,156 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>git publish &amp; git unpublish - GitAlias</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <script src="navbar.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name='theme-color' content='#aa1e1e'>
     <meta name="application-name" content="GitAlias"/>
-    <!-- Bulma -->
-    <link rel="stylesheet" href="/cdn/bulma-extensions/bulma-tooltip/dist/css/bulma-tooltip.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
+    <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
+      body { margin: 0; line-height: 1.5rem; }
+      nav { color: white; background: black; padding: 1rem; }
+      body { font-family: sans-serif; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
+    </style>
   </head>
   <body>
-
-    <!--
-      ## Navigation bar ##
-
-      A responsive horizontal navbar that can support images, links, buttons, and dropdowns.
-
-        * `navbar` class is a responsive horizontal navbar that can support images, links, buttons, and dropdowns.
-        * `is-transparent` modifier removes any hover or active background from the navbar items, to enable seamless integration of the navbar in any visual context.
-        * `is-fixed-top` modifier keeps the navbar at the top of the page; this needs `has-navbar-fixed-top` too.
-    -->
-    <nav class="navbar is-transparent" role="navigation" aria-label="Navigation bar">
-
-      <!--
-        ## Brand ##
-
-        The `navbar-brand` class is the nav bar's left side, always visible.
-        This div usually contains the logo and optionally some links or icons.
-      -->
-      <div class="navbar-brand">
-
-        <!-- `navbar-item` class is each single item of the navbar, which can either be an a or a div. -->
-        <a class="navbar-item" href="https://gitalias.com">
-
-          <!-- Our navbar brand has a first navbar item that is our logo and a link to our website. -->
-          <img src="demo-logo.png" alt="Logo" width="120" height="60">
-
-        </a>
-
-        <!-- `navbar-burger` class is the hamburger icon, which toggles the navbar menu on touch devices. -->
-        <button class="button navbar-burger"><span></span><span></span><span></span></button>
-
-      </div>
-
-      <!-- `navbar-menu` class is the right side, hidden on touch devices, visible on desktop -->
-      <div class="navbar-menu">
-
-        <!-- `navbar-start` class is the left part of the menu, which appears next to the navbar brand on desktop. -->
-        <div class="navbar-start">
-
-          <!--
-            ## Dropdown menu parent ##
-
-            To create a dropdown menu, you will need 4 elements:
-
-            * `navbar-item` class with the `has-dropdown` modifier; this is the parent of a dropdown menu.
-            * `is-hoverable`: the dropdown will show up when hovering the parent `navbar-item`.
-            * `is-active`: the dropdown will show up all the time.
-            * `is-right modifier`: position the dropdown to start from the right when `navbar-item` is on the right side.
-            * `navbar-link` which contains the dropdown arrow.
-            * `navbar-dropdown` which can contain instances of navbar-item and navbar-divider.
-          -->
-          <div class="navbar-item has-dropdown is-hoverable">
-
-            <!-- `navbar-link` class is a link as the first sibling of a dropdown, which shows the title and an arrow symbol. -->
-            <a class="navbar-link">Alpha</a>
-
-            <!--
-              ## Dropdown ##
-
-              * `navbar-dropdown` class is the dropdown menu, which can include navbar items and dividers.
-              * `is-boxed` modifier is preferable to use when the navbar is transparent.
-
-              By default, the dropdown style has:
-
-              * a grey border-top
-              * a border-radius at both bottom corners
-
-              When having a transparent navbar, it is preferable to use the boxed version of the dropdown, by using the `is-boxed` modifier:
-
-              * the grey border is removed
-              * a slight inner shadow is added
-              * all corners are rounded
-              * the hover/active state is animated
-            -->
-            <div class="navbar-dropdown is-boxed">
-
-              <!-- Other navbar items; we use links, and you can use any div you want. -->
-              <a class="navbar-item" href="#">Alpha 1</a>
-              <a class="navbar-item" href="#">Alpha 2</a>
-
-              <!-- `navbar-divider` class displays a horizontal rule in a navbar-dropdown. -->
-              <hr class="navbar-divider">
-
-              <a class="navbar-item" href="#">Alpha 3</a>
-              <a class="navbar-item" href="#">Alpha 3</a>
-
-            </div>
-
-          </div>
-
-          <!-- Repeat the above "Alpha" dropdown a couple times, so the web page shows a couple more dropdowns. -->
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">Bravo</a>
-            <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="#">Bravo 1</a>
-              <a class="navbar-item" href="#">Bravo 2</a>
-              <hr class="navbar-divider">
-              <a class="navbar-item" href="#">Bravo 3</a>
-              <a class="navbar-item" href="#">Bravo 4</a>
-            </div>
-          </div>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">Charlie</a>
-            <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="#">Charlie 1</a>
-              <a class="navbar-item" href="#">Charlie 2</a>
-              <hr class="navbar-divider">
-              <a class="navbar-item" href="#">Charlie 3</a>
-              <a class="navbar-item" href="#">Charlie 4</a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- `navbar-end` class is the right part of the menu, which appears at the end of the navbar. -->
-        <div class="navbar-end">
-
-          <!-- Repeat the above "Alpha" dropdown, so the web page shows a dropdowns. -->
-          <div class="navbar-item has-dropdown is-hoverable">
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">Right Side</a>
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="#">Right Side 1</a>
-                <a class="navbar-item" href="#">Right Side 2</a>
-                <hr class="navbar-divider">
-                <a class="navbar-item" href="#">Right Side 3</a>
-                <a class="navbar-item" href="#">Right Side 4</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
     </nav>
-
-    <section class="section">
-      <div class="container">
-        <h1>git publish &amp; git unpublish</h1>
+    <div class="content">
+      <h1>git publish &amp; git unpublish</h1>
 <h2>Publish/unpublish the current branch</h2>
 <p>Compare:</p>
 <ul>
@@ -165,17 +39,11 @@
 </li>
 </ul>
 
-      </div>
-    </section>
-
+    </div>
     <footer class="footer">
-      <div class="container">
-        <!-- Example of how to center the text -->
-        <div class="content has-text-centered">
-          GitAlias.com
-        </div>
-      </div>
+        <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
     </footer>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git topic-* - GitAlias</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+    <meta name='theme-color' content='#aa1e1e'>
+    <meta name="application-name" content="GitAlias"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css" integrity="sha256-h/qtq9bUnXbOOwP4EcbLtYM9Mk3iQQcHZAZ+Jz5y0WQ=" crossorigin="anonymous">
+    <style>
+      h1 { font-size: 1.8em; margin-top: 2.0rem; }
+      h2 { font-size: 1.4em; margin-top: 2.0rem; }
+      h3 { font-size: 1.2em; margin-top: 2.0rem; }
+      body { margin: 0; line-height: 1.5rem; }
+      nav { color: white; background: black; padding: 1rem; }
+      body { font-family: sans-serif; }
+      pre code { background: #ddd; font-size: 1.2rem; padding: 1.0rem; }
+      p, dt, dd, li, ol, ul { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+      footer { margin: 3.0rem 0 0 0; }
+      .content { margin: 0 auto; padding: 0 10% 0 10%; }
+      .text-decoration-none, a.text-decoration-none:link, a.text-decoration-none:visited, a.text-decoration-none:hover, a.text-decoration-none:active { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <nav>
+        <b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b>
+    </nav>
+    <div class="content">
+      <h1>git topic-*</h1>
+<h2>Topic branch aliases</h2>
+<ul>
+<li>
+<p><a href="topic-base-branch">topic-base-branch</a></p>
+</li>
+<li>
+<p><a href="topic-begin">topic-begin</a></p>
+</li>
+<li>
+<p><a href="topic-end">topic-end</a></p>
+</li>
+<li>
+<p><a href="topic-sync">topic-sync</a></p>
+</li>
+<li>
+<p><a href="topic-move">topic-move</a></p>
+</li>
+</ul>
+<p>These aliases are simple starting points for a simple topic flow.</p>
+<p>Lots of people have lots of ideas about how to do various git flows.</p>
+<p>Some people like to use a topic branch for a new feature, or a
+hotfix patch, or refactoring work, or some spike research, etc.</p>
+<p>Show your project’s topic base branch name:</p>
+<pre><code class="language-shell">git topic-base-branch
+</code></pre>
+<p>Begin your topic work by creating a new topic branch:</p>
+<pre><code class="language-shell">git topic-begin &lt;name&gt;
+</code></pre>
+<p>End your topic work by finishing your existing topic branch:</p>
+<pre><code class="language-shell">git topic-end
+</code></pre>
+<p>Optional: synchronize your topic work, which pushes and pulls:</p>
+<pre><code class="language-shell">git topic-sync
+</code></pre>
+<p>Optional: move your topic branch name i.e. rename your topic branch:</p>
+<pre><code class="language-shell">git topic-move
+</code></pre>
+<p>Ideas for your own alias customizations:</p>
+<ul>
+<li>
+<p>Notify your team, such as by sending an email, posting to chat, etc.</p>
+</li>
+<li>
+<p>Trigger testing of the new topic branch to ensure all tests succeed.</p>
+</li>
+<li>
+<p>Update your project management software with the new topic name.</p>
+</li>
+</ul>
+<p>Customize these aliases as you like for your own workflow.</p>
+
+    </div>
+    <footer class="footer">
+        <nav><b><a class="text-decoration-none" href="/" style="color: white;">GitAlias.com</a></b></nav>
+    </footer>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  </body>
+</html>
