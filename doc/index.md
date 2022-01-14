@@ -215,10 +215,10 @@ Branch names:
 
 Branch commits:
 
-  * [git branch-commit-first](../git-branch-commit-first) - Show a branch's first commit hash (or hashes)
-  * [git branch-commit-last](../git-branch-commit-last) - Show a branch's last commit hash (or hashes)
-  * [git branch-commit-prev](../git-branch-commit-prev) - Show a branch's previous commit hash (or hashes)
-  * [git branch-commit-next](../git-branch-commit-next) - Show a branch's next commit hash (or hashes)
+  * [git branch-commit-first](git-branch-commit-first) - Show a branch's first commit hash (or hashes)
+  * [git branch-commit-last](git-branch-commit-last) - Show a branch's last commit hash (or hashes)
+  * [git branch-commit-prev](git-branch-commit-prev) - Show a branch's previous commit hash (or hashes)
+  * [git branch-commit-next](git-branch-commit-next) - Show a branch's next commit hash (or hashes)
 
 Friendly plurals:
 
