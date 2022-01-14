@@ -30,3 +30,4 @@ Thanks to these people for extra help, in order of participation:
   * [Jeff Wu](https://github.com/WuTheFWasThat)
   * [Gareth Owen](https://github.com/gwjo)
   * [NariyasuHeseri](https://github.com/NariyasuHeseri)
+  * [Przemek Dziewa](https://github.com/pdziewa)
