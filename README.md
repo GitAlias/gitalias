@@ -4,7 +4,7 @@ This project provides many git alias commands that you can use as you like.
 
 Contents:
 
-  * [What is GitAlias?](#what-is-git-alias)
+  * [What is GitAlias?](#what-is-gitalias)
   * [Download, install, customize](#download-install-customize)
   * [Follow us](#follow-us)
   * [Short aliases](#short-aliases)
