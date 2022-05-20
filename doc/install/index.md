@@ -3,13 +3,23 @@
 
 ## Install with typical usage
 
-Download the file [`gitalias.txt`](../../gitalias.txt) and include it:
+Download the file [`gitalias.txt`](../../gitalias.txt) and include it.
+
+### On Linux:
 
 ```shell
 curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o ~/.gitalias
 git config --global include.path ~/.gitalias
 ```
 
+### On Windows:
+
+Store the file in your home folder: `C:\Users\YourUserName\gitalias.txt`
+
+Then in GitBash or PowerShell run:
+```shell
+git config --global include.path ~/gitalias.txt
+```
 
 ## Install with custom usage
 
