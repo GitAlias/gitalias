@@ -29,10 +29,15 @@
     <div class="content">
       <h1>Install</h1>
 <h2>Install with typical usage</h2>
-<p>Download the file <a href="gitalias.txt"><code>gitalias.txt</code></a> and include it:</p>
+<p>Download the file <a href="gitalias.txt"><code>gitalias.txt</code></a> and include it.</p>
+<h3>On Linux</h3>
 <pre><code class="language-shell">curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o ~/.gitalias
-git config --global include.path ~/.gitalias
+  git config --global include.path ~/.gitalias
 </code></pre>
+<h3>On Windows</h3>
+  <p>Store the file in your home folder: <code>C:\Users\YourUserName\gitalias.txt</code></p>
+  <p>Then in GitBash or PowerShell run:</p>
+  <pre><code class="language-shell"> git config --global include.path ~/gitalias.txt </code></pre>
 <h2>Install with custom usage</h2>
 <p>Download the file <a href="gitalias.txt"><code>gitalias.txt</code></a> any way you want, such as:</p>
 <pre><code class="language-shell">curl -O https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt
