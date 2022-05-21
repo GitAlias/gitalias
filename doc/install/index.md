@@ -3,17 +3,40 @@
 
 ## Install with typical usage
 
-Download the file [`gitalias.txt`](gitalias.txt) and include it:
+
+### For any operating system
+
+Download the file [`gitalias.txt`](../../gitalias.txt) and include it as you wish.
+
+
+### For Linux, BSD, macOS, and similar
 
 ```shell
 curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o ~/.gitalias
 git config --global include.path ~/.gitalias
 ```
 
+### For Windows
+
+Get this file:
+
+<https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt>
+
+Save the file in your home folder: 
+
+```sh
+C:\Users\YourUserName\gitalias.txt
+```
+
+Then in GitBash or PowerShell run:
+
+```sh
+git config --global include.path ~/gitalias.txt
+```
 
 ## Install with custom usage
 
-Download the file [`gitalias.txt`](gitalias.txt) any way you want, such as:
+Download the file [`gitalias.txt`](../../gitalias.txt) any way you want, such as:
 
 ```shell
 curl -O https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt

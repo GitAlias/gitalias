@@ -4,7 +4,7 @@ This project provides many git alias commands that you can use as you like.
 
 Contents:
 
-  * [What is GitAlias?](#what-is-git-alias)
+  * [What is GitAlias?](#what-is-gitalias)
   * [Download, install, customize](#download-install-customize)
   * [Follow us](#follow-us)
   * [Short aliases](#short-aliases)
@@ -28,13 +28,13 @@ GitAlias is a collection of git version control alias settings that can help you
 
 ## Download, install, customize
 
-You can use GitAlias various ways:
+To use GitAlias:
 
-  * Download GitAlias code in one file: [gitalias.txt](gitalias.txt)
+  * Download GitAlias file: [gitalias.txt](gitalias.txt).
 
-  * Install GitAlias using a variety of ways: [install guide](doc/install/index.md).
+  * Install GitAlias: [install guide](doc/install/index.md).
 
-  * Customize the aliases as you wish: [customize guide](doc/customize/index.md).
+  * Optional: Customize the aliases as you wish: [customize guide](doc/customize/index.md).
 
 
 ## Follow us
