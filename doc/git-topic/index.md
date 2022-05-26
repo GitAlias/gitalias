@@ -2,15 +2,15 @@
 
 ## Topic branch aliases
 
-* [topic-base-branch](topic-base-branch)
+* [git topic-base-branch](../git-topic-base-branch)
 
-* [topic-begin](topic-begin)
+* [git topic-begin](../git-topic-begin)
 
-* [topic-end](topic-end)
+* [git topic-end](../git-topic-end)
 
-* [topic-sync](topic-sync)
+* [git topic-sync](../git-topic-sync)
 
-* [topic-move](topic-move)
+* [git topic-move](../git-topic-move)
 
 These aliases are simple starting points for a simple topic flow.
 
