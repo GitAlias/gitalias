@@ -160,7 +160,7 @@ Git alias:
 ```git
 top = rev-parse --show-toplevel
 
-branch-name = rev-parse --abbrev-ref HEAD
+current-branch = rev-parse --abbrev-ref HEAD
 
 upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
 ```
