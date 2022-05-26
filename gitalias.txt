@@ -564,9 +564,6 @@
   # Interactively rebase all the commits on the current branch
   rebase-branch = "!f() { git rebase --interactive $(git merge-base $(git default-branch)) HEAD); }; f"
 
-  # Sort by date for branches; can be useful for spring cleaning
-  refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
-
   # Find all objects that aren't referenced by any other object (orphans).
   # To help an orphan, we create a new branch with the orphan's commit hash,
   # then merge it into our current branch:
@@ -975,9 +972,10 @@
     tail +2; \
   }; f"
 
-  ### ref-* aliases ###
+  ### Ref aliases ###
 
-  ref-recent = "!git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) %(objectname:short) %(contents:subject)' refs/heads/"
+  # Sort by date for branches; can be useful for spring cleaning
+  refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) (objectname:short) %(contents:subject)'
 
   ### Lookup aliases ###
 

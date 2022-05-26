@@ -563,7 +563,6 @@ Use graphviz:
   * [git rbs](git-rbs/) - Rebase skip i.e. restart the rebase process by skipping the current patch
   * [git rebase-branch](git-rebase-branch/) - Interactively rebase all the commits on the current branch
   * [git rebase-recent](git-rebase-recent/) - Rebase recent commits with interactive
-  * [git ref-recent](git-ref-recent/) -
   * [git refs-by-date](git-refs-by-date/) - Show refs sorted by date for branches
   * [git reincarnate](git-reincarnate/) - Delete a branch then create it anew
   * [git remote-ref](git-remote-ref/) - TODO

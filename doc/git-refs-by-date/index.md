@@ -5,7 +5,7 @@
 Git alias:
 
 ```git
-refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
+refs-by-date = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) (objectname:short) %(contents:subject)'
 ```
 
 Example:
