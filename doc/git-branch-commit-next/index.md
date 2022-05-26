@@ -46,9 +46,6 @@ git branch-commit-next foo 3
 
 Compare:
 
-* [git branch-commit-first]()
-Compare:
-
 * [git branch-commit-first](../git-branch-commit-first): show a branch's first commit hash (or hashes)
 * [git branch-commit-last](../git-branch-commit-last): show a branch's last commit hash (or hashes)
 * [git branch-commit-prev](../git-branch-commit-prev): show a branch's previous commit hash (or hashes)
