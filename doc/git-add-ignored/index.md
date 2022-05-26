@@ -14,7 +14,7 @@ Example:
 git add-ignored
 ```
 
-Compare:
+Compare aliases for add-*:
 
 * [git add-cached](../git-add-cached)
 * [git add-deleted](../git-add-deleted)
@@ -25,7 +25,7 @@ Compare:
 * [git add-stage](../git-add-stage)
 * [git add-unmerged](../git-add-unmerged)
 
-Compare corresponding aliases for edit-*:
+Compare aliases for edit-*:
 
 * [git edit-cached](../git-edit-cached)
 * [git edit-deleted](../git-edit-deleted)
