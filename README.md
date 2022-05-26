@@ -1,40 +1,23 @@
 # GitAlias
 
-This project provides many git alias commands that you can use as you like.
-
-Contents:
-
-  * [What is GitAlias?](#what-is-gitalias)
-  * [Download, install, customize](#download-install-customize)
-  * [Follow us](#follow-us)
-  * [Short aliases](#short-aliases)
-  * [Friendly aliases](#friendly-aliases)
-  * [Convenience alaises](#convenience-alaises)
-  * [Workflow aliases](#workflow-aliases)
-  * [Tooling aliases](#tooling-aliases)
-  * [Index of all aliases](#index-of-all-aliases)
-  * [Contribute](CONTRIBUTING.md)
-  * [Changes](doc/changes/)
-  * [More ideas](doc/more/)
-  * [To do](doc/todo/)
-  * [Thanks](doc/thanks/)
-  * [Tracking](#tracking)
-
-
 ## What is GitAlias?
 
 GitAlias is a collection of git version control alias settings that can help you work faster and better. GitAlias provides short aliases such as [`s`](doc/git-s/) for status, command aliases such as [`chart`](doc/git-chart/) and [`churn`](doc/git-churn/), lookup aliases such as [`whois`](doc/git-who/) and [`whatis`](doc/git-whatis/), workflow aliases such as [`topic-begin`](doc/git-topic-begin/) for feature branch development, and more.
 
+* [Contribute](doc/contribute/)
+* [Changes](doc/changes/)
+* [Todo](doc/todo/)
+* [More](doc/more/)
+* [Thanks](doc/thanks/)
 
-## Download, install, customize
 
-To use GitAlias:
+## Setup
 
-  * Download GitAlias file: [gitalias.txt](gitalias.txt).
+You can use GitAlias various ways:
 
-  * Install GitAlias: [install guide](doc/install/).
+  * Install GitAlias via a variety of ways: [install guide](install/).
 
-  * Optional: Customize the aliases as you wish: [customize guide](doc/customize/).
+  * Customize GitAlias aliases as you wish: [customize guide](customize/).
 
 
 ## Follow us

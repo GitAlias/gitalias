@@ -1,4 +1,4 @@
-# More ideas
+# More
 
 For more ideas for git improvements:
 

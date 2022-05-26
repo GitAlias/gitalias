@@ -1,26 +1,21 @@
 # GitAlias
 
-This project provides many git alias commands that you can use as you like.
-
-Contents:
-
-  * [Contribute](contribute/)
-  * [Changes](changes/)
-  * [More ideas](more/)
-  * [To do](todo/)
-  * [Thanks](thanks/)
-
-
 ## What is GitAlias?
 
 GitAlias is a collection of git version control alias settings that can help you work faster and better. GitAlias provides short aliases such as [`s`](git-s/) for status, command aliases such as [`chart`](git-chart/) and [`churn`](git-churn/), lookup aliases such as [`whois`](git-who/) and [`whatis`](git-whatis/), workflow aliases such as [`topic-begin`](git-topic-begin/) for feature branch development, and more.
+
+* [Contribute](contribute/)
+* [Changes](changes/)
+* [Todo](todo/)
+* [More](more/)
+* [Thanks](thanks/)
 
 
 ## Setup
 
 You can use GitAlias various ways:
 
-  * Install GitAlias using a variety of ways: [install guide](install/).
+  * Install GitAlias via a variety of ways: [install guide](install/).
 
   * Customize GitAlias aliases as you wish: [customize guide](customize/).
 
