@@ -4,21 +4,11 @@ This project provides many git alias commands that you can use as you like.
 
 Contents:
 
-  * [What is GitAlias?](#what-is-git-alias)
-  * [Download, install, customize](#download-install-customize)
-  * [Follow us](#follow-us)
-  * [Short aliases](#short-aliases)
-  * [Friendly aliases](#friendly-aliases)
-  * [Convenience alaises](#convenience-alaises)
-  * [Workflow aliases](#workflow-aliases)
-  * [Tooling aliases](#tooling-aliases)
-  * [Index of all aliases](#index-of-all-aliases)
-  * [Contribute](CONTRIBUTING.md)
+  * [Contribute](contribute/)
   * [Changes](changes/)
   * [More ideas](more/)
   * [To do](todo/)
   * [Thanks](thanks/)
-  * [Tracking](#tracking)
 
 
 ## What is GitAlias?
@@ -26,15 +16,13 @@ Contents:
 GitAlias is a collection of git version control alias settings that can help you work faster and better. GitAlias provides short aliases such as [`s`](git-s/) for status, command aliases such as [`chart`](git-chart/) and [`churn`](git-churn/), lookup aliases such as [`whois`](git-who/) and [`whatis`](git-whatis/), workflow aliases such as [`topic-begin`](git-topic-begin/) for feature branch development, and more.
 
 
-## Download, install, customize
+## Setup
 
 You can use GitAlias various ways:
 
-  * Download GitAlias code in one file: [gitalias.txt](../gitalias.txt)
-
   * Install GitAlias using a variety of ways: [install guide](install/).
 
-  * Customize the aliases as you wish: [customize guide](customize/).
+  * Customize GitAlias aliases as you wish: [customize guide](customize/).
 
 
 ## Follow us
@@ -366,7 +354,7 @@ Misc:
 Use gitk:
 
   * [git gitk-conflict](git-gitk-conflict/) - Use gitk to show conflicting merge
-  * [git gitk-history-all](git-history-all/) - Use gitk to show full history
+  * [git gitk-history-all](git-gitk-history-all/) - Use gitk to show full history
 
 Use other version control systems:
 
