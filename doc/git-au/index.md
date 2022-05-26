@@ -32,4 +32,4 @@ directory and its subdirectories).
 
 </dd>
 
-</dt>
+</dl>
