@@ -280,7 +280,7 @@ Hew branches:
   * [git hew-local](doc/git-hew-local/) - Delete local branches that are merged into a commit
   * [git hew-local-dry-run](doc/git-hew-local/) - Delete local branches that are merged (dry run)
   * [git hew-remote](doc/git-hew-remote/) - Delete remote branches that are merged into a commit
-  * [git hew-remote-dry-run](doc/git-hew-remote-dry-rn/) - Delete remote branches that are merged into a commit (dry run)
+  * [git hew-remote-dry-run](doc/git-hew-remote-dry-run/) - Delete remote branches that are merged into a commit (dry run)
 
 Saving work:
 
