@@ -638,8 +638,8 @@ Use graphviz:
 ### Tracking
 
   * Package: gitalias
-  * Version: 27.0.0
+  * Version: 28.0.0
   * Created: 2016-06-17T22:05:43Z
-  * Updated: 2022-01-09T19:00:32Z
+  * Updated: 2022-05-26T20:33:55Z
   * License: GPL-2.0-or-later or contact us for custom license
   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
