@@ -18,7 +18,7 @@ Git Alias is a collection of git version control shortcuts, functions, and comma
 
 To see the complete code, view this file:
 
-  * [gitalias.txt](gitalias.txt)
+  * [gitalias.txt](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt)
 
 
 ### Why use this?
