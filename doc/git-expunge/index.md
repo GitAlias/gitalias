@@ -26,4 +26,4 @@ confidential information.
 
 After you use this command, you will likely need to force push everything.
 
-See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+See <https://help.github.com/articles/removing-sensitive-data-from-a-repository/>

@@ -20,4 +20,4 @@ Our friendly wording for plurals:
 
 * [git tags](../git-tags)
 
-Thanks to http://gggritso.com/human-git-aliases
+Thanks <http://gggritso.com/human-git-aliases>

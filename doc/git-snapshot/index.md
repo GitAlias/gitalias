@@ -33,4 +33,4 @@ stash@{0}: On feature/handy-git-tricks: snapshot: Mon Apr 8 12:39:06 BST 2013
 
 … and seemingly no changes to your working tree.
 
-From http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+From <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>

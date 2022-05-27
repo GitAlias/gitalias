@@ -8,7 +8,7 @@ We welcome people contributing in many ways:
 
   * Donate money by using PayPal: donate@gitalias.com
 
-  * Spread the word about us: https://gitalias.com
+  * Spread the word about us: <https://gitalias.com>
 
 
 ## Conventions
@@ -94,7 +94,7 @@ Body:
 
   * For commits with more than one author, add "By: Alice <alice@example.com>".
 
-  * For commits that refer to a URL, add "See: https://example.com".
+  * For commits that refer to a URL, add "See: <https://example.com>".
 
   * For commits that refer to a tracker, use the complete URL, not just a number or code.
 

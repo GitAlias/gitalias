@@ -42,4 +42,4 @@ An extension was made to the Git remote protocol to support this
 feature in v2.19.0 and actually skip fetching unneeded objects.
 There was server support then, but it can be locally tested.
 
-Credit: https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934
+Credit <https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/52269934#52269934>

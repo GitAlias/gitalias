@@ -302,7 +302,7 @@
 
   # prp - Pull with rebase preserve of merge commits
   #
-  # See https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges
+  # See <https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges>
   #
   # You should only rebase if you know (in a sort of general sense)
   # what you are doing, and if you do know what you are doing, then you
@@ -317,7 +317,7 @@
   # likely that the history to be rebased is itself linear, so that the
   # preserve-vs-flatten question is moot anyway.
   #
-  # See https://stackoverflow.com/questions/38269092/is-it-possible-to-put-preserve-merges-in-the-gitconfig
+  # See <https://stackoverflow.com/questions/38269092/is-it-possible-to-put-preserve-merges-in-the-gitconfig>
   #
   # While preserving merges is probably generally superior, in at least a
   # few ways, to discarding them when rebasing, the fact is that rebase
@@ -390,7 +390,7 @@
   #
   rbiu = rebase --interactive @{upstream}
 
-  # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+  # See <https://blog.filippo.io/git-fixup-amending-an-older-commit/>
   # This is a slightly modified version
   fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
 
@@ -510,7 +510,7 @@
   # Last annotated tag in all branches
   last-tagged = !git describe --tags `git rev-list --tags --max-count=1`
 
-  # From https://gist.github.com/492227
+  # From <https://gist.github.com/492227>
   heads = !"git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
 
   ### diff-* aliases ###
@@ -749,9 +749,9 @@
   #
   #   * Written by [Corey Haines](http://coreyhaines.com/)
   #   * Scriptified by Gary Bernhardt
-  #   * Obtained from https://github.com/garybernhardt/dotfiles/blob/main/bin/git-churn
+  #   * Obtained from <https://github.com/garybernhardt/dotfiles/blob/main/bin/git-churn>
   #   * Edited for GitAlias.com repo by Joel Parker Henderson
-  #   * Comments by Mislav http://mislav.uniqpath.com/2014/02/hidden-documentation/
+  #   * Comments by Mislav <http://mislav.uniqpath.com/2014/02/hidden-documentation/>
   #
   # Show churn for whole repo:
   #
@@ -1196,7 +1196,7 @@
   # Expunge a file everywhere; this command is typically for a serious problem,
   # such as accidentally committing a file of sensitive data, such as passwords.
   # After you use command, you will likely need to force push everything.
-  # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+  # See <https://help.github.com/articles/removing-sensitive-data-from-a-repository/>
   expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
 
   # Show logs of unreachable commits.
@@ -1248,7 +1248,7 @@
 
   # Work In Progress - Easy tracking of what you're doing
   #
-  # From https://gist.github.com/492227 and VonC on stackoverflow.
+  # From <https://gist.github.com/492227> and VonC on stackoverflow.
   #
   # This enables a quick way to add all new and modified files to the index,
   # while cleaning the index from the files removed from the working tree;
@@ -1290,8 +1290,8 @@
   #     modified passwords.txt
   #     modified foo.txt
   #
-  # Thanks to http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
-  # Thanks to http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+  # Thanks <http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/>
+  # Thanks <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>
   #
   assume   = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged

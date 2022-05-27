@@ -14,4 +14,4 @@ Example:
 git heads
 ```
 
-From https://gist.github.com/492227
+Thanks <https://gist.github.com/492227>

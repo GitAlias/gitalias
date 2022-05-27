@@ -45,6 +45,6 @@ modified passwords.txt
 modified foo.txt
 ```
 
-Thanks to http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+Thanks <http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/>
 
-Thanks to http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+Thanks <http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/>

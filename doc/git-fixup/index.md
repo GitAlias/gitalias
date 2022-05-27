@@ -17,6 +17,6 @@ Example:
 git fixup
 ```
 
-See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+See <https://blog.filippo.io/git-fixup-amending-an-older-commit/>
 
 This alias is a slightly modified version.

@@ -14,7 +14,7 @@ Example:
 git prp
 ```
 
-See https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges
+See <https://stackoverflow.com/questions/21364636/git-pull-rebase-preserve-merges>
 
 You should only rebase if you know (in a sort of general sense)
 what you are doing, and if you do know what you are doing, then you
@@ -29,7 +29,7 @@ That is, if it's appropriate to do a rebase at all, it's at least fairly
 likely that the history to be rebased is itself linear, so that the
 preserve-vs-flatten question is moot anyway.
 
-See https://stackoverflow.com/questions/38269092/is-it-possible-to-put-preserve-merges-in-the-gitconfig
+See <https://stackoverflow.com/questions/38269092/is-it-possible-to-put-preserve-merges-in-the-gitconfig>
 
 While preserving merges is probably generally superior, in at least a
 few ways, to discarding them when rebasing, the fact is that rebase

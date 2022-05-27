@@ -26,5 +26,5 @@ due to an "unclean" working directory (not in sync with the index).
 
 The unwip alias is a quick way to restore deleted files to the working tree.
 
-From https://gist.github.com/492227 and VonC on stackoverflow.
+From <https://gist.github.com/492227> and VonC on stackoverflow.
 

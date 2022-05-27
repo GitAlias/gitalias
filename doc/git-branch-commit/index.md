@@ -11,4 +11,4 @@ Inspirations:
 
   * Email from Demian proposing these aliases
 
-  * https://github.com/hutusi/git-paging
+  * <https://github.com/hutusi/git-paging>

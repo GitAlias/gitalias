@@ -73,8 +73,8 @@ Credit:
 
 * Scriptified by Gary Bernhardt
 
-* Obtained from https://github.com/garybernhardt/dotfiles/blob/main/bin/git-churn
+* Obtained from <https://github.com/garybernhardt/dotfiles/blob/main/bin/git-churn>
 
-* Comments by Mislav http://mislav.uniqpath.com/2014/02/hidden-documentation/
+* Comments by Mislav <http://mislav.uniqpath.com/2014/02/hidden-documentation/>
 
 * Edited for GitAlias.com repo by Joel Parker Henderson
