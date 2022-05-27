@@ -1,6 +1,6 @@
 # git cane
 
-## Amend the tip of the current branch; do not edit the message
+## Amend the tip of the current branch, with no edit of the message
 
 Git alias:
 
