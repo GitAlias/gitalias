@@ -5,7 +5,7 @@
 Git alias:
 
 ```git
-snapshot = !git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\"
+snapshot = !git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\" --index
 ```
 
 Example:

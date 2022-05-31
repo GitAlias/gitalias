@@ -91,7 +91,7 @@ Preserving:
 Git alias:
 
 ```git
-snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}"
+snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}" --index
 
 archive = !"f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $top ; }; f"
 ```
