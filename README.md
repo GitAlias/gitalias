@@ -1,8 +1,8 @@
-# GitAlias
+# Git Alias
 
-## What is GitAlias?
+## What is Git Alias?
 
-GitAlias is a collection of git version control alias settings that can help you work faster and better. GitAlias provides short aliases such as [`s`](doc/git-s/) for status, command aliases such as [`chart`](doc/git-chart/) and [`churn`](doc/git-churn/), lookup aliases such as [`whois`](doc/git-who/) and [`whatis`](doc/git-whatis/), workflow aliases such as [`topic-begin`](doc/git-topic-begin/) for feature branch development, and more.
+Git Alias is a collection of git version control alias settings that can help you work faster and better. Git Alias provides short aliases such as [`s`](doc/git-s/) for status, command aliases such as [`chart`](doc/git-chart/) and [`churn`](doc/git-churn/), lookup aliases such as [`whois`](doc/git-who/) and [`whatis`](doc/git-whatis/), workflow aliases such as [`topic-begin`](doc/git-topic-begin/) for feature branch development, and more.
 
 * [Contribute](doc/contribute/)
 * [Changes](doc/changes/)
@@ -13,22 +13,22 @@ GitAlias is a collection of git version control alias settings that can help you
 
 ## Setup
 
-You can use GitAlias various ways:
+You can use Git Alias various ways:
 
-  * Download the GitAlias file here: [gitalias.txt](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt).
+  * Download the Git Alias file here: [gitalias.txt](https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt).
   
-  * Install GitAlias via a variety of ways: [install guide](install/).
+  * Install Git Alias via a variety of ways: [install guide](install/).
 
-  * Customize GitAlias aliases as you wish: [customize guide](customize/).
+  * Customize Git Alias aliases as you wish: [customize guide](customize/).
 
 
 ## Follow us
 
 You can follow us on GitHub:
 
-  * GitAlias account: [https://github.com/gitalias](https://github.com/gitalias)
+  * Git Alias account: [https://github.com/gitalias](https://github.com/gitalias)
 
-  * GitAlias repository: [https://github.com/gitalias/gitalias](https://github.com/gitalias/gitalias)
+  * Git Alias repository: [https://github.com/gitalias/gitalias](https://github.com/gitalias/gitalias)
 
 
 ## Short aliases

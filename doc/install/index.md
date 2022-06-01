@@ -6,10 +6,10 @@
 
 ### For any operating system
 
-Download the file [`gitalias.txt`](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt) as you wish, such as:
+Download the file [`gitalias.txt`](https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt) as you wish, such as:
 
 ```sh
-curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o gitalias.txt
+curl https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt -o gitalias.txt
 ```
 
 Run `git config` to include the file as you wish, such as:
@@ -34,7 +34,7 @@ You can use the user configuration directory like this:
 ```sh
 dir=${XDG_CONFIG_HOME:-$HOME/.config}/gitalias
 mkdir -p "$dir"
-curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o "$dir/gitalias.txt"
+curl https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt -o "$dir/gitalias.txt"
 git config --global include.path "$dir/gitalias.txt"
 ```
 
@@ -49,7 +49,7 @@ You can use the system configuration directory like this:
 ```sh
 dir=/usr/local/etc/gitalias
 sudo mkdir -p "$dir"
-sudo curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o "$dir/gitalias.txt"
+sudo curl https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt -o "$dir/gitalias.txt"
 sudo git config --global include.path "$dir/gitalias.txt"
 ```
 
@@ -58,7 +58,7 @@ sudo git config --global include.path "$dir/gitalias.txt"
 
 Download this file:
 
-<https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt>
+<https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt>
 
 Save the file in your home folder: 
 
@@ -76,12 +76,12 @@ git config --global include.path ~/gitalias.txt
 
 Get this file:
 
-<https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt>
+<https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt>
 
 Get the file any way you want, such as:
 
 ```shell
-curl -O https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt
+curl -O https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt
 ```
 
 Manually edit your git config dot file any way you want, such as:

@@ -50,7 +50,7 @@
 # ## Links
 #
 #   * [GitAlias.com website](https://gitalias.com)
-#   * [GitAlias GitHub](https://github.com/gitalias)
+#   * [Git Alias GitHub](https://github.com/gitalias)
 #   * [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
 #   * [Git Basics - Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks)
 #
