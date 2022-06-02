@@ -240,6 +240,7 @@ Add all & edit all:
 
 Alias helpers:
 
+  * [git alias](doc/git-alias) - Show help for git alias commands
   * [git add-alias](doc/git-add-alias/) - Create a new git alias
   * [git move-alias](doc/git-move-alias/) - Rename an existing git alias
 
