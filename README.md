@@ -15,7 +15,7 @@ Git Alias is a collection of git version control alias settings that can help yo
 
 You can use Git Alias various ways:
 
-  * Download the Git Alias file here: [gitalias.txt](https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt).
+  * Download the Git Alias file here: [gitalias.txt](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt).
   
   * Install Git Alias via a variety of ways: [install guide](install/).
 
