@@ -6,7 +6,7 @@
 
 ### For any operating system
 
-Download the file [`gitalias.txt`](https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt) as you wish, such as:
+Download the file [`gitalias.txt`](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt) as you wish, such as:
 
 ```sh
 curl https://raw.githubusercontent.com/Git Alias/gitalias/main/gitalias.txt -o gitalias.txt
