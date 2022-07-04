@@ -17,9 +17,9 @@ You can use Git Alias various ways:
 
   * Download the Git Alias file here: [gitalias.txt](https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt).
   
-  * Install Git Alias via a variety of ways: [install guide](install/).
+  * Install Git Alias via a variety of ways: [install guide](doc/install/).
 
-  * Customize Git Alias aliases as you wish: [customize guide](customize/).
+  * Customize Git Alias aliases as you wish: [customize guide](doc/customize/).
 
 
 ## Follow us
