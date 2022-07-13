@@ -181,7 +181,7 @@ Recommended helpers:
 
   * [git initer](doc/git-initer/) - Initialize a repo using our recommended way i.e. with an empty rebaseable commit
   * [git cloner](doc/git-cloner/) - Clone a repo using our recommended way i.e. recursive include of submodules
-  * [git pruner](doc/git-pruner/) - Prune a repo using our recommnded way i.e. prune everything unreachable now
+  * [git pruner](doc/git-pruner/) - Prune a repo using our recommended way i.e. prune everything unreachable now
   * [git repacker](doc/git-repacker/) - Repack a repo our recommended way i.e. as Linus Torvalds describes
   * [git optimizer](doc/git-optimizer/) - Optimize a repo using our recommended way i.e. by pruning and repacking
 
@@ -443,7 +443,7 @@ Use graphviz:
   * [git diff-staged](doc/git-diff-staged/) - Show diffs that are cached i.e. staged
   * [git diff-stat](doc/git-diff-stat/) - Diff with stat
   * [git discard](doc/git-discard/) - Discard changes in a file (or a list of files) in working tree
-  * [git ds](doc/git-ds/) - Show changes about to be commited
+  * [git ds](doc/git-ds/) - Show changes about to be committed
   * [git dw](doc/git-dw/) - Show changes by word, not line
   * [git edit-cached](doc/git-edit-cached/) - Edit cached files
   * [git edit-deleted](doc/git-edit-deleted/) - Edit deleted files
@@ -472,8 +472,8 @@ Use graphviz:
   * [git heads](doc/git-heads/) - Show log of heads
   * [git ignore](doc/git-ignore/) - Ignore all untracked files by appending them to ".gitignore"
   * [git inbound](doc/git-inbound/) - Show incoming changes compared to upstream
-  * [git init-empty](doc/git-init-empty/) - Initalize a repo with an empty rebaseable commit
-  * [git initer](doc/git-initer/) - Initalize a repo using our recommended way i.e. with an empty rebaseable commit
+  * [git init-empty](doc/git-init-empty/) - Initialize a repo with an empty rebaseable commit
+  * [git initer](doc/git-initer/) - Initialize a repo using our recommended way i.e. with an empty rebaseable commit
   * [git intercommit](doc/git-intercommit/) - Use interdiff to see patch modifications
   * [git issues](doc/git-issues/) - List all issues mentioned in commit messages between range of commits
   * [git l](doc/git-l/) - Short for "git log"
