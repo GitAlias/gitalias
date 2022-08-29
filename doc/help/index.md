@@ -8,4 +8,4 @@ We welcome feedback, or issue reports, or pull requests.
 
 Help with specific areas:
 
-* (awk)[awk/]
+* [awk](awk/)
