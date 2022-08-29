@@ -7,6 +7,7 @@ Git Alias is a collection of git version control alias settings that can help yo
 * [Contribute](contribute/)
 * [Changes](changes/)
 * [Todo](todo/)
+* [Help](help/)
 * [More](more/)
 * [Thanks](thanks/)
 
