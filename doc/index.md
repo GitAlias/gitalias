@@ -236,7 +236,7 @@ Commit details:
 
 Add all & edit all:
 
-  * [git add-*](git-edit/) - Add all files of a given type
+  * [git add-*](git-add/) - Add all files of a given type
   * [git edit-*](git-edit/) - Edit all files of a given type
 
 Alias helpers:
