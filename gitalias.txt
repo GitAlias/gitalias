@@ -600,10 +600,10 @@
   log-fresh = log ORIG_HEAD.. --stat --no-merges
 
   # Show log list with our preferred information, a.k.a. `ll`
-  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
   # Show log  list with our preferred information with long formats, a.k.a. `lll`
-  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
+  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
 
   # Show log for my own commits by my own user email
   log-my = !git log --author $(git config user.email)
