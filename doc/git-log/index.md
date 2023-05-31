@@ -5,11 +5,23 @@
 Git alias:
 
 ```git
-# Show log in our preferred format for our key performance indicators. A.k.a. `ll`.
-log-like = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+# Show log list in our preferred format for our key performance indicators. A.k.a. `ll`.
+#
+#   * Short date format using YYYY-MM-DD (no time, no zone)
+#   * Short hash commit format using abbreviated hexadecimal (not full hexadecimal)
+#   * Short author field using name (no email address) and signature mark
+#   * Short layout without columns
+#
+log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN]%Creset %Cblue%G?%Creset'
 
-# Show log in our preferred format for our key performance indicators, with long items. A.k.a. `lll`.
-log-like-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
+# Show log list in our preferred format for our key performance indicators, with long items. A.k.a. `lll`.
+#
+#   * Long date format using iso8601 strict YYYY-MM-DDTHH:MM:SS+HH:MM
+#   * Long hash commit format using full hexadecimal displayed as name-rev
+#   * Long author field using name and email address and signature mark
+#   * Long layout with columns
+#
+log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
 
 # Show log with dates in our local timezone
 log-local = log --date=local
@@ -27,8 +39,8 @@ log-fetched = log --oneline HEAD..origin/main
 Example:
 
 ```shell
-git log-like
-git log-like-long
+git log-list
+git log-list-long
 git log-local
 git log-graph
 git log-refs

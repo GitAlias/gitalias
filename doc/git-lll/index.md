@@ -14,7 +14,7 @@ lll = log \
     --date=iso8601-strict \
     --no-abbrev-commit \
     --abbrev=40 \
-    --pretty=format:'␟%ad␟%h␟%s␟%cn <%ce>␟%G?' | \
+    --pretty=format:'␟%ad␟%h␟%s␟%aN <%aE>␟%G?' | \
     git name-rev --stdin --always --name-only | \
     awk 'BEGIN { FS="␟"; OFS="␟"; } { $4 = substr($4, 1, 50); print $0; }' | \
     column -s'␟' -t
@@ -34,9 +34,9 @@ Compare the alias [git ll](../git-ll) a.k.a. [git log-list](../git-log-list) whi
 
   * Short date format using YYYY-MM-DD (no time, no zone)
 
-  * Short commit format using abbreviated hexadecimal (not full hexadecimal)
+  * Short hash commit format using abbreviated hexadecimal (not full hexadecimal)
 
-  * Short author field using name (no email address)
+  * Short author field using name (no email address)  and signature mark
 
   * Short layout without columns
 
@@ -44,8 +44,8 @@ And the alias [git lll](../git-lll) a.k.a. [git log-list-long](../git-log-list-l
 
   * Long date format using iso8601 strict YYYY-MM-DDTHH:MM:SS+HH:MM
 
-  * Long commit format using hash hexadecimal displayed as name-rev
+  * Long hash commit format using full hexadecimal displayed as name-rev
 
-  * Long author field using name and email address
+  * Long author field using name and email address and signature mark
 
   * Long layout with columns

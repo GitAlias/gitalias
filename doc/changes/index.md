@@ -1,5 +1,20 @@
 # Changes
 
+
+## 28.0.1
+
+* Fix git log pretty format so it shows author info
+
+* Fix license to be GPL-2.0-or-later et al.
+  
+
+## 28.0.0
+
+* Normalization and documentation
+
+* The major version is because of a handful of rephrasings of alias names
+
+
 ## 27.0.0
 
 * Add documentation

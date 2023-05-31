@@ -57,10 +57,10 @@
 # ## Tracking
 #
 #   * Package: gitalias
-#   * Version: 28.0.0
+#   * Version: 28.0.1
 #   * Created: 2016-06-17T22:05:43Z
-#   * Updated: 2022-05-26T20:33:55Z
-#   * License: GPL-2.0-only or contact us for custom license
+#   * Updated: 2023-05-31T11:39:14Z
+#   * License: GPL-2.0-or-later or contact us for custom license
 #   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)
 ##
 
@@ -600,10 +600,22 @@
   log-fresh = log ORIG_HEAD.. --stat --no-merges
 
   # Show log list with our preferred information, a.k.a. `ll`
-  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+  #
+  #   * Short date format using YYYY-MM-DD (no time, no zone)
+  #   * Short hash commit format using abbreviated hexadecimal (not full hexadecimal)
+  #   * Short author field using name (no email address) and signature mark
+  #   * Short layout without columns
+  #
+  log-list = log --graph --topo-order --date=short --abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN]%Creset %Cblue%G?%Creset'
 
   # Show log  list with our preferred information with long formats, a.k.a. `lll`
-  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%cn <%ce>]%Creset %Cblue%G?%Creset'
+  #
+  #   * Long date format using iso8601 strict YYYY-MM-DDTHH:MM:SS+HH:MM
+  #   * Long hash commit format using full hexadecimal displayed as name-rev
+  #   * Long author field using name and email address and signature mark
+  #   * Long layout with columns
+  #
+  log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
 
   # Show log for my own commits by my own user email
   log-my = !git log --author $(git config user.email)
