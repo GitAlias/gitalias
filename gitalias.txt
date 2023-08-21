@@ -190,9 +190,6 @@
 
   ### grep aliases ###
 
-  # grep i.e. search for text
-  g = grep
-
   # grep with -n (--line-number) means show line number
   gn = grep -n
 
