@@ -1331,7 +1331,7 @@
 
   # Delete all local branches that have been merged into a commit
   hew-local = !"f() { \
-      hew-local-dry-run \"$@\" | \
+      git hew-local-dry-run \"$@\" | \
       xargs git branch --delete ; \
   }; f \"$@\""
 
@@ -1344,7 +1344,7 @@
 
   # Delete all remote branches that have been merged into a commit
   hew-remote = !"f() { \
-      hew-remote-dry-run \"$@\" | \
+      git hew-remote-dry-run \"$@\" | \
       xargs -I% git push origin :% 2>&1 ; \
   }; f \"$@\""
 
