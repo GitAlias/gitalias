@@ -6,7 +6,7 @@ Git alias:
 
 ```git
 hew-remote = !"f() { \
-    hew-remote-dry-run \"$@\" | \
+    git hew-remote-dry-run \"$@\" | \
     xargs -I% git push origin :% 2>&1 ; \
 }; f \"$@\""
 ```

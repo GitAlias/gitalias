@@ -6,7 +6,7 @@ Git alias:
 
 ```git
 hew-local = !"f() { \
-    hew-local-dry-run \"$@\" | \
+    git hew-local-dry-run \"$@\" | \
     xargs git branch --delete ; \
 }; f \"$@\""
 ```
@@ -14,7 +14,7 @@ hew-local = !"f() { \
 Syntax:
 
 ```shell
-hew-local [<commit>]
+git hew-local [<commit>]
 ```
 
 Example with the default branch name:
