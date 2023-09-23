@@ -611,7 +611,7 @@ Use graphviz:
   * [git tags](doc/git-tags/) - List tags
   * [git theirs](doc/git-theirs/) - Checkout their version of a file and add it
   * [git top](doc/git-top/) - Get the top level directory name
-  * [git topic-*](git-topic/) - Read this first about topic aliases
+  * [git topic-*](doc/git-topic/) - Read this first about topic aliases
   * [git topic-base-branch](doc/git-topic-base-branch/) - Show the project base topic branch name
   * [git topic-move](doc/git-topic-move/) - Rename the current topic branch
   * [git topic-begin](doc/git-topic-begin/) - Start a new topic branch
