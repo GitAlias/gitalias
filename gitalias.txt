@@ -1603,9 +1603,7 @@
   #
   # Thanks to https://github.com/gwjo
 
-  topic-base-branch = "!f(){ \
-    git config --get init.topicBaseBranchName || printf '%s\n' main; \
-  };f"
+  topic-base-branch = "!git config --get init.topicBaseBranchName || git default-branch"
 
   # Start a topic branch.
   #

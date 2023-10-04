@@ -5,7 +5,7 @@
 Git alias:
 
 ```git
-topic-base-branch = "!git config --get init.topicBaseBranchName || git config --get init.defaultBranch"
+topic-base-branch = "!git config --get init.topicBaseBranchName || git default-branch"
 ```
 
 Example:
