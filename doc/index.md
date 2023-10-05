@@ -57,6 +57,9 @@ git commit:
   * [git ca](git-ca/) = commit --amend
   * [git cam](git-cam/) = commit --amend --message
   * [git cane](git-cane/) = commit --amend --no-edit
+  * [git caa](git-caa/) = commit --amend --all
+  * [git caam](git-caam/) = commit --amend --all --message
+  * [git caane](git-caane/) = commit --amend --all --no-edit
   * [git ci](git-ci/) = commit --interactive
   * [git cm](git-cm/) = commit --message
 
