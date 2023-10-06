@@ -137,6 +137,15 @@
   # commit - amend the tip of the current branch, and do not edit the message.
   cane = commit --amend --no-edit
 
+  # commit - amend the tip of the current branch, automatically staging files that have been modified and deleted.
+  caa = commit --amend --all
+
+  # commit - amend the tip of the current branch, staging files, and edit the message. 
+  caam = commit --amend --all --message
+
+  # commit - amend the tip of the current branch, staging files, and do not edit the message.
+  caane = commit --amend --all --no-edit
+
   # commit interactive
   ci = commit --interactive
 
