@@ -65,6 +65,7 @@ git checkout:
   * [git co](doc/git-co/) = checkout
   * [git cog](doc/git-cog/) = checkout --guess
   * [git cong](doc/git-cong/) = checkout --no-guess
+  * [git cob](doc/git-cob/) = checkout -b
 
 git cherry-pick:
 
@@ -353,7 +354,7 @@ Misc:
 Use gitk:
 
   * [git gitk-conflict](doc/git-gitk-conflict/) - Use gitk to show conflicting merge
-  * [git gitk-history-all](doc/git-history-all/) - Use gitk to show full history
+  * [git gitk-history-all](doc/git-gitk-history-all/) - Use gitk to show full history
 
 Use other version control systems:
 
@@ -399,9 +400,12 @@ Use graphviz:
   * [git bv](doc/git-bv/) - List branch information with hash and subject
   * [git bvv](doc/git-bvv/) - List branch information with hash and subject and upstream
   * [git c](doc/git-c/) - Short for "git commit"
-  * [git ca](git-ca) -  Amend the tip of the current branch; do not create a new commit
-  * [git cam](git-cam) - Amend the tip of the current branch; edit the message
+  * [git ca](doc/git-ca/) -  Amend the tip of the current branch; do not create a new commit
+  * [git cam](doc/git-cam/) - Amend the tip of the current branch; edit the message
   * [git cane](doc/git-cane/) - Amend the tip of the current branch; do not edit the message
+  * [git caa](doc/git-caa/) - Amend the tip of the current branch, automatically staging files that have been modified and deleted
+  * [git caam](doc/git-caam/) - Amend the tip of the current branch, staging files, and edit the message
+  * [git caane](doc/git-caane/) - Amend the tip of the current branch, staging files, and do not edit the message
   * [git chart](doc/git-chart/) - Show highlights chart of activity per author
   * [git cherry-pick-merge](doc/git-cherry-pick-merge/) - Cherry pick a merge commit
   * [git churn](doc/git-churn/) - Show log of files that have many changes
@@ -413,6 +417,8 @@ Use graphviz:
   * [git cloner](doc/git-cloner/) - Clone a repository and recurse on any of its submodules
   * [git cm](doc/git-cm/) - Commit with a message
   * [git co](doc/git-co/) - Checkout a.k.a. update the working tree to match a branch or paths
+  * [git cog](doc/git-cog/) - Checkout with guessing
+  * [git cong](doc/git-cong/) - Checkout with no guessing
   * [git commit-is-merge](doc/git-commit-is-merge/) - Is the commit a merge commit? If yes exit 0, else exit 1
   * [git commit-message-key-lines](doc/git-commit-message-key-lines/) - Show the commit's keyword-marker lines
   * [git commit-parents](doc/git-commit-parents/) - Show the commit's parents
