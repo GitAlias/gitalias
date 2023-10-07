@@ -419,6 +419,7 @@ Use graphviz:
   * [git co](doc/git-co/) - Checkout a.k.a. update the working tree to match a branch or paths
   * [git cog](doc/git-cog/) - Checkout with guessing
   * [git cong](doc/git-cong/) - Checkout with no guessing
+  * [git cob](doc/git-cob/) - Create a new branch from the current working tree, and switch to it
   * [git commit-is-merge](doc/git-commit-is-merge/) - Is the commit a merge commit? If yes exit 0, else exit 1
   * [git commit-message-key-lines](doc/git-commit-message-key-lines/) - Show the commit's keyword-marker lines
   * [git commit-parents](doc/git-commit-parents/) - Show the commit's parents

@@ -158,6 +158,9 @@
   co = checkout
   cong = checkout --no-guess
 
+  # create a new branch from the current working tree, and switch to it
+  cob = checkout -b
+
   ### cherry-pick aliases ###
 
   # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
