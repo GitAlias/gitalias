@@ -68,6 +68,7 @@ git checkout:
   * [git co](git-co/) = checkout
   * [git cog](git-cog/) = checkout --guess
   * [git cong](git-cong/) = checkout --no-guess
+  * [git cob](git-cob/) = checkout -b
 
 git cherry-pick:
 
@@ -416,6 +417,9 @@ Use graphviz:
   * [git cloner](git-cloner/) - Clone a repository and recurse on any of its submodules
   * [git cm](git-cm/) - Commit with a message
   * [git co](git-co/) - Checkout a.k.a. update the working tree to match a branch or paths
+  * [git cog](git-cog/) - Checkout with guessing
+  * [git cong](git-cong/) - Checkout with no guessing
+  * [git cob](git-cob/) - Create a new branch from the current working tree, and switch to it
   * [git commit-is-merge](git-commit-is-merge/) - Is the commit a merge commit? If yes exit 0, else exit 1
   * [git commit-message-key-lines](git-commit-message-key-lines/) - Show the commit's keyword-marker lines
   * [git commit-parents](git-commit-parents/) - Show the commit's parents
