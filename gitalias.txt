@@ -140,7 +140,7 @@
   # commit - amend the tip of the current branch, automatically staging files that have been modified and deleted.
   caa = commit --amend --all
 
-  # commit - amend the tip of the current branch, staging files, and edit the message. 
+  # commit - amend the tip of the current branch, staging files, and edit the message.
   caam = commit --amend --all --message
 
   # commit - amend the tip of the current branch, staging files, and do not edit the message.
@@ -485,17 +485,17 @@
   add-alias = "!f() { \
       if [ $# != 3 ]; then \
         echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
-        echo "Error: this command needs 3 arguments."; \
+        echo \"Error: this command needs 3 arguments.\"; \
         return 2; \
       fi; \
       if [ ! -z \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
-          echo "Alias "$2" already exists, thus no change happened."; \
+          echo \"Alias '$2' already exists, thus no change happened.\"; \
           return 3; \
       fi; \
       git config $1 alias.\"$2\" \"$3\" && \
       return 0; \
       echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
-      echo "Error: unknown failure."; \
+      echo \"Error: unknown failure.\"; \
       return 1; \
   }; f"
 
@@ -503,26 +503,26 @@
   move-alias = "!f() { \
       if [ $# != 3 ]; then \
           echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <new alias name>\"; \
-          echo "Error: this command needs 3 arguments."; \
+          echo \"Error: this command needs 3 arguments.\"; \
           return 2; \
       fi; \
       if [ $2 == $3 ]; then \
-          echo "The alias names are identical, thus no change happened."; \
+          echo \"The alias names are identical, thus no change happened.\"; \
           return 3; \
       fi; \
       if [ -z \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
-          echo "Alias "$2" does not exist, thus no change happened."; \
+          echo \"Alias '$2' does not exist, thus no change happened.\"; \
           return 4; \
       fi; \
       if [ ! -z \"$(git config $1 --get alias.$3)\" ]; then \
-          echo "Alias "$3" already exists, thus no change happened."; \
+          echo \"Alias '$3' already exists, thus no change happened.\"; \
           return 5; \
       fi; \
       git config \"$1\" alias.\"$3\" \"$(git config $1 --get alias.$2)\" && \
       git config \"$1\" --unset alias.\"$2\" && \
       return 0; \
       echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <alias new name>\"; \
-      echo "Error: unknown failure."; \
+      echo \"Error: unknown failure.\"; \
       return 1; \
   };f"
 
@@ -530,14 +530,14 @@
   last-tag = describe --tags --abbrev=0
 
   # Last annotated tag in all branches
-  last-tagged = !git describe --tags `git rev-list --tags --max-count=1`
+  last-tagged = "!git describe --tags $(git rev-list --tags --max-count=1)"
 
   # From <https://gist.github.com/492227>
-  heads = !"git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
+  heads = "!git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
 
   ### diff-* aliases ###
 
-  diff-all = !"for name in $(git diff --name-only $1); do git difftool $1 $name & done"
+  diff-all = "!for name in $(git diff --name-only $1); do git difftool $1 $name & done"
   diff-changes = diff --name-status -r
   diff-stat = diff --stat --ignore-space-change -r
   diff-staged = diff --cached
@@ -548,40 +548,40 @@
   ### grep-* aliases ###
 
   # Find text in any commit ever.
-  grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
+  grep-all = "!f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 
   # Find text and group the output lines. A.k.a. `gg`.
   grep-group = grep --break --heading --line-number --color
 
   # Find text with ack-like formatting.
-  grep-ack = \
+  grep-ack = "\
     -c color.grep.linenumber=\"bold yellow\" \
     -c color.grep.filename=\"bold green\" \
     -c color.grep.match=\"reverse yellow\" \
-    grep --break --heading --line-number
+    grep --break --heading --line-number"
 
   ### init-* aliases ###
 
   # Initalize a repo and immediately add an empty rebaseable commit.
   # This initialization makes it easier to do later git rebase commands,
   # because it enables a rebase to go all the way back to the first commit.
-  init-empty = !"f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
+  init-empty = "!f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
 
   ### merge-span-* aliases ###
 
   # Given a merge commit, find the span of commits that exist(ed).
   # Not so useful in itself, but used by other aliases.
   # Thanks to Rob Miller for the merge-span-* aliaes.
-  merge-span = !"f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+  merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
 
   # Find the commits that were introduced by a merge
-  merge-span-log = "!git log `git merge-span .. $1`"
+  merge-span-log = "!git log $(git merge-span .. $1)"
 
   # Show the changes that were introduced by a merge
-  merge-span-diff = !"git diff `git merge-span ... $1`"
+  merge-span-diff = "!git diff $(git merge-span ... $1)"
 
   # Show the changes that were introduced by a merge, in your difftool
-  merge-span-difftool = !"git difftool `git merge-span ... $1`"
+  merge-span-difftool = "!git difftool $(git merge-span ... $1)"
 
   # Interactively rebase all the commits on the current branch
   rebase-branch = "!f() { git rebase --interactive $(git merge-base $(git default-branch)) HEAD); }; f"
@@ -597,11 +597,11 @@
 
   # List all blobs by size in bytes.
   # By [CodeGnome](http://www.codegnome.com/)
-  rev-list-all-objects-by-size = !"git rev-list --all --objects  | awk '{print $1}'| git cat-file --batch-check | fgrep blob | sort -k3nr"
+  rev-list-all-objects-by-size = "!git rev-list --all --objects  | awk '{print $1}'| git cat-file --batch-check | fgrep blob | sort -k3nr"
 
   # List all objects by size in bytes and file name.
   # By [raphinesse](https://stackoverflow.com/users/380229/raphinesse)
-  rev-list-all-objects-by-size-and-name = !"git rev-list --all --objects | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2"
+  rev-list-all-objects-by-size-and-name = "!git rev-list --all --objects | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | awk '/^blob/ {print substr($0,6)}' | sort --numeric-sort --key=2"
 
   ### log-* aliases ###
 
@@ -633,7 +633,7 @@
   log-graph = log --graph --all --oneline --decorate
 
   # Show the date of the first (a.k.a. earliest) commit, in strict ISO 8601 format
-  log-date-first = !"git log --date-order --format=%cI | tail -1"
+  log-date-first = "!git log --date-order --format=%cI | tail -1"
 
   # Show the date of the last (a.k.a. latest) commit, in strict ISO 8601 format
   log-date-last = log -1 --date-order --format=%cI
@@ -653,8 +653,8 @@
   log-my-year  = !git log --author $(git config user.email) --since=1-year-ago
 
   # Show a specific format string and its number of log entries
-  log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
-  log-of-count-and-format = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format="$format" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
+  log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
+  log-of-count-and-format = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
 
   # Show the number of log entries by a specific format string and date format string
   log-of-format-and-count-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort -r; }; f"
@@ -826,7 +826,7 @@
   #    13 Bob Brown
   #    7 Carol Clark
   #
-  churn = !"f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
+  churn = "!f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn;};f"
 
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
@@ -899,10 +899,10 @@
   #     git branch-commit-first foo 3
   #
   branch-commit-first = "!f() { \
-      branch="${1:-$(git current-branch)}"; \
-      count="${2:-1}"; \
-    git log --reverse --pretty=%H "$branch" | \
-    head -"$count"; \
+      branch=\"${1:-$(git current-branch)}\"; \
+      count=\"${2:-1}\"; \
+    git log --reverse --pretty=%H \"$branch\" | \
+    head -\"$count\"; \
   }; f"
 
   # branch-commit-last
@@ -932,10 +932,10 @@
   #     git branch-commit-last foo 3
   #
   branch-commit-last = "!f() { \
-      branch="${1:-$(git current-branch)}"; \
-      count="${2:-1}"; \
-    git log --pretty=%H "$branch" | \
-    head -"$count"; \
+      branch=\"${1:-$(git current-branch)}\"; \
+      count=\"${2:-1}\"; \
+    git log --pretty=%H \"$branch\" | \
+    head -\"$count\"; \
   }; f"
 
   # branch-commit-prev
@@ -965,10 +965,10 @@
   #     git branch-commit-prev foo 3
   #
   branch-commit-prev = "!f() { \
-      branch="${1:-$(git current-branch)}"; \
-      count="${2:-1}"; \
-    git log --pretty=%H "$branch" | \
-    grep -A "$count" $(git rev-parse HEAD) | \
+      branch=\"${1:-$(git current-branch)}\"; \
+      count=\"${2:-1}\"; \
+    git log --pretty=%H \"$branch\" | \
+    grep -A \"$count\" $(git rev-parse HEAD) | \
     tail +2; \
   }; f"
 
@@ -999,10 +999,10 @@
   #     git branch-commit-next foo 3
   #
   branch-commit-next = "!f() { \
-      branch="${1:-$(git current-branch)}"; \
-      count="${2:-1}"; \
-    git log --reverse --pretty=%H "$branch" | \
-    grep -A "$count" $(git rev-parse HEAD) | \
+      branch=\"${1:-$(git current-branch)}\"; \
+      count=\"${2:-1}\"; \
+    git log --reverse --pretty=%H \"$branch\" | \
+    grep -A \"$count\" $(git rev-parse HEAD) | \
     tail +2; \
   }; f"
 
@@ -1033,13 +1033,13 @@
   # But will work with any valid commit range:
   #  $ git issues main..HEAD
 
-  issues = !sh -c \"git log $1 --oneline | grep -o \\\"ISSUE-[0-9]\\+\\\" | sort -u\"
+  issues = "!sh -c \"git log $1 --oneline | grep -o \\\"ISSUE-[0-9]\\+\\\" | sort -u\""
 
   # Show the commit's parents
-  commit-parents = !"f(){ git cat-file -p \"${*:-HEAD}\" | sed -n '/0/,/^ *$/{/^parent /p}'; };f"
+  commit-parents = "!f(){ git cat-file -p \"${*:-HEAD}\" | sed -n '/0/,/^ *$/{/^parent /p}'; };f"
 
   # Is the commit a merge commit? If yes exit 0, else exit 1
-  commit-is-merge = !"f(){ [ -n \"$(git commit-parents \"$*\" | sed '0,/^parent /d')\" ];};f"
+  commit-is-merge = "!f(){ [ -n \"$(git commit-parents \"$*\" | sed '0,/^parent /d')\" ];};f"
 
   # Show the commit's keyword-marked lines.
   #
@@ -1140,13 +1140,13 @@
   #
   # And seemingly no changes to your working tree.
   #
-  snapshot = !git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\" --index
+  snapshot = "!git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\" --index"
 
   # When you're a little worried that the world is coming to an end
   panic = !tar cvf ../panic.tar *
 
   # Create an archive file of everything in the repo
-  archive = !"f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $top ; }; f"
+  archive = "!f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $top ; }; f"
 
   # Push with a force and lease, which means that you're pushing in order
   # to forcefully overwrite the remote, and you want a safety check first:
@@ -1189,7 +1189,7 @@
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
   # better code that works using more-specific git commands.
-  track-all-remote-branches = !"f() { git branch -r | grep -v ' -> ' | sed 's/^ \\+origin\\///' ; }; f"
+  track-all-remote-branches = "!f() { git branch -r | grep -v ' -> ' | sed 's/^ \\+origin\\///' ; }; f"
 
   ### reset-* & undo-* ###
 
@@ -1231,33 +1231,33 @@
   # such as accidentally committing a file of sensitive data, such as passwords.
   # After you use command, you will likely need to force push everything.
   # See <https://help.github.com/articles/removing-sensitive-data-from-a-repository/>
-  expunge = !"f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
+  expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
 
   # Show logs of unreachable commits.
   # This can be useful, for example, when recovering contents of dropped stashes or reset commits.
-  show-unreachable = !"git fsck --unreachable | grep commit | cut -d\" \" -f3 | xargs git log"
+  show-unreachable = "!git fsck --unreachable | grep commit | cut -d\" \" -f3 | xargs git log"
 
   ### add-* & edit-* - Handle files by kind ###
 
   # Add all files of the given type
-  add-cached   = !"f() { git ls-files --cached             | sort -u ; }; git add `f`"
-  add-deleted  = !"f() { git ls-files --deleted            | sort -u ; }; git add `f`"
-  add-others   = !"f() { git ls-files --others             | sort -u ; }; git add `f`"
-  add-ignored  = !"f() { git ls-files --ignored            | sort -u ; }; git add `f`"
-  add-killed   = !"f() { git ls-files --killed             | sort -u ; }; git add `f`"
-  add-modified = !"f() { git ls-files --modified           | sort -u ; }; git add `f`"
-  add-stage    = !"f() { git ls-files --stage    | cut -f2 | sort -u ; }; git add `f`"
-  add-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  add-cached   = "!git add $(git ls-files --cached             | sort -u)"
+  add-deleted  = "!git add $(git ls-files --deleted            | sort -u)"
+  add-others   = "!git add $(git ls-files --others             | sort -u)"
+  add-ignored  = "!git add $(git ls-files --ignored            | sort -u)"
+  add-killed   = "!git add $(git ls-files --killed             | sort -u)"
+  add-modified = "!git add $(git ls-files --modified           | sort -u)"
+  add-stage    = "!git add $(git ls-files --stage    | cut -f2 | sort -u)"
+  add-unmerged = "!git add $(git ls-files --unmerged | cut -f2 | sort -u)"
 
   # Edit all files of the given type
-  edit-cached   = !"f() { git ls-files --cached             | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-deleted  = !"f() { git ls-files --deleted            | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-others   = !"f() { git ls-files --others             | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-ignored  = !"f() { git ls-files --ignored            | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-killed   = !"f() { git ls-files --killed             | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-modified = !"f() { git ls-files --modified           | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-stage    = !"f() { git ls-files --stage    | cut -f2 | sort -u ; }; `git var GIT_EDITOR` `f`"
-  edit-unmerged = !"f() { git ls-files --unmerged | cut -f2 | sort -u ; }; `git var GIT_EDITOR` `f`"
+  edit-cached   = "!$(git var GIT_EDITOR) $(git ls-files --cached             | sort -u)"
+  edit-deleted  = "!$(git var GIT_EDITOR) $(git ls-files --deleted            | sort -u)"
+  edit-others   = "!$(git var GIT_EDITOR) $(git ls-files --others             | sort -u)"
+  edit-ignored  = "!$(git var GIT_EDITOR) $(git ls-files --ignored            | sort -u)"
+  edit-killed   = "!$(git var GIT_EDITOR) $(git ls-files --killed             | sort -u)"
+  edit-modified = "!$(git var GIT_EDITOR) $(git ls-files --modified           | sort -u)"
+  edit-stage    = "!$(git var GIT_EDITOR) $(git ls-files --stage    | cut -f2 | sort -u)"
+  edit-unmerged = "!$(git var GIT_EDITOR) $(git ls-files --unmerged | cut -f2 | sort -u)"
 
   # Ours & Theirs - Easy merging when you know which files you want
   #
@@ -1275,10 +1275,10 @@
   #
 
   # Checkout our version of a file and add it.
-  ours   = !"f() { git checkout --ours   $@ && git add $@; }; f"
+  ours   = "!f() { git checkout --ours   $@ && git add $@; }; f"
 
   # Checkout their version of a file and add it.
-  theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
   # Work In Progress - Easy tracking of what you're doing
   #
@@ -1290,10 +1290,10 @@
   # due to an "unclean" working directory (not in sync with the index).
 
   # Add files using the message "wip"
-  wip = !"git add --all; git ls-files --deleted -z | xargs -r -0 git rm; git commit --message=wip"
+  wip = "!git add --all; git ls-files --deleted -z | xargs -r -0 git rm; git commit --message=wip"
 
   # Restore the deleted files to the working tree.
-  unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
+  unwip = "!git log -n 1 | grep -q -c wip && git reset HEAD~1"
 
   # Assume & Unassume
   #
@@ -1331,7 +1331,7 @@
   unassume = update-index --no-assume-unchanged
   assume-all = "!git st -s | awk {'print $2'} | xargs -r git assume"
   unassume-all = "!git assumed | xargs -r git update-index --no-assume-unchanged"
-  assumed  = !"git ls-files -v | grep ^h | cut -c 3-"
+  assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
 
   ### hew-* ###
 
@@ -1342,26 +1342,26 @@
   hew-dry-run = !git hew-local-dry-run "$@" && git hew-remote-dry-run "$@";
 
   # Delete all local branches that have been merged into a commit
-  hew-local = !"f() { \
+  hew-local = "!f() { \
       git hew-local-dry-run \"$@\" | \
       xargs git branch --delete ; \
   }; f \"$@\""
 
   # Delete all local branches that have been merged into a commit  (dry run)
-  hew-local-dry-run = !"f() { \
+  hew-local-dry-run = "!f() { \
       commit=${1:-$(git current-branch)}; \
       git branch --merged \"$commit\" | \
       grep -v \"^[[:space:]]*\\*[[:space:]]*$commit$\" ; \
   }; f \"$@\""
 
   # Delete all remote branches that have been merged into a commit
-  hew-remote = !"f() { \
+  hew-remote = "!f() { \
       git hew-remote-dry-run \"$@\" | \
       xargs -I% git push origin :% 2>&1 ; \
   }; f \"$@\""
 
   # Delete all remote branches that have been merged into a commit (dry run)
-  hew-remote-dry-run = !"f() { \
+  hew-remote-dry-run = "!f() { \
       commit=${1:-$(git upstream-branch)}; \
       git branch --remotes --merged \"$commit\" | \
       grep -v \"^[[:space:]]*origin/$commit$\" | \
@@ -1372,11 +1372,11 @@
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
-  publish = !"git push --set-upstream origin $(git current-branch)"
+  publish = "!git push --set-upstream origin $(git current-branch)"
 
   # Unpublish the current branch by deleting the
   # remote version of the current branch.
-  unpublish = !"git push origin :$(git current-branch)"
+  unpublish = "!git push origin :$(git current-branch)"
 
   ### inbound & outbound ###
 
@@ -1392,7 +1392,7 @@
   #
   # Calls the `publish` and `unpublish` aliases.
   #
-  reincarnate = !"f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+  reincarnate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
 
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
@@ -1432,7 +1432,7 @@
   #
   # By [CodeGnome](http://www.codegnome.com/)
   #
-  pruner = !"git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all"
+  pruner = "!git prune --expire=now; git reflog expire --expire-unreachable=now --rewrite --all"
 
   # repacker: repack a repo the way Linus recommends.
   #
@@ -1493,7 +1493,7 @@
   #
   # Posted by Mikko Rantalainen on StackOverflow.
   #
-  search-commits = !"f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
+  search-commits = "!f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
 
   # A 'debug' alias to help debugging builtins: when debugging builtins,
   # we use gdb to analyze the runtime state. However, we have to disable
@@ -1534,12 +1534,12 @@
   remotes-prune = !git remote | xargs -n 1 git remote prune
 
   # Thanks to cody cutrer
-  cherry-pick-merge = !"sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
+  cherry-pick-merge = "!sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
     git log -1 --pretty=%P $0 | cut -b 42- > .git/MERGE_HEAD && \
     git commit --verbose'"
 
   # Thanks to jtolds on stackoverflow
-  remote-ref = !"sh -c ' \
+  remote-ref = "!sh -c ' \
     local_ref=$(git symbolic-ref HEAD); \
     local_name=${local_ref##refs/heads/}; \
     remote=$(git config branch.\"#local_name\".remote || echo origin); \
@@ -1554,7 +1554,7 @@
   # This produces output that can be displayed using dotty, for example:
   #   $ git graphviz HEAD~100..HEAD~60 | dotty /dev/stdin
   #   $ git graphviz --first-parent main | dotty /dev/stdin
-  graphviz = !"f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 
   # Serve the local directory by starting a git server daemon, so others can pull/push from my machine
   serve = "-c daemon.receivepack=true daemon --base-path=. --export-all --reuseaddr --verbose"
