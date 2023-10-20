@@ -1,7 +1,7 @@
 
 # git wtu
 
-## worktree unlock i.e. unlock a worktree, allowint it to be pruned, moved, or deleted
+## worktree unlock i.e. unlock a worktree, allowing it to be pruned, moved, or deleted
 
 Git alias:
 
