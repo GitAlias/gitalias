@@ -1,7 +1,7 @@
 
 # git wtl
 
-## worktree lock i.e. Lock a worktree to prevent its admin files from being pruned automatically
+## worktree lock i.e. lock a worktree to prevent its admin files from being pruned automatically
 
 Git alias:
 
