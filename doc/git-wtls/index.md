@@ -1,7 +1,7 @@
 
 # git wtls
 
-## worktree list i.e. List details of each wotktree
+## worktree list i.e. list details of each worktree
 
 Git alias:
 
