@@ -1,7 +1,7 @@
 
 # git wtp
 
-## worktree prune i.e. prune worktree information in ${GIT_DIR}/worktrees
+## worktree prune i.e. prune worktree information in `${GIT_DIR}/worktrees`
 
 Git alias:
 
