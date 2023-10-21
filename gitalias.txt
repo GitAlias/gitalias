@@ -484,7 +484,7 @@
   wtr = worktree repair
 
   # worktree unlock
-  wtu
+  wtu = worktree unlock
 
   ### status aliases ###
 
