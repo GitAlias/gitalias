@@ -1,0 +1,1 @@
+-c color.grep.linenumber="bold yellow"     -c color.grep.filename="bold green"     -c color.grep.match="reverse yellow"     grep --break --heading --line-number
