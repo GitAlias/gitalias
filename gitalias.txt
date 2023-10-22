@@ -401,7 +401,7 @@
 
   # See <https://blog.filippo.io/git-fixup-amending-an-older-commit/>
   # This is a slightly modified version
-  fixup = "!f() { TARGET=$(git rev-parse \"$1\"); git commit --fixup=$TARGET && GIT_EDITOR=true git rebase --interactive --autosquash $TARGET~; }; f"
+  fixup = "!f() { TARGET=\"$(git rev-parse \"$1\")\"; git commit --fixup=\"$TARGET\" && GIT_EDITOR=true git rebase --interactive --autosquash \"$TARGET\"~; }; f"
 
   ### reflog aliases ###
 
@@ -488,11 +488,11 @@
         echo \"Error: this command needs 3 arguments.\"; \
         return 2; \
       fi; \
-      if [ ! -z \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
+      if [ -n \"$(git config \"$1\" --get alias.\"$2\")\" ]; then \
           echo \"Alias '$2' already exists, thus no change happened.\"; \
           return 3; \
       fi; \
-      git config $1 alias.\"$2\" \"$3\" && \
+      git config \"$1\" alias.\"$2\" \"$3\" && \
       return 0; \
       echo \"Usage: git add-alias ( --local | --global ) <alias> <command>\"; \
       echo \"Error: unknown failure.\"; \
@@ -506,7 +506,7 @@
           echo \"Error: this command needs 3 arguments.\"; \
           return 2; \
       fi; \
-      if [ $2 == $3 ]; then \
+      if [ \"$2\" = \"$3\" ]; then \
           echo \"The alias names are identical, thus no change happened.\"; \
           return 3; \
       fi; \
@@ -514,11 +514,11 @@
           echo \"Alias '$2' does not exist, thus no change happened.\"; \
           return 4; \
       fi; \
-      if [ ! -z \"$(git config $1 --get alias.$3)\" ]; then \
+      if [ -n \"$(git config \"$1\" --get alias.\"$3\")\" ]; then \
           echo \"Alias '$3' already exists, thus no change happened.\"; \
           return 5; \
       fi; \
-      git config \"$1\" alias.\"$3\" \"$(git config $1 --get alias.$2)\" && \
+      git config \"$1\" alias.\"$3\" \"$(git config \"$1\" --get alias.\"$2\")\" && \
       git config \"$1\" --unset alias.\"$2\" && \
       return 0; \
       echo \"Usage: git move-alias ( --local | --global ) <alias existing name> <alias new name>\"; \
@@ -530,14 +530,14 @@
   last-tag = describe --tags --abbrev=0
 
   # Last annotated tag in all branches
-  last-tagged = "!git describe --tags $(git rev-list --tags --max-count=1)"
+  last-tagged = "!git describe --tags \"$(git rev-list --tags --max-count=1)\""
 
   # From <https://gist.github.com/492227>
   heads = "!git log origin/main.. --format='%Cred%h%Creset;%C(yellow)%an%Creset;%H;%Cblue%f%Creset' | git name-rev --stdin --always --name-only | column -t -s';'"
 
   ### diff-* aliases ###
 
-  diff-all = "!for name in $(git diff --name-only $1); do git difftool $1 $name & done"
+  diff-all = "!for name in $(git diff --name-only \"$1\"); do git difftool \"$1\" \"$name\" & done"
   diff-changes = diff --name-status -r
   diff-stat = diff --stat --ignore-space-change -r
   diff-staged = diff --cached
@@ -571,20 +571,20 @@
 
   # Given a merge commit, find the span of commits that exist(ed).
   # Not so useful in itself, but used by other aliases.
-  # Thanks to Rob Miller for the merge-span-* aliaes.
-  merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+  # Thanks to Rob Miller for the merge-span-* aliases.
+  merge-span = "!f() { echo \"$(git log -1 \"$2\" --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 \"$2\" --merges --pretty=format:%P | cut -d' ' -f2)\"; }; f"
 
   # Find the commits that were introduced by a merge
-  merge-span-log = "!git log $(git merge-span .. $1)"
+  merge-span-log = "!git log \"$(git merge-span .. \"$1\")\""
 
   # Show the changes that were introduced by a merge
-  merge-span-diff = "!git diff $(git merge-span ... $1)"
+  merge-span-diff = "!git diff \"$(git merge-span ... \"$1\")\""
 
   # Show the changes that were introduced by a merge, in your difftool
-  merge-span-difftool = "!git difftool $(git merge-span ... $1)"
+  merge-span-difftool = "!git difftool \"$(git merge-span ... \"$1\")\""
 
   # Interactively rebase all the commits on the current branch
-  rebase-branch = "!f() { git rebase --interactive $(git merge-base $(git default-branch)) HEAD); }; f"
+  rebase-branch = "!f() { git rebase --interactive \"$(git merge-base \"$(git default-branch)\") HEAD)\"; }; f"
 
   # Find all objects that aren't referenced by any other object (orphans).
   # To help an orphan, we create a new branch with the orphan's commit hash,
@@ -597,7 +597,7 @@
 
   # List all blobs by size in bytes.
   # By [CodeGnome](http://www.codegnome.com/)
-  rev-list-all-objects-by-size = "!git rev-list --all --objects  | awk '{print $1}'| git cat-file --batch-check | fgrep blob | sort -k3nr"
+  rev-list-all-objects-by-size = "!git rev-list --all --objects  | awk '{print $1}'| git cat-file --batch-check | grep -F blob | sort -k3nr"
 
   # List all objects by size in bytes and file name.
   # By [raphinesse](https://stackoverflow.com/users/380229/raphinesse)
@@ -627,7 +627,7 @@
   log-list-long = log --graph --topo-order --date=iso8601-strict --no-abbrev-commit --decorate --all --boundary --pretty=format:'%Cblue%ad %C(auto)%h%Creset -%C(auto)%d%Creset %s %Cblue[%aN <%aE>]%Creset %Cblue%G?%Creset'
 
   # Show log for my own commits by my own user email
-  log-my = !git log --author $(git config user.email)
+  log-my = "!git log --author \"$(git config user.email)\""
 
   # Show log as a graph
   log-graph = log --graph --all --oneline --decorate
@@ -646,55 +646,55 @@
   log-1-year  = log --since=1-year-ago
 
   # Show log with my own recent hour, day, week, month, year
-  log-my-hour  = !git log --author $(git config user.email) --since=1-hour-ago
-  log-my-day   = !git log --author $(git config user.email) --since=1-day-ago
-  log-my-week  = !git log --author $(git config user.email) --since=1-week-ago
-  log-my-month = !git log --author $(git config user.email) --since=1-month-ago
-  log-my-year  = !git log --author $(git config user.email) --since=1-year-ago
+  log-my-hour  = "!git log --author \"$(git config user.email)\" --since=1-hour-ago"
+  log-my-day   = "!git log --author \"$(git config user.email)\" --since=1-day-ago"
+  log-my-week  = "!git log --author \"$(git config user.email)\" --since=1-week-ago"
+  log-my-month = "!git log --author \"$(git config user.email)\" --since=1-month-ago"
+  log-my-year  = "!git log --author \"$(git config user.email)\" --since=1-year-ago"
 
   # Show a specific format string and its number of log entries
-  log-of-format-and-count = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
-  log-of-count-and-format = "!f() { format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
+  log-of-format-and-count = "!f() { format=\"$1\"; shift; git log \"$@\" --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort; }; f"
+  log-of-count-and-format = "!f() { format=\"$1\"; shift; git log \"$@\" --format=oneline --format=\"$format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
 
   # Show the number of log entries by a specific format string and date format string
-  log-of-format-and-count-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort -r; }; f"
-  log-of-count-and-format-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log $@ --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
+  log-of-format-and-count-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log \"$@\" --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) \"%\"}}' | sort -r; }; f"
+  log-of-count-and-format-with-date = "!f() { format=\"$1\"; shift; date_format=\"$1\"; shift; git log \"$@\" --format=oneline --format=\"$format\" --date=format:\"$date_format\" | awk '{a[$0]++}END{for(i in a){print a[i], int((a[i]/NR)*100) \"%\", i}}' | sort -nr; }; f"
 
   # Show the number of log items by email
-  log-of-email-and-count         = "!f() { git log-of-format-and-count \"%aE\" $@; }; f"
-  log-of-count-and-email         = "!f() { git log-of-count-and-format \"%aE\" $@; }; f"
+  log-of-email-and-count         = "!f() { git log-of-format-and-count \"%aE\" \"$@\"; }; f"
+  log-of-count-and-email         = "!f() { git log-of-count-and-format \"%aE\" \"$@\"; }; f"
 
   # Show the number of log items by hour
-  log-of-hour-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m-%dT%H\" $@ ; }; f"
-  log-of-count-and-hour          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m-%dT%H\" $@ ; }; f"
+  log-of-hour-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m-%dT%H\" \"$@\" ; }; f"
+  log-of-count-and-hour          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m-%dT%H\" \"$@\" ; }; f"
 
   # Show the number of log items by day
-  log-of-day-and-count           = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m-%d\" $@ ; }; f"
-  log-of-count-and-day           = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m-%d\" $@ ; }; f"
+  log-of-day-and-count           = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m-%d\" \"$@\" ; }; f"
+  log-of-count-and-day           = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m-%d\" \"$@\" ; }; f"
 
   # Show the number of log items by week
-  log-of-week-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y#%V\" $@; }; f"
-  log-of-count-and-week          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y#%V\" $@; }; f"
+  log-of-week-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y#%V\" \"$@\"; }; f"
+  log-of-count-and-week          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y#%V\" \"$@\"; }; f"
 
   # Show the number of log items by month
-  log-of-month-and-count         = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m\" $@ ; }; f"
-  log-of-count-and-month         = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m\" $@ ; }; f"
+  log-of-month-and-count         = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y-%m\" \"$@\" ; }; f"
+  log-of-count-and-month         = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y-%m\" \"$@\" ; }; f"
 
   # Show the number of log items by year
-  log-of-year-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y\" $@ ; }; f"
-  log-of-count-and-year          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y\" $@ ; }; f"
+  log-of-year-and-count          = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%Y\" \"$@\" ; }; f"
+  log-of-count-and-year          = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%Y\" \"$@\" ; }; f"
 
   # Show the number of log items by hour of day
-  log-of-hour-of-day-and-count   = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%H\" $@; }; f"
-  log-of-count-and-hour-of-day   = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%H\" $@; }; f"
+  log-of-hour-of-day-and-count   = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%H\" \"$@\"; }; f"
+  log-of-count-and-hour-of-day   = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%H\" \"$@\"; }; f"
 
   # Show the number of log items by day of week
-  log-of-day-of-week-and-count   = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%u\" $@; }; f"
-  log-of-count-and-day-of-week   = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%u\" $@; }; f"
+  log-of-day-of-week-and-count   = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%u\" \"$@\"; }; f"
+  log-of-count-and-day-of-week   = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%u\" \"$@\"; }; f"
 
   # Show the number of log items by week of year
-  log-of-week-of-year-and-count  = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%V\" $@; }; f"
-  log-of-count-and-week-of-year  = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%V\" $@; }; f"
+  log-of-week-of-year-and-count  = "!f() { git log-of-format-and-count-with-date \"%ad\" \"%V\" \"$@\"; }; f"
+  log-of-count-and-week-of-year  = "!f() { git log-of-count-and-format-with-date \"%ad\" \"%V\" \"$@\"; }; f"
 
   # TODO
   log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
@@ -747,7 +747,7 @@
     --format=oneline \
     --format=\"%aE %at\" \
     --since=6-weeks-ago \
-    $* | \
+    \"$*\" | \
     awk ' \
     function time_to_slot(t) { return strftime(\"%Y-%m-%d\", t, true) } \
     function count_to_char(i) { return (i > 0) ? ((i < 10) ? i : \"X\") : \".\" } \
@@ -831,22 +831,22 @@
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
     printf \"Summary of this branch...\n\"; \
-    printf \"%s\n\" $(git rev-parse --abbrev-ref HEAD); \
-    printf \"%s first commit timestamp\n\" $(git log --date-order --format=%cI | tail -1); \
-    printf \"%s last commit timestamp\n\" $(git log -1 --date-order --format=%cI); \
+    printf \"%s\n\" \"$(git rev-parse --abbrev-ref HEAD)\"; \
+    printf \"%s first commit timestamp\n\" \"$(git log --date-order --format=%cI | tail -1)\"; \
+    printf \"%s last commit timestamp\n\" \"$(git log -1 --date-order --format=%cI)\"; \
     printf \"\nSummary of counts...\n\"; \
-    printf \"%d commit count\n\" $(git rev-list --count HEAD); \
-    printf \"%d date count\n\" $(git log --format=oneline --format=\"%ad\" --date=format:\"%Y-%m-%d\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}'); \
-    printf \"%d tag count\n\" $(git tag | wc -l); \
-    printf \"%d author count\n\" $(git log --format=oneline --format=\"%aE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}'); \
-    printf \"%d committer count\n\" $(git log --format=oneline --format=\"%cE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}'); \
-    printf \"%d local branch count\n\" $(git branch | grep -v \" -> \" | wc -l); \
-    printf \"%d remote branch count\n\" $(git branch -r | grep -v \" -> \" | wc -l); \
+    printf \"%d commit count\n\" \"$(git rev-list --count HEAD)\"; \
+    printf \"%d date count\n\" \"$(git log --format=oneline --format=\"%ad\" --date=format:\"%Y-%m-%d\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}')\"; \
+    printf \"%d tag count\n\" \"$(git tag | wc -l)\"; \
+    printf \"%d author count\n\" \"$(git log --format=oneline --format=\"%aE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}')\"; \
+    printf \"%d committer count\n\" \"$(git log --format=oneline --format=\"%cE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}')\"; \
+    printf \"%d local branch count\n\" \"$(git branch | grep -vc \" -> \")\"; \
+    printf \"%d remote branch count\n\" \"$(git branch -r | grep -vc \" -> \")\"; \
     printf \"\nSummary of this directory...\n\"; \
-    printf \"%s\n\" $(pwd); \
-    printf \"%d file count via git ls-files\n\" $(git ls-files | wc -l); \
-    printf \"%d file count via find command\n\" $(find . | wc -l); \
-    printf \"%d disk usage\n\" $(du -s | awk '{print $1}'); \
+    printf \"%s\n\" \"$(pwd)\"; \
+    printf \"%d file count via git ls-files\n\" \"$(git ls-files | wc -l)\"; \
+    printf \"%d file count via find command\n\" \"$(find . | wc -l)\"; \
+    printf \"%d disk usage\n\" \"$(du -s | awk '{print $1}')\"; \
     printf \"\nMost-active authors, with commit count and %%...\n\"; git log-of-count-and-email | head -7; \
     printf \"\nMost-active dates, with commit count and %%...\n\"; git log-of-count-and-day | head -7; \
     printf \"\nMost-active files, with churn count\n\"; git churn | head -7; \
@@ -968,7 +968,7 @@
       branch=\"${1:-$(git current-branch)}\"; \
       count=\"${2:-1}\"; \
     git log --pretty=%H \"$branch\" | \
-    grep -A \"$count\" $(git rev-parse HEAD) | \
+    grep -A \"$count\" \"$(git rev-parse HEAD)\" | \
     tail +2; \
   }; f"
 
@@ -1002,7 +1002,7 @@
       branch=\"${1:-$(git current-branch)}\"; \
       count=\"${2:-1}\"; \
     git log --reverse --pretty=%H \"$branch\" | \
-    grep -A \"$count\" $(git rev-parse HEAD) | \
+    grep -A \"$count\" \"$(git rev-parse HEAD)\" | \
     tail +2; \
   }; f"
 
@@ -1143,10 +1143,10 @@
   snapshot = "!git stash push --include-untracked --message \"snapshot: $(date)\" && git stash apply \"stash@{0}\" --index"
 
   # When you're a little worried that the world is coming to an end
-  panic = !tar cvf ../panic.tar *
+  panic = "!tar cvf ../panic.tar -- *"
 
   # Create an archive file of everything in the repo
-  archive = "!f() { top=$(rev-parse --show-toplevel); cd $top; tar cvf $top.tar $top ; }; f"
+  archive = "!f() { top=\"$(rev-parse --show-toplevel)\"; cd \"$top\" || exit 1 ; tar cvf \"$top.tar\" \"$top\" ; }; f"
 
   # Push with a force and lease, which means that you're pushing in order
   # to forcefully overwrite the remote, and you want a safety check first:
@@ -1173,18 +1173,18 @@
   #
   # TODO: handle tags, and delete superfluous branches, and add error handling.
   #
-  mainly = !git checkout $(git default-branch) && git fetch origin --prune && git reset --hard origin/$(git default-branch)
+  mainly = "!git checkout \"$(git default-branch)\" && git fetch origin --prune && git reset --hard \"origin/$(git default-branch)\""
 
   # Ignore all untracked files by appending them to .gitignore:
   ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
 
   # Do a push/pull for just one branch
-  push1 = "!git push origin $(git current-branch)"
-  pull1 = "!git pull origin $(git current-branch)"
+  push1 = "!git push origin \"$(git current-branch)\""
+  pull1 = "!git pull origin \"$(git current-branch)\""
 
   # Track and untrack, with default parameters, and with printing the command
-  track = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo $cmd; $cmd; }; f"
-  untrack = "!f(){ branch=$(git rev-parse --abbrev-ref HEAD); cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo $cmd; $cmd; }; f"
+  track = "!f(){ branch=\"$(git rev-parse --abbrev-ref HEAD)\"; cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
+  untrack = "!f(){ branch=\"$(git rev-parse --abbrev-ref HEAD)\"; cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
 
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
@@ -1202,14 +1202,14 @@
   reset-commit-hard  = reset --hard HEAD~1
   reset-commit-hard-clean = !git reset --hard HEAD~1 && git clean -fd
   reset-to-pristine  = !git reset --hard && git clean -ffdx
-  reset-to-upstream  = !git reset --hard $(git upstream-branch)
+  reset-to-upstream  = "!git reset --hard \"$(git upstream-branch)\""
 
   # Undo commits.
   undo-commit        = reset --soft HEAD~1
   undo-commit-hard   = reset --hard HEAD~1
   undo-commit-hard-clean  = !git reset --hard HEAD~1 && git clean -fd
   undo-to-pristine   = !git reset --hard && git clean -ffdx
-  undo-to-upstream   = !git reset --hard $(git upstream-branch)
+  undo-to-upstream   = "!git reset --hard \"$(git upstream-branch)\""
 
   # Nicknames
   uncommit = reset --soft HEAD~1
@@ -1231,7 +1231,7 @@
   # such as accidentally committing a file of sensitive data, such as passwords.
   # After you use command, you will likely need to force push everything.
   # See <https://help.github.com/articles/removing-sensitive-data-from-a-repository/>
-  expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
+  expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter \"cat\" -- --all ; }; f"
 
   # Show logs of unreachable commits.
   # This can be useful, for example, when recovering contents of dropped stashes or reset commits.
@@ -1240,24 +1240,24 @@
   ### add-* & edit-* - Handle files by kind ###
 
   # Add all files of the given type
-  add-cached   = "!git add $(git ls-files --cached             | sort -u)"
-  add-deleted  = "!git add $(git ls-files --deleted            | sort -u)"
-  add-others   = "!git add $(git ls-files --others             | sort -u)"
-  add-ignored  = "!git add $(git ls-files --ignored            | sort -u)"
-  add-killed   = "!git add $(git ls-files --killed             | sort -u)"
-  add-modified = "!git add $(git ls-files --modified           | sort -u)"
-  add-stage    = "!git add $(git ls-files --stage    | cut -f2 | sort -u)"
-  add-unmerged = "!git add $(git ls-files --unmerged | cut -f2 | sort -u)"
+  add-cached   = "!git add \"$(git ls-files --cached             | sort -u)\""
+  add-deleted  = "!git add \"$(git ls-files --deleted            | sort -u)\""
+  add-others   = "!git add \"$(git ls-files --others             | sort -u)\""
+  add-ignored  = "!git add \"$(git ls-files --ignored            | sort -u)\""
+  add-killed   = "!git add \"$(git ls-files --killed             | sort -u)\""
+  add-modified = "!git add \"$(git ls-files --modified           | sort -u)\""
+  add-stage    = "!git add \"$(git ls-files --stage    | cut -f2 | sort -u)\""
+  add-unmerged = "!git add \"$(git ls-files --unmerged | cut -f2 | sort -u)\""
 
   # Edit all files of the given type
-  edit-cached   = "!$(git var GIT_EDITOR) $(git ls-files --cached             | sort -u)"
-  edit-deleted  = "!$(git var GIT_EDITOR) $(git ls-files --deleted            | sort -u)"
-  edit-others   = "!$(git var GIT_EDITOR) $(git ls-files --others             | sort -u)"
-  edit-ignored  = "!$(git var GIT_EDITOR) $(git ls-files --ignored            | sort -u)"
-  edit-killed   = "!$(git var GIT_EDITOR) $(git ls-files --killed             | sort -u)"
-  edit-modified = "!$(git var GIT_EDITOR) $(git ls-files --modified           | sort -u)"
-  edit-stage    = "!$(git var GIT_EDITOR) $(git ls-files --stage    | cut -f2 | sort -u)"
-  edit-unmerged = "!$(git var GIT_EDITOR) $(git ls-files --unmerged | cut -f2 | sort -u)"
+  edit-cached   = "!$(git var GIT_EDITOR) \"$(git ls-files --cached             | sort -u)\""
+  edit-deleted  = "!$(git var GIT_EDITOR) \"$(git ls-files --deleted            | sort -u)\""
+  edit-others   = "!$(git var GIT_EDITOR) \"$(git ls-files --others             | sort -u)\""
+  edit-ignored  = "!$(git var GIT_EDITOR) \"$(git ls-files --ignored            | sort -u)\""
+  edit-killed   = "!$(git var GIT_EDITOR) \"$(git ls-files --killed             | sort -u)\""
+  edit-modified = "!$(git var GIT_EDITOR) \"$(git ls-files --modified           | sort -u)\""
+  edit-stage    = "!$(git var GIT_EDITOR) \"$(git ls-files --stage    | cut -f2 | sort -u)\""
+  edit-unmerged = "!$(git var GIT_EDITOR) \"$(git ls-files --unmerged | cut -f2 | sort -u)\""
 
   # Ours & Theirs - Easy merging when you know which files you want
   #
@@ -1275,10 +1275,10 @@
   #
 
   # Checkout our version of a file and add it.
-  ours   = "!f() { git checkout --ours   $@ && git add $@; }; f"
+  ours   = "!f() { git checkout --ours   \"$@\" && git add \"$@\"; }; f"
 
   # Checkout their version of a file and add it.
-  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs \"$@\" && git add \"$@\"; }; f"
 
   # Work In Progress - Easy tracking of what you're doing
   #
@@ -1329,17 +1329,17 @@
   #
   assume   = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
-  assume-all = "!git st -s | awk {'print $2'} | xargs -r git assume"
+  assume-all = "!git st -s | awk '{ print $2 }' | xargs -r git assume"
   unassume-all = "!git assumed | xargs -r git update-index --no-assume-unchanged"
   assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
 
   ### hew-* ###
 
   # Delete all branches that have been merged into a commit
-  hew = !git hew-local "$@" && git hew-remote "$@";
+  hew = "!git hew-local \"$@\" && git hew-remote \"$@\" #"
 
   # Delete all branches that have been merged into a commit (dry run)
-  hew-dry-run = !git hew-local-dry-run "$@" && git hew-remote-dry-run "$@";
+  hew-dry-run = "!git hew-local-dry-run \"$@\" && git hew-remote-dry-run \"$@\" #"
 
   # Delete all local branches that have been merged into a commit
   hew-local = "!f() { \
@@ -1372,11 +1372,11 @@
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
-  publish = "!git push --set-upstream origin $(git current-branch)"
+  publish = "!git push --set-upstream origin \"$(git current-branch)\""
 
   # Unpublish the current branch by deleting the
   # remote version of the current branch.
-  unpublish = "!git push origin :$(git current-branch)"
+  unpublish = "!git push origin :\"$(git current-branch)\""
 
   ### inbound & outbound ###
 
@@ -1392,7 +1392,7 @@
   #
   # Calls the `publish` and `unpublish` aliases.
   #
-  reincarnate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+  reincarnate = "!f() { [ $# -gt 0 ] && git checkout \"$1\" && git unpublish && git checkout main && git branch -D \"$1\" && git checkout -b \"$1\" && git publish; }; f"
 
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
@@ -1415,7 +1415,7 @@
   current-branch = rev-parse --abbrev-ref HEAD
 
   # Show the upstream branch name
-  upstream-branch = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+  upstream-branch = "!git for-each-ref --format='%(upstream:short)' \"$(git symbolic-ref -q HEAD)\""
 
   # Execute shell scripts. Git always runs scripts in the top directory.
   # For example "git exec pwd" will always show you the top directory.
@@ -1499,7 +1499,7 @@
   # we use gdb to analyze the runtime state. However, we have to disable
   # the pager, and often we have to call the program with arguments.
   # If the program to debug is a builtin, we use this alias.
-  debug = !GIT_PAGER= gdb --args git
+  debug = "!GIT_PAGER='' gdb --args git"
 
   # git diff-chunk - Get the diff of one chunk.
   #
@@ -1539,16 +1539,16 @@
     git commit --verbose'"
 
   # Thanks to jtolds on stackoverflow
-  remote-ref = "!sh -c ' \
-    local_ref=$(git symbolic-ref HEAD); \
-    local_name=${local_ref##refs/heads/}; \
-    remote=$(git config branch.\"#local_name\".remote || echo origin); \
-    remote_ref=$(git config branch.\"$local_name\".merge); \
-    remote_name=${remote_ref##refs/heads/}; \
-    echo remotes/$remote/$remote_name'"
+  remote-ref = "!\
+    local_ref=\"$(git symbolic-ref HEAD)\"; \
+    local_name=\"${local_ref##refs/heads/}\"; \
+    remote=\"$(git config branch.\"#local_name\".remote || echo origin)\"; \
+    remote_ref=\"$(git config branch.\"$local_name\".merge)\"; \
+    remote_name=\"${remote_ref##refs/heads/}\"; \
+    echo \"remotes/$remote/$remote_name\" #"
 
   # Thanks to jtolds on stackoverflow
-  rebase-recent = !git rebase --interactive $(git remote-ref)
+  rebase-recent = "!git rebase --interactive \"$(git remote-ref)\""
 
   # Use graphviz for display.
   # This produces output that can be displayed using dotty, for example:
@@ -1643,7 +1643,7 @@
 
   topic-begin = "!f(){ \
     new_branch=\"$1\"; \
-    old_branch=$(git topic-base-branch); \
+    old_branch=\"$(git topic-base-branch)\"; \
     git checkout \"$old_branch\"; \
     git pull --ff-only; \
     git checkout -b \"$new_branch\" \"$old_branch\"; \
@@ -1679,12 +1679,12 @@
   # To synchronize your branch list, use "git fetch --prune".
 
   topic-end = "!f(){ \
-    new_branch=$(git current-branch); \
-    old_branch=$(git topic-base-branch); \
+    new_branch=\"$(git current-branch)\"; \
+    old_branch=\"$(git topic-base-branch)\"; \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-end,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
-      printf \"you are on the base topic branch: $old_branch.\n\"; \
+      printf \"you are on the base topic branch: %s.\n\" \"$old_branch\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
       printf \"then retry the git topic-end command.\n\"; \
     else \
@@ -1713,12 +1713,12 @@
   # Customize this alias as you like for your own workflow.
 
   topic-sync = "!f(){ \
-    new_branch=$(git current-branch); \
-    old_branch=$(git topic-base-branch); \
+    new_branch=\"$(git current-branch)\"; \
+    old_branch=\"$(git topic-base-branch)\"; \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
       printf \"You are asking to do git topic-sync,\n\"; \
       printf \"but you are not on a new topic branch;\n\"; \
-      printf \"you are on the base topic branch: $old_branch.\n\"; \
+      printf \"you are on the base topic branch: %s.\n\" \"$old_branch\"; \
       printf \"Please checkout the topic branch that you want,\n\"; \
       printf \"then retry the git topic-sync command.\n\"; \
     else \
@@ -1742,7 +1742,7 @@
 
   topic-move = "!f(){ \
     new_branch=\"$1\"; \
-    old_branch=$(git current-branch); \
+    old_branch=\"$(git current-branch)\"; \
     git branch --move \"$old_branch\" \"$new_branch\"; \
     git push origin \":$old_branch\" \"$new_branch\"; \
   };f"
@@ -1768,7 +1768,7 @@
   gitk-conflict = !gitk --left-right HEAD...MERGE_HEAD
 
   # show full history in gitk (including "deleted" branches and stashes)
-  gitk-history-all = !gitk --all $( git fsck | awk '/dangling commit/ {print $3}' )
+  gitk-history-all = "!gitk --all \"$(git fsck | awk '/dangling commit/ {print $3}')\""
 
   ### Subversion ###
 
