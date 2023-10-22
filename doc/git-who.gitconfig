@@ -1,0 +1,2 @@
+[alias]
+	who = "shortlog --summary --numbered --no-merges"

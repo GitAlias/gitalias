@@ -1,0 +1,2 @@
+[alias]
+	ssb = "status --short --branch"

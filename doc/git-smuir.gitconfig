@@ -1,0 +1,2 @@
+[alias]
+	smuir = "submodule update --init --recursive"

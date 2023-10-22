@@ -1,0 +1,2 @@
+[alias]
+	top = "rev-parse --show-toplevel"

@@ -1,0 +1,2 @@
+[alias]
+	undo-commit-hard = "reset --hard HEAD~1"

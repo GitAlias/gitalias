@@ -1,0 +1,2 @@
+[alias]
+	log-refs = "log --all --graph --decorate --oneline --simplify-by-decoration --no-merges"

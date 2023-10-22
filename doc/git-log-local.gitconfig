@@ -1,0 +1,2 @@
+[alias]
+	log-local = "log --oneline origin..HEAD"

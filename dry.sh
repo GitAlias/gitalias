@@ -14,6 +14,7 @@ do
 		echo "${value:1}" > "doc/git-${key}/alias.sh"
 	else
 		echo "$value" > "doc/git-${key}/alias.txt"
+		echo -e "[alias]\n\t$key = \"$value\"" > "doc/git-${key}.gitconfig"
 	fi
 
 	if [[ "$(head -n 1 "doc/git-${key}/index.md")" != "# git ${key}" ]]

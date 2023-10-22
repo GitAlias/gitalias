@@ -1,0 +1,2 @@
+[alias]
+	svn-b = "svn branch"

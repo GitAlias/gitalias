@@ -1,0 +1,2 @@
+[alias]
+	lsd = "ls-files --debug"

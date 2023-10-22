@@ -1,0 +1,2 @@
+[alias]
+	lfp = "log --first-parent"

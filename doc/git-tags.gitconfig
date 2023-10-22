@@ -1,0 +1,2 @@
+[alias]
+	tags = "tag -n1 --list"

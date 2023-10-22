@@ -1,0 +1,2 @@
+[alias]
+	cane = "commit --amend --no-edit"

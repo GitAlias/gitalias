@@ -1,0 +1,2 @@
+[alias]
+	cm = "commit --message"

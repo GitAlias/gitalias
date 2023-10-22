@@ -1,0 +1,2 @@
+[alias]
+	prp = "pull --rebase=preserve"
