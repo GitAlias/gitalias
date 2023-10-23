@@ -179,6 +179,18 @@ git whatchanged:
 
   * [git w](git-w/) = whatchanged
 
+git worktree:
+
+  * [git wt](git-wt/) = worktree
+  * [git wta](git-wta/) = worktree add
+  * [git wtls](git-wtls/) = worktree list
+  * [git wtl](git-wtl/) = worktree lock
+  * [git wtm](git-wtm/) = worktree move
+  * [git wtp](git-wtp/) = worktree prune
+  * [git wtd](git-wtd/) = worktree remove
+  * [git wtr](git-wtr/) = worktree repair
+  * [git wtu](git-wtu/) = worktree unlock
+
 
 ## Friendly aliases
 
