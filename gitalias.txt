@@ -1146,7 +1146,7 @@
   panic = "!tar cvf ../panic.tar -- *"
 
   # Create an archive file of everything in the repo
-  archive = "!f() { top=\"$(rev-parse --show-toplevel)\"; cd \"$top\" || exit 1 ; tar cvf \"$top.tar\" \"$top\" ; }; f"
+  archive = "!f() { top=\"$(git rev-parse --show-toplevel)\"; cd \"$top\" || exit 1 ; tar cvf \"$top.tar\" \"$top\" ; }; f"
 
   # Push with a force and lease, which means that you're pushing in order
   # to forcefully overwrite the remote, and you want a safety check first:
