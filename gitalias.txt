@@ -1416,6 +1416,8 @@
 
   # Show the upstream branch name
   upstream-branch = "!git for-each-ref --format='%(upstream:short)' \"$(git symbolic-ref -q HEAD)\""
+  # Another, shorter and simpler, way
+  upb = rev-parse --abbrev-ref "@{upstream}"
 
   # Execute shell scripts. Git always runs scripts in the top directory.
   # For example "git exec pwd" will always show you the top directory.
