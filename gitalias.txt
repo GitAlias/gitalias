@@ -114,7 +114,7 @@
 
   # branch with show description; ideally git will add this feature in the future as `git --show-description`
   bsd = "!f(){ \
-    branch=\"${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}\";  \
+    branch=\"${1:-$(git current-branch)}\";  \
     git config \"branch.$branch.description\"; \
   };f"
 
@@ -831,7 +831,7 @@
   # summary: print a helpful summary of some typical metrics
   summary = "!f() { \
     printf \"Summary of this branch...\n\"; \
-    printf \"%s\n\" \"$(git rev-parse --abbrev-ref HEAD)\"; \
+    printf \"%s\n\" \"$(git current-branch)\"; \
     printf \"%s first commit timestamp\n\" \"$(git log --date-order --format=%cI | tail -1)\"; \
     printf \"%s last commit timestamp\n\" \"$(git log -1 --date-order --format=%cI)\"; \
     printf \"\nSummary of counts...\n\"; \
@@ -1183,8 +1183,8 @@
   pull1 = "!git pull origin \"$(git current-branch)\""
 
   # Track and untrack, with default parameters, and with printing the command
-  track = "!f(){ branch=\"$(git rev-parse --abbrev-ref HEAD)\"; cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
-  untrack = "!f(){ branch=\"$(git rev-parse --abbrev-ref HEAD)\"; cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
+  track = "!f(){ branch=\"$(git current-branch)\"; cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
+  untrack = "!f(){ branch=\"$(git current-branch)\"; cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
 
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
