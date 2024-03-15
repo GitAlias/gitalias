@@ -172,11 +172,11 @@
   # cherry-pick - continue the picking process
   cpc = cherry-pick --continue
 
-  # cherry-pick --no-commit a.k.a. without making a commit
-  cpn = cherry-pick -n
+  # cherry-pick -n a.k.a. without making a commit
+  cpn = cherry-pick --no-commit
 
-  # cherry-pick --no-commit a.k.a. without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
-  cpnx = cherry-pick -n -x
+  # cherry-pick -n a.k.a. without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
+  cpnx = cherry-pick --no-commit -x
 
   ### diff aliases ###
 
@@ -202,8 +202,8 @@
 
   ### grep aliases ###
 
-  # grep with -n (--line-number) means show line number
-  gn = grep -n
+  # grep -n means show line number
+  gn = grep --line-number
 
   # Search with our preferred options; a.k.a. `grep-group`
   gg = grep-group
@@ -841,7 +841,7 @@
     printf \"%d author count\n\" \"$(git log --format=oneline --format=\"%aE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}')\"; \
     printf \"%d committer count\n\" \"$(git log --format=oneline --format=\"%cE\" | awk '{a[$0]=1}END{for(i in a){n++;} print n}')\"; \
     printf \"%d local branch count\n\" \"$(git branch | grep -vc \" -> \")\"; \
-    printf \"%d remote branch count\n\" \"$(git branch -r | grep -vc \" -> \")\"; \
+    printf \"%d remote branch count\n\" \"$(git branch --remotes | grep -vc \" -> \")\"; \
     printf \"\nSummary of this directory...\n\"; \
     printf \"%s\n\" \"$(pwd)\"; \
     printf \"%d file count via git ls-files\n\" \"$(git ls-files | wc -l)\"; \
@@ -1183,13 +1183,13 @@
   pull1 = "!git pull origin \"$(git current-branch)\""
 
   # Track and untrack, with default parameters, and with printing the command
-  track = "!f(){ branch=\"$(git current-branch)\"; cmd=\"git branch $branch -u ${1:-origin}/${2:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
+  track = "!f(){ branch=\"$(git current-branch)\"; cmd=\"git branch $branch --set-upstream-to=${1:-origin}/${2:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
   untrack = "!f(){ branch=\"$(git current-branch)\"; cmd=\"git branch --unset-upstream ${1:-$branch}\"; echo \"$cmd\"; $cmd; }; f"
 
   # Track all remote branches that aren't already being tracked;
   # this is a bit hacky because of the parsing, and we welcome
   # better code that works using more-specific git commands.
-  track-all-remote-branches = "!f() { git branch -r | grep -v ' -> ' | sed 's/^ \\+origin\\///' ; }; f"
+  track-all-remote-branches = "!f() { git branch --remotes | grep -v ' -> ' | sed 's/^ \\+origin\\///' ; }; f"
 
   ### reset-* & undo-* ###
 
@@ -1293,7 +1293,7 @@
   wip = "!git add --all; git ls-files --deleted -z | xargs -r -0 git rm; git commit --message=wip"
 
   # Restore the deleted files to the working tree.
-  unwip = "!git log -n 1 | grep -q -c wip && git reset HEAD~1"
+  unwip = "!git log --max-count=1 | grep -q -c wip && git reset HEAD~1"
 
   # Assume & Unassume
   #
@@ -1329,7 +1329,7 @@
   #
   assume   = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
-  assume-all = "!git st -s | awk '{ print $2 }' | xargs -r git assume"
+  assume-all = "!git status --short | awk '{ print $2 }' | xargs -r git assume"
   unassume-all = "!git assumed | xargs -r git update-index --no-assume-unchanged"
   assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
 
@@ -1392,7 +1392,7 @@
   #
   # Calls the `publish` and `unpublish` aliases.
   #
-  reincarnate = "!f() { [ $# -gt 0 ] && git checkout \"$1\" && git unpublish && git checkout main && git branch -D \"$1\" && git checkout -b \"$1\" && git publish; }; f"
+  reincarnate = "!f() { [ $# -gt 0 ] && git checkout \"$1\" && git unpublish && git checkout main && git branch --delete --force \"$1\" && git checkout -b \"$1\" && git publish; }; f"
 
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
@@ -1649,7 +1649,7 @@
     git checkout \"$old_branch\"; \
     git pull --ff-only; \
     git checkout -b \"$new_branch\" \"$old_branch\"; \
-    git push -u origin \"$new_branch\"; \
+    git push --set-upstream origin \"$new_branch\"; \
   };f"
 
   # Stop a topic branch; this must be the current branch.
