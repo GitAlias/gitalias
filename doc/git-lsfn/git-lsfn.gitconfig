@@ -1,0 +1,2 @@
+[alias]
+	lsfn = "ls-files --full-name"

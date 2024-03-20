@@ -1,0 +1,2 @@
+[alias]
+	uncommit = "reset --soft HEAD~1"

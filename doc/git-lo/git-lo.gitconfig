@@ -1,0 +1,2 @@
+[alias]
+	lo = "log --oneline"

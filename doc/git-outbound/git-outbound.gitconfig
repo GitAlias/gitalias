@@ -1,0 +1,2 @@
+[alias]
+	outbound = "log @{upstream}.."

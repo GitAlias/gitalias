@@ -1,0 +1,2 @@
+[alias]
+	ds = "diff --staged"

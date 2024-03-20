@@ -1,0 +1,2 @@
+[alias]
+	reset-commit-hard = "reset --hard HEAD~1"

@@ -1,0 +1,2 @@
+[alias]
+	cpnx = "cherry-pick -n -x"

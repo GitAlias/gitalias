@@ -1,0 +1,2 @@
+[alias]
+	cam = "commit --amend --message"

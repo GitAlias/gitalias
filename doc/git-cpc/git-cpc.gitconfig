@@ -1,0 +1,2 @@
+[alias]
+	cpc = "cherry-pick --continue"
