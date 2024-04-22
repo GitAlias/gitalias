@@ -1,0 +1,2 @@
+[alias]
+	diff-deep = "diff --check --dirstat --find-copies --find-renames --histogram --color"

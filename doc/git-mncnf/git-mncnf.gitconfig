@@ -1,0 +1,2 @@
+[alias]
+	mncnf = "merge --no-commit --no-ff"

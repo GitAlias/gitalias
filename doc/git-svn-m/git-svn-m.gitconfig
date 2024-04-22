@@ -1,0 +1,2 @@
+[alias]
+	svn-m = "merge --squash"
