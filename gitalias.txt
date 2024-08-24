@@ -1372,11 +1372,11 @@
 
   # Publish the current branch by pushing it to the remote "origin",
   # and setting the current branch to track the upstream branch.
-  publish = "!git push --set-upstream origin \"$(git current-branch)\""
+  publish = "!f() { git push --set-upstream \"${1:-origin}\" \"$(git current-branch)\"; }; f"
 
   # Unpublish the current branch by deleting the
   # remote version of the current branch.
-  unpublish = "!git push origin :\"$(git current-branch)\""
+  unpublish = "!f() { git push \"${1:-origin}\" :\"$(git current-branch)\"; }; f"
 
   ### inbound & outbound ###
 

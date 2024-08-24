@@ -5,16 +5,21 @@
 Git alias:
 
 ```git
-unpublish = !"git push origin :$(git current-branch)"
+unpublish = "!f() { git push ${1:-origin} :$(git current-branch); }; f"
 ```
 
 Unpublish the current branch by deleting the
 remote version of the current branch.
+The remote name may be specified by the first argument and defaults to `origin`.
 
 Example:
 
 ```shell
+# unpublish on origin
 git unpublish
+
+# unpublish branch on fork
+git unpublish fork
 ```
 
 Compare:

@@ -5,16 +5,20 @@
 Git alias:
 
 ```git
-publish = !"git push --set-upstream origin $(git current-branch)"
+publish = "!f() { git push --set-upstream ${1:-origin} $(git current-branch); }; f"
 ```
 
-Publish the current branch by pushing upstream to origin,
+Publish the current branch by pushing to the remote specified by the first argument (defaulting to origin),
 and setting the current branch to track the upstream branch.
 
 Example:
 
 ```shell
+# pushing to origin
 git publish
+
+# pushing to fork
+git publish fork
 ```
 
 Compare:
