@@ -135,9 +135,9 @@ Publishing:
 Git alias:
 
 ```git
-publish = "!git push -u origin $(git current-branch)"
+publish = "!f() { git push -u ${1:-origin} $(git current-branch); }; f"
 
-unpublish = "!git push origin :$(git current-branch)"
+unpublish = "!f() { git push ${1:-origin} :$(git current-branch); }; f"
 ```
 
 Branching:
