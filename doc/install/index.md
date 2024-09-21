@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/GitAlias/gitalias/main/gitalias.txt -o gi
 Run `git config` to include the file as you wish, such as:
 
 ```shell
-git config --global include.path gitalias.txt
+git config --global include.path {PATH_TO_YOUR_DIRECTORY}/gitalias.txt
 ```
 
 
