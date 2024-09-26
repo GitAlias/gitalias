@@ -1,0 +1,1 @@
+f(){     new_branch="$1";     old_branch="$(git topic-base-branch)";     git checkout "$old_branch";     git pull --ff-only;     git checkout -b "$new_branch" "$old_branch";     git push -u origin "$new_branch";   };f

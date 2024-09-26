@@ -1,0 +1,2 @@
+[alias]
+	log-graph = "log --graph --all --oneline --decorate"
