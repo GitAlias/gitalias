@@ -156,6 +156,7 @@
 
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
+  cog = checkout -guess
   cong = checkout --no-guess
 
   # create a new branch from the current working tree, and switch to it
