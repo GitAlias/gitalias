@@ -1,0 +1,2 @@
+[alias]
+	current-branch = "rev-parse --abbrev-ref HEAD"
