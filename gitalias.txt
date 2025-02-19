@@ -92,10 +92,10 @@
 
   ### add aliases ###
 
-  ## add all
+  # add all
   aa = add --all
 
-  # add by patch - looks at each change, and asks if we want to put it in the repo.
+  # add by patch - look at each change, and asks if we want to put it in the repo.
   ap = add --patch
 
   # add just the files that are updated.
@@ -1623,7 +1623,13 @@
   #
   # Example:
   #
-  #     git topic-begin add-feature-foo
+  #     git topic-start add-feature-foo
+  #
+  # These aliases are identical and are for people
+  # who prefer the word "start" or the word "begin":
+  #
+  #   * topic-start
+  #   * topic-begin
   #
   # We use this alias to begin work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
@@ -1643,7 +1649,7 @@
   # the team provide feedback on the work-in-progress, and also to
   # run any automatic tests to verify the branch runs successfully.
 
-  topic-begin = "!f(){ \
+  topic-start = "!f(){ \
     new_branch=\"$1\"; \
     old_branch=\"$(git topic-base-branch)\"; \
     git checkout \"$old_branch\"; \
@@ -1652,11 +1658,19 @@
     git push --set-upstream origin \"$new_branch\"; \
   };f"
 
+  topic-begin = topic-start
+
   # Stop a topic branch; this must be the current branch.
   #
   # Example:
   #
-  #     git topic-end
+  #     git topic-finish
+  #
+  # These aliases are identical and are for people
+  # who prefer the word "finish" or the word "end":
+  #
+  #   * topic-finish
+  #   * topic-end
   #
   # We use this alias to complete work on a new feature,
   # new task, new fix, new refactor, new optimization, etc.
@@ -1697,6 +1711,8 @@
     fi; \
   };f"
 
+  topic-end = topic-finish
+  
   # Update the current topic branch by synchronizing changes.
   #
   # Example:

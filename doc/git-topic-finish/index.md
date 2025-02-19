@@ -1,11 +1,11 @@
-# git topic-end
+# git topic-finish
 
 ## Finish the current topic branch
 
 Git alias:
 
 ```git
-topic-end = "!f(){ \
+topic-finish = "!f(){ \
     new_branch=$(git current-branch); \
     old_branch=$(git topic-base-branch); \
     if [ \"$new_branch\" = \"$old_branch\" ]; then \
@@ -26,13 +26,13 @@ topic-end = "!f(){ \
 Example:
 
 ```shell
-git topic-end
+git topic-finish
 ```
 
 This alias comes in two flavors for your preference:
 
-* topic-end
 * topic-finish
+* topic-end
 
 Customize this alias as you like for your own workflow.
 

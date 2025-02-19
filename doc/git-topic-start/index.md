@@ -1,11 +1,11 @@
-# git topic-begin
+# git topic-start
 
 ## Start a new topic branch
 
 Git alias:
 
 ```git
-topic-begin = "!f(){ \
+topic-start = "!f(){ \
     new_branch=\"$1\"; \
     old_branch=$(git topic-base-branch); \
     git checkout \"$old_branch\"; git pull; \
@@ -17,13 +17,13 @@ topic-begin = "!f(){ \
 Example:
 
 ```shell
-git topic-begin add-feature-foo
+git topic-start add-feature-foo
 ```
 
 This alias comes in two flavors for your preference:
 
-* topic-begin
 * topic-start
+* topic-begin
 
 Customize this alias as you like for your own workflow.
 

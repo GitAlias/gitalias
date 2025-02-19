@@ -621,8 +621,10 @@ Use graphviz:
   * [git topic-*](doc/git-topic/) - Read this first about topic aliases
   * [git topic-base-branch](doc/git-topic-base-branch/) - Show the project base topic branch name
   * [git topic-move](doc/git-topic-move/) - Rename the current topic branch
-  * [git topic-begin](doc/git-topic-begin/) - Start a new topic branch
-  * [git topic-end](doc/git-topic-end/) - Finish the current topic branch
+  * [git topic-begin](doc/git-topic-begin/) - Begin a new topic branch, same as topic-start
+  * [git topic-end](doc/git-topic-end/) - End the current topic branch; same as topic-finish
+  * [git topic-finish](doc/git-topic-finish/) - Finish the current topic branch; same as topic-end
+  * [git topic-start](doc/git-topic-start/) - Start a new topic branch; same as topic-begin
   * [git topic-sync](doc/git-topic-sync/) - Synchronize the current topic branch by doing updates
   * [git track-all-remote-branches](doc/git-track-all-remote-branches/) - Track all remote branches that aren't already being tracked
   * [git track](doc/git-track/) - Start tracking a branch, with default parameters, and showing the command
