@@ -27,5 +27,5 @@ then does a typical git diff.
 Syntax:
 
 ```shell
-git funcdiff <old-rev> <new-rev> <path> <chunk pattern>
+git diff-chunk <old-rev> <new-rev> <path> <chunk pattern>
 ```
