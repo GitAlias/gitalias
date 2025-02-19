@@ -1,0 +1,2 @@
+[alias]
+	log-fetched = "log --oneline HEAD..origin/main"

@@ -1,0 +1,2 @@
+[alias]
+	smui = "submodule update --init"

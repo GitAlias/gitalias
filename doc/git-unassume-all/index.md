@@ -1,4 +1,4 @@
-# git unassume
+# git unassume-all
 
 ## Unassume all files
 
