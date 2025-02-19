@@ -1,6 +1,16 @@
 # Changes
 
 
+## 28.1.0
+
+* Add topic-start and topic-finish
+
+
+## 28.0.2
+
+* Fix track-all-remote-branches
+
+
 ## 28.0.1
 
 * Fix git log pretty format so it shows author info

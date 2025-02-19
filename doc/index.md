@@ -649,8 +649,8 @@ Use graphviz:
 ### Tracking
 
   * Package: gitalias
-  * Version: 28.0.0
+  * Version: 28.1.0
   * Created: 2016-06-17T22:05:43Z
-  * Updated: 2022-05-26T20:33:55Z
+  * Updated: 2025-02-19T01:59:02Z
   * License: GPL-2.0-or-later or contact us for custom license
   * Contact: Joel Parker Henderson (joel@joelparkerhenderson.com)

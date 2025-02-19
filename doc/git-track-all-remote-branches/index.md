@@ -1,14 +1,14 @@
 # git track-all-remote-branches
 
-## Track all remote branches that aren't already being tracked
+## Track all remote branches
 
 Git alias:
 
 ```git
-track-all-remote-branches = !"f() { \
-    git branch -r | \
-    grep -v ' -> ' | \
-    sed 's/^ \\+origin\\///' ; \
+track-all-remote-branches = "!f() { \
+  for x in $(git for-each-ref --format=\"%(refname:short)\" --no-merged=origin/HEAD refs/remotes/origin); do \
+    git switch --track \"$x\"; \
+  done; \
 }; f"
 ```
 
@@ -18,6 +18,6 @@ Example:
 git track-all-remote-branches
 ```
 
-This alias is a bit hacky because of the parsing;
-we welcome better code that works using more-specific
-git commands.
+This code requires Git 2.23+ with the `switch` command.
+
+https://stackoverflow.com/questions/379081/how-to-track-all-remote-git-branches-as-local-branches
