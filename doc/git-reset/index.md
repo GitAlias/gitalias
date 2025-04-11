@@ -19,7 +19,7 @@ git reset-commit
 git reset-commit-hard
 git reset-commit-hard-clean
 git reset-to-pristine
-git reset-to-upstrea
+git reset-to-upstream
 ```
 
 These aliases are intentionally identical to the [git undo-*](../git-undo) aliases.
