@@ -1,0 +1,2 @@
+[alias]
+	lp = "log --patch"

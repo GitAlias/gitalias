@@ -1,0 +1,2 @@
+[alias]
+	caa = "commit --amend --all"
