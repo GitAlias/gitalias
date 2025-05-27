@@ -1,0 +1,2 @@
+[alias]
+	mc = "merge --continue"
