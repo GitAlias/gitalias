@@ -66,6 +66,10 @@ git checkout:
   * [git cog](doc/git-cog/) = checkout --guess
   * [git cong](doc/git-cong/) = checkout --no-guess
   * [git cob](doc/git-cob/) = checkout -b
+  * [git cof](doc/git-cof/) - Switch to a branch's first commit hash
+  * [git col](doc/git-col/) = Switch to a branch's last commit hash
+  * [git cop](doc/git-cop/) = Switch to the previous (or previous N) commit hash
+  * [git con](doc/git-con/) = Switch to the next (or next N) commit hash
 
 git cherry-pick:
 
@@ -420,6 +424,10 @@ Use graphviz:
   * [git cog](doc/git-cog/) - Checkout with guessing
   * [git cong](doc/git-cong/) - Checkout with no guessing
   * [git cob](doc/git-cob/) - Create a new branch from the current working tree, and switch to it
+  * [git cof](doc/git-cof/) - Switch to a branch's first commit hash
+  * [git col](doc/git-col/) = Switch to a branch's last commit hash
+  * [git cop](doc/git-cop/) = Switch to the previous (or previous N) commit hash
+  * [git con](doc/git-con/) = Switch to the next (or next N) commit hash
   * [git commit-is-merge](doc/git-commit-is-merge/) - Is the commit a merge commit? If yes exit 0, else exit 1
   * [git commit-message-key-lines](doc/git-commit-message-key-lines/) - Show the commit's keyword-marker lines
   * [git commit-parents](doc/git-commit-parents/) - Show the commit's parents
