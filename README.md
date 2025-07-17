@@ -86,6 +86,8 @@ git diff:
 git fetch:
 
   * [git f](doc/git-f/) = fetch
+  * [git fa](doc/git-fa/) = fetch --all
+  * [git fav](doc/git-fav/) = fetch --all --verbose
 
 git grep:
 
