@@ -57,6 +57,9 @@ git commit:
   * [git ca](doc/git-ca/) = commit --amend
   * [git cam](doc/git-cam/) = commit --amend --message
   * [git cane](doc/git-cane/) = commit --amend --no-edit
+  * [git caa](doc/git-caa/) = commit --amend --all
+  * [git caam](doc/git-caam/) = commit --amend --all --message
+  * [git caane](doc/git-caane/) = commit --amend --all --no-edit
   * [git ci](doc/git-ci/) = commit --interactive
   * [git cm](doc/git-cm/) = commit --message
 
@@ -240,7 +243,7 @@ Commit details:
 
 Add all & edit all:
 
-  * [git add-*](doc/git-edit/) - Add all files of a given type
+  * [git add-*](doc/git-add/) - Add all files of a given type
   * [git edit-*](doc/git-edit/) - Edit all files of a given type
 
 Alias helpers:
