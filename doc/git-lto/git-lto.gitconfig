@@ -1,0 +1,2 @@
+[alias]
+	lto = "log --topo-order"

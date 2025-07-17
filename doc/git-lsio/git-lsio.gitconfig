@@ -1,0 +1,2 @@
+[alias]
+	lsio = "ls-files --ignored --others --exclude-standard"

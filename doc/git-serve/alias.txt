@@ -1,0 +1,1 @@
+-c daemon.receivepack=true daemon --base-path=. --export-all --reuseaddr --verbose

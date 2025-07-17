@@ -1,0 +1,1 @@
+tar cvf ../panic.tar -- *

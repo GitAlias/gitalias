@@ -1,0 +1,2 @@
+[alias]
+	rbiu = "rebase --interactive @{upstream}"

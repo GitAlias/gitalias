@@ -1,0 +1,2 @@
+[alias]
+	fa = "fetch --all"

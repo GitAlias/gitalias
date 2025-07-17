@@ -1,0 +1,2 @@
+[alias]
+	log-1-year = "log --since=1-year-ago"

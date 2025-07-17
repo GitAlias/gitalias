@@ -1,0 +1,2 @@
+[alias]
+	assume = "update-index --assume-unchanged"

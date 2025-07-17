@@ -1,0 +1,1 @@
+show --no-patch --pretty='tformat:%h (%s, %ad)' --date=short

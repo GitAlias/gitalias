@@ -1,0 +1,2 @@
+[alias]
+	rvnc = "revert --no-commit"

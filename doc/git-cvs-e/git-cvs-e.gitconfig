@@ -1,0 +1,2 @@
+[alias]
+	cvs-e = "cvsexportcommit -u -p"
