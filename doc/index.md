@@ -89,6 +89,9 @@ git diff:
 git fetch:
 
   * [git f](git-f/) = fetch
+  * [git fa](git-fa/) = fetch --all
+  * [git fav](git-fav/) = fetch --all --verbose
+  * [git fap](git-fap/) = fetch --all --prune
 
 git grep:
 
@@ -186,7 +189,7 @@ Recommended helpers:
 
   * [git initer](git-initer/) - Initialize a repo using our recommended way i.e. with an empty rebaseable commit
   * [git cloner](git-cloner/) - Clone a repo using our recommended way i.e. recursive include of submodules
-  * [git pruner](git-pruner/) - Prune a repo using our recommnded way i.e. prune everything unreachable now
+  * [git pruner](git-pruner/) - Prune a repo using our recommended way i.e. prune everything unreachable now
   * [git repacker](git-repacker/) - Repack a repo our recommended way i.e. as Linus Torvalds describes
   * [git optimizer](git-optimizer/) - Optimize a repo using our recommended way i.e. by pruning and repacking
 
@@ -205,10 +208,10 @@ Branch names:
 
 Branch commits:
 
-  * [git branch-commit-first](git-branch-commit-first) - Show a branch's first commit hash (or hashes)
-  * [git branch-commit-last](git-branch-commit-last) - Show a branch's last commit hash (or hashes)
-  * [git branch-commit-prev](git-branch-commit-prev) - Show a branch's previous commit hash (or hashes)
-  * [git branch-commit-next](git-branch-commit-next) - Show a branch's next commit hash (or hashes)
+  * [git branch-commit-first](git-branch-commit-first/) - Show a branch's first commit hash (or hashes)
+  * [git branch-commit-last](git-branch-commit-last/) - Show a branch's last commit hash (or hashes)
+  * [git branch-commit-prev](git-branch-commit-prev/) - Show a branch's previous commit hash (or hashes)
+  * [git branch-commit-next](git-branch-commit-next/) - Show a branch's next commit hash (or hashes)
 
 Friendly plurals:
 
@@ -267,9 +270,9 @@ New repos:
 Hew branches:
 
   * [git hew](git-hew/) - Delete all branches that are merged into a commit
-  * [git hew-dry-run](git-hew/) - Delete all branches that are merged into a commit (dry run)
+  * [git hew-dry-run](git-hew-dry-run/) - Delete all branches that are merged into a commit (dry run)
   * [git hew-local](git-hew-local/) - Delete local branches that are merged into a commit
-  * [git hew-local-dry-run](git-hew-local/) - Delete local branches that are merged (dry run)
+  * [git hew-local-dry-run](git-hew-local-dry-run/) - Delete local branches that are merged (dry run)
   * [git hew-remote](git-hew-remote/) - Delete remote branches that are merged into a commit
   * [git hew-remote-dry-run](git-hew-remote-dry-run/) - Delete remote branches that are merged into a commit (dry run)
 
@@ -403,9 +406,12 @@ Use graphviz:
   * [git bv](git-bv/) - List branch information with hash and subject
   * [git bvv](git-bvv/) - List branch information with hash and subject and upstream
   * [git c](git-c/) - Short for "git commit"
-  * [git ca](git-ca) -  Amend the tip of the current branch; do not create a new commit
-  * [git cam](git-cam) - Amend the tip of the current branch; edit the message
+  * [git ca](git-ca/) -  Amend the tip of the current branch; do not create a new commit
+  * [git cam](git-cam/) - Amend the tip of the current branch; edit the message
   * [git cane](git-cane/) - Amend the tip of the current branch; do not edit the message
+  * [git caa](git-caa/) - Amend the tip of the current branch, automatically staging files that have been modified and deleted
+  * [git caam](git-caam/) - Amend the tip of the current branch, staging files, and edit the message
+  * [git caane](git-caane/) - Amend the tip of the current branch, staging files, and do not edit the message
   * [git chart](git-chart/) - Show highlights chart of activity per author
   * [git cherry-pick-merge](git-cherry-pick-merge/) - Cherry pick a merge commit
   * [git churn](git-churn/) - Show log of files that have many changes
@@ -451,7 +457,7 @@ Use graphviz:
   * [git diff-staged](git-diff-staged/) - Show diffs that are cached i.e. staged
   * [git diff-stat](git-diff-stat/) - Diff with stat
   * [git discard](git-discard/) - Discard changes in a file (or a list of files) in working tree
-  * [git ds](git-ds/) - Show changes about to be commited
+  * [git ds](git-ds/) - Show changes about to be committed
   * [git dw](git-dw/) - Show changes by word, not line
   * [git edit-cached](git-edit-cached/) - Edit cached files
   * [git edit-deleted](git-edit-deleted/) - Edit deleted files
@@ -480,8 +486,8 @@ Use graphviz:
   * [git heads](git-heads/) - Show log of heads
   * [git ignore](git-ignore/) - Ignore all untracked files by appending them to ".gitignore"
   * [git inbound](git-inbound/) - Show incoming changes compared to upstream
-  * [git init-empty](git-init-empty/) - Initalize a repo with an empty rebaseable commit
-  * [git initer](git-initer/) - Initalize a repo using our recommended way i.e. with an empty rebaseable commit
+  * [git init-empty](git-init-empty/) - Initialize a repo with an empty rebaseable commit
+  * [git initer](git-initer/) - Initialize a repo using our recommended way i.e. with an empty rebaseable commit
   * [git intercommit](git-intercommit/) - Use interdiff to see patch modifications
   * [git issues](git-issues/) - List all issues mentioned in commit messages between range of commits
   * [git l](git-l/) - Short for "git log"
@@ -621,8 +627,10 @@ Use graphviz:
   * [git topic-*](git-topic/) - Read this first about topic aliases
   * [git topic-base-branch](git-topic-base-branch/) - Show the project base topic branch name
   * [git topic-move](git-topic-move/) - Rename the current topic branch
-  * [git topic-begin](git-topic-begin/) - Start a new topic branch
-  * [git topic-end](git-topic-end/) - Finish the current topic branch
+  * [git topic-begin](git-topic-begin/) - Begin a new topic branch, same as topic-start
+  * [git topic-end](git-topic-end/) - End the current topic branch; same as topic-finish
+  * [git topic-finish](git-topic-finish/) - Finish the current topic branch; same as topic-end
+  * [git topic-start](git-topic-start/) - Start a new topic branch; same as topic-begin
   * [git topic-sync](git-topic-sync/) - Synchronize the current topic branch by doing updates
   * [git track-all-remote-branches](git-track-all-remote-branches/) - Track all remote branches that aren't already being tracked
   * [git track](git-track/) - Start tracking a branch, with default parameters, and showing the command
