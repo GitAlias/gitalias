@@ -199,6 +199,9 @@
 
   # Fetch all remotes and use verbose output
   fav = fetch --all --verbose
+  
+  # Fetch all remotes and delete stale references associated with the remotes
+  fap = fetch --all --prune
 
   ### grep aliases ###
 
