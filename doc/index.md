@@ -69,6 +69,10 @@ git checkout:
   * [git cog](git-cog/) = checkout --guess
   * [git cong](git-cong/) = checkout --no-guess
   * [git cob](git-cob/) = checkout -b
+  * [git cof](git-cof/) - Switch to a branch's first commit hash
+  * [git col](git-col/) = Switch to a branch's last commit hash
+  * [git cop](git-cop/) = Switch to the previous (or previous N) commit hash
+  * [git con](git-con/) = Switch to the next (or next N) commit hash
 
 git cherry-pick:
 

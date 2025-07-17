@@ -156,10 +156,108 @@
 
   # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
   co = checkout
+  cog = checkout -guess
   cong = checkout --no-guess
 
   # create a new branch from the current working tree, and switch to it
   cob = checkout -b
+
+  # cof - switch to a branch's first commit hash.
+  #
+  # Syntax:
+  #
+  #    git cof [branch name]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  # Example: switch to the current branch's first commit hash:
+  #
+  #     git cof
+  #
+  # Example: switch to the "foo" branch's first commit hash:
+  #
+  #     git cof foo
+  #
+  cof = !"f() { \
+    REMOTE=\"$(git remote)\"; \
+    branch=\"${1:-$(git symbolic-ref \"refs/remotes/$REMOTE/HEAD\")}\"; \
+    git checkout $(git log --reverse --pretty=%H \"$branch\" | head -1); \
+  };f"
+
+  # col - switch to a branch's last commit hash.
+  #
+  # Syntax:
+  #
+  #    git col [branch name]
+  #
+  # Options:
+  #
+  #   * branch name: default is the current branch name.
+  #
+  # Example: switch to the current branch's last commit hash:
+  #
+  #     git col
+  #
+  # Example: switch to the "foo" branch's last commit hash:
+  #
+  #     git cof foo
+  #
+  col = !"f(){ \
+    REMOTE=\"$(git remote)\"; \
+    branch=\"${1:-$(git symbolic-ref \"refs/remotes/$REMOTE/HEAD\")}\"; \
+    git checkout $(git log -n 1 --pretty=%H \"$branch\"); \
+  };f"
+
+  # cop - Switch to the previous (or previous N) commit hash of the current commit.
+  #
+  # Syntax:
+  #
+  #    git cop [commit count]
+  #
+  # Options:
+  #
+  #   * commit count: default is 1
+  #
+  # Example: switch to the previous 1st commit hash of the current commit hash:
+  #
+  #     git cop
+  #
+  # Example: switch to the commit hash that is previous 4th before the current commit:
+  #
+  #     git cop 4
+  #
+  cop = !"f(){ \
+    n=\"${1:-1}\"; \
+    git checkout HEAD~$n; \
+  };f"
+
+  # con - Switch to the next (or next N) commit of the current commit.
+  #
+  # Syntax:
+  #
+  #    git con [commit count]
+  #
+  # Options:
+  #
+  #   * commit count: default is 1
+  #
+  # Example: switch to the previous commit hash of the current commit hash:
+  #
+  #     git con
+  #
+  # Example: switch to the commit hash that is previous 4th before the current commit:
+  #
+  #     git con 4
+  #
+  con = !"f(){ \
+    REMOTE=\"$(git remote)\"; \
+    branch=\"$(git symbolic-ref \"refs/remotes/$REMOTE/HEAD\")\"; \
+    n=\"${1:-1}\"; \
+    git checkout $(git log --reverse --pretty=%H \"$branch\" | grep -A $n $(git rev-parse HEAD) | tail -1); \
+  };f"
+
 
   ### cherry-pick aliases ###
 
