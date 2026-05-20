@@ -199,7 +199,7 @@
 
   # Fetch all remotes and use verbose output
   fav = fetch --all --verbose
-  
+
   # Fetch all remotes and delete stale references associated with the remotes
   fap = fetch --all --prune
 
@@ -468,6 +468,35 @@
 
   # status with short format and showing branch and tracking info.
   ssb = status --short --branch
+
+  ### worktree aliases ###
+
+  # worktree - manage multiple working trees attached to the same repository.
+  wt = worktree
+
+  # worktree add - create a new working tree at a given path.
+  wta = worktree add
+
+  # worktree list - list all working trees.
+  wtl = worktree list
+
+  # worktree lock - lock a working tree to prevent it from being pruned.
+  wtlo = worktree lock
+
+  # worktree move - move a working tree to a new location.
+  wtm = worktree move
+
+  # worktree prune - prune working tree information in $GIT_DIR.
+  wtp = worktree prune
+
+  # worktree remove - remove a working tree.
+  wtr = worktree remove
+
+  # worktree repair - repair worktree administrative files.
+  wtrp = worktree repair
+
+  # worktree unlock - unlock a working tree to allow it to be pruned.
+  wtul = worktree unlock
 
   ### alias management aliases ###
 
