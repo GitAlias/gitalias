@@ -182,6 +182,18 @@ git whatchanged:
 
   * [git w](doc/git-w/) = whatchanged
 
+git worktree:
+
+  * [git wt](doc/git-wt/) = worktree
+  * [git wta](doc/git-wta/) = worktree add
+  * [git wtl](doc/git-wtl/) = worktree list
+  * [git wtlo](doc/git-wtlo/) = worktree lock
+  * [git wtm](doc/git-wtm/) = worktree move
+  * [git wtp](doc/git-wtp/) = worktree prune
+  * [git wtr](doc/git-wtr/) = worktree remove
+  * [git wtrp](doc/git-wtrp/) = worktree repair
+  * [git wtul](doc/git-wtul/) = worktree unlock
+
 
 ## Friendly aliases
 
@@ -652,6 +664,15 @@ Use graphviz:
   * [git who](doc/git-who/) - Show a short log of who has contributed commits, in descending order
   * [git whois](doc/git-whois/) - Given a string for an author, try to figure out full name and email
   * [git wip](doc/git-wip/) - Save "work in progress"
+  * [git wt](doc/git-wt/) - Short for "git worktree"
+  * [git wta](doc/git-wta/) - Worktree add i.e. create a new working tree at a given path
+  * [git wtl](doc/git-wtl/) - Worktree list i.e. list all working trees
+  * [git wtlo](doc/git-wtlo/) - Worktree lock i.e. lock a working tree to prevent it from being pruned
+  * [git wtm](doc/git-wtm/) - Worktree move i.e. move a working tree to a new location
+  * [git wtp](doc/git-wtp/) - Worktree prune i.e. prune working tree information
+  * [git wtr](doc/git-wtr/) - Worktree remove i.e. remove a working tree
+  * [git wtrp](doc/git-wtrp/) - Worktree repair i.e. repair worktree administrative files
+  * [git wtul](doc/git-wtul/) - Worktree unlock i.e. unlock a working tree to allow it to be pruned
 
 
 ### Tracking
