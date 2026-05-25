@@ -1,0 +1,2 @@
+[alias]
+	bv = "branch --verbose"

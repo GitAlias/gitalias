@@ -1,0 +1,2 @@
+[alias]
+	bed = "branch --edit-description"

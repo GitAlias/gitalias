@@ -1,0 +1,2 @@
+[alias]
+	pf = "pull --ff-only"

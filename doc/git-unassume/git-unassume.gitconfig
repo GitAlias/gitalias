@@ -1,0 +1,2 @@
+[alias]
+	unassume = "update-index --no-assume-unchanged"

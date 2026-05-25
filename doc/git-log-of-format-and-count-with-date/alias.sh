@@ -1,0 +1,1 @@
+f() { format="$1"; shift; date_format="$1"; shift; git log "$@" --format=oneline --format="$format" --date=format:"$date_format" | awk '{a[$0]++}END{for(i in a){print i, a[i], int((a[i]/NR)*100) "%"}}' | sort -r; }; f

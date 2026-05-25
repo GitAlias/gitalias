@@ -1,0 +1,2 @@
+[alias]
+	caam = "commit --amend --all --message"

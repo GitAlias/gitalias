@@ -1,0 +1,2 @@
+[alias]
+	last-tag = "describe --tags --abbrev=0"

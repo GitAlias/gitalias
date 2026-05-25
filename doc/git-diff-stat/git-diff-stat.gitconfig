@@ -1,0 +1,2 @@
+[alias]
+	diff-stat = "diff --stat --ignore-space-change -r"

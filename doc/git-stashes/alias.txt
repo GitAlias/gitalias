@@ -1,0 +1,1 @@
+stash list

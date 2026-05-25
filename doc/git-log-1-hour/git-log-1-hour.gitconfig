@@ -1,0 +1,2 @@
+[alias]
+	log-1-hour = "log --since=1-hour-ago"

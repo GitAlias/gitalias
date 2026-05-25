@@ -1,0 +1,2 @@
+[alias]
+	reset-commit = "reset --soft HEAD~1"

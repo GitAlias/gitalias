@@ -1,0 +1,2 @@
+[alias]
+	cvs-i = "cvsimport -k -a"

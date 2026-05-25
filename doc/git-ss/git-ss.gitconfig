@@ -1,0 +1,2 @@
+[alias]
+	ss = "status --short"

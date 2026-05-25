@@ -1,0 +1,2 @@
+[alias]
+	log-fresh = "log ORIG_HEAD.. --stat --no-merges"

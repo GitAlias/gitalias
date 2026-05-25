@@ -1,0 +1,2 @@
+[alias]
+	grep-group = "grep --break --heading --line-number --color"
