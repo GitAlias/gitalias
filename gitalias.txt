@@ -468,6 +468,14 @@
 
   # status with short format and showing branch and tracking info.
   ssb = status --short --branch
+  
+  ### switch aliases ###
+
+  # switch
+  sw = switch
+
+  # switch --create
+  swc = switch --create
 
   ### worktree aliases ###
 

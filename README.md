@@ -178,6 +178,10 @@ git status:
   * [git ss](doc/git-ss/) = status --short
   * [git ssb](doc/git-ssb/) = status --short --branch
 
+git switch:
+  * [git sw](doc/git-sw/) = switch
+  * [git swc](doc/git-swc/) = switch --create
+
 git whatchanged:
 
   * [git w](doc/git-w/) = whatchanged
@@ -633,6 +637,8 @@ Use graphviz:
   * [git svn-c](doc/git-svn-c/) - Subversion commit
   * [git svn-cp](doc/git-svn-cp/) - Subversion cherry pick
   * [git svn-m](doc/git-svn-m/) - Subversion merge
+  * [git sw](doc/git-sw/) - Short for "git switch"
+  * [git swc](doc/git-swc/) - Short for "git switch --create"
   * [git tags](doc/git-tags/) - List tags
   * [git theirs](doc/git-theirs/) - Checkout their version of a file and add it
   * [git top](doc/git-top/) - Get the top level directory name
