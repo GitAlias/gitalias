@@ -172,6 +172,10 @@ git submodule:
   * [git smui](git-smui/) = submodule update --init
   * [git smuir](git-smuir/) = submodule update --init --recursive
 
+git switch:
+  * [git sw](git-sw/) = switch
+  * [git swc](git-swc/) = switch --create
+
 git status:
 
   * [git s](git-s/) = status
@@ -621,6 +625,8 @@ Use graphviz:
   * [git svn-c](git-svn-c/) - Subversion commit
   * [git svn-cp](git-svn-cp/) - Subversion cherry pick
   * [git svn-m](git-svn-m/) - Subversion merge
+  * [git sw](git-sw/) - Short for "git switch"
+  * [git swc](git-swc/) - Short for "git switch --create"
   * [git tags](git-tags/) - List tags
   * [git theirs](git-theirs/) - Checkout their version of a file and add it
   * [git top](git-top/) - Get the top level directory name
